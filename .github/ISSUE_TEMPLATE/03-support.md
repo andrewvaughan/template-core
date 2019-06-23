@@ -1,9 +1,7 @@
 ---
-name  : Request Support
-about : Need help with something? Ask here.
-labels:
-  - "Needs Triage"
-  - "Request: Support"
+name   : Request Support
+about  : Need help with something? Ask here.
+labels : "Needs Triage,Request: Support"
 ---
 
 <!--

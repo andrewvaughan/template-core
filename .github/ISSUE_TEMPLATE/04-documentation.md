@@ -1,9 +1,7 @@
 ---
-name  : Documentation Need
-about : Request an update to the project's documentation.
-labels:
-  - "Needs Triage"
-  - "Request: Documentation"
+name   : Documentation Need
+about  : Request an update to the project's documentation.
+labels : "Needs Triage,Request: Documentation"
 ---
 
 <!--

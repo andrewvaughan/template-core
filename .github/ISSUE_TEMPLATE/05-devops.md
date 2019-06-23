@@ -1,9 +1,7 @@
 ---
-name  : Maintenance / Operations
-about : Request an update to the project's automation, integrations, or dependencies.
-labels:
-  - "Needs Triage"
-  - "Request: DevOps"
+name   : Maintenance / Operations
+about  : Request an update to the project's automation, integrations, or dependencies.
+labels : "Needs Triage,Request: DevOps"
 ---
 
 <!--

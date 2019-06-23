@@ -1,9 +1,7 @@
 ---
-name  : Suggest a Feature
-about : Share an idea or improvement to the site.
-labels:
-  - "Needs Triage"
-  - "Request: Feature"
+name   : Suggest a Feature
+about  : Share an idea or improvement to the site.
+labels : "Needs Triage,Request: Feature"
 ---
 
 <!--

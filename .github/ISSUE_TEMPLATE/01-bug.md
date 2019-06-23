@@ -1,9 +1,7 @@
 ---
-name  : Report a Bug
-about : Having a problem? Report it here.
-labels:
-  - "Needs Triage"
-  - "Request: Bug Fix"
+name   : Report a Bug
+about  : Having a problem? Report it here.
+labels : "Needs Triage,Request: Bug Fix"
 ---
 
 <!--

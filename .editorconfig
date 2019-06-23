@@ -1,0 +1,63 @@
+######################################################################################################################
+# EditorConfig Configuration
+#
+# Assists with style consistency within editors. Generally enforced with linting.
+# http://EditorConfig.org
+#
+# Maintainer : Andrew Vaughan <hello@andrewvaughan.io>
+# Version    : 1.0.0 (https://semver.org/)
+# Updated    : 2019-06-23
+######################################################################################################################
+
+#
+# Prevents EditorConfig configurations that may exist in parent directories from being parsed
+#
+root = true
+
+
+#
+# Treat all files with these configurations, unless we provide an explicit exception below
+#
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# GitHub's default web view is 118 characters wide
+max_line_length = 118
+
+
+#
+# Documentation allows more whitespace freedoms
+#
+[*.{txt,md,diff,log}]
+trim_trailing_whitespace = false
+
+
+#
+# Data files can be difficult to follow without enough spacing
+#
+[*.{json,json5,yml,yaml}]
+indent_size = 4
+
+
+#
+# Browser-served files should be optimized to have fewer characters
+#
+[*.{htm,html,js,css,svg}]
+indent_style = tab
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+
+
+#
+# Makefiles require tabs to function
+#
+[Makefile]
+indent_style = tab
+indent_size = tab
+tab_width = 4

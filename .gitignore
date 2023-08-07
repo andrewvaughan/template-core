@@ -12,5 +12,5 @@
 # MEGALINTER
 #
 
+.ruff_cache/
 megalinter-reports/
-.ruff_cache

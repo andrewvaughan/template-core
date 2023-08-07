@@ -1,0 +1,5 @@
+# Website timeout from connect to response finished.
+timeout = 5
+
+# When links are available using HTTPS, treat HTTP links as errors.
+require_https = true

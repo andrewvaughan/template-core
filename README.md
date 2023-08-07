@@ -21,6 +21,7 @@ Wrap-up:
 
 This template comes with the following standard folder structure:
 
+<!-- editorconfig-checker-disable -->
 | Folder                         | Purpose                                                                                                                                                |
 |:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [.build](.build)               | All scripts and resources tied to deployment (e.g., Docker Compose)                                                                                    |
@@ -31,9 +32,11 @@ This template comes with the following standard folder structure:
 | [docs](docs)                   | All project documentation                                                                                                                              |
 | [src](src)                     | All project source code                                                                                                                                |
 | [tests](tests)                 | All test source code                                                                                                                                   |
+<!-- editorconfig-checker-enable -->
 
 <!-- Hyperlink Repository -->
-
+<!-- editorconfig-checker-disable -->
 [dc-gh]: https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
 [dc-ref]: https://github.com/oxsecurity/megalinter/tree/main/.devcontainer
 [dc-vsc]: https://code.visualstudio.com/docs/devcontainers/containers
+<!-- editorconfig-checker-enable -->

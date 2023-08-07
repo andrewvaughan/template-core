@@ -1,0 +1,29 @@
+{
+  "dictionaries": ["ops", "project"],
+  "dictionaryDefinitions": [
+    {
+      "name": "ops",
+      "path": "../dictionaries/ops.txt",
+      "addWords": false
+    },
+    {
+      "name": "project",
+      "path": "../dictionaries/project.txt",
+      "addWords": true
+    }
+  ],
+  "ignorePaths": [
+    "**/.config/linters/**",
+    "**/.git/**",
+    "**/.gitattributes",
+    "**/.gitignore",
+    "**/.pnpm-lock.json",
+    "**/*megalinter*",
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "package-lock.json"
+  ],
+  "language": "en",
+  "noConfigSearch": true,
+  "version": "0.2"
+}

@@ -9,3 +9,7 @@ LINTER_RULES_PATH: .config/linters
 PRINT_ALPACA: false
 SHOW_ELAPSED_TIME: true
 SHOW_SKIPPED_LINTERS: false
+
+DISABLE_LINTERS:
+  # Lychee is _extremely_ slow right now - consider the usefulness of dead hyper link checking before re-enabling
+  - SPELL_LYCHEE

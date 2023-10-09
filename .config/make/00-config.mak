@@ -15,7 +15,7 @@
 
 
 # The default target to load when no target is provided, regardless of load order.
-.DEFAULT_GOAL := help
+.DEFAULT_GOAL := all
 
 # Use Bash as the shell
 SHELL := /bin/bash
@@ -47,8 +47,6 @@ SHELL := /bin/bash
 #
 # `make DEBUG=1`
 #
-
-# TODO - stackoverflow.com/questions/77254435/makefile-ifneq-returning-false-even-when-two-strings-are-clearly-different
 ifneq (,$(findstring --debug=,-$(MAKEFLAGS)))
 DEBUG ?= 1
 endif

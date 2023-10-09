@@ -23,7 +23,7 @@ help:
 
 	$(call _info, \
 		This Makefile provides various utility methods for this project in an effort to make development more \
-		consistent and developer-friendly. Please refer to the living project doumentation for more details:, 80 \
+		consistent and developer-friendly. Please refer to the living project documentation for more details:, 80 \
 	)
 
 	printf "    $(_UNDERLINE)$(_FG_BLUE)https://github.com/andrewvaughan/template-core$(_RESET)\n\n"

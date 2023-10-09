@@ -13,3 +13,7 @@ SHOW_SKIPPED_LINTERS: false
 DISABLE_LINTERS:
   # Lychee is _extremely_ slow right now - consider the usefulness of dead hyper link checking before re-enabling
   - SPELL_LYCHEE
+
+
+MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
+  - .mak

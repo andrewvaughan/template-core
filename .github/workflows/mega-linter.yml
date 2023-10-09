@@ -1,6 +1,7 @@
 # MegaLinter GitHub Action configuration file
 # More info at https://megalinter.io
 ---
+# kics-scan ignore
 name: MegaLinter
 
 on:

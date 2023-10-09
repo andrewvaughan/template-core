@@ -22,7 +22,7 @@ max_line_length = 120
 
 
 ### Makefile requires tabs
-[Makefile]
+[{Makefile,*.mak}]
 indent_style = tab
 indent_size = 4
 tab_width = 4

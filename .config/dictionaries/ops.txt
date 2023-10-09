@@ -5,6 +5,8 @@ endef
 findstring
 ifeq
 ifneq
+kics
+KICS
 MAKEFLAGS
 megalinter
 ONESHELL

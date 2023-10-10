@@ -114,6 +114,7 @@ This template comes with the following standard folder structure:
 <!-- editorconfig-checker-enable -->
 
 <!-- Hyperlink Repository -->
+
 <!-- editorconfig-checker-disable -->
 
 [apache]: https://choosealicense.com/licenses/apache-2.0/
@@ -130,6 +131,106 @@ This template comes with the following standard folder structure:
 
 <!-- !!! For new projects, delete this line and above when done following the Checklist above !!! -->
 
+TODO <!-- Badges (release, license, build status, coverage) and hero image -->
+
+<!-- see: https://github.com/andrewvaughan/better-jira-reporting -->
+<!-- see: https://github.com/nimbus-pi/nimbus-pi -->
+
+<!-- Enter the description of your project here -->
+
+## Contents
+
+- [New Project](#new-project)
+  - [Checklist](#checklist)
+    - [First Steps](#first-steps)
+    - [License Steps](#license-steps)
+      - [Permissions](#permissions)
+      - [Conditions](#conditions)
+      - [Limitations](#limitations)
+    - [Test Steps](#test-steps)
+    - [Final Steps](#final-steps)
+    - [Folder Structure](#folder-structure)
+  - [Contents](#contents)
+  - [Installation](#installation)
+    - [Quick Start](#quick-start)
+    - [Manual Installation](#manual-installation)
+    - [Developer Installation](#developer-installation)
+    - [Dependencies](#dependencies)
+  - [Usage](#usage)
+    - [Configuration](#configuration)
+  - [Support](#support)
+  - [Contributing](#contributing)
+    - [Testing](#testing)
+  - [License](#license)
+
+## Installation
+
+<!-- Add installation instructions here -->
+
+### Quick Start
+
+<!-- Add quick-start instructions, here, if appropriate (or delete) -->
+
+### Manual Installation
+
+<!-- Add manual installation instructions here, if appropriate (or delete) -->
+
+### Developer Installation
+
+<!-- Add developer dependency installation instructions here -->
+
+### Dependencies
+
+<!-- Add development dependency installation instructions here -->
+
+## Usage
+
+<!-- Add usage instructions here -->
+
+### Configuration
+
+<!-- Add configuration details here -->
+
+## Support
+
+TODO
+
+## Contributing
+
+There are many ways to contribute to this project! If you have an idea, or have discovered a bug, please
+[open an issue][new-issue] so it can be addressed. You can also start or join a [discussion][discussions] to get your
+feet wet with the project, first.
+
+If you are interested in contributing to the project through design or development, please read our
+[Contributing Guidelines][contributing].
+
+### Testing
+
+An important part of our [Software Development Lifecycle][sdlc] is continuous testing. We make this easy for you. Ensure
+that you have [Docker][docker] and [act][act] running and installed and run the following command:
+
+```bash
+make test
+```
+
+That will run a full test suite. Of course, we provide a number of utility functions to make your life easier during
+development. You can find the full list by running:
+
+```bash
+make help
+```
+
 ## License
 
 <!-- Add selected license short text in this area -->
+
+<!-- Link Repository -->
+
+<!-- TODO - fix example.com -->
+
+[act]: https://github.com/nektos/act
+[contributing]: https://example.com
+[discussions]: https://github.com/andrewvaughan/template-core/discussions
+[docker]: https://www.docker.com/
+[new-issue]: https://github.com/andrewvaughan/template-core/issues/new
+[sdlc]: https://example.com

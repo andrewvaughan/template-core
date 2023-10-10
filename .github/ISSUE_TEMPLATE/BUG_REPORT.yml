@@ -1,0 +1,251 @@
+##
+# Bug request form GitHub issue template
+#
+# @link https://t.ly/-Gbqv
+
+name: Bug Report
+
+description: Report a discovered bug in the project.
+
+labels:
+  - "Needs Triage"
+  - "Request: Bug Fix"
+
+assignees:
+  - andrewvaughan
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to contribute a bug report to this project. Please aim to be as detailed as
+        possible when detailing the sections below, as that will help our project maintainers replicate and, with luck,
+        address any bugs found.
+
+        **If you believe this is a security issue, **please draft a
+        [Security Advisory Report](https://github.com/andrewvaughan/template-core/security/advisories/new) instead.**
+
+  ## ENVIRONMENT -------------------------------------------------------------------------------------------------------
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+        ## Environment Details
+
+        Before we gather details on the issue itself, it is important that we understand more about your environment and
+        the state of your machine when the bug was encountered:
+
+  # Project Version
+  - type: dropdown
+    id: version
+    attributes:
+      label: Project Version(s)
+      description: What version(s) of this project does this occur with?
+      multiple: true
+      options:
+        - v0.0.0
+    validations:
+      required: true
+
+  # Scope
+  # - type: dropdown
+  #   id: scope
+  #   attributes:
+  #     label: Scope(s)
+  #     description: What component(s) within the project does this pertain to?
+  #     multiple: true
+  #     options:
+  #       - Everything
+  #       - Other
+  #     default: 0
+  #   validations:
+  #     required: true
+
+  # Operating System
+  - type: dropdown
+    id: operating-system
+    attributes:
+      label: Operating System(s)
+      description: What operating system(s) has this occurred on?
+      multiple: true
+      options:
+        - Windows
+        - macOS
+        - Linux/Unix
+        - iOS
+        - Android
+        - Other
+    validations:
+      required: true
+
+  # Operating System Version
+  - type: input
+    id: operating-system-version
+    attributes:
+      label: Operating System Version(s)
+      description: What version(s) of the operating system(s) are you using?
+      placeholder: e.g., 8.1, 11, Ventura 13.5.2
+    validations:
+      required: true
+
+  # # Browser
+  # - type: dropdown
+  #   id: browser
+  #   attributes:
+  #     label: Browser(s)
+  #     description: What browser(s) has this occurred on? (if applicable)
+  #     multiple: true
+  #     options:
+  #       - Chrome
+  #       - Chrome for Android
+  #       - Chrome for iOS
+  #       - Edge
+  #       - Firefox
+  #       - Firefox for Android
+  #       - Firefox for iOS
+  #       - Opera
+  #       - Safari
+  #       - Safari for iOS
+  #       - Other
+
+  # # Browser Version
+  # - type: input
+  #   id: browser-version
+  #   attributes:
+  #     label: Browser Version(s)
+  #     description: What version(s) of the browser(s) does this occur on?
+  #     placeholder: e.g., Version 117.0.5938.92 (Official Build) (arm64)
+
+  ## COLLOQUY ----------------------------------------------------------------------------------------------------------
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+        ## Colloquy
+
+        In order for us to understand the unexpected behavior better, please provide as much detail as possible for
+        these questions:
+
+  # Expectated Results
+  - type: textarea
+    id: expected-results
+    attributes:
+      label: What did you expect to happen?
+      description: Describe what the expected behavior was that did not occur.
+    validations:
+      required: true
+
+  # Actual Results
+  - type: textarea
+    id: actual-results
+    attributes:
+      label: What actually happened?
+      description: Describe what the actual behavior was that did not match the above.
+    validations:
+      required: true
+
+  # Steps to Reproduce
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        Please describe, in detail, what steps you took and how another person can reproduce the issue. This entry
+        will be [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) rendered.
+      placeholder: |
+        1.
+        2.
+        3.
+        ...
+      render: Markdown
+    validations:
+      required: true
+
+  # Consistency
+  - type: dropdown
+    id: consistency
+    attributes:
+      label: How consistent is this bug?
+      description: Is this something that always happens, or comes and goes?
+      options:
+        - Occurs consistently
+        - It is on and off
+        - It happened one or two times
+        - Other
+      default: 0
+    validations:
+      required: true
+
+  ## DUMPS -------------------------------------------------------------------------------------------------------------
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+        ## Additional Data
+
+        Any information from your environment that could help debug this issue would be extremely helpful. Please
+        provide screenshots, logs, configuration settings, or anything else that might be of use in enabling the
+        project maintainers to replicate this issue.
+
+  # Configuration Settings
+  # - type: textarea
+  #   id: configuration-settings
+  #   attributes:
+  #     label: Configuration Settings
+  #     description: |
+  #       Please paste your configuration file. Please remember to check it for sensitive data before submitting.
+  #     render: YAML
+
+  # Screenshots
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        Please provide links to any helpful screenshots (e.g., [Imgur](https://imgur.com),
+        [Snipboard](https://snipboard.io/)) that can help illustrate or debug the problem. This entry will be
+        [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) rendered.
+      placeholder: |
+        ![Example Screenshot Title](https://imgur.com/gallery/0DQQTAv/)
+      render: Markdown
+    validations:
+      required: true
+
+  # Logs
+  # - type: textarea
+  #   id: log-dump
+  #   attributes:
+  #     label: Log Dump
+  #     description: Please turn on verbose debugging (`-vv`) on the application and paste your logs here.
+  #     render: Shell
+
+  # Additional Context
+  - type: textarea
+    id: other-context
+    attributes:
+      label: Additional Context
+      description: |
+        If there is anything else the project maintainers should know that will help debug this issue, please provide
+        additional information, here. This entry will be
+        [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) rendered.
+      render: Markdown
+
+  ## TERMS -------------------------------------------------------------------------------------------------------------
+
+  # Code of Conduct
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      description: |
+        By submitting this issue, I agree to the terms within and will follow this project's
+        [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

@@ -1,0 +1,109 @@
+##
+# Feature request form GitHub issue template
+#
+# @link https://t.ly/-Gbqv
+
+name: Feature Request
+
+description: Request a feature or submit an idea for development.
+
+labels:
+  - "Needs Triage"
+  - "Request: Feature Request"
+
+assignees:
+  - andrewvaughan
+
+body:
+  # editorconfig-checker-disable
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to submit an idea or feature request. Before submitting, please take some time to
+        review our standards on accepting feature requests in our [Contributing Guidelines](https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#submit-an-idea)
+  # editorconfig-checker-enable
+  # Scope
+  # - type: dropdown
+  #   id: scope
+  #   attributes:
+  #     label: Scope(s)
+  #     description: What component(s) within the project does this pertain to?
+  #     multiple: true
+  #     options:
+  #       - Everything
+  #       - Other
+  #     default: 0
+  #   validations:
+  #     required: true
+
+  # Problem
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem are you trying to solve or opportunity do you see that exists for this idea or feature?
+    validations:
+      required: true
+
+  # Benefits
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Benefits
+      description: What benefits will this provide the community and why?
+
+  # Recommended Approach
+  - type: textarea
+    id: approach
+    attributes:
+      label: Recommended Approach
+      description: If you have one, what approach do you recommend to the problem or opportunity?
+
+  # Priority
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: In your opinion, how important is it that this feature be completed?
+      options:
+        - Critical - the project fails without it
+        - Important - will significantly improve the user experience
+        - Moderate - this is on par with other, existing elements of the roadmap
+        - Low - this adds clear value, but it is in no way urgent
+        - Trivial - this is a nice to have
+      default: 2
+    validations:
+      required: true
+
+  # Examples
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example(s)
+      description: |
+        If you have any examples of other projects or utilities, or can provide your own example of how this might
+        function, please provide it here.
+
+  # Additional Context
+  - type: textarea
+    id: other-context
+    attributes:
+      label: Additional Context
+      description: |
+        If there is anything else the project maintainers should know that will help with this issue, please provide
+        additional information, here. This entry will be
+        [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) rendered.
+      render: Markdown
+
+  ## TERMS -------------------------------------------------------------------------------------------------------------
+
+  # Code of Conduct
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      description: |
+        By submitting this issue, I agree to the terms within and will follow this project's
+        [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme)
+      options:
+        - label: I agree to follow this project's Code of Conduct

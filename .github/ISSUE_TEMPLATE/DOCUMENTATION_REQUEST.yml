@@ -1,0 +1,107 @@
+##
+# Documentation update request form GitHub issue template
+#
+# @link https://t.ly/-Gbqv
+
+name: Documentation Request
+
+description: Request updated or new documentation.
+
+labels:
+  - "Needs Triage"
+  - "Request: Documentation"
+
+assignees:
+  - andrewvaughan
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to bring a documentation need to our attention. We aim to create complete
+        documentation for this project, and these types of reports help determine where we may be lacking in that area.
+
+  # Scope
+  # - type: dropdown
+  #   id: scope
+  #   attributes:
+  #     label: Scope(s)
+  #     description: What component(s) within the project does this pertain to?
+  #     multiple: true
+  #     options:
+  #       - Everything
+  #       - Other
+  #     default: 0
+  #   validations:
+  #     required: true
+
+  # New or Update
+  - type: dropdown
+    id: update-type
+    attributes:
+      label: Update Type
+      description: Is this new documentation to be created, or a need to update existing documentation?
+      options:
+        - New Documentation
+        - Update Documentation
+      default: 1
+    validations:
+      required: true
+
+  # Description
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please describe the documentation need, in detail.
+    validations:
+      required: true
+
+  # Priority
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: In your opinion, how important is it that this documentation need be resolved?
+      options:
+        - Critical - the project fails without it
+        - Important - will significantly improve the user experience
+        - Moderate - this is on par with other, existing elements of the roadmap
+        - Low - this adds clear value, but it is in no way urgent
+        - Trivial - this is a nice to have
+      default: 3
+    validations:
+      required: true
+
+  # Examples
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example(s)
+      description: |
+        If you have any examples of this documentation, or can provide your own example of how this might function,
+        please provide it here.
+
+  # Additional Context
+  - type: textarea
+    id: other-context
+    attributes:
+      label: Additional Context
+      description: |
+        If there is anything else the project maintainers should know that will help with this issue, please provide
+        additional information, here. This entry will be
+        [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) rendered.
+      render: Markdown
+
+  ## TERMS -------------------------------------------------------------------------------------------------------------
+
+  # Code of Conduct
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      description: |
+        By submitting this issue, I agree to the terms within and will follow this project's
+        [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme)
+      options:
+        - label: I agree to follow this project's Code of Conduct

@@ -302,6 +302,7 @@ Once the template has been refined to the purpose, the following steps are usual
 3. Configure the [`.devcontainer`][devcontainer] folder ([documentation here][devcontainer-docs])
 4. Update the `all`, `build`, and `test-unit` targets in the [Makefile folder][makefile]
 5. Add any specific dictionary words to the [`.config/dictionaries/project.txt`][dictionary] file
+6. Update the [issue][tpl-issue] and [pull request][tpl-pr] templates
 
 From there, it's a matter of getting started by creating new [source code][source], [tests][tests], and
 [build scripts][build] to make the project a reality. Good luck!
@@ -363,6 +364,8 @@ This template comes with the following standard folder structure:
 [source]: https://github.com/andrewvaughan/template-core/tree/main/src
 [template-core]: https://t.ly/s79Lm
 [tests]: https://github.com/andrewvaughan/template-core/tree/main/tests
+[tpl-issue]: https://example.com
+[tpl-pr]: https://example.com
 [vscode]: https://github.com/andrewvaughan/template-core/tree/main/.vscode
 [vscode-docs]: https://stackoverflow.com/questions/32964920/should-i-commit-the-vscode-folder-to-source-control
 [workflow-megalinter]: https://github.com/andrewvaughan/template-core/blob/main/.github/workflows/mega-linter.yml#L57

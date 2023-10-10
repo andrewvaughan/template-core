@@ -2,6 +2,22 @@
 
 > **Last Updated:** October 9, 2023
 
+- [Code of Conduct](#code-of-conduct)
+  - [Community Pledge](#community-pledge)
+  - [Community Standards](#community-standards)
+    - [Peaceful Resolution](#peaceful-resolution)
+  - [Community Leader Responsibilities](#community-leader-responsibilities)
+  - [Scope](#scope)
+  - [Enforcement](#enforcement)
+    - [Reporting an Incident](#reporting-an-incident)
+    - [Enforcement Guidelines](#enforcement-guidelines)
+      - [1. Correction](#1-correction)
+      - [2. Warning](#2-warning)
+      - [3. Temporary Ban](#3-temporary-ban)
+      - [4. Permanent Ban](#4-permanent-ban)
+  - [Conclusion](#conclusion)
+  - [Attribution](#attribution)
+
 ## Community Pledge
 
 This project and its Owners and Maintainers (hereinafter, the Community Leaders) are dedicated to providing a positive

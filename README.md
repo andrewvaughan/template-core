@@ -138,9 +138,42 @@ TODO <!-- Badges (release, license, build status, coverage) and hero image -->
 
 <!-- Enter the description of your project here -->
 
+## Contents
+
+- [New Project](#new-project)
+  - [Checklist](#checklist)
+    - [First Steps](#first-steps)
+    - [License Steps](#license-steps)
+      - [Permissions](#permissions)
+      - [Conditions](#conditions)
+      - [Limitations](#limitations)
+    - [Test Steps](#test-steps)
+    - [Final Steps](#final-steps)
+    - [Folder Structure](#folder-structure)
+  - [Contents](#contents)
+  - [Installation](#installation)
+    - [Quick Start](#quick-start)
+    - [Manual Installation](#manual-installation)
+    - [Developer Installation](#developer-installation)
+    - [Dependencies](#dependencies)
+  - [Usage](#usage)
+    - [Configuration](#configuration)
+  - [Support](#support)
+  - [Contributing](#contributing)
+    - [Testing](#testing)
+  - [License](#license)
+
 ## Installation
 
 <!-- Add installation instructions here -->
+
+### Quick Start
+
+<!-- Add quick-start instructions, here, if appropriate (or delete) -->
+
+### Manual Installation
+
+<!-- Add manual installation instructions here, if appropriate (or delete) -->
 
 ### Developer Installation
 
@@ -193,11 +226,11 @@ make help
 
 <!-- Link Repository -->
 
-<!-- TODO -->
+<!-- TODO - fix example.com -->
 
 [act]: https://github.com/nektos/act
-[contributing]: TODO
+[contributing]: https://example.com
 [discussions]: https://github.com/andrewvaughan/template-core/discussions
 [docker]: https://www.docker.com/
 [new-issue]: https://github.com/andrewvaughan/template-core/issues/new
-[sdlc]: TODO
+[sdlc]: https://example.com

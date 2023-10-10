@@ -619,7 +619,7 @@ pull requests by with the code `:candy:`.
 
 <!-- editorconfig-checker-disable -->
 
- <!-- TODO -->
+ <!-- TODO - fix example.com links -->
 
 [codeowners]: https://github.com/andrewvaughan/template-core/blob/main/.github/CODEOWNERS
 [commit-example]: https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6
@@ -628,12 +628,12 @@ pull requests by with the code `:candy:`.
 [discussions]: https://github.com/andrewvaughan/template-core/discussions
 [feature-creep]: https://en.wikipedia.org/wiki/Feature_creep
 [fork]: https://docs.github.com/en/get-started/quickstart/fork-a-repo
-[issue-bug]: TODO
-[issue-feature]: TODO
-[issue-security]: TODO
+[issue-bug]: https://example.com
+[issue-feature]: https://example.com
+[issue-security]: https://example.com
 [issues]: https://github.com/andrewvaughan/template-core/issues
 [issues-features]: https://github.com/andrewvaughan/template-core/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22Type%3A+Feature%22
-[license]: TODO
+[license]: https://example.com
 [linting]: https://en.wikipedia.org/wiki/Lint_%28software%29
 [m-n-ms]: https://en.wikipedia.org/wiki/Van_Halen#Contract_riders
 [megalinter]: https://megalinter.io
@@ -644,11 +644,11 @@ pull requests by with the code `:candy:`.
 [rebasing]: https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase
 [releases]: https://github.com/andrewvaughan/template-core/releases
 [rubber-duck]: https://rubberduckdebugging.com
-[security]: TODO
+[security]: https://example.com
 [semver]: http://semver.org/
 [sign-commits]: https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification
 [squash]: https://www.git-tower.com/learn/git/faq/git-squash
-[support]: TODO
+[support]: https://example.com
 [xy]: https://meta.stackexchange.com/questions/66377/what-is-the-xy-problem/66378#66378
 
 <!-- editorconfig-checker-enable -->

@@ -633,7 +633,7 @@ pull requests by with the code `:candy:`.
 [issue-security]: https://example.com
 [issues]: https://github.com/andrewvaughan/template-core/issues
 [issues-features]: https://github.com/andrewvaughan/template-core/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22Type%3A+Feature%22
-[license]: https://example.com
+[license]: https://github.com/andrewvaughan/template-core/blob/main/LICENSE
 [linting]: https://en.wikipedia.org/wiki/Lint_%28software%29
 [m-n-ms]: https://en.wikipedia.org/wiki/Van_Halen#Contract_riders
 [megalinter]: https://megalinter.io

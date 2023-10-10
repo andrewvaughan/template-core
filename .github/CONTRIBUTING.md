@@ -416,7 +416,7 @@ Where:
 - `doc` for documentation changes
 - `feat` for a new or updated feature
 - `ops` for operational changes
-- `rel` for a release
+- `release` for a release
 
 `####` refers to a zero-padded issue ID (e.g., #8 would be `0008`)
 

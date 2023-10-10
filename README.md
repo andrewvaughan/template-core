@@ -8,6 +8,7 @@ When creating a new project from this template, ensure the following steps are t
 
 - [ ] Add and/or remove any files or folders that do not apply to the project
 - [ ] Remove all `.empty` files with `find . -type f -name '.empty' -delete`
+- [ ] Perform a search and replace for `andrewvaughan/template-core` and update the repository name
 
 ### License Steps
 
@@ -113,9 +114,9 @@ This template comes with the following standard folder structure:
 
 <!-- editorconfig-checker-enable -->
 
-<!-- Hyperlink Repository -->
-
 <!-- editorconfig-checker-disable -->
+
+<!-- Link Repository -->
 
 [apache]: https://choosealicense.com/licenses/apache-2.0/
 [gpl3]: https://choosealicense.com/licenses/gpl-3.0/
@@ -131,10 +132,9 @@ This template comes with the following standard folder structure:
 
 <!-- !!! For new projects, delete this line and above when done following the Checklist above !!! -->
 
-TODO <!-- Badges (release, license, build status, coverage) and hero image -->
-
-<!-- see: https://github.com/andrewvaughan/better-jira-reporting -->
-<!-- see: https://github.com/nimbus-pi/nimbus-pi -->
+<!-- TODO Badges (release, license, build status, coverage) and hero image -->
+<!-- TODO see: https://github.com/andrewvaughan/better-jira-reporting -->
+<!-- TODO see: https://github.com/nimbus-pi/nimbus-pi -->
 
 <!-- Enter the description of your project here -->
 
@@ -193,7 +193,13 @@ TODO <!-- Badges (release, license, build status, coverage) and hero image -->
 
 ## Support
 
-TODO
+Details for reaching out to support can be found in or [Support Documentation][support]. Please refer to these
+instructions prior to opening an [Issue][issues] or [Discussion][discussions].
+
+Parties interested in contributing to the project must read our [Contributing Guidelines][contributing] prior to doing
+so.
+
+All individuals must adhere to the project's [Code of Conduct][code-of-conduct], regardless of how they are engaging.
 
 ## Contributing
 
@@ -229,8 +235,11 @@ make help
 <!-- TODO - fix example.com -->
 
 [act]: https://github.com/nektos/act
-[contributing]: https://example.com
+[contributing]: https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md
 [discussions]: https://github.com/andrewvaughan/template-core/discussions
 [docker]: https://www.docker.com/
 [new-issue]: https://github.com/andrewvaughan/template-core/issues/new
-[sdlc]: https://example.com
+[sdlc]: https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#software-development-lifecycle
+[code-of-conduct]: https://github.com/andrewvaughan/template-core/blob/main/.github/CODE_OF_CONDUCT.md
+[issues]: https://github.com/andrewvaughan/template-core/issues
+[support]: https://example.com

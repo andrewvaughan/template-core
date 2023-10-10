@@ -69,14 +69,20 @@ endef
 # Testing Targets
 #
 
-.PHONY: test
+.PHONY: test test-lint test-unit
 
 
 ##
-# Simulate a pull request's integration tests locally.
+# Run the entire test suite on the project.
 #
-test:
-	$(call _title, "Running Test Framework")
+test: test-lint test-unit
+
+
+##
+# Run linting tests on any files that have been modified.
+#
+test-lint:
+	$(call _title, Running Test Framework)
 
 	$(call _header, Running GitHub '$(ACT_ACTION)' simulation)
 
@@ -89,3 +95,10 @@ test:
 		-j "$(ACT_JOB)" \
 		$(ACT_FULL_PARAMS) \
 		$(ACT_ACTION)
+
+
+##
+# Run the project's unit and integration tests.
+#
+test-unit:
+	$(call _debug, No unit tests have been configured.)

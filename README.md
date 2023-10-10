@@ -1,195 +1,85 @@
-# New Project
+# New Project Template
 
-## Checklist
+<!-- !!! Follow the `_TEMPLATE_CHECKLIST.md` file as a guide to setup this repository prior to editing this file !!! -->
 
-When creating a new project from this template, ensure the following steps are taken immediately after provisioning:
+<!-- TODO Update the project H1 tag above.
 
-### First Steps
+An optional hero image can be added to the top of the README file to replace the H1 tag.
 
-- [ ] Add and/or remove any files or folders that do not apply to the project
-- [ ] Remove all `.empty` files with `find . -type f -name '.empty' -delete`
-- [ ] Perform a search and replace for `andrewvaughan/template-core` and update the repository name
+A good sized image is about 1456x500, although the height can vary based on need. Transparent background are not
+recommended, unless the image works well in both a light and dark background.
 
-### License Steps
+The H1 tag above can then be replaced with something akin to this:
 
-Several license are available based on the Privileges, Conditions, and Limitations someone having a license of the
-intellectual property will have. Each is listed from least-restrictive to most-restrictive in the sections, below.
+# ![Project Name](https://...url-to-hosted-image)
+-->
 
-- [ ] Select the appropriate license using the tables below
-- [ ] Delete all `LICENSE.*` files that are not applicable
-- [ ] Rename the appropriate `LICENSE.*` file to just `LICENSE`
-- [ ] Check that all dates and copyright owners are correct
-- [ ] Add the appropriate `LICENSE` boilerplate to the `README.md` file, if applicable
-- [ ] Add any source headers the license requires, if applicable
+<!-- TODO Update the URLs for these badges, below, to the appropriate state of the project -->
+[![Version][badge-version-img]][badge-version]
+[![License][badge-license-img]][badge-license]
+[![Build Status][badge-build-img]][badge-build]
+[![Coverage][badge-coverage-img]][badge-coverage]
 
-<!-- editorconfig-checker-disable -->
-
-#### Permissions
-
-| License File                   | Commercial Use | Distribution | Modification | Patent Use | Private Use |
-|:-------------------------------|:--------------:|:------------:|:------------:|:----------:|:-----------:|
-| [LICENSE.apache][apache]       |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
-| [LICENSE.gpl3][gpl3]           |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
-| [LICENSE.mit][mit]             |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
-| LICENSE.proprietary            |       -        |      -       |      -       |     -      |      -      |
-| [LICENSE.unlicense][unlicense] |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
-
-As described by:
-
-| Permission     | Description                                                               |
-|:---------------|:--------------------------------------------------------------------------|
-| Commercial Use | The licensed material and derivatives may be used for commercial purposes |
-| Distribution   | The licensed material may be distributed                                  |
-| Modification   | The licensed material may be modified                                     |
-| Patent Use     | This license provides an express grant of patent rights from contributors |
-| Private Use    | The licensed material may be used and modified in private                 |
-
-#### Conditions
-
-| License File                   | Disclose Source | License/Copyright Notice | Same License | State Changes |
-|:-------------------------------|:---------------:|:------------------------:|:------------:|:-------------:|
-| [LICENSE.apache][apache]       |        -        |           Yes            |      -       |      Yes      |
-| [LICENSE.gpl3][gpl3]           |       Yes       |           Yes            |     Yes      |      Yes      |
-| [LICENSE.mit][mit]             |        -        |           Yes            |      -       |       -       |
-| LICENSE.proprietary            |        -        |            -             |      -       |       -       |
-| [LICENSE.unlicense][unlicense] |        -        |            -             |      -       |       -       |
-
-As described by:
-
-| Permission               | Description                                                                                                                                           |
-|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Disclose Source          | Source code must be made available when the licensed material is distributed                                                                          |
-| License/Copyright Notice | A copy of the license and copyright notice must be included with the licensed material                                                                |
-| Same License             | Modifications must be released under the same license when distributing the licensed material; in some cases a similar or related license may be used |
-| State Changes            | Changes made to the licensed material must be documented                                                                                              |
-
-#### Limitations
-
-| License File                   | Limited Liability | No Trademark | No Warranty |
-|:-------------------------------|:-----------------:|:------------:|:-----------:|
-| [LICENSE.apache][apache]       |        Yes        |     Yes      |     Yes     |
-| [LICENSE.gpl3][gpl3]           |        Yes        |      -       |     Yes     |
-| [LICENSE.mit][mit]             |        Yes        |      -       |     Yes     |
-| LICENSE.proprietary            |         -         |      -       |      -      |
-| [LICENSE.unlicense][unlicense] |        Yes        |      -       |     Yes     |
-
-As described by:
-
-| Permission        | Description                                                                                                                                                               |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Limited Liability | This license includes a limitation of liability                                                                                                                           |
-| No Trademark      | This license explicitly states that it does NOT grant trademark rights, even though licenses without such a statement probably do not grant any implicit trademark rights |
-| No Warranty       | This license explicitly states that it does NOT provide any warranty                                                                                                      |
-
-<!-- editorconfig-checker-enable -->
-
-### Test Steps
-
-- [ ] Update `.github/workflows/mega-linter.yml` with a flavor more-appropriate for your project
-- [ ] Update `.mega-linter.yml` and the files in `.config/linters` to suit your project needs
-- [ ] Update `.config/dictionaries/project.txt` with any dictionary words custom to this project
-
-### Final Steps
-
-- [ ] Delete everything in the [Checklist](#checklist) section of the `README.md` file
-
----
-
-### Folder Structure
-
-This template comes with the following standard folder structure:
-
-<!-- editorconfig-checker-disable -->
-
-| Folder                         | Purpose                                                                                                                                                |
-|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [.build](.build)               | All scripts and resources tied to deployment (e.g., Docker Compose)                                                                                    |
-| [.config](.config)             | All configuration files for local development                                                                                                          |
-| [.devcontainer](.devcontainer) | DevContainer configurations ([GitHub Docs][dc-gh], [VSCode Docs][dc-vsc], [Reference][dc-ref])                                                         |
-| [.github](.github)             | All configuration files for GitHub                                                                                                                     |
-| [.vscode](.vscode)             | All configuration files for Visual Studio Code (note, only certain files should be committed, such as recommended `extensions.json` and `launch.json`) |
-| [docs](docs)                   | All project documentation                                                                                                                              |
-| [src](src)                     | All project source code                                                                                                                                |
-| [tests](tests)                 | All test source code                                                                                                                                   |
-
-<!-- editorconfig-checker-enable -->
-
-<!-- editorconfig-checker-disable -->
-
-<!-- Link Repository -->
-
-[apache]: https://choosealicense.com/licenses/apache-2.0/
-[gpl3]: https://choosealicense.com/licenses/gpl-3.0/
-[mit]: https://choosealicense.com/licenses/mit/
-[unlicense]: https://choosealicense.com/licenses/unlicense/
-[dc-gh]: https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
-[dc-ref]: https://github.com/oxsecurity/megalinter/tree/main/.devcontainer
-[dc-vsc]: https://code.visualstudio.com/docs/devcontainers/containers
-
-<!-- editorconfig-checker-enable -->
-
----
-
-<!-- !!! For new projects, delete this line and above when done following the Checklist above !!! -->
-
-<!-- TODO Badges (release, license, build status, coverage) and hero image -->
-<!-- TODO see: https://github.com/andrewvaughan/better-jira-reporting -->
-<!-- TODO see: https://github.com/nimbus-pi/nimbus-pi -->
-
-<!-- Enter the description of your project here -->
+<!-- TODO -->
+_This text should be replaced with a short description of what this project is about._
 
 ## Contents
 
-- [New Project](#new-project)
-  - [Checklist](#checklist)
-    - [First Steps](#first-steps)
-    - [License Steps](#license-steps)
-      - [Permissions](#permissions)
-      - [Conditions](#conditions)
-      - [Limitations](#limitations)
-    - [Test Steps](#test-steps)
-    - [Final Steps](#final-steps)
-    - [Folder Structure](#folder-structure)
+- [New Project Template](#new-project-template)
   - [Contents](#contents)
   - [Installation](#installation)
+    - [Dependencies](#dependencies)
     - [Quick Start](#quick-start)
     - [Manual Installation](#manual-installation)
-    - [Developer Installation](#developer-installation)
-    - [Dependencies](#dependencies)
   - [Usage](#usage)
     - [Configuration](#configuration)
   - [Support](#support)
   - [Contributing](#contributing)
+    - [Developer Installation](#developer-installation)
     - [Testing](#testing)
+  - [Release Policy](#release-policy)
   - [License](#license)
+
+---
 
 ## Installation
 
-<!-- Add installation instructions here -->
-
-### Quick Start
-
-<!-- Add quick-start instructions, here, if appropriate (or delete) -->
-
-### Manual Installation
-
-<!-- Add manual installation instructions here, if appropriate (or delete) -->
-
-### Developer Installation
-
-<!-- Add developer dependency installation instructions here -->
+<!-- TODO -->
+_Add a brief introduction as to how normal installation of the project can be accomplished for users (not developers) of
+the project_
 
 ### Dependencies
 
-<!-- Add development dependency installation instructions here -->
+<!-- TODO -->
+_Add details in this section regarding any dependencies or installation requirements are needed to be performed before
+this tool can be used. This should focus on **using** the tool, not developing it. Delete this section if there are no
+production dependencies required for the project._
+
+### Quick Start
+
+<!-- TODO -->
+_Add a brief set of instructions on how to get quickly up and running for the most-common use cases. Delete this section
+if a quick-start concept does not apply._
+
+### Manual Installation
+
+<!-- TODO -->
+_If manual installation steps differ from the quick-start above, add more verbose instructions here; otherwise, delete
+this section._
+
+---
 
 ## Usage
 
-<!-- Add usage instructions here -->
+<!-- TODO -->
+_Provide detailed instructions on how this project is used, if applicable. Otherwise, delete this section._
 
 ### Configuration
 
-<!-- Add configuration details here -->
+<!-- TODO -->
+_If the project has configuration capabilities, provide them here in full detail; otherwise, delete this section._
+
+---
 
 ## Support
 
@@ -201,6 +91,8 @@ so.
 
 All individuals must adhere to the project's [Code of Conduct][code-of-conduct], regardless of how they are engaging.
 
+---
+
 ## Contributing
 
 There are many ways to contribute to this project! If you have an idea, or have discovered a bug, please
@@ -209,6 +101,12 @@ feet wet with the project, first.
 
 If you are interested in contributing to the project through design or development, please read our
 [Contributing Guidelines][contributing].
+
+### Developer Installation
+
+<!-- TODO -->
+_Add details for developers on how to setup their environment, including installing additional, developer dependencies,
+for individuals wishing to contribute to the project._
 
 ### Testing
 
@@ -226,20 +124,51 @@ development. You can find the full list by running:
 make help
 ```
 
+---
+
+## Release Policy
+
+Releases of this project follow [Semantic Versioning](http://semver.org/) standards in a `MAJOR.MINOR.PATCH` versioning
+scheme of the following format:
+
+* `MAJOR` - modified when major, incompatible changes are made to the application,
+* `MINOR` - modified when functionality is added in a backwards-compatible manner, and
+* `PATCH` - patches to existing functionality, such as documentation and bug fixes.
+
+All releases are [tagged][release-tags] and available on [GitHub][releases].
+
+---
+
 ## License
 
-<!-- Add selected license short text in this area -->
+The full text of this project's license can be found in the [LICENSE][license] file.
+
+<!-- TODO -->
+_Add selected license short text in this area, if applicable._
 
 <!-- Link Repository -->
 
-<!-- TODO - fix example.com -->
+<!-- editorconfig-checker-disable -->
 
 [act]: https://github.com/nektos/act
+[badge-version]: https://github.com/andrewvaughan/template-core/releases
+[badge-version-img]: https://img.shields.io/badge/version-0.0.0-blue.svg?style=for-the-badge
+[badge-license]: https://github.com/andrewvaughan/template-core/blob/main/LICENSE
+[badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white
+[badge-build]: https://github.com/andrewvaughan/template-core/actions
+[badge-build-img]: https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=for-the-badge&logo=dependabot&logoColor=white
+[badge-coverage]: https://github.com/andrewvaughan/template-core/actions
+[badge-coverage-img]: https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=for-the-badge&logo=githubactions&logoColor=white
+[code-of-conduct]: https://github.com/andrewvaughan/template-core/blob/main/.github/CODE_OF_CONDUCT.md
 [contributing]: https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md
 [discussions]: https://github.com/andrewvaughan/template-core/discussions
 [docker]: https://www.docker.com/
-[new-issue]: https://github.com/andrewvaughan/template-core/issues/new
-[sdlc]: https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#software-development-lifecycle
-[code-of-conduct]: https://github.com/andrewvaughan/template-core/blob/main/.github/CODE_OF_CONDUCT.md
 [issues]: https://github.com/andrewvaughan/template-core/issues
-[support]: https://example.com
+[license]: https://github.com/andrewvaughan/template-core/blob/main/LICENSE
+[new-issue]: https://github.com/andrewvaughan/template-core/issues/new
+[releases]: https://github.com/andrewvaughan/template-core/releases
+[release-tags]: https://github.com/andrewvaughan/template-core/tags
+[sdlc]: https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#software-development-lifecycle
+[support]: https://github.com/andrewvaughan/template-core/blob/main/.github/SUPPORT.md
+
+<!-- editorconfig-checker-enable -->

@@ -34,6 +34,7 @@ _This text should be replaced with a short description of what this project is a
   - [Usage](#usage)
     - [Configuration](#configuration)
   - [Support](#support)
+    - [FAQ](#faq)
   - [Contributing](#contributing)
     - [Developer Installation](#developer-installation)
     - [Testing](#testing)
@@ -90,6 +91,11 @@ Parties interested in contributing to the project must read our [Contributing Gu
 so.
 
 All individuals must adhere to the project's [Code of Conduct][code-of-conduct], regardless of how they are engaging.
+
+### FAQ
+
+<!-- TODO -->
+_If your project has common questions that can be answered here, get this section started; otherwise, delete it._
 
 ---
 
@@ -158,7 +164,7 @@ _Add selected license short text in this area, if applicable._
 [badge-build]: https://github.com/andrewvaughan/template-core/actions
 [badge-build-img]: https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=for-the-badge&logo=dependabot&logoColor=white
 [badge-coverage]: https://github.com/andrewvaughan/template-core/actions
-[badge-coverage-img]: https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=for-the-badge&logo=githubactions&logoColor=white
+[badge-coverage-img]: https://img.shields.io/badge/coverage-N/A-rgb(200%2C200%2C200).svg?style=for-the-badge&logo=githubactions&logoColor=white
 [code-of-conduct]: https://github.com/andrewvaughan/template-core/blob/main/.github/CODE_OF_CONDUCT.md
 [contributing]: https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md
 [discussions]: https://github.com/andrewvaughan/template-core/discussions

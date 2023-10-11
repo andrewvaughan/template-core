@@ -1,0 +1,120 @@
+##
+# Feature request form GitHub issue template
+#
+# @link https://t.ly/-Gbqv
+
+name: Feature Request
+
+description: Request a feature or submit an idea for development.
+
+labels:
+  - "Needs Triage"
+  - "Request: Feature Request"
+
+assignees:
+  - andrewvaughan
+
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thank you for taking the time to submit an idea or feature request. Before submitting, please take some time to
+        review our standards on accepting feature requests in our
+        [Contributing Guidelines](https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#submit-an-idea).
+
+  # Scope
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope(s)
+      description: What component(s) within the project does this pertain to?
+      multiple: true
+      options:
+        - Everything
+        - Other
+      default: 0
+    validations:
+      required: true
+
+  # Problem
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem are you trying to solve or opportunity do you see that exists for this idea or feature?
+    validations:
+      required: true
+
+  # Benefits
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Benefits
+      description: What benefits will this provide the community and why?
+
+  # Recommended Approach
+  - type: textarea
+    id: approach
+    attributes:
+      label: Recommended Approach
+      description: >-
+        If known, what approach do you recommend to the problem or opportunity? Please include any diagrams, mockups, or
+        illustrations in this area, if they might help explain your idea, by using the image upload tool in the text
+        editor below.
+
+  # Examples
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example(s)
+      description: >-
+        If you have any examples of other projects or utilities, or can provide your own example as to how this might
+        function, please provide it here.
+
+  ## SUBJECTIVE --------------------------------------------------------------------------------------------------------
+
+  - type: markdown
+    attributes:
+      value: >-
+        ---
+
+        ## Conclusion
+
+        Your expertise is extremely valuable in determining the appropriate course of action for this issue. Any
+        additional information you might provide us will help to determine the prioritization and execution of this
+        effort.
+
+  # Priority
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: In your opinion, how important is this issue?
+      options:
+        - Critical (Project fails without it)
+        - Important (Significantly improve the project)
+        - Moderate (Similar to most work being done today)
+        - Low (Clear value, but in no way urgent)
+        - Trivial (Nice to have)
+
+  # Additional Context
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: >-
+        If there is anything else the project maintainers should know that will help explain or prioritize this issue,
+        please provide that additional information, here.
+
+  ## TERMS -------------------------------------------------------------------------------------------------------------
+
+  # Code of Conduct
+  - type: checkboxes
+    id: code_of_conduct
+    attributes:
+      label: Code of Conduct
+      description: >-
+        By submitting this issue, I agree to the terms within and will follow this project's
+        [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme).
+      options:
+        - label: I agree to follow this project's Code of Conduct

@@ -1,0 +1,265 @@
+##
+# Bug request form GitHub issue template
+#
+# @link https://t.ly/-Gbqv
+
+name: Bug Report
+
+description: Report a discovered bug in the project.
+
+labels:
+  - "Needs Triage"
+  - "Request: Bug Fix"
+
+assignees:
+  - andrewvaughan
+
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thank you for taking the time to contribute a bug report to this project. Please aim to be as detailed as
+        possible when detailing the sections below, as that will help our project maintainers replicate and, with your
+        help, address any bugs found.
+
+        > **If you believe this is a security issue**, please draft a
+        [Security Advisory Report](https://github.com/andrewvaughan/template-core/security/advisories/new) instead.
+
+  ## ENVIRONMENT -------------------------------------------------------------------------------------------------------
+
+  - type: markdown
+    attributes:
+      value: >-
+        ---
+
+        ## Environment Details
+
+        Before we gather details on the issue itself, it is important that we understand more about your environment and
+        the state of your machine when the bug was encountered:
+
+  # Project Version
+  - type: dropdown
+    id: version
+    attributes:
+      label: Project Version(s)
+      description: What version(s) of this project does this occur with that you are aware of?
+      multiple: true
+      options:
+        - v0.0.0
+    validations:
+      required: true
+
+  # Scope
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope(s)
+      description: What component(s) within the project does this pertain to? (If known)
+      multiple: true
+      options:
+        - Full Project
+        - Other
+
+  # Operating System
+  - type: dropdown
+    id: operating_system
+    attributes:
+      label: Operating System(s)
+      description: What operating system(s) has this occurred on that you are aware of?
+      multiple: true
+      options:
+        - Windows
+        - macOS
+        - Linux/Unix
+        - iOS
+        - Android
+        - Other
+    validations:
+      required: true
+
+  # Operating System Version
+  - type: input
+    id: operating_system_version
+    attributes:
+      label: Operating System Version(s)
+      description: What version(s) of the operating system(s) above are you using?
+      placeholder: e.g., 8.1, 11, Ventura 13.5.2
+    validations:
+      required: true
+
+  # Browser
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser(s)
+      description: What browser(s) has this occurred on?
+      multiple: true
+      options:
+        - Chrome
+        - Chrome for Android
+        - Chrome for iOS
+        - Edge
+        - Firefox
+        - Firefox for Android
+        - Firefox for iOS
+        - Opera
+        - Safari
+        - Safari for iOS
+        - Other
+
+  # Browser Version
+  - type: input
+    id: browser_version
+    attributes:
+      label: Browser Version(s)
+      description: What version(s) of the browser(s) above where you using?
+      placeholder: e.g., Version 117.0.5938.92 (Official Build) (arm64)
+
+  ## COLLOQUY ----------------------------------------------------------------------------------------------------------
+
+  - type: markdown
+    attributes:
+      value: >-
+        ---
+
+        ## Colloquy
+
+        In order for us to understand the unexpected behavior better, please provide as much detail as possible for
+        these questions:
+
+  # Expected Results
+  - type: textarea
+    id: expected_results
+    attributes:
+      label: What did you expect to happen?
+      description: Describe what the expected behavior was that did not occur.
+    validations:
+      required: true
+
+  # Actual Results
+  - type: textarea
+    id: actual_results
+    attributes:
+      label: What actually happened?
+      description: Describe what the actual behavior was that did not match the above.
+    validations:
+      required: true
+
+  # Steps to Reproduce
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Please describe, in detail, what steps you took and how another person can reproduce the issue.
+      placeholder: |-
+        1.
+        2.
+        3.
+        ...
+    validations:
+      required: true
+
+  # Consistency
+  - type: dropdown
+    id: consistency
+    attributes:
+      label: How consistent is this bug?
+      description: Is this something that always happens, or comes and goes?
+      options:
+        - Constant
+        - On and off
+        - Once or twice
+        - Other
+      default: 0
+    validations:
+      required: true
+
+  ## DUMPS -------------------------------------------------------------------------------------------------------------
+
+  - type: markdown
+    attributes:
+      value: >-
+        ---
+
+        ## Additional Data
+
+        Any information from your environment that could help debug this issue would be extremely helpful. Please
+        provide screenshots, logs, configuration settings, or anything else that might be of use in enabling the
+        project maintainers to replicate this issue.
+
+  # Configuration Settings
+  - type: textarea
+    id: configuration_settings
+    attributes:
+      label: Configuration Settings
+      description: >-
+        Please paste your configuration file. Remember to check it for sensitive data before submitting.
+      render: YAML
+
+  # Screenshots
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshot(s)
+      description: >-
+        If applicable, please use the provided image upload tool in the text editor below to provide any screenshots
+        that may be helpful in illustrating this issue.
+      placeholder: |
+        ![Example Screenshot Title](https://imgur.com/gallery/0DQQTAv/)
+
+  # Logs
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Please turn on verbose debugging (`-vv`) in the application and paste your log output here.
+      render: Shell
+
+  ## SUBJECTIVE --------------------------------------------------------------------------------------------------------
+
+  - type: markdown
+    attributes:
+      value: >-
+        ---
+
+        ## Conclusion
+
+        Your expertise is extremely valuable in determining the appropriate course of action for this issue. Any
+        additional information you might provide us will help to determine the prioritization and execution of this
+        effort.
+
+  # Priority
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: In your opinion, how important is this issue?
+      options:
+        - Critical (Project fails without it)
+        - Important (Significantly improve the project)
+        - Moderate (Similar to most work being done today)
+        - Low (Clear value, but in no way urgent)
+        - Trivial (Nice to have)
+
+  # Additional Context
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: >-
+        If there is anything else the project maintainers should know that will help explain or prioritize this issue,
+        please provide that additional information, here.
+
+  ## TERMS -------------------------------------------------------------------------------------------------------------
+
+  # Code of Conduct
+  - type: checkboxes
+    id: code_of_conduct
+    attributes:
+      label: Code of Conduct
+      description: >-
+        By submitting this issue, I agree to the terms within and will follow this project's
+        [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

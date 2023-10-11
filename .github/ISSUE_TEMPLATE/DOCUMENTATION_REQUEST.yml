@@ -1,0 +1,112 @@
+##
+# Documentation update request form GitHub issue template
+#
+# @link https://t.ly/-Gbqv
+
+name: Documentation Request
+
+description: Request updated or new documentation.
+
+labels:
+  - "Needs Triage"
+  - "Request: Documentation"
+
+assignees:
+  - andrewvaughan
+
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thank you for taking the time to bring a documentation need to our attention. We aim to create complete
+        documentation for this project, and these types of reports help determine where we may be lacking in that area.
+
+  # Scope
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope(s)
+      description: What component(s) within the project does this pertain to? (If known)
+      multiple: true
+      options:
+        - Full Project
+        - Other
+
+  # New or Update
+  - type: dropdown
+    id: update_target
+    attributes:
+      label: New or Existing Documentation
+      description: Is this new documentation to be created, or a need to update existing documentation?
+      options:
+        - New Documentation
+        - Existing Documentation
+      default: 1
+    validations:
+      required: true
+
+  # Description
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please describe the documentation need, in detail.
+    validations:
+      required: true
+
+  # Examples
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example(s)
+      description: >-
+        If you have any examples of this documentation, or can provide your own example of how the documentation might
+        look, please provide it here.
+
+  ## SUBJECTIVE --------------------------------------------------------------------------------------------------------
+
+  - type: markdown
+    attributes:
+      value: >-
+        ---
+
+        ## Conclusion
+
+        Your expertise is extremely valuable in determining the appropriate course of action for this issue. Any
+        additional information you might provide us will help to determine the prioritization and execution of this
+        effort.
+
+  # Priority
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: In your opinion, how important is this issue?
+      options:
+        - Critical (Project fails without it)
+        - Important (Significantly improve the project)
+        - Moderate (Similar to most work being done today)
+        - Low (Clear value, but in no way urgent)
+        - Trivial (Nice to have)
+
+  # Additional Context
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: >-
+        If there is anything else the project maintainers should know that will help explain or prioritize this issue,
+        please provide that additional information, here.
+
+  ## TERMS -------------------------------------------------------------------------------------------------------------
+
+  # Code of Conduct
+  - type: checkboxes
+    id: code_of_conduct
+    attributes:
+      label: Code of Conduct
+      description: >-
+        By submitting this issue, I agree to the terms within and will follow this project's
+        [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme).
+      options:
+        - label: I agree to follow this project's Code of Conduct

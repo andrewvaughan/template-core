@@ -34,6 +34,7 @@ _This text should be replaced with a short description of what this project is a
   - [Usage](#usage)
     - [Configuration](#configuration)
   - [Support](#support)
+    - [FAQ](#faq)
   - [Contributing](#contributing)
     - [Developer Installation](#developer-installation)
     - [Testing](#testing)
@@ -90,6 +91,11 @@ Parties interested in contributing to the project must read our [Contributing Gu
 so.
 
 All individuals must adhere to the project's [Code of Conduct][code-of-conduct], regardless of how they are engaging.
+
+### FAQ
+
+<!-- TODO -->
+_If your project has common questions that can be answered here, get this section started; otherwise, delete it._
 
 ---
 

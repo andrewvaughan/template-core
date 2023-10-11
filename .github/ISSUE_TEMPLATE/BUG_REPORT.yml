@@ -127,10 +127,10 @@ body:
 
         ## Colloquy
 
-        In order for us to understand the unexpected behavior better, please provide as much detail as possible for
+        In order for us to understand the un`expect`ed behavior better, please provide as much detail as possible for
         these questions:
 
-  # Expectated Results
+  # Expected Results
   - type: textarea
     id: expected-results
     attributes:

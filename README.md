@@ -18,6 +18,7 @@ The H1 tag above can then be replaced with something akin to this:
 [![Version][badge-version-img]][badge-version]
 [![License][badge-license-img]][badge-license]
 [![Build Status][badge-build-img]][badge-build]
+[![Linting][badge-linting-img]][badge-linting]
 [![Coverage][badge-coverage-img]][badge-coverage]
 
 <!-- TODO -->
@@ -158,13 +159,15 @@ _Add selected license short text in this area, if applicable._
 
 [act]: https://github.com/nektos/act
 [badge-version]: https://github.com/andrewvaughan/template-core/releases
-[badge-version-img]: https://img.shields.io/badge/version-0.0.0-blue.svg?style=for-the-badge
+[badge-version-img]: https://img.shields.io/badge/version-0.0.0-blue.svg?style=flat
 [badge-license]: https://github.com/andrewvaughan/template-core/blob/main/LICENSE
-[badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white
+[badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white
 [badge-build]: https://github.com/andrewvaughan/template-core/actions
-[badge-build-img]: https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=for-the-badge&logo=dependabot&logoColor=white
+[badge-build-img]: https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=flat&logo=dependabot&logoColor=white
 [badge-coverage]: https://github.com/andrewvaughan/template-core/actions
-[badge-coverage-img]: https://img.shields.io/badge/coverage-N/A-rgb(200%2C200%2C200).svg?style=for-the-badge&logo=githubactions&logoColor=white
+[badge-coverage-img]: https://img.shields.io/badge/coverage-N/A-rgb(200%2C200%2C200).svg?style=flat&logo=githubactions&logoColor=white
+[badge-linting]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml
+[badge-linting-img]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml/badge.svg
 [code-of-conduct]: https://github.com/andrewvaughan/template-core/blob/main/.github/CODE_OF_CONDUCT.md
 [contributing]: https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md
 [discussions]: https://github.com/andrewvaughan/template-core/discussions

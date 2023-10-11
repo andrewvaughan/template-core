@@ -151,7 +151,7 @@ Visit the [Rulesets][gh-rulesets] page for the repository.
   - Click `+ Add target`
     - Select `Include by pattern`
       - **Naming Pattern:** `release/*`
-    - - Select `Include by pattern`
+    - Select `Include by pattern`
       - **Naming Pattern:** `release/**/*`
   - Under **Tag protections**:
     - **CHECK** `Restrict creations`

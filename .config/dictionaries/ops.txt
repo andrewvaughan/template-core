@@ -1,5 +1,6 @@
 andrewvaughan
 addsuffix
+catthehacker
 CHECKMAKE
 devcontainer
 endef
@@ -8,11 +9,15 @@ failbit
 findstring
 ifeq
 ifneq
+Imgur
+keyscan
 kics
 KICS
 MAKEFLAGS
 megalinter
+nektos
 ONESHELL
+opencontainers
 oxsecurity
 Pieter
 pipefail
@@ -27,6 +32,7 @@ setstate
 SHELLFLAGS
 sitm
 smul
+Snipboard
 stefanzweifel
 tput
 Txterm

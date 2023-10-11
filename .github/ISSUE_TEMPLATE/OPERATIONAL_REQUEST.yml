@@ -1,0 +1,88 @@
+##
+# Operational change request form GitHub issue template
+#
+# @link https://t.ly/-Gbqv
+
+name: Operational Request
+
+description: Request updates to automation, integrations, or other operational efforts.
+
+labels:
+  - "Needs Triage"
+  - "Request: Ops"
+
+assignees:
+  - andrewvaughan
+
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thank you for taking the time to bring an operational need to our attention. Creating a smooth development
+        lifecycle is critical to maintaining the community, and all ideas are welcome.
+
+  # Description
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please describe the operational change or addition needed, in detail.
+    validations:
+      required: true
+
+  # Examples
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example(s)
+      description: >-
+        If you have any examples of this request in action, or can provide your own example of how this might function,
+        please provide it here.
+
+  ## SUBJECTIVE --------------------------------------------------------------------------------------------------------
+
+  - type: markdown
+    attributes:
+      value: >-
+        ---
+
+        ## Conclusion
+
+        Your expertise is extremely valuable in determining the appropriate course of action for this issue. Any
+        additional information you might provide us will help to determine the prioritization and execution of this
+        effort.
+
+  # Priority
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: In your opinion, how important is this issue?
+      options:
+        - Critical (Project fails without it)
+        - Important (Significantly improve the project)
+        - Moderate (Similar to most work being done today)
+        - Low (Clear value, but in no way urgent)
+        - Trivial (Nice to have)
+
+  # Additional Context
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: >-
+        If there is anything else the project maintainers should know that will help explain or prioritize this issue,
+        please provide that additional information, here.
+
+  ## TERMS -------------------------------------------------------------------------------------------------------------
+
+  # Code of Conduct
+  - type: checkboxes
+    id: code_of_conduct
+    attributes:
+      label: Code of Conduct
+      description: >-
+        By submitting this issue, I agree to the terms within and will follow this project's
+        [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme).
+      options:
+        - label: I agree to follow this project's Code of Conduct

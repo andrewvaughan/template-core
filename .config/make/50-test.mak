@@ -91,6 +91,7 @@ test-lint:
 	act \
 		--rm \
 		--container-architecture "$(ACT_ARCHITECTURE)" \
+		-s GITHUB_TOKEN=$(gh auth token) \
 		-a "$(ACT_ACTOR)" \
 		-j "$(ACT_JOB)" \
 		$(ACT_FULL_PARAMS) \

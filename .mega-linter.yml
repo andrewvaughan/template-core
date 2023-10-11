@@ -1,5 +1,8 @@
+##
 # Configuration file for MegaLinter
-# See all available variables at https://megalinter.io/configuration/ and in linters documentation
+#
+# @link https://megalinter.io/configuration/
+#
 
 APPLY_FIXES: all
 FILEIO_REPORTER: false
@@ -18,3 +21,27 @@ REPOSITORY_KICS_CONFIG_FILE: kics.yml
 
 MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
   - .mak
+
+##
+# Temporary
+# @link https://github.com/andrewvaughan/template-core/issues/44
+#
+YAML_V8R_FILTER_REGEX_EXCLUDE: (\.github/ISSUE_TEMPLATE/.*\.yml)
+##
+# Everything below this line is debugging ongoing local testing issues.
+#
+# @link https://github.com/oxsecurity/megalinter/issues/2998
+# @link https://github.com/nektos/act/issues/2039
+# @link https://github.com/catthehacker/docker_images/issues/115
+# @link https://github.com/nektos/act/discussions/2035
+
+# PRE_COMMANDS:
+#   - command: |
+#       {
+#         ssh-keyscan github.com;
+#         ssh-keyscan ssh.dev.azure.com
+#       } >>/etc/ssh/ssh_known_hosts
+
+#   - command: |
+#       echo "GITHUB_TOKEN: ${GITHUB_TOKEN}";
+#       echo "PAT: ${PAT}"

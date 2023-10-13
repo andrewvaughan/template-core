@@ -1,0 +1,262 @@
+/**
+ * VSCode extension configurations
+ *
+ * This file provides helpful settings in getting started quickly with VSCode extensions. For more details, please refer
+ * to the parallel `extensions.json` file.
+ *
+ * @link https://code.visualstudio.com/docs/getstarted/settings
+ */
+{
+  /**
+   * Name: Better Comments
+   * Id: aaron-bond.better-comments
+   * Description: Improve your code commenting by annotating with alert, informational, TODOs, and more!
+   * Publisher: Aaron Bond
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
+   */
+  "better-comments.multilineComments": true,
+
+  /**
+   * Name: Code Spell Checker
+   * Id: streetsidesoftware.code-spell-checker
+   * Description: Spelling checker for source code
+   * Publisher: Street Side Software
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+   */
+  "cSpell.enabled": true,
+  "cSpell.caseSensitive": true,
+  "cSpell.language": "en,en-US",
+  "cSpell.autoFormatConfigFile": false,
+  "cSpell.diagnosticLevel": "Information",
+  "cSpell.showAutocompleteSuggestions": true,
+  "cSpell.checkOnlyEnabledFileTypes": true,
+
+  /**
+   * Name: Color Highlight
+   * Id: naumovs.color-highlight
+   * Description: Highlight web colors in your editor
+   * Publisher: Sergii N
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight
+   */
+  "color-highlight.markerType": "dot-before",
+  "color-highlight.markRuler": true,
+  "color-highlight.matchWords": true,
+  "color-highlight.matchRgbWithNoFunction": false,
+
+  /**
+   * Name: EditorConfig for VS Code
+   * Id: EditorConfig.EditorConfig
+   * Description: EditorConfig Support for Visual Studio Code
+   * Publisher: EditorConfig
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+   */
+  "editorconfig.generateAuto": false,
+
+  /**
+   * Name: GitHub Actions
+   * Id: github.vscode-github-actions
+   * Description: GitHub Actions workflows and runs for github.com hosted repositories in VS Code
+   * Publisher: GitHub
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions
+   */
+  "github-actions.remote-name": "origin",
+  "github-actions.workflows.pinned.refresh.enabled": true,
+  "github-actions.workflows.pinned.refresh.interval": 90,
+  "github-actions.workflows.pinned.workflows": [".github/workflows/mega-linter.yml"],
+
+  /**
+   * Name: indent-rainbow
+   * Id: oderwat.indent-rainbow
+   * Description: Makes indentation easier to read
+   * Publisher: oderwat
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow
+   */
+  "indentRainbow.colorOnWhiteSpaceOnly": false,
+  "indentRainbow.indicatorStyle": "classic",
+  "indentRainbow.updateDelay": 100,
+  "indentRainbow.colors": [
+    "rgba(255, 255, 64,  0.07)",
+    "rgba(127, 255, 127, 0.07)",
+    "rgba(255, 127, 255, 0.07)",
+    "rgba(79,  236, 236, 0.07)"
+  ],
+  "indentRainbow.errorColor": "rgba(128, 32, 32, 0.6)",
+  "indentRainbow.tabmixColor": "rgba(128, 32, 96, 0.6)",
+
+  /**
+   * Name: Makefile Tools
+   * Id: ms-vscode.makefile-tools
+   * Description: Provide makefile support in VS Code: C/C++ IntelliSense, build, debug/run.
+   * Publisher: Microsoft
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools
+   */
+  "makefile.clearOutputBeforeBuild": true,
+  "makefile.loggingLevel": "Normal",
+
+  /**
+   * Name: Markdown All in One
+   * Id: yzhang.markdown-all-in-one
+   * Description: All you need to write Markdown (keyboard shortcuts, table of contents, auto preview and more)
+   * Publisher: Yu Zhang
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
+   */
+  "markdown.extension.bold.indicator": "**",
+  "markdown.extension.completion.respectVscodeSearchExclude": true,
+  "markdown.extension.italic.indicator": "_",
+  "markdown.extension.list.indentationSize": "inherit",
+  "markdown.extension.math.enabled": true,
+  "markdown.extension.orderedList.autoRenumber": true,
+  "markdown.extension.orderedList.marker": "ordered",
+  "markdown.extension.print.absoluteImgPath": true,
+  "markdown.extension.print.includeVscodeStylesheets": true,
+  "markdown.extension.print.theme": "dark",
+  "markdown.extension.print.validateUrls": true,
+  "markdown.extension.tableFormatter.enabled": true,
+  "markdown.extension.tableFormatter.normalizeIndentation": true,
+  "markdown.extension.toc.levels": "1..4",
+  "markdown.extension.toc.slugifyMode": "github",
+  "markdown.extension.toc.unorderedList.marker": "-",
+  "markdown.extension.toc.updateOnSave": true,
+
+  /**
+   * Name: Markdown Preview Github Styling
+   * Id: bierner.markdown-preview-github-styles
+   * Description: Changes VS Code's built-in markdown preview to match Github's style
+   * Publisher: Matt Bierner
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles
+   */
+  "markdown-preview-github-styles.colorTheme": "auto",
+  "markdown-preview-github-styles.darkTheme": "dark",
+  "markdown-preview-github-styles.lightTheme": "light",
+
+  /**
+   * Name: markdownlint
+   * Id: DavidAnson.vscode-markdownlint
+   * Description: Markdown linting and style checking for Visual Studio Code
+   * Publisher: David Anson
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+   */
+  "markdownlint.run": "onType",
+  "markdownlint.lintWorkspaceGlobs": [
+    "**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,workbook}",
+    "!**/bower_components",
+    "!**/node_modules",
+    "!**/vendor",
+    "!**/.git",
+    "!**/.config/linters/vale/styles"
+  ],
+
+  /**
+   * Name: Prettier - Code formatter
+   * Id: esbenp.prettier-vscode
+   * Description: Code formatter using prettier
+   * Publisher: Prettier
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+   */
+  "prettier.configPath": ".config/linters/.prettierrc.json",
+  "prettier.embeddedLanguageFormatting": "auto",
+  "prettier.enable": true,
+  "prettier.enableDebugLogs": false,
+  "prettier.ignorePath": ".prettierignore",
+  "prettier.requireConfig": true,
+  "prettier.useEditorConfig": true,
+  "prettier.withNodeModules": false,
+
+  /**
+   * Name: Todo Tree
+   * Id: Gruntfuggly.todo-tree
+   * Description: Show TODO, FIXME, etc. comment tags in a tree view
+   * Publisher: Gruntfuggly
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
+   */
+  "todo-tree.general.automaticGitRefreshInterval": 0,
+  "todo-tree.general.showActivityBarBadge": true,
+  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+  "todo-tree.general.statusBar": "top three",
+  "todo-tree.general.statusBarClickBehaviour": "reveal",
+  "todo-tree.highlights.enabled": true,
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.general.debug": false,
+  "todo-tree.general.periodicRefreshInterval": 0,
+  "todo-tree.general.revealBehaviour": "start of todo",
+  "todo-tree.highlights.highlightDelay": 500,
+  "todo-tree.filtering.includeHiddenFiles": true,
+  "todo-tree.filtering.useBuiltInExcludes": "file excludes",
+  "todo-tree.tree.autoRefresh": true,
+  "todo-tree.tree.disableCompactFolders": false,
+  "todo-tree.tree.expanded": false,
+  "todo-tree.tree.hideIconsWhenGroupedByTag": false,
+  "todo-tree.tree.groupedBySubTag": true,
+  "todo-tree.tree.groupedByTag": true,
+  "todo-tree.tree.hideTreeWhenEmpty": false,
+  "todo-tree.tree.scanAtStartup": true,
+  "todo-tree.tree.scanMode": "workspace only",
+  "todo-tree.tree.showBadges": true,
+  "todo-tree.tree.showCountsInTree": true,
+  "todo-tree.tree.showCurrentScanMode": true,
+  "todo-tree.tree.sort": true,
+  "todo-tree.tree.sortTagsOnlyViewAlphabetically": false,
+  "todo-tree.tree.trackFile": true,
+  "todo-tree.tree.buttons.expand": true,
+  "todo-tree.tree.buttons.export": false,
+  "todo-tree.tree.buttons.filter": true,
+  "todo-tree.tree.buttons.groupBySubTag": false,
+  "todo-tree.tree.buttons.groupByTag": true,
+  "todo-tree.tree.buttons.refresh": true,
+  "todo-tree.tree.buttons.reveal": true,
+  "todo-tree.tree.buttons.scanMode": false,
+  "todo-tree.tree.buttons.viewStyle": true,
+  "todo-tree.regex.enableMultiLine": false,
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules/*/**",
+    "**/.config/linters/vale/styles/**/*",
+    "**/.git/**/*",
+    ".git*",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".github/PULL_REQUEST_TEMPLATE/**/*.md"
+  ],
+  "todo-tree.general.tags": ["BUG", "FIX", "TASK", "TEMPLATE TODO", "TODO", "- [ ]"],
+  "todo-tree.general.tagGroups": {
+    "CHECKLIST": ["TEMPLATE TODO", "- [ ]"],
+    "TODO": ["BUG", "FIX", "TASK", "TODO"]
+  },
+
+  /**
+   * Name: Vale VSCode
+   * Id: chrischinchilla.vale-vscode
+   * Description: The Visual Studio Code extension for Vale.
+   * Publisher: Chris Chinchilla
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ChrisChinchilla.vale-vscode
+   */
+  "vale.enableSpellcheck": false,
+  "vale.valeCLI.minAlertLevel": "inherited",
+
+  /**
+   * Name: YAML
+   * Id: redhat.vscode-yaml
+   * Description: YAML Language Support by Red Hat, with built-in Kubernetes syntax support
+   * Publisher: Red Hat
+   * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
+   */
+  "redhat.telemetry.enabled": false,
+  "yaml.completion": true,
+  "yaml.disableAdditionalProperties": false,
+  "yaml.disableDefaultProperties": false,
+  "yaml.extension.recommendations": true,
+  "yaml.format.bracketSpacing": true,
+  "yaml.format.enable": true,
+  "yaml.format.printWidth": 120,
+  "yaml.format.proseWrap": "preserve",
+  "yaml.format.singleQuote": false,
+  "yaml.hover": true,
+  "yaml.keyOrdering": false,
+  "yaml.maxItemsComputed": 5000,
+  "yaml.schemaStore.enable": true,
+  "yaml.schemaStore.url": "https://www.schemastore.org/api/json/catalog.json",
+  "yaml.style.flowMapping": "allow",
+  "yaml.style.flowSequence": "allow",
+  "yaml.trace.server": "off",
+  "yaml.validate": true,
+  "yaml.yamlVersion": "1.2",
+  "cSpell.suggestionMenuType": "quickFix"
+}

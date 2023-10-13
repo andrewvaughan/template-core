@@ -1,0 +1,8 @@
+##
+# Vale special words dictionary rejections
+#
+# This file defines unacceptable words and phrases for this specific project. Add common operational phrases to the
+# parallel `Ops` vocabulary folder, reserving this file for project-specific phrases.
+#
+# @link https://vale.sh/docs/topics/vocab/
+#

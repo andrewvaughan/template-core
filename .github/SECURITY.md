@@ -3,6 +3,8 @@
 This project take the security of its products and services seriously and follows the
 [MITRE.org definition][MITRE-definition] of a security vulnerability, which defines a security vulnerability as:
 
+<!-- vale off -->
+
 > “\[A\] weakness in the computational logic (e.g., code) found in software and hardware components that, when
 > exploited, results in a negative impact to confidentiality, integrity, OR availability. Mitigation of the
 > vulnerabilities in this context typically involves coding changes but could also include specification changes or even
@@ -10,41 +12,50 @@ This project take the security of its products and services seriously and follow
 
 **_--[MITRE.org CNA Rules][MITRE-rules] 7.1_**
 
-If you believe you have found such a security vulnerability in this project, please report it to us as soon as possible,
-as described, below.
+<!-- vale on -->
 
+If you believe you have found such a security vulnerability in this project, please report it as soon as possible, as
+described, below.
+
+<!-- prettier-ignore-start -->
+<!-- omit from toc -->
 ## Contents
 
 - [Security Policy](#security-policy)
-  - [Contents](#contents)
-  - [Reporting Security Issues](#reporting-security-issues)
-    - [Preferred Language](#preferred-language)
-  - [Coordinated Vulnerability Disclosure Policy](#coordinated-vulnerability-disclosure-policy)
+  - [Reporting security vulnerabilities](#reporting-security-vulnerabilities)
+    - [Preferred language](#preferred-language)
+  - [Coordinated Vulnerability Disclosure (CVD) Policy](#coordinated-vulnerability-disclosure-cvd-policy)
 
-## Reporting Security Issues
+---
+<!-- prettier-ignore-end -->
 
-**_Please do not report security vulnerabilities through public GitHub issues, discussions, or pull requests._**
+## Reporting security vulnerabilities
 
-If you believe you have found a security vulnerability in this project, please report it to us through coordinated
-disclosure. To do this, please email the project owner at [hello@andrewvaughan.io][email].
+**_Please don't report security vulnerabilities through public GitHub Issues, Discussions, or Pull Requests._**
 
-Please include as much of the following information as possible to help us come to properly address the finding:
+If you believe you have found a security vulnerability in this project, please report it through coordinated disclosure.
+To do this, please file a draft [Security Advisory][advisory] with the project.
 
-- The type of issue _(e.g., buffer overflow, SQL injection, or cross-site scripting)_
-- Full paths of source file(s) related to the manifestation of the issue
-- The location of the affected source code _(i.e., tag/branch/commit or direct URL)_
-- Any special configuration required to reproduce the issue
-- Step-by-step instructions to reproduce the issue
-- Proof-of-concept or exploit code _(if possible)_
-- Impact of the issue, including how an attacker might exploit the issue
+Please include as much of the following information as possible to help Project Maintainers properly address the
+finding:
 
-This information will help us triage your report more quickly.
+- The type of vulnerability - _For example, buffer overflow, SQL injection, or cross-site scripting_
+- Full paths of source files related to the manifestation of the vulnerability
+- The location of the affected source code - _For example, the Tag, Branch, commit or direct URL to the ref_
+- Any special configuration required to reproduce the problem
+- Step-by-step instructions to reproduce the problem
+- Proof-of-concept or exploit code, if possible
+- Impact of the vulnerability, including how an attacker might exploit the state
 
-### Preferred Language
+This information helps triage such reports more quickly.
+
+### Preferred language
 
 When possible, please use English when providing security reports.
 
-## Coordinated Vulnerability Disclosure Policy
+<!-- vale off -->
+
+## Coordinated Vulnerability Disclosure (CVD) Policy
 
 Under the principle of Coordinated Vulnerability Disclosure, researchers disclose newly discovered vulnerabilities in
 hardware, software, and services directly to the vendors of the affected product; to a national CERT or other
@@ -62,12 +73,13 @@ For more information on CVD, please review the information provided in the follo
 
 - [ISO/IEC 29147:2018 on Vulnerability Disclosure][ISO-29147]
 - [The CERT Guide to Coordinated Vulnerability Disclosure][CERT-guide]
+<!-- vale on -->
 
 <!-- Link Repository -->
 
 <!-- editorconfig-checker-disable -->
 
-[email]: mailto:hello@andrewvaughan.io?subject=GitHub%20Project%20Security%20Disclosure&body=Please%20provide%20the%20following%20information%3A%0A%0AType%20of%20issue%3A%0A(e.g.%20buffer%20overflow%2C%20SQL%20injection%2C%20cross-site%20scripting%2C%20etc.)%0A%0AFull%20paths%20of%20source%20file(s)%20related%20to%20the%20manifestation%20of%20the%20issue%3A%0A%0AThe%20location%20of%20the%20affected%20source%20code%3A%0A(i.e..%2C%20tag%2Fbranch%2Fcommit%20or%20direct%20URL)%0A%0AAny%20special%20configuration%20required%20to%20reproduce%20the%20issue%3A%0A%0AStep-by-step%20instructions%20to%20reproduce%20the%20issue%3A%0A%0AProof-of-concept%20or%20exploit%20code%20(if%20possible)%3A%0A%0AImpact%20of%20the%20issue%2C%20including%20how%20an%20attacker%20might%20exploit%20the%20issue%3A%0A
+[advisory]: https://github.com/andrewvaughan/template-core/security/advisories/new
 [CERT-guide]: https://resources.sei.cmu.edu/asset_files/SpecialReport/2017_003_001_503340.pdf
 [ISO-29147]: https://www.iso.org/standard/72311.html
 [MITRE-definition]: https://www.cve.org/ResourcesSupport/AllResources/CNARules#section_7-1_what_is_a_vulnerability

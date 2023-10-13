@@ -1,14 +1,33 @@
 ##
 # Building
 #
-# This file defines targets used for building the application.
+# This file defines targets used for building the project.
 #
 
-.PHONY: all
+.PHONY: all dev-dependencies
 
 
 ##
-# Defaults to showing the help message.
+# Default target - shows the help message
 #
 all: help
-	echo DEBUG=$(DEBUG)
+
+
+## ---------------------------------------------------------------------------------------------------------------------
+# Dependencies
+#
+
+
+##
+# Install dependencies for development
+#
+# Some of these changes may impact the Repository. Commit these changes if they occur.
+#
+dev-dependencies:
+	$(call _title, Updating development dependencies)
+
+	$(call _header, Updating prose style guide)
+	echo
+	rm -rf .config/linters/vale/styles/Google
+	$(NPX) vale sync
+	echo

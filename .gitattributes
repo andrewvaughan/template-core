@@ -1,20 +1,21 @@
-########################################################################################################################
-# Enforces proper diff settings and makes use of GitHub LFS for binary files.
+##
+# Enforces proper diff settings and makes use of GitHub LFS for binary files
 #
 
 
-########################################################################################################################
+##
 # AUTO-DETECT
-#   Handle line endings automatically for files detected as
-#   text and leave all files detected as binary untouched.
-#   This will handle all files NOT defined below.
+#
+# Handle line endings automatically for files detected as text and leave all files detected as binary untouched. This
+# handles all files not defined below.
 #
 
 * text=auto
 
 
-########################################################################################################################
-# SOURCE CODE
+##
+# Source Code
+#
 
 *.bat      text eol=crlf
 *.coffee   text
@@ -47,15 +48,17 @@
 *.xhtml    text diff=html
 
 
-########################################################################################################################
-# DOCKER
+##
+# Docker
+#
 
 *.dockerignore text
 Dockerfile     text
 
 
-########################################################################################################################
-# DOCUMENTATION
+##
+# Documentation
+#
 
 *.ipynb      text
 *.markdown   text
@@ -83,8 +86,9 @@ readme       text
 TODO         text
 
 
-########################################################################################################################
-# TEMPLATES
+##
+# Templates
+#
 
 *.dot        text
 *.ejs        text
@@ -102,8 +106,9 @@ TODO         text
 *.twig       text
 
 
-########################################################################################################################
-# LINTERS
+##
+# Linters
+#
 
 .csslintrc    text
 .eslintrc     text
@@ -114,8 +119,9 @@ TODO         text
 .stylelintrc  text
 
 
-########################################################################################################################
-# CONFIGS
+##
+# Configurations
+#
 
 *.bowerrc       text
 *.cnf           text
@@ -137,8 +143,9 @@ Makefile        text
 makefile        text
 
 
-########################################################################################################################
-# GRAPHICS
+##
+# Graphics
+#
 
 *.ai   filter=lfs diff=lfs merge=lfs -text
 *.bmp  filter=lfs diff=lfs merge=lfs -text
@@ -163,8 +170,9 @@ makefile        text
 *.webp filter=lfs diff=lfs merge=lfs -text
 
 
-########################################################################################################################
-# AUDIO
+##
+# Audio
+#
 
 *.kar  filter=lfs diff=lfs merge=lfs -text
 *.m4a  filter=lfs diff=lfs merge=lfs -text
@@ -175,8 +183,9 @@ makefile        text
 *.ra   filter=lfs diff=lfs merge=lfs -text
 
 
-########################################################################################################################
-# VIDEO
+##
+# Video
+#
 
 *.3gpp filter=lfs diff=lfs merge=lfs -text
 *.3gp  filter=lfs diff=lfs merge=lfs -text
@@ -197,8 +206,9 @@ makefile        text
 *.webm filter=lfs diff=lfs merge=lfs -text
 
 
-########################################################################################################################
-# ARCHIVES
+##
+# Archives
+#
 
 *.7z  filter=lfs diff=lfs merge=lfs -text
 *.gz  filter=lfs diff=lfs merge=lfs -text
@@ -208,8 +218,9 @@ makefile        text
 *.zip filter=lfs diff=lfs merge=lfs -text
 
 
-########################################################################################################################
-# FONTS
+##
+# Fonts
+#
 
 *.ttf   filter=lfs diff=lfs merge=lfs -text
 *.eot   filter=lfs diff=lfs merge=lfs -text
@@ -218,8 +229,9 @@ makefile        text
 *.woff2 filter=lfs diff=lfs merge=lfs -text
 
 
-########################################################################################################################
-# EXECUTABLES
+##
+# Executables
+#
 
 *.exe filter=lfs diff=lfs merge=lfs -text
 *.pyc filter=lfs diff=lfs merge=lfs -text

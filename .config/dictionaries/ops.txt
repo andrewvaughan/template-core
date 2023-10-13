@@ -1,31 +1,66 @@
+##
+# Operations dictionary
+#
+# This dictionary contains the various special words implemented as part of the automation and operational dependencies,
+# including configuration files. Don't add words specific to this project in this file. Instead, please place these in
+# the `project.txt` file.
+#
+# @link https://cspell.org/docs/dictionaries-custom/
+#
+
 andrewvaughan
+Anson
 addsuffix
+azuretools
+Behaviour
+bierner
+Bierner
 catthehacker
 CHECKMAKE
+Chiberia
+chrischinchilla
+davidanson
 devcontainer
+eamodio
 endef
+esac
+esbenp
 exceptmask
 failbit
 findstring
+gruntfuggly
+Gruntfuggly
+ifdef
 ifeq
 ifneq
 Imgur
+JSONLINT
 keyscan
 kics
 KICS
+Makefiles
 MAKEFLAGS
+MARKDOWNLINT
+mdtext
+mdtxt
+mdwn
 megalinter
+naumovs
 nektos
+numfmt
+oderwat
 ONESHELL
 opencontainers
 oxsecurity
 Pieter
 pipefail
+rgba
 ritm
 rmul
 Rulesets
 ruleset
 SDLC
+Sergii
 setab
 setaf
 setstate
@@ -34,7 +69,10 @@ sitm
 smul
 Snipboard
 stefanzweifel
+tabmix
 tput
 Txterm
 Wontfix
 Wuille
+yzhang
+Zhang

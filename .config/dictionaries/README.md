@@ -1,15 +1,28 @@
-# CSpell Dictionaries
+# CSpell dictionaries
 
-These `.txt` files contain various dictionaries of custom words that should be accepted by the spelling checker.
+The spellcheck linter ([CSpell][cspell]) uses the `.txt` files within this folder as custom dictionaries when processing
+files for spelling mistakes. The spellcheck utility checks all files, not just documentation, so occasions may occur
+where developers may need to enter code into the dictionaries. Separate dictionary files are a good way to manage this,
+such as the provided [`ops.txt`](ops.txt) dictionary.
 
-Two dictionaries are provided by default:
+Multiple languages are also easily supported by adding a dictionary file for each.
 
-1. `ops.txt` contains words from the template controls and operations of the project
-2. `project.txt` contains words that should be accepted from the project
+By default, this project includes two dictionaries:
 
-Additional dictionaries can be added as-needed (e.g., for translations, etc).
+- [`ops.txt`](ops.txt) contains acceptable words for operations and from automation provided by the base template
+- [`project.txt`](project.txt) contains acceptable words for the specific project
+
+Developers should add additional dictionaries, as needed, in this directory. Don't forget to update the
+[`.cspell.json`][config] file you add a dictionary, per the [instructions][add-dictionary].
 
 ## References
 
-* [CSpell Custom Dictionaries](https://cspell.org/docs/dictionaries-custom/)
-* [.cspell.json](../linters/.cspell.json)
+- [CSpell custom dictionaries][docs-dicts]
+- [CSpell configuration][config]
+
+<!-- Link repository -->
+
+[add-dictionary]: https://cspell.org/docs/dictionaries/#dictionary-definition
+[config]: ../linters/.cspell.json
+[cspell]: https://cspell.org
+[docs-dicts]: https://cspell.org/docs/dictionaries-custom/

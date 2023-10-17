@@ -14,22 +14,20 @@
 
 <!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project -->
 
-<div align="center">
 [![Version][badge-version-img]][badge-version]
 [![License][badge-license-img]][badge-license]
 [![Build Status][badge-build-img]][badge-build]
 [![Linting][badge-linting-img]][badge-linting]
 [![Coverage][badge-coverage-img]][badge-coverage]
-<br/>
+&nbsp;
 [![New Since v0.0.0][badge-since-last-ver-img]][badge-since-last-ver]
 [![Issue Develop Avg][badge-issue-dev-avg-img]][badge-issue-dev-avg]
 [![Last Edge Release][badge-last-edge-img]][badge-last-edge]
 [![Last Stage Release][badge-last-stage-img]][badge-last-stage]
 [![Last Prod Release][badge-last-prod-img]][badge-last-prod]
-<br/>
+&nbsp;
 [![Sponsor][badge-sponsor-img]][badge-sponsor]
 [![Discord][badge-discord-img]][badge-discord]
-</div>
 
 <!-- TEMPLATE TODO -->
 
@@ -148,7 +146,7 @@ This project aims to be as agnostic as possible across all development environme
 are purposely limited to a few critical elements:
 
 | Dependency             | Purpose                                                                    |
-|:-----------------------|:---------------------------------------------------------------------------|
+| :--------------------- | :------------------------------------------------------------------------- |
 | [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally         |
 | [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code       |
 | [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands          |

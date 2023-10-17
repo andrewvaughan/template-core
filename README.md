@@ -4,7 +4,7 @@
 <!-- editorconfig-checker-disable -->
 
 <!-- TEMPLATE TODO - Update or remove the hero image -->
-<div align="center">
+<div style="text-align: center;">
   <a href="https://github.com/andrewvaughan/template-core" target="blank" title="New Project Template">
     <!-- markdown-link-check-disable-next-line -->
     <img src="https://example.com/path/to/banner-1896x498.png" alt="New Project Template" min-height="200px" />
@@ -14,7 +14,7 @@
 <!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project -->
 
 <!-- Start Badges -->
-<div align="center">
+<div style="text-align: center;">
   <!-- Version -->
   <a href="https://github.com/andrewvaughan/template-core/releases" target="_blank" title="Version">
     <img src="https://img.shields.io/github/v/release/andrewvaughan/template-core?sort=semver" alt="Version" />
@@ -25,8 +25,7 @@
     <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white" alt="License" />
   </a>
 </div>
-
-<center>
+<div align="center">
   <!-- Build Status -->
   <a href="https://github.com/andrewvaughan/template-core/actions" target="_blank" title="Build Status">
     <img src="https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=flat&logo=dependabot&logoColor=white" alt="Build Status" />
@@ -41,9 +40,8 @@
   <a href="https://github.com/andrewvaughan/template-core" target="_blank" title="Code Coverage">
     <img src="https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg" alt="Code Coverage" />
   </a>
-</center>
-<br/>
-<center>
+</div>
+<div align="center">
   <!-- Last Edge Release -->
   <a href="https://github.com/andrewvaughan/template-core/commits/main/" target="_blank" title="Last Edge Release">
     <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?logo=github&label=last%20edge%20push" alt="Last Edge Release" />
@@ -58,9 +56,8 @@
   <a href="https://github.com/andrewvaughan/template-core/commits/production/" target="_blank" title="Last Production Release">
     <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=last%20prod%20push" alt=Last Production Release" />
   </a>
-</center>
-<br/>
-<center>
+</div>
+<div align="center">
   <!-- New Since Last Version -->
   <a href="https://github.com/andrewvaughan/template-core/commits/main/" target="_blank" title="New Since Last Version">
     <img src="https://img.shields.io/github/commits-since/andrewvaughan/template-core/0.0.0?logo=github&label=new%20since%20v0.0.0" alt="New Since Last Version" />
@@ -70,9 +67,8 @@
   <a href="https://github.com/andrewvaughan/template-core/graphs/commit-activity/" target="_blank" title="Issue Resolution Average per Month">
     <img src="https://img.shields.io/github/commit-activity/m/andrewvaughan/template-core/main?logo=github&label=issue%20solve%20avg" alt="Issue Resolution Average per Month" />
   </a>
-</center>
-<br/>
-<center>
+</div>
+<div align="center">
   <!-- Sponsor -->
   <a href="https://andrewvaughan.github.io/sponsorships" target="_blank" title="Sponsor This Project">
     <img src="https://img.shields.io/badge/sponsor%20me!-4AAAEA.svg?style=flat&logo=githubsponsors&logoColor=EA4AAA" alt="Sponsor This Project" />
@@ -82,7 +78,7 @@
   <a href="https://discord.gg/6x6T3yMtvB" target="_blank" title="Discord">
     <img src="https://img.shields.io/badge/Join_the_Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white" alt="Discord" />
   </a>
-</center>
+</div>
 <!-- End Badges -->
 
 <!-- markdownlint-enable MD033 -->

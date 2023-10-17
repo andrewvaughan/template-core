@@ -4,7 +4,7 @@
 <!-- editorconfig-checker-disable -->
 
 <!-- TEMPLATE TODO - Update or remove the hero image -->
-<div style="text-align: center;">
+<div align="center">
   <a href="https://github.com/andrewvaughan/template-core" target="blank" title="New Project Template">
     <!-- markdown-link-check-disable-next-line -->
     <img src="https://example.com/path/to/banner-1896x498.png" alt="New Project Template" min-height="200px" />
@@ -14,7 +14,7 @@
 <!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project -->
 
 <!-- Start Badges -->
-<div style="text-align: center;">
+<div align="center">
   <!-- Version -->
   <a href="https://github.com/andrewvaughan/template-core/releases" target="_blank" title="Version">
     <img src="https://img.shields.io/github/v/release/andrewvaughan/template-core?sort=semver" alt="Version" />

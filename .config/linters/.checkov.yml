@@ -1,8 +1,35 @@
-# This is based on the default Megalinter configuration with some additions
+##
+# Checkov linter configutration
+#
+# Checkov scans cloud infrastructure configurations to find misconfigurations before they're deployed.
+#
+# MegaLinter manages all execution of this linter.
+#
+# @link https://www.checkov.io/
+# @link https://github.com/bridgecrewio/checkov
+# @link https://github.com/bridgecrewio/checkov#configuration-using-a-config-file
+# @link http://megalinter.io/6.7.0/descriptors/repository_checkov/
+#
+# This file is an extension of the MegaLinter default configuration file, available here:
 #
 # @link https://github.com/oxsecurity/megalinter/blob/main/TEMPLATES/.checkov.yml
-
+#
+---
+##
+# Display only failed checks and turn off progress bars
+#
 quiet: true
+
+##
+# Disables specific checks
+#
 skip-check:
+  ##
+  # Ensure that containers have `HEALTHCHECK` instructions, the default from MegaLinter
+  #
   - CKV_DOCKER_2
+
+  ##
+  # Ensures no GitHub Action files expose all write permissions, which currently creates false positives
+  #
   - CKV2_GHA_1

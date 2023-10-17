@@ -1,36 +1,38 @@
-# Template Checklist
+# Template checklist
 
-When creating a new project from this template, ensure these steps are taken immediately after provisioning.
+When creating a new project from this template, ensure to take these steps immediately after provisioning.
 
+<!-- prettier-ignore-start -->
+<!-- omit from toc -->
 ## Contents
 
-- [Template Checklist](#template-checklist)
-  - [Contents](#contents)
-  - [Pre-Steps](#pre-steps)
-  - [1 - Configure GitHub Repository Settings](#1---configure-github-repository-settings)
-    - [General Settings](#general-settings)
+- [Template checklist](#template-checklist)
+  - [Pre-steps](#pre-steps)
+  - [1. Configure GitHub Repository settings](#1-configure-github-repository-settings)
+    - [General settings](#general-settings)
       - [Features](#features)
       - [Pull Requests](#pull-requests)
       - [Archives](#archives)
-    - [Branch and Tag Protection](#branch-and-tag-protection)
+    - [Branch and Tag protection](#branch-and-tag-protection)
     - [Labels](#labels)
-  - [2 - Configure Files for New Project](#2---configure-files-for-new-project)
-  - [3 - Select a License](#3---select-a-license)
+  - [2. Configure files for new project](#2-configure-files-for-new-project)
+  - [3. Select a License](#3-select-a-license)
     - [Permissions](#permissions)
     - [Conditions](#conditions)
     - [Limitations](#limitations)
-  - [4 - Configure Linting](#4---configure-linting)
-  - [5 - Cleanup](#5---cleanup)
-  - [Next Steps](#next-steps)
+  - [4. Configure linting](#4-configure-linting)
+  - [5. Cleanup](#5-cleanup)
+  - [Next steps](#next-steps)
   - [Appendix](#appendix)
-    - [Folder Structure](#folder-structure)
+    - [Folder structure](#folder-structure)
 
 ---
+<!-- prettier-ignore-end -->
 
-## Pre-Steps
+## Pre-steps
 
-After checking out the new project, run the following command locally to update link targets to the new repository
-instead of the original [`template-core`][template-core] repository.
+After checking out the new project, run the following command locally to update link targets to the new Repository
+instead of the original [`template-core`][template-core] Repository.
 
 > **Note:** If on FreeBSD/macOS, install [`gnu-sed`][homebrew-sed] or use this `sed` command, instead:
 >
@@ -45,23 +47,24 @@ REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin
 ```
 
 For the rest of setup, refer to this changed document to have accurate links to references in the steps. For cleanest
-results, Hold off on committing and pushing these changes until all steps in this file have been completed.
+results, hold off on committing and pushing these changes until all steps in this file are complete.
 
-## 1 - Configure GitHub Repository Settings
+## 1. Configure GitHub Repository settings
 
-The GitHub template system has many limitations, only copying over files and, if selected, branches from the parent
-repository. As such, it is important to configure the repository to the project standard prior to modifying any of the
-repository files.
+The GitHub template system has many limitations, only copying over files and, if selected, Branches from the parent
+Repository. As such, it's important to configure the Repository to the project standard prior to modifying any of the
+Repository files.
 
-### General Settings
+### General settings
 
-Visit the [General Settings][gh-settings] page for the repository.
+Visit the [General Settings][gh-settings] page for the Repository.
 
 - [ ] **CHECK** `Require contributors to sign off on web-based commits`
 
 #### Features
 
 - [ ] **CHECK** `Discussions`
+- [ ] **CHECK** `Sponsorships`
 
 #### Pull Requests
 
@@ -73,9 +76,9 @@ Visit the [General Settings][gh-settings] page for the repository.
 
 - [ ] **CHECK** `Include Git LFS objects in archives`
 
-### Branch and Tag Protection
+### Branch and Tag protection
 
-Visit the [Rulesets][gh-rulesets] page for the repository.
+Visit the [Rulesets][gh-rulesets] page for the Repository.
 
 - [ ] From the dropdown, select `New tag ruleset` with the following configuration:
 
@@ -117,6 +120,7 @@ Visit the [Rulesets][gh-rulesets] page for the repository.
     - **CHECK** `Restrict creations`
 
 - [ ] Click `New branch ruleset` with the following configuration:
+
   - **Ruleset Name:** `Environment Branch Protections`
   - **Enforcement Status:** `Active`
   - Click `+ Add bypass`
@@ -161,17 +165,19 @@ Visit the [Rulesets][gh-rulesets] page for the repository.
 
 ### Labels
 
-> A [workflow][issue-label-sync] is planned to automate label syncing with the core template; however, this has not been
-> implemented, yet.
+> Work is in progress on a [workflow][issue-label-sync] to automate label syncing with the core template; however, this
+> hasn't seem implementation, yet.
 >
-> In the meantime, copy all configurations manually from the [`template-core`][template-core] repository to the
+> In the meantime, copy all configurations manually from the [`template-core`][template-core] Repository to the
 > [Labels][labels] section.
 
 ---
 
-## 2 - Configure Files for New Project
+## 2. Configure files for new project
 
-- [ ] Add and/or remove any files or [folders](#folder-structure) that do not apply to the project
+- [ ] Enable `git lfs` for the project with `git lfs install`
+- [ ] Add and/or remove any files or [folders](#folder-structure) that don't apply to the project
+- [ ] Recommit any binary files to be `lfs` supported - for example, in the `docs` folder
 
 - [ ] Remove all `.empty` files
 
@@ -179,7 +185,7 @@ Visit the [Rulesets][gh-rulesets] page for the repository.
 find . -type f -name '.empty' -delete
 ```
 
-- [ ] Perform a search and replace for `andrewvaughan/template-core` and update the repository name
+- [ ] Perform a search and replace for `andrewvaughan/template-core` and update the Repository name
 
 > **Note:** If on FreeBSD/macOS, install [`gnu-sed`][homebrew-sed] or use this `sed` command, instead:
 >
@@ -196,98 +202,98 @@ REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin
 
 ---
 
-## 3 - Select a License
+## 3. Select a License
 
-Several [licenses][choose-a-license] are available based on the Privileges, Conditions, and Limitations for licensees of
-the project. Each is listed from least-restrictive to most-restrictive in the sections, below.
+Several [Licenses][choose-a-license] are available based on the privileges, conditions, and limitations for Licensees of
+the project. Each table includes Licenses in order from least-restrictive to most-restrictive in the sections, below.
 
-- [ ] Select the appropriate license using the tables below as a guide
-- [ ] Delete all [`LICENSE.*`][license-dir] files that are not applicable
-- [ ] Replace the existing [`LICENSE`][license] file with the chosen license
+- [ ] Select the appropriate License using the tables below as a guide
+- [ ] Delete all [`LICENSE.*`][license-dir] files that aren't applicable
+- [ ] Replace the existing [`LICENSE`][license] file with the chosen License
 - [ ] Check that all dates and copyright owners are correct
-- [ ] Update the `README.md` badge to show the correct license
+- [ ] Update the `README.md` badge to show the correct License
 - [ ] Add the appropriate [`LICENSE`][license] boilerplate to the [`README.md`][readme] file, if applicable
 - [ ] Add the appropriate [`LICENSE`][license] boilerplate to any source files, if applicable
 
 ### Permissions
 
-| License File                   | Commercial Use | Distribution | Modification | Patent Use | Private Use |
-|:-------------------------------|:--------------:|:------------:|:------------:|:----------:|:-----------:|
-| [LICENSE.unlicense][unlicense] |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
-| [LICENSE.mit][mit]             |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
-| [LICENSE.apache][apache2]      |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
-| [LICENSE.gpl3][gpl3]           |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
-| LICENSE.proprietary            |       -        |      -       |      -       |     -      |      -      |
+| License File                     | Commercial Use | Distribution | Modification | Patent Use | Private Use |
+|:---------------------------------|:--------------:|:------------:|:------------:|:----------:|:-----------:|
+| [`LICENSE.unlicense`][unlicense] |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
+| [`LICENSE.mit`][mit]             |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
+| [`LICENSE.apache`][apache2]      |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
+| [`LICENSE.gpl3`][gpl3]           |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
+| `LICENSE.proprietary`            |       -        |      -       |      -       |     -      |      -      |
 
 As described by:
 
 | Permission     | Description                                                               |
 |:---------------|:--------------------------------------------------------------------------|
-| Commercial Use | The licensed material and derivatives may be used for commercial purposes |
-| Distribution   | The licensed material may be distributed                                  |
-| Modification   | The licensed material may be modified                                     |
-| Patent Use     | This license provides an express grant of patent rights from contributors |
-| Private Use    | The licensed material may be used and modified in private                 |
+| Commercial Use | This License grants use for commercial purpose, including derivatives     |
+| Distribution   | This License grants distribution of the licensed material                 |
+| Modification   | This Licensed grants modification rights                                  |
+| Patent Use     | This License provides an express grant of patent rights from Contributors |
+| Private Use    | This License grants modification rights in private                        |
 
 ### Conditions
 
-| License File                   | Disclose Source | License/Copyright Notice | Same License | State Changes |
-|:-------------------------------|:---------------:|:------------------------:|:------------:|:-------------:|
-| [LICENSE.unlicense][unlicense] |        -        |            -             |      -       |       -       |
-| [LICENSE.mit][mit]             |        -        |           Yes            |      -       |       -       |
-| [LICENSE.apache][apache2]      |        -        |           Yes            |      -       |      Yes      |
-| [LICENSE.gpl3][gpl3]           |       Yes       |           Yes            |     Yes      |      Yes      |
-| LICENSE.proprietary            |        -        |            -             |      -       |       -       |
+| License File                     | Disclose Source | License/Copyright Notice | Same License | State Changes |
+|:---------------------------------|:---------------:|:------------------------:|:------------:|:-------------:|
+| [`LICENSE.unlicense`][unlicense] |        -        |            -             |      -       |       -       |
+| [`LICENSE.mit`][mit]             |        -        |           Yes            |      -       |       -       |
+| [`LICENSE.apache`][apache2]      |        -        |           Yes            |      -       |      Yes      |
+| [`LICENSE.gpl3`][gpl3]           |       Yes       |           Yes            |     Yes      |      Yes      |
+| `LICENSE.proprietary`            |        -        |            -             |      -       |       -       |
 
 As described by:
 
 <!-- editorconfig-checker-disable -->
 
-| Permission               | Description                                                                                                                                           |
-|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Disclose Source          | Source code must be made available when the licensed material is distributed                                                                          |
-| License/Copyright Notice | A copy of the license and copyright notice must be included with the licensed material                                                                |
-| Same License             | Modifications must be released under the same license when distributing the licensed material; in some cases a similar or related license may be used |
-| State Changes            | Changes made to the licensed material must be documented                                                                                              |
+| Permission               | Description                                                                                                                                                          |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Disclose Source          | Licensees must make source code available when distributing                                                                                                          |
+| License/Copyright Notice | Licensees must include a copy of the License and copyright notice with the material                                                                                  |
+| Same License             | Licensee must Release modifications under the same License when distributing the licensed material - in some cases the Licensee may use a similar or related License |
+| State Changes            | Licensee must document changes made to the licensed material                                                                                                         |
 
 <!-- editorconfig-checker-enable -->
 
 ### Limitations
 
-| License File                   | Limited Liability | No Trademark | No Warranty |
-|:-------------------------------|:-----------------:|:------------:|:-----------:|
-| [LICENSE.unlicense][unlicense] |        Yes        |      -       |     Yes     |
-| [LICENSE.mit][mit]             |        Yes        |      -       |     Yes     |
-| [LICENSE.apache][apache2]      |        Yes        |     Yes      |     Yes     |
-| [LICENSE.gpl3][gpl3]           |        Yes        |      -       |     Yes     |
-| LICENSE.proprietary            |         -         |      -       |      -      |
+| License File                     | Limited Liability | No Trademark | No Warranty |
+|:---------------------------------|:-----------------:|:------------:|:-----------:|
+| [`LICENSE.unlicense`][unlicense] |        Yes        |      -       |     Yes     |
+| [`LICENSE.mit`][mit]             |        Yes        |      -       |     Yes     |
+| [`LICENSE.apache`][apache2]      |        Yes        |     Yes      |     Yes     |
+| [`LICENSE.gpl3`][gpl3]           |        Yes        |      -       |     Yes     |
+| `LICENSE.proprietary`            |         -         |      -       |      -      |
 
 As described by:
 
 <!-- editorconfig-checker-disable -->
 
-| Permission        | Description                                                                                                                                                               |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Limited Liability | This license includes a limitation of liability                                                                                                                           |
-| No Trademark      | This license explicitly states that it does NOT grant trademark rights, even though licenses without such a statement probably do not grant any implicit trademark rights |
-| No Warranty       | This license explicitly states that it does NOT provide any warranty                                                                                                      |
+| Permission        | Description                                                                                                                                                             |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Limited Liability | This License includes a limitation of liability                                                                                                                         |
+| No Trademark      | This License explicitly states that it doesn't grant trademark rights, even though Licenses without such a statement probably don't grant any implicit trademark rights |
+| No Warranty       | This License explicitly states that it doesn't provide any warranty                                                                                                     |
 
 <!-- editorconfig-checker-enable -->
 
 ---
 
-## 4 - Configure Linting
+## 4. Configure linting
 
-This project comes pre-configured with [Megalinter][megalinter] as the test framework for all linting. By default, the
-full Megalinter [flavor][megalinter-flavors] is used, which is an extremely large and slow setup, and can be better
-configured with a flavor related to the intended project being created.
+This project comes pre-configured with [MegaLinter][megalinter] as the test framework for all linting. By default, the
+project uses the full MegaLinter [flavor][megalinter-flavors] which is an extremely large and slow setup. Refined
+flavors are better configured for an intended and specific project.
 
 The [`Makefile`][makefile] uses the recommended [act][act] tool to replicate integration testing as closely as possible
-on development environments. It is highly recommended to continue this pattern.
+on development environments. It's highly recommended to continue this pattern.
 
 <!-- editorconfig-checker-disable -->
 
-- [ ] Choose the appropriate Megalinter [flavor][megalinter-flavors] and update the [.mega-linter.yml][workflow-megalinter] workflow
+- [ ] Choose the appropriate MegaLinter [flavor][megalinter-flavors] and update the [.mega-linter.yml][workflow-megalinter] workflow
 - [ ] Update the [`mega-linter.yml`][megalinter-config] file appropriate to the new project
 - [ ] Update any additional linting configurations in the [`.config/linters`][linters-config] directory
 
@@ -295,7 +301,7 @@ on development environments. It is highly recommended to continue this pattern.
 
 ---
 
-## 5 - Cleanup
+## 5. Cleanup
 
 With everything else complete, there is only one step left:
 
@@ -303,40 +309,40 @@ With everything else complete, there is only one step left:
 
 ---
 
-## Next Steps
+## Next steps
 
-Once the template has been refined to the purpose, the following steps are usually helpful:
+Once you have refined the template project for its purpose, the following steps are usually helpful:
 
 1. Update the [`README.md`][readme] file to best suit the project
-2. Configure the [`.vscode`][vscode] folder ([documentation here][vscode-docs])
-3. Configure the [`.devcontainer`][devcontainer] folder ([documentation here][devcontainer-docs])
+2. Configure the [`.vscode`][vscode] folder, as [described here][vscode-docs]
+3. Configure the [`.devcontainer`][devcontainer] folder, as [described here][devcontainer-docs]
 4. Update the `all`, `build`, and `test-unit` targets in the [Makefile folder][makefile]
 5. Add any specific dictionary words to the [`.config/dictionaries/project.txt`][dictionary] file
-6. Update the [issue][tpl-issue] and [pull request][tpl-pr] templates
+6. Update the [Issue][tpl-issue] and [Pull Request][tpl-pr] templates
 
 From there, it's a matter of getting started by creating new [source code][source], [tests][tests], and
-[build scripts][build] to make the project a reality. Good luck!
+[build scripts][build] to make the project a reality.
 
 ---
 
 ## Appendix
 
-### Folder Structure
+### Folder structure
 
 This template comes with the following standard folder structure:
 
 <!-- editorconfig-checker-disable -->
 
-| Folder                         | Purpose                                                                                                                                                |
-|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [.build](.build)               | All scripts and resources tied to deployment (e.g., Docker Compose)                                                                                    |
-| [.config](.config)             | All configuration files for local development                                                                                                          |
-| [.devcontainer](.devcontainer) | DevContainer configurations ([GitHub Docs][dc-gh], [VSCode Docs][dc-vsc], [Reference][dc-ref])                                                         |
-| [.github](.github)             | All configuration files for GitHub                                                                                                                     |
-| [.vscode](.vscode)             | All configuration files for Visual Studio Code (note, only certain files should be committed, such as recommended `extensions.json` and `launch.json`) |
-| [docs](docs)                   | All project documentation                                                                                                                              |
-| [src](src)                     | All project source code                                                                                                                                |
-| [tests](tests)                 | All test source code                                                                                                                                   |
+| Folder                         | Purpose                                                                                        |
+|:-------------------------------|:-----------------------------------------------------------------------------------------------|
+| [.build](.build)               | All scripts and resources tied to deployment (for example, Docker Compose)                     |
+| [.config](.config)             | All configuration files for local development                                                  |
+| [.devcontainer](.devcontainer) | DevContainer configurations ([GitHub Docs][dc-gh], [VSCode Docs][dc-vsc], [Reference][dc-ref]) |
+| [.github](.github)             | All configuration files for GitHub                                                             |
+| [.vscode](.vscode)             | Applicable, shared configuration files for VSCode to boost initial productivity                |
+| [docs](docs)                   | All project documentation                                                                      |
+| [src](src)                     | All project source code                                                                        |
+| [tests](tests)                 | All test source code                                                                           |
 
 <!-- editorconfig-checker-enable -->
 
@@ -344,39 +350,37 @@ This template comes with the following standard folder structure:
 
 <!-- editorconfig-checker-disable -->
 
-<!-- TODO - example.com links -->
-
 [act]: https://github.com/nektos/act
 [apache2]: https://choosealicense.com/licenses/apache-2.0/
-[build]: https://github.com/andrewvaughan/template-core/tree/main/.build
-[checklist]: https://example.com
+[build]: .build
+[checklist]: _TEMPLATE_CHECKLIST.md
 [choose-a-license]: https://choosealicense.com/
-[devcontainer]: https://github.com/andrewvaughan/template-core/tree/main/.devcontainer
+[devcontainer]: .devcontainer
 [devcontainer-docs]: https://code.visualstudio.com/docs/devcontainers/containers
-[dictionary]: https://github.com/andrewvaughan/template-core/blob/main/.config/dictionaries/project.txt
+[dictionary]: .config/dictionaries/project.txt
 [gpl3]: https://choosealicense.com/licenses/gpl-3.0/
 [homebrew-sed]: https://formulae.brew.sh/formula/gnu-sed
 [issue-label-sync]: https://github.com/andrewvaughan/template-core/issues/1
 [labels]: https://github.com/andrewvaughan/template-core/labels
-[license]: https://github.com/andrewvaughan/template-core/blob/main/LICENSE
+[license]: LICENSE
 [license-dir]: https://github.com/andrewvaughan/template-core/tree/main
-[linters-config]: https://github.com/andrewvaughan/template-core/tree/main/.config/linters
-[makefile]: https://github.com/andrewvaughan/template-core/tree/main/.config/make
+[linters-config]: .config/linters
+[makefile]: .config/make
 [megalinter]: https://megalinter.io/
-[megalinter-config]: https://github.com/andrewvaughan/template-core/blob/main/.mega-linter.yml
+[megalinter-config]: .mega-linter.yml
 [megalinter-flavors]: https://megalinter.io/latest/flavors/
 [mit]: https://choosealicense.com/licenses/mit/
 [unlicense]: https://choosealicense.com/licenses/unlicense/
 [dc-gh]: https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
 [dc-ref]: https://github.com/oxsecurity/megalinter/tree/main/.devcontainer
 [dc-vsc]: https://code.visualstudio.com/docs/devcontainers/containers
-[readme]: https://github.com/andrewvaughan/template-core/blob/main/README.md
-[source]: https://github.com/andrewvaughan/template-core/tree/main/src
-[template-core]: https://t.ly/s79Lm
-[tests]: https://github.com/andrewvaughan/template-core/tree/main/tests
-[tpl-issue]: https://example.com
-[tpl-pr]: https://example.com
-[vscode]: https://github.com/andrewvaughan/template-core/tree/main/.vscode
+[readme]: README.md
+[source]: src
+[template-core]: https://github.com/andrewvaughan/template-core/
+[tests]: tests
+[tpl-issue]: .github/ISSUE_TEMPLATE
+[tpl-pr]: .github/PULL_REQUEST_TEMPLATE
+[vscode]: .vscode
 [vscode-docs]: https://stackoverflow.com/questions/32964920/should-i-commit-the-vscode-folder-to-source-control
 [workflow-megalinter]: https://github.com/andrewvaughan/template-core/blob/main/.github/workflows/mega-linter.yml#L57
 

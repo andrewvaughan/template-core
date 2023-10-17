@@ -13,22 +13,48 @@ PRINT_ALPACA: false
 SHOW_ELAPSED_TIME: true
 SHOW_SKIPPED_LINTERS: true
 
+##
+# Disabled linters
+#
 DISABLE_LINTERS:
   # Lychee is _extremely_ slow right now - consider the usefulness of dead hyper link checking before re-enabling
   - SPELL_LYCHEE
 
-REPOSITORY_KICS_CONFIG_FILE: kics.yml
+##
+# Ignore heavily commented files
+#
+JSON_JSONLINT_FILTER_REGEX_EXCLUDE: (\.vscode/.*\.json)
 
+##
+# Ensure to include the folder of Makefile targets (as Checkmake doesn't follow include directives)
+#
+# @link https://github.com/mrtazz/checkmake/issues/97
+#
 MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
   - .mak
 
 ##
-# Temporary
+# Don't include Vale style guides in the Markdown linter
+#
+MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*)
+
+##
+# Don't include Vale style guides in the V8R linter
+#
+# Ignores the Vale and Issue template folders.
+#
 # @link https://github.com/andrewvaughan/template-core/issues/44
 #
-YAML_V8R_FILTER_REGEX_EXCLUDE: (\.github/ISSUE_TEMPLATE/.*\.yml)
+YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*|\.github/ISSUE_TEMPLATE/.*\.yml)
+
 ##
-# Everything below this line is debugging ongoing local testing issues.
+# Don't include Vale
+#
+YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*)
+## ---------------------------------------------------------------------------------------------------------------------
+
+##
+# Everything below this line is debugging ongoing local testing Issues
 #
 # @link https://github.com/oxsecurity/megalinter/issues/2998
 # @link https://github.com/nektos/act/issues/2039

@@ -1,44 +1,51 @@
 # Code of Conduct
 
-> **Last Updated:** October 9, 2023
+> **Last Updated:** October 14, 2023
+
+<!-- prettier-ignore-start -->
+<!-- omit from toc -->
+## Contents
 
 - [Code of Conduct](#code-of-conduct)
-  - [Community Pledge](#community-pledge)
-  - [Community Standards](#community-standards)
-    - [Peaceful Resolution](#peaceful-resolution)
-  - [Community Leader Responsibilities](#community-leader-responsibilities)
+  - [Community pledge](#community-pledge)
+  - [Community standards](#community-standards)
+    - [Peaceful resolution](#peaceful-resolution)
+  - [Community Leader responsibilities](#community-leader-responsibilities)
   - [Scope](#scope)
   - [Enforcement](#enforcement)
-    - [Reporting an Incident](#reporting-an-incident)
-    - [Enforcement Guidelines](#enforcement-guidelines)
-      - [1. Correction](#1-correction)
-      - [2. Warning](#2-warning)
-      - [3. Temporary Ban](#3-temporary-ban)
-      - [4. Permanent Ban](#4-permanent-ban)
+    - [Reporting an incident](#reporting-an-incident)
+    - [Enforcement guidelines](#enforcement-guidelines)
+      - [Correction for minor infractions](#correction-for-minor-infractions)
+      - [Warning for repeat or moderate infractions](#warning-for-repeat-or-moderate-infractions)
+      - [Temporary ban for sustained or serious infractions](#temporary-ban-for-sustained-or-serious-infractions)
+      - [Permanent ban for sustained or severe infractions](#permanent-ban-for-sustained-or-severe-infractions)
   - [Conclusion](#conclusion)
   - [Attribution](#attribution)
 
-## Community Pledge
+---
+<!-- prettier-ignore-end -->
 
-This project and its Owners and Maintainers (hereinafter, the Community Leaders) are dedicated to providing a positive
-and harassment-free experience for everyone, regardless of age, gender, gender identity and expression, sexual
-orientation, disability, personal appearance, body size, ethnicity, race, religion, nationality, or level of experience.
-We do not tolerate harassment of any person, regardless of how they interact with the project and the community, nor do
-we tolerate any behavior that would reasonably lead to another person being made to feel unsafe, insecure, or frightened
-for their physical or emotional well-being. All communication should be appropriate for a professional audience,
-including people of many different backgrounds.
+## Community pledge
 
-We value diverse opinions, but we value respectful behavior more.
+A positive and harassment-free experience for everyone, regardless of age, gender, gender identity and expression,
+sexual orientation, disability, personal appearance, body size, ethnicity, race, religion, nationality, or level of
+experience, is a key dedication for the project's Owners and Maintainers, known colloquially as the _Community Leaders_,
+to provide. The Community Leaders won't tolerate the harassment of any person, regardless of how they interact with the
+project and the community, nor do the Community Leaders tolerate any behavior that would reasonably lead to another
+person feeling unsafe, insecure, or frightened for their physical or emotional well-being. All communication should be
+appropriate for a professional audience, including people of many different backgrounds.
 
-## Community Standards
+This project's Community Leaders value diverse opinions, but value respectful behavior more.
 
-Examples of behavior that contributes to a positive environment for our community include:
+## Community standards
+
+Examples of behavior that contributes to a positive environment for this community include:
 
 - Demonstrating empathy and kindness toward other people
 - Being respectful of differing opinions, viewpoints, and experiences
 - Giving and gracefully accepting constructive feedback
-- Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
-- Focusing on what is best not just for us as individuals, but for the overall community
+- Accepting responsibility and apologizing to those affected by mistakes and learning from the experience
+- Focusing on what's best, not just for one's priorities, but for the overall community
 
 Examples of unacceptable behavior include:
 
@@ -46,104 +53,110 @@ Examples of unacceptable behavior include:
 - Trolling, insulting or derogatory comments, and personal or political attacks
 - Public or private harassment
 - Publishing others’ private information, such as a physical or email address, without their explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+- Other conduct reasonably considered inappropriate in a professional setting
 
-Be kind to others. Do not insult or put down other community members. Behave professionally. Remember that harassment
-and sexist, racist, or exclusionary jokes are not appropriate at any time, on any forum.
+Be kind to others. Don't insult or put down other community members. Behave professionally. Remember that harassment and
+sexist, racist, or exclusionary jokes aren't appropriate at any time, on any forum.
 
 Each individual is entirely responsible for their own actions.
 
-### Peaceful Resolution
+### Peaceful resolution
 
-We do not believe that all conflict is necessarily bad; healthy debate and disagreement often yields positive result.
-It is never okay to be disrespectful, however.
+The Community Leaders for this project don't believe that all conflict is necessarily bad. Healthy debate and
+disagreement often yields positive result. It's never okay to be disrespectful, however.
 
-If you see someone behaving disrespectfully, you are encouraged to address the behavior directly with those involved.
-Many issues can be resolved quickly and easily, and this gives people more control over the outcome of their dispute. If
-you are unable to resolve the matter for any reason, or if the behavior is threatening or harassing, report it. We are
-dedicated to providing an environment where participants feel welcome and safe.
+If you see someone behaving disrespectfully, the Community Leaders encourage you to address the behavior directly with
+those involved. This often provides a quick and easy resolution, and this gives the parties more control over the
+outcome of their dispute. If you are unable to resolve the matter for any reason, or if the behavior is threatening or
+harassing, report it. An environment where participants feel welcome and safe is the dedication the Community Leaders
+commit to with this policy.
 
-## Community Leader Responsibilities
+## Community Leader responsibilities
 
-Community Leaders are responsible for clarifying the standards of acceptable behavior and are expected to take
-appropriate and fair corrective action in response to any instances of unacceptable behavior.
+The clarification of standards of acceptable behavior is the responsibility of the Community Leaders, and they're
+expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
 
-Community leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits,
-issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for
-moderation decisions, when appropriate.
+Community Leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits,
+Issues, and other contributions that aren't aligned to this Code of Conduct, and they're responsible for communicating
+the rationale of such moderation decisions, when appropriate.
 
 ## Scope
 
 This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the
-project or its community. Examples of representing a project or community include using an official project e-mail
+project or its community. Examples of representing a project or community include using an official project email
 address, posting via an official social media account, or acting as an appointed representative at an online or offline
-event. Representation of a project may be further defined and clarified by project maintainers.
+event. Representation of a project may be further defined and clarified by Project Maintainers.
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at
-any time. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and
-appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter
-of an incident. Further details of specific enforcement policies may be posted separately.
+Contact the project team at any time to report instances of abusive, harassing, or otherwise unacceptable behavior. All
+complaints result in a review, investigation, and response appropriate and necessary to the circumstances. Community
+Leaders always maintain confidentiality with regard to the reporter of any incident. On occasion, Community Leaders may
+post details of specific enforcement policies separately.
 
-Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent
-repercussions as determined by other members of the project's leadership.
+Project Maintainers who don't follow or enforce the Code of Conduct in good faith may face temporary or permanent
+repercussions as determined by other members of the Community Leadership.
 
-### Reporting an Incident
+### Reporting an incident
 
-If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact the
-project owner directly [by email][email].
+If you experience harassment, notice that someone else is experiencing harassment, or have any other concerns, please
+contact the Project Owner directly [by email][email].
 
-Every report will be investigated, but you may not receive a response. We will use our discretion in determining when
-and how to follow up on reported incidents, which may range from not taking action to permanent expulsion from the
-project and project-sponsored spaces.
+Community Leaders investigate each and every report, but you may not receive a response. The use of discretion in
+determining when and how to follow up on reported incidents ranges from not taking action to permanent expulsion from
+the project and project-sponsored spaces.
 
-We will notify the accused of the report and provide them an opportunity to discuss it before any action is taken. The
-identity of the reporter will be omitted from the details of the report supplied to the accused. In potentially harmful
-situations, such as ongoing harassment or threats to anyone's safety, we may take action without notice.
+Community Leaders shall notify the accused of the report and provide them an opportunity to discuss it before they take
+any action. The identity of the reporter is always omitted from the details of any report supplied to accused parties.
+It's possible for the Community Leaders to take action without notice in potentially harmful situations, such as ongoing
+harassment or threats to anyone's safety.
 
-### Enforcement Guidelines
+### Enforcement guidelines
 
-Community leaders will follow this Code of Conduct in determining the consequences for any action they deem in violation
-of this Code of Conduct. The project Owner has full and final discretion over the appropriate action and any appeals for
-these application of these guidelines, including any deviations:
+Community Leaders shall follow this Code of Conduct in determining the consequences for any action they deem in
+violation of this Code of Conduct. The Project Owner has full and final discretion over the appropriate action and any
+appeals regarding the administration of these guidelines, including any deviations.
 
-#### 1. Correction
+#### Correction for minor infractions
 
-**Community Impact:** Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the
+**Community impact:** use of inappropriate language or other behavior deemed unprofessional or unwelcome in the
 community.
 
-**Consequence:** A private, written warning from community leaders, providing clarity around the nature of the violation
-and an explanation of why the behavior was inappropriate. A public apology may be requested.
+**Consequence:** a private, written warning from Community Leaders, providing clarity around the nature of the violation
+and an explanation of why the behavior was inappropriate. Community Leaders may require a personal or public apology.
 
-#### 2. Warning
+#### Warning for repeat or moderate infractions
 
-**Community Impact:** A violation through a single incident or series of actions.
+**Community impact:** a violation through a single incident or series of actions.
 
-**Consequence:** A warning with consequences for continued behavior. No interaction with the people involved, including
+**Consequence:** a warning with consequences for continued behavior. No interaction with the people involved, including
 unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding
 interactions in community spaces as well as external channels like social media. Violating these terms may lead to a
 temporary or permanent ban.
 
-#### 3. Temporary Ban
+#### Temporary ban for sustained or serious infractions
 
-**Community Impact:** A serious violation of community standards, including sustained, inappropriate behavior.
+**Community impact:** a serious violation of community standards, including sustained, inappropriate behavior.
 
-**Consequence:** A temporary ban from any sort of interaction or public communication with the community for a specified
-period of time. No public or private interaction with the people involved, including unsolicited interaction with those
-enforcing the Code of Conduct, is allowed during this period. Violating these terms may lead to a permanent ban.
+**Consequence:** a temporary ban from any sort of interaction or public communication with the community for a specified
+period of time. Immediate placement of a prohibition on parties to the ban from interacting with any people involved
+during the ban period, including Community Leaders enforcing the Code of Conduct, in public or private forms, using
+direct or indirect methods of contact, whether solicited or unsolicited, is the primary method of discipline for such
+behavior.
 
-#### 4. Permanent Ban
+Violation of any of these terms universally results in the enforcement of a permanent ban.
 
-**Community Impact:** Demonstrating a pattern of violation of community standards, including sustained inappropriate
+#### Permanent ban for sustained or severe infractions
+
+**Community impact:** demonstrating a pattern of violation of community standards, including sustained inappropriate
 behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.
 
-**Consequence:** A permanent ban from any sort of public interaction within the community.
+**Consequence:** a permanent ban from any sort of public interaction within the community.
 
 ## Conclusion
 
-We hope you will join us in developing our community as a part of this project. With respect and empathy in mind, we can
-ensure that others will follow.
+The Community Leaders hope you join the continued development of the community with respect and empathy in mind. Thank
+you for reading this, and welcome to the community.
 
 ---
 
@@ -157,7 +170,7 @@ This Code of Conduct is an adaptation based on the following resources:
 - [Google Code of Conduct][google-conduct]
 - [IndieWeb Code of Conduct][indieweb-conduct]
 
-<https://www.contributor-covenant.org/version/2/1/code_of_conduct/>
+All Repository documentation follows the [Google Developer Documentation Style Guide][google-style].
 
 <!-- Link Repository -->
 
@@ -166,4 +179,5 @@ This Code of Conduct is an adaptation based on the following resources:
 [email]: mailto:hello+github@andrewvaughan.io?subject=GitHub%20Code%20of%20Conduct%20Report
 [github-antiharassment]: https://geekfeminism.fandom.com/wiki/Conference_anti-harassment/Policy
 [google-conduct]: https://github.com/google/.github/blob/master/CODE_OF_CONDUCT.md
+[google-style]: https://developers.google.com/style/
 [indieweb-conduct]: https://indieweb.org/code-of-conduct

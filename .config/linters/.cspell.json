@@ -21,6 +21,7 @@
     "**/*megalinter*",
     "**/node_modules/**",
     "**/vscode-extension/**",
+    "**/docs/assets/**",
     "package-lock.json"
   ],
   "language": "en",

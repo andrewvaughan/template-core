@@ -1,0 +1,9 @@
+##
+# Prettier ignore configuration
+#
+# Ensures that built and loaded resources aren't modified by formatting scripts and checks.
+#
+# @link https://prettier.io/docs/en/ignore
+#
+
+.config/linters/vale/styles/**/*

@@ -1,130 +1,162 @@
-# New Project Template
+<!-- markdownlint-disable MD041 -->
 
 <!-- !!! Follow the `_TEMPLATE_CHECKLIST.md` file as a guide to setup this repository prior to editing this file !!! -->
 
-<!-- TODO Update the project H1 tag above.
+<!-- TEMPLATE TODO - Update or remove the hero image -->
+<div align="center">
+  <a href="https://github.com/andrewvaughan/template-core" target="blank" title="New Project Template">
+    <!-- markdown-link-check-disable-next-line -->
+    <img src="https://example.com/path/to/banner-1896x498.png" alt="New Project Template" min-height="200px" />
+  </a>
+</div>
 
-An optional hero image can be added to the top of the README file to replace the H1 tag.
+# New project template
 
-A good sized image is about 1456x500, although the height can vary based on need. Transparent background are not
-recommended, unless the image works well in both a light and dark background.
+<!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project -->
 
-The H1 tag above can then be replaced with something akin to this:
-
-# ![Project Name](https://...url-to-hosted-image)
--->
-
-<!-- TODO Update the URLs for these badges, below, to the appropriate state of the project -->
 [![Version][badge-version-img]][badge-version]
 [![License][badge-license-img]][badge-license]
 [![Build Status][badge-build-img]][badge-build]
 [![Linting][badge-linting-img]][badge-linting]
 [![Coverage][badge-coverage-img]][badge-coverage]
+[![Sponsor][badge-sponsor-img]][badge-sponsor]
+[![Discord][badge-discord-img]][badge-discord]
 
-<!-- TODO -->
-_This text should be replaced with a short description of what this project is about._
+<!-- TEMPLATE TODO -->
 
+_Replace this with a short description of what this project is about._
+
+<!-- prettier-ignore-start -->
+<!-- omit from toc -->
 ## Contents
 
-- [New Project Template](#new-project-template)
-  - [Contents](#contents)
+- [New project template](#new-project-template)
   - [Installation](#installation)
     - [Dependencies](#dependencies)
-    - [Quick Start](#quick-start)
-    - [Manual Installation](#manual-installation)
+    - [Quick start](#quick-start)
+    - [Manual installation](#manual-installation)
   - [Usage](#usage)
     - [Configuration](#configuration)
   - [Support](#support)
-    - [FAQ](#faq)
+    - [Frequently asked questions](#frequently-asked-questions)
   - [Contributing](#contributing)
-    - [Developer Installation](#developer-installation)
+    - [Developer installation](#developer-installation)
+      - [Developer dependencies](#developer-dependencies)
     - [Testing](#testing)
-  - [Release Policy](#release-policy)
+  - [Release policy](#release-policy)
   - [License](#license)
 
 ---
+<!-- prettier-ignore-end -->
 
 ## Installation
 
-<!-- TODO -->
-_Add a brief introduction as to how normal installation of the project can be accomplished for users (not developers) of
-the project_
+<!-- TEMPLATE TODO -->
+
+_Add a brief introduction as to how users, not developers, perform a normal installation of the project._
 
 ### Dependencies
 
-<!-- TODO -->
-_Add details in this section regarding any dependencies or installation requirements are needed to be performed before
-this tool can be used. This should focus on **using** the tool, not developing it. Delete this section if there are no
-production dependencies required for the project._
+<!-- TEMPLATE TODO -->
 
-### Quick Start
+_Add detail in this section regarding any dependencies or installation requirements that users, not developers, need
+before installing and using the tool. This **must** focus on **using** the tool, not developing it. Delete this section
+if there are no production dependencies required for the project._
 
-<!-- TODO -->
+### Quick start
+
+<!-- TEMPLATE TODO -->
+
 _Add a brief set of instructions on how to get quickly up and running for the most-common use cases. Delete this section
-if a quick-start concept does not apply._
+if a quick-start concept doesn't apply._
 
-### Manual Installation
+### Manual installation
 
-<!-- TODO -->
-_If manual installation steps differ from the quick-start above, add more verbose instructions here; otherwise, delete
-this section._
+<!-- TEMPLATE TODO -->
+
+_If manual installation steps differ from the quick-start in the preceding section, add more verbose instructions here.
+Otherwise, delete this section._
 
 ---
 
 ## Usage
 
-<!-- TODO -->
-_Provide detailed instructions on how this project is used, if applicable. Otherwise, delete this section._
+<!-- TEMPLATE TODO -->
+
+_Provide detailed instructions on how to use this project, if applicable. Otherwise, delete this section._
 
 ### Configuration
 
-<!-- TODO -->
-_If the project has configuration capabilities, provide them here in full detail; otherwise, delete this section._
+<!-- TEMPLATE TODO -->
+
+_If the project has configuration capabilities, provide them here in full detail. Otherwise, delete this section._
 
 ---
 
 ## Support
 
-Details for reaching out to support can be found in or [Support Documentation][support]. Please refer to these
-instructions prior to opening an [Issue][issues] or [Discussion][discussions].
+The [Support Documentation][support] contains details for getting support for this project. As an open source project,
+support is generally limited to the surrounding community and isn't guaranteed. Please refer to these instructions prior
+to opening an [Issue][issues] or [Discussion][discussions].
 
-Parties interested in contributing to the project must read our [Contributing Guidelines][contributing] prior to doing
+Parties interested in contributing to the project must read the [Contributing Guidelines][contributing] prior to doing
 so.
 
-All individuals must adhere to the project's [Code of Conduct][code-of-conduct], regardless of how they are engaging.
+All individuals must adhere to the project's [Code of Conduct][code-of-conduct], regardless of how they choose to
+engage.
 
-### FAQ
+### Frequently asked questions
 
-<!-- TODO -->
-_If your project has common questions that can be answered here, get this section started; otherwise, delete it._
+<!-- TEMPLATE TODO -->
+
+_If you can answer common questions for your project, start this section. Delete the section, if not._
 
 ---
 
 ## Contributing
 
-There are many ways to contribute to this project! If you have an idea, or have discovered a bug, please
-[open an issue][new-issue] so it can be addressed. You can also start or join a [discussion][discussions] to get your
-feet wet with the project, first.
+There are many ways to contribute to this project. If you have an idea, or have discovered a bug, please
+[open an Issue][new-issue]. You can also start or join a [Discussion][discussions] to get your feet wet with the
+project, first.
 
-If you are interested in contributing to the project through design or development, please read our
+If you have interest in contributing to the project through design or development, please read the project's
 [Contributing Guidelines][contributing].
 
-### Developer Installation
+### Developer installation
 
-<!-- TODO -->
+<!-- TEMPLATE TODO -->
+
 _Add details for developers on how to setup their environment, including installing additional, developer dependencies,
 for individuals wishing to contribute to the project._
 
+#### Developer dependencies
+
+<!-- TEMPLATE TODO -->
+
+_Add or modify this section to describe the dependencies used in development._
+
+This project aims to be as agnostic as possible across all development environments. As such, development dependencies
+are purposely limited to a few critical elements:
+
+| Dependency             | Purpose                                                                    |
+|:-----------------------|:---------------------------------------------------------------------------|
+| [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally         |
+| [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code       |
+| [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands          |
+| [Node.js][inst-nodejs] | Used to download certain command-line packages for `npx`                   |
+| [npx][inst-npx]        | Node.js package execution helper to run certain non-containerized commands |
+
 ### Testing
 
-An important part of our [Software Development Lifecycle][sdlc] is continuous testing. We make this easy for you. Ensure
-that you have [Docker][docker] and [act][act] running and installed and run the following command:
+An important part of the project's [Software Development Lifecycle][sdlc] is continuous testing. The configuration of
+the project aims to make this as low effort as possible. Ensure that you have the
+[developer dependencies](#developer-dependencies) installed and run the following command:
 
 ```bash
 make test
 ```
 
-That will run a full test suite. Of course, we provide a number of utility functions to make your life easier during
+This runs a full test suite. The project provides a number of utility functions to make your life easier during
 development. You can find the full list by running:
 
 ```bash
@@ -133,51 +165,60 @@ make help
 
 ---
 
-## Release Policy
+## Release policy
 
 Releases of this project follow [Semantic Versioning](http://semver.org/) standards in a `MAJOR.MINOR.PATCH` versioning
 scheme of the following format:
 
-* `MAJOR` - modified when major, incompatible changes are made to the application,
-* `MINOR` - modified when functionality is added in a backwards-compatible manner, and
-* `PATCH` - patches to existing functionality, such as documentation and bug fixes.
+- `MAJOR` - used when the application undergoes major, incompatible changes with the last Release
+- `MINOR` - used when the Release adds capability in a backwards-compatible manner
+- `PATCH` - used when the Release patches existing capabilities, such as documentation, bug fixes, and minor features
 
-All releases are [tagged][release-tags] and available on [GitHub][releases].
+[GitHub][releases] hosts all Releases and manages all [Release tags][release-tags].
 
 ---
 
 ## License
 
-The full text of this project's license can be found in the [LICENSE][license] file.
+The [LICENSE][license] file contains the full text of this project's License.
 
-<!-- TODO -->
-_Add selected license short text in this area, if applicable._
+<!-- TEMPLATE TODO -->
+
+_Add selected License short text in this area, if applicable._
 
 <!-- Link Repository -->
 
 <!-- editorconfig-checker-disable -->
 
-[act]: https://github.com/nektos/act
+[actions]: https://github.com/andrewvaughan/template-core/actions
 [badge-version]: https://github.com/andrewvaughan/template-core/releases
-[badge-version-img]: https://img.shields.io/badge/version-0.0.0-blue.svg?style=flat
-[badge-license]: https://github.com/andrewvaughan/template-core/blob/main/LICENSE
+[badge-version-img]: https://img.shields.io/github/v/release/andrewvaughan/template-core?sort=semver
+[badge-discord-img]: https://img.shields.io/badge/Join_the_Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white
+[badge-discord]: https://discord.gg/6x6T3yMtvB
+[badge-license]: LICENSE
 [badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white
 [badge-build]: https://github.com/andrewvaughan/template-core/actions
 [badge-build-img]: https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=flat&logo=dependabot&logoColor=white
-[badge-coverage]: https://github.com/andrewvaughan/template-core/actions
-[badge-coverage-img]: https://img.shields.io/badge/coverage-N/A-rgb(200%2C200%2C200).svg?style=flat&logo=githubactions&logoColor=white
+[badge-coverage]: https://github.com/andrewvaughan/template-core
+[badge-coverage-img]: https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg
 [badge-linting]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml
 [badge-linting-img]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml/badge.svg
-[code-of-conduct]: https://github.com/andrewvaughan/template-core/blob/main/.github/CODE_OF_CONDUCT.md
-[contributing]: https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md
+[badge-sponsor]: https://andrewvaughan.github.io/sponsorships
+[badge-sponsor-img]: https://img.shields.io/badge/sponsor%20me!-4AAAEA.svg?style=flat&logo=githubsponsors&logoColor=EA4AAA
+[code-of-conduct]: .github/CODE_OF_CONDUCT.md
+[contributing]: .github/CONTRIBUTING.md
 [discussions]: https://github.com/andrewvaughan/template-core/discussions
-[docker]: https://www.docker.com/
+[inst-act]: https://github.com/nektos/act
+[inst-docker]: https://www.docker.com/get-started/
+[inst-make]: https://www.gnu.org/software/make/
+[inst-nodejs]: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+[inst-npx]: https://www.npmjs.com/package/npx#install
 [issues]: https://github.com/andrewvaughan/template-core/issues
-[license]: https://github.com/andrewvaughan/template-core/blob/main/LICENSE
+[license]: LICENSE
 [new-issue]: https://github.com/andrewvaughan/template-core/issues/new
 [releases]: https://github.com/andrewvaughan/template-core/releases
 [release-tags]: https://github.com/andrewvaughan/template-core/tags
-[sdlc]: https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#software-development-lifecycle
-[support]: https://github.com/andrewvaughan/template-core/blob/main/.github/SUPPORT.md
+[sdlc]: .github/CONTRIBUTING.md#software-development-lifecycle
+[support]: .github/SUPPORT.md
 
 <!-- editorconfig-checker-enable -->

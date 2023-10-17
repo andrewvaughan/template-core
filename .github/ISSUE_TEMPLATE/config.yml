@@ -1,13 +1,26 @@
 ##
-# GitHub issue template configurations.
+# GitHub Issue template configurations
 #
 # @link https://t.ly/Cwouf
-
-# This project does not support generic, empty issues
+#
+---
+##
+# This project doesn't support generic, empty Issues
+#
 blank_issues_enabled: false
 
-# Additional links to community discussions and security efforts will be added below the issues
+##
+# Additional links to community Discussions
+#
 contact_links:
-  - name: Support Request
+  - name: Support request
     url: https://github.com/andrewvaughan/template-core/discussions
     about: If you have a question as to how to install, configure, or use anything from this project, please ask here.
+
+  - name: Share an idea
+    url: https://github.com/andrewvaughan/template-core/discussions/categories/ideas
+    about: Discuss ideas for the project with the community.
+
+  - name: Open forum
+    url: https://github.com/andrewvaughan/template-core/discussions/categories/general
+    about: The forum for general conversation and other topics.

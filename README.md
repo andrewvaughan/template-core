@@ -14,7 +14,7 @@
 <!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project -->
 
 <!-- Start Badges -->
-<center>
+<div align="center">
   <!-- Version -->
   <a href="https://github.com/andrewvaughan/template-core/releases" target="_blank" title="Version">
     <img src="https://img.shields.io/github/v/release/andrewvaughan/template-core?sort=semver" alt="Version" />
@@ -24,8 +24,8 @@
   <a href="LICENSE" target="_blank" title="License">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white" alt="License" />
   </a>
-</center>
-<br/>
+</div>
+
 <center>
   <!-- Build Status -->
   <a href="https://github.com/andrewvaughan/template-core/actions" target="_blank" title="Build Status">

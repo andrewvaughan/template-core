@@ -4,17 +4,51 @@
 # @link https://megalinter.io/configuration/
 #
 
+##
+# Linters that support fixing in-place do so within the commit
+#
+# The fixing linter doesn't create another Pull Request or commit - the linter fixes small changes in-place during
+# testing.
+#
 APPLY_FIXES: all
+
+##
+# Do not create public reports on file.io
+#
 FILEIO_REPORTER: false
+
+##
+# Recommend flavors to the developer to help reduce container layer size
+#
 FLAVOR_SUGGESTIONS: true
+
+##
+# Follow the `.gitignore` file for what files to ignore in the linter
+#
 IGNORE_GITIGNORED_FILES: true
+
+##
+# All linting configuration is placed in the `.config` folder
+#
 LINTER_RULES_PATH: .config/linters
+
+##
+# Avoid unnecessary text output in logs
+#
 PRINT_ALPACA: false
+
+##
+# Time checking helps with optimization
+#
 SHOW_ELAPSED_TIME: true
+
+##
+# Allow developers to review other linters that may help with their project
+#
 SHOW_SKIPPED_LINTERS: true
 
 ##
-# Disabled linters
+# Never run these linters, regardless of flavor or configuration
 #
 DISABLE_LINTERS:
   # Lychee is _extremely_ slow right now - consider the usefulness of dead hyper link checking before re-enabling
@@ -51,23 +85,28 @@ YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*|\.github/ISS
 # Don't include Vale
 #
 YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*)
-## ---------------------------------------------------------------------------------------------------------------------
 
-##
+## ---------------------------------------------------------------------------------------------------------------------
 # Everything below this line is debugging ongoing local testing Issues
 #
-# @link https://github.com/oxsecurity/megalinter/issues/2998
-# @link https://github.com/nektos/act/issues/2039
-# @link https://github.com/catthehacker/docker_images/issues/115
-# @link https://github.com/nektos/act/discussions/2035
+PRE_COMMANDS:
+  ##
+  # @link https://github.com/oxsecurity/megalinter/issues/3017
+  #
+  - command: git config --global --add safe.directory $PWD
+    cwd: "workspace"
 
-# PRE_COMMANDS:
+  ##
+  # @link https://github.com/oxsecurity/megalinter/issues/2998
+  # @link https://github.com/nektos/act/issues/2039
+  # @link https://github.com/catthehacker/docker_images/issues/115
+  # @link https://github.com/nektos/act/discussions/2035
+  #
 #   - command: |
 #       {
 #         ssh-keyscan github.com;
 #         ssh-keyscan ssh.dev.azure.com
 #       } >>/etc/ssh/ssh_known_hosts
-
 #   - command: |
 #       echo "GITHUB_TOKEN: ${GITHUB_TOKEN}";
 #       echo "PAT: ${PAT}"

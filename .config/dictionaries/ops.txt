@@ -17,6 +17,7 @@ bierner
 Bierner
 catthehacker
 CHECKMAKE
+Checkmake
 Chiberia
 chrischinchilla
 davidanson

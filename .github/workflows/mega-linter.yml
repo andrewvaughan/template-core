@@ -10,20 +10,22 @@ name: MegaLinter
 
 on:
   ##
-  # Uncomment this line to trigger on all pushes
+  # Run after Pull Requests merge onto environment Branches
   #
-  # Not recommended if you don't pay for GH Actions.
+  # Logic below configures a full code test on push for `staging` and `production`.
   #
-  #push:
-
-  ##
-  # Run MegaLinter with Pull Requests to the default Branch and environment Branches
-  #
-  pull_request:
+  push:
     branches:
       - main
       - production
       - staging
+
+  ##
+  # Run MegaLinter any Pull Requests within the project
+  #
+  # Logic below configures a partial code test on only changed files on Pull Request.
+  #
+  pull_request:
 
 ##
 # Environment configurations

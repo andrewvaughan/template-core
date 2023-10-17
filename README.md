@@ -14,13 +14,22 @@
 
 <!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project -->
 
+<div align="center">
 [![Version][badge-version-img]][badge-version]
 [![License][badge-license-img]][badge-license]
 [![Build Status][badge-build-img]][badge-build]
 [![Linting][badge-linting-img]][badge-linting]
 [![Coverage][badge-coverage-img]][badge-coverage]
+<br/>
+[![New Since v0.0.0][badge-since-last-ver-img]][badge-since-last-ver]
+[![Issue Develop Avg][badge-issue-dev-avg-img]][badge-issue-dev-avg]
+[![Last Edge Release][badge-last-edge-img]][badge-last-edge]
+[![Last Stage Release][badge-last-stage-img]][badge-last-stage]
+[![Last Prod Release][badge-last-prod-img]][badge-last-prod]
+<br/>
 [![Sponsor][badge-sponsor-img]][badge-sponsor]
 [![Discord][badge-discord-img]][badge-discord]
+</div>
 
 <!-- TEMPLATE TODO -->
 
@@ -139,7 +148,7 @@ This project aims to be as agnostic as possible across all development environme
 are purposely limited to a few critical elements:
 
 | Dependency             | Purpose                                                                    |
-| :--------------------- | :------------------------------------------------------------------------- |
+|:-----------------------|:---------------------------------------------------------------------------|
 | [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally         |
 | [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code       |
 | [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands          |
@@ -189,12 +198,21 @@ _Add selected License short text in this area, if applicable._
 <!-- Link Repository -->
 
 <!-- editorconfig-checker-disable -->
+<!-- vale off -->
 
 [actions]: https://github.com/andrewvaughan/template-core/actions
 [badge-version]: https://github.com/andrewvaughan/template-core/releases
 [badge-version-img]: https://img.shields.io/github/v/release/andrewvaughan/template-core?sort=semver
 [badge-discord-img]: https://img.shields.io/badge/Join_the_Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white
 [badge-discord]: https://discord.gg/6x6T3yMtvB
+[badge-issue-dev-avg]: https://github.com/andrewvaughan/template-core/graphs/commit-activity/
+[badge-issue-dev-avg-img]: https://img.shields.io/github/commit-activity/m/andrewvaughan/template-core/main?logo=github&label=issue%20solve%20avg
+[badge-last-edge]: https://github.com/andrewvaughan/template-core/commits/main/
+[badge-last-edge-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?logo=github&label=last%20edge%20push
+[badge-last-prod]: https://github.com/andrewvaughan/template-core/commits/production/
+[badge-last-prod-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=last%20prod%20push
+[badge-last-stage]: https://github.com/andrewvaughan/template-core/commits/staging/
+[badge-last-stage-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/staging?logo=github&label=last%20stage%20push
 [badge-license]: LICENSE
 [badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white
 [badge-build]: https://github.com/andrewvaughan/template-core/actions
@@ -203,6 +221,8 @@ _Add selected License short text in this area, if applicable._
 [badge-coverage-img]: https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg
 [badge-linting]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml
 [badge-linting-img]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml/badge.svg
+[badge-since-last-ver]: https://img.shields.io/github/commits-since/andrewvaughan/template-core/0.0.0?logo=github&label=new%20since%20v0.0.0
+[badge-since-last-ver-img]: https://github.com/andrewvaughan/template-core/commits/main/
 [badge-sponsor]: https://andrewvaughan.github.io/sponsorships
 [badge-sponsor-img]: https://img.shields.io/badge/sponsor%20me!-4AAAEA.svg?style=flat&logo=githubsponsors&logoColor=EA4AAA
 [code-of-conduct]: .github/CODE_OF_CONDUCT.md
@@ -221,4 +241,5 @@ _Add selected License short text in this area, if applicable._
 [sdlc]: .github/CONTRIBUTING.md#software-development-lifecycle
 [support]: .github/SUPPORT.md
 
+<!-- vale on -->
 <!-- editorconfig-checker-enable -->

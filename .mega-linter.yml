@@ -47,12 +47,19 @@ SHOW_ELAPSED_TIME: true
 #
 SHOW_SKIPPED_LINTERS: true
 
+## ---------------------------------------------------------------------------------------------------------------------
+# Linter configurations
+#
+
+# editorconfig-checker-disable
+
 ##
-# DevSkim outputs useless JSON by default
+# Prevent DevSkim from reacting to other linters/utilities that may also need to configuration for sensitive areas
 #
-# @link
-#
-REPOSITORY_DEVSKIM_ARGUMENTS:
+REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"]
+#   ["--ignore-globs", "**/.config/dictionaries/**,**/.config/linters/vale/**,**/.git/**,**/megalinter-reports/**"]
+
+# editorconfig-checker-enable
 
 ##
 # Never run these linters, regardless of flavor or configuration
@@ -60,11 +67,6 @@ REPOSITORY_DEVSKIM_ARGUMENTS:
 DISABLE_LINTERS:
   # Lychee is _extremely_ slow right now - consider the usefulness of dead hyper link checking before re-enabling
   - SPELL_LYCHEE
-
-##
-# Ignore heavily commented files
-#
-JSON_JSONLINT_FILTER_REGEX_EXCLUDE: (\.vscode/.*\.json)
 
 ##
 # Ensure to include the folder of Makefile targets (as Checkmake doesn't follow include directives)

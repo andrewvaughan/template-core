@@ -22,6 +22,9 @@ Chiberia
 chrischinchilla
 davidanson
 devcontainer
+DEVSKIM
+DevSkim
+devskim
 eamodio
 endef
 esac

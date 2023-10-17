@@ -16,15 +16,17 @@
 
 [![Version][badge-version-img]][badge-version]
 [![License][badge-license-img]][badge-license]
+<br/>
 [![Build Status][badge-build-img]][badge-build]
 [![Linting][badge-linting-img]][badge-linting]
 [![Coverage][badge-coverage-img]][badge-coverage]
 <br/>
-[![New Since v0.0.0][badge-since-last-ver-img]][badge-since-last-ver]
-[![Issue Develop Avg][badge-issue-dev-avg-img]][badge-issue-dev-avg]
 [![Last Edge Release][badge-last-edge-img]][badge-last-edge]
 [![Last Stage Release][badge-last-stage-img]][badge-last-stage]
 [![Last Prod Release][badge-last-prod-img]][badge-last-prod]
+<br/>
+[![New Since v0.0.0][badge-since-last-ver-img]][badge-since-last-ver]
+[![Issue Develop Avg][badge-issue-dev-avg-img]][badge-issue-dev-avg]
 <br/>
 [![Sponsor][badge-sponsor-img]][badge-sponsor]
 [![Discord][badge-discord-img]][badge-discord]

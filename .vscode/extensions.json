@@ -1,182 +1,22 @@
-/**
- * VSCode extension recommendations
- *
- * This configuration helps new developers get up and running as quickly as possible to dive right into coding. It,
- * along with the associated `settings.json` file parallel, configure enough of a Microsoft VSCode workspace to provide
- * testing, linting, and code policy enforcement and avoid surprises during integration.
- *
- * By no means must you install or configure these extensions as-presented, but the CI/CD integration pipeline enforces
- * the policies they represent at time of integration, regardless of whether they're in use or not. Please feel free to
- * override or modify your user or local workspace settings, as works best for you, but don't commit your changes to the
- * Repository. Project Maintainers reject any commits that include changes to these files.
- *
- * @link https://code.visualstudio.com/docs/editor/extension-marketplace
- */
 {
   "recommendations": [
-    /**
-     * Name: Better Comments
-     * Id: aaron-bond.better-comments
-     * Description: Improve your code commenting by annotating with alert, informational, TODOs, and more!
-     * Publisher: Aaron Bond
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
-     */
     "aaron-bond.better-comments",
-
-    /**
-     * Name: Code Spell Checker
-     * Id: streetsidesoftware.code-spell-checker
-     * Description: Spelling checker for source code
-     * Publisher: Street Side Software
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
-     */
     "streetsidesoftware.code-spell-checker",
-
-    /**
-     * Name: Color Highlight
-     * Id: naumovs.color-highlight
-     * Description: Highlight web colors in your editor
-     * Publisher: Sergii N
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight
-     */
     "naumovs.color-highlight",
-
-    /**
-     * Name: Dev Containers
-     * Id: ms-vscode-remote.remote-containers
-     * Description: Open any folder or repository inside a Docker container and take advantage of Visual Studio Code's
-     *              full feature set.
-     * Publisher: Microsoft
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
-     */
     "ms-vscode-remote.remote-containers",
-
-    /**
-     * Name: Docker
-     * Id: ms-azuretools.vscode-docker
-     * Description: Makes it easy to create, manage, and debug containerized applications.
-     * Publisher: Microsoft
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
-     */
     "ms-azuretools.vscode-docker",
-
-    /**
-     * Name: EditorConfig for VS Code
-     * Id: EditorConfig.EditorConfig
-     * Description: EditorConfig Support for Visual Studio Code
-     * Publisher: EditorConfig
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
-     */
     "editorconfig.editorconfig",
-
-    /**
-     * Name: GitHub Actions
-     * Id: github.vscode-github-actions
-     * Description: GitHub Actions workflows and runs for github.com hosted repositories in VS Code
-     * Publisher: GitHub
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions
-     */
     "github.vscode-github-actions",
-
-    /**
-     * Name: GitLens — Git supercharged
-     * Id: eamodio.gitlens
-     * Description: Supercharge Git within VS Code — Visualize code authorship at a glance via Git blame annotations and
-     *              CodeLens, seamlessly navigate and explore Git repositories, gain valuable insights via rich
-     *              visualizations and powerful comparison commands, and so much more
-     * Publisher: GitKraken
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
-     */
     "eamodio.gitlens",
-
-    /**
-     * Name: indent-rainbow
-     * Id: oderwat.indent-rainbow
-     * Description: Makes indentation easier to read
-     * Publisher: oderwat
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow
-     */
     "oderwat.indent-rainbow",
-
-    /**
-     * Name: Makefile Tools
-     * Id: ms-vscode.makefile-tools
-     * Description: Provide makefile support in VS Code: C/C++ IntelliSense, build, debug/run.
-     * Publisher: Microsoft
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools
-     */
     "ms-vscode.makefile-tools",
-
-    /**
-     * Name: Markdown All in One
-     * Id: yzhang.markdown-all-in-one
-     * Description: All you need to write Markdown (keyboard shortcuts, table of contents, auto preview and more)
-     * Publisher: Yu Zhang
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
-     */
     "yzhang.markdown-all-in-one",
-
-    /**
-     * Name: Markdown Preview Github Styling
-     * Id: bierner.markdown-preview-github-styles
-     * Description: Changes VS Code's built-in markdown preview to match Github's style
-     * Publisher: Matt Bierner
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles
-     */
     "bierner.markdown-preview-github-styles",
-
-    /**
-     * Name: markdownlint
-     * Id: DavidAnson.vscode-markdownlint
-     * Description: Markdown linting and style checking for Visual Studio Code
-     * Publisher: David Anson
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
-     */
     "davidanson.vscode-markdownlint",
-
-    /**
-     * Name: Prettier - Code formatter
-     * Id: esbenp.prettier-vscode
-     * Description: Code formatter using prettier
-     * Publisher: Prettier
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-     */
     "esbenp.prettier-vscode",
-
-    /**
-     * Name: Todo Tree
-     * Id: Gruntfuggly.todo-tree
-     * Description: Show TODO, FIXME, etc. comment tags in a tree view
-     * Publisher: Gruntfuggly
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
-     */
     "gruntfuggly.todo-tree",
-
-    /**
-     * Name: Vale VSCode
-     * Id: chrischinchilla.vale-vscode
-     * Description: The Visual Studio Code extension for Vale.
-     * Publisher: Chris Chinchilla
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ChrisChinchilla.vale-vscode
-     */
     "chrischinchilla.vale-vscode",
-
-    /**
-     * Name: vscode-icons
-     * Id: vscode-icons-team.vscode-icons
-     * Description: Icons for Visual Studio Code
-     * Publisher: VSCode Icons Team
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
-     */
     "vscode-icons-team.vscode-icons",
-
-    /**
-     * Name: YAML
-     * Id: redhat.vscode-yaml
-     * Description: YAML Language Support by Red Hat, with built-in Kubernetes syntax support
-     * Publisher: Red Hat
-     * VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
-     */
     "redhat.vscode-yaml"
   ]
 }

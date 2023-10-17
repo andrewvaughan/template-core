@@ -19,13 +19,13 @@
 [![Build Status][badge-build-img]][badge-build]
 [![Linting][badge-linting-img]][badge-linting]
 [![Coverage][badge-coverage-img]][badge-coverage]
-&nbsp;
+<br/>
 [![New Since v0.0.0][badge-since-last-ver-img]][badge-since-last-ver]
 [![Issue Develop Avg][badge-issue-dev-avg-img]][badge-issue-dev-avg]
 [![Last Edge Release][badge-last-edge-img]][badge-last-edge]
 [![Last Stage Release][badge-last-stage-img]][badge-last-stage]
 [![Last Prod Release][badge-last-prod-img]][badge-last-prod]
-&nbsp;
+<br/>
 [![Sponsor][badge-sponsor-img]][badge-sponsor]
 [![Discord][badge-discord-img]][badge-discord]
 
@@ -219,8 +219,8 @@ _Add selected License short text in this area, if applicable._
 [badge-coverage-img]: https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg
 [badge-linting]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml
 [badge-linting-img]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml/badge.svg
-[badge-since-last-ver]: https://img.shields.io/github/commits-since/andrewvaughan/template-core/0.0.0?logo=github&label=new%20since%20v0.0.0
-[badge-since-last-ver-img]: https://github.com/andrewvaughan/template-core/commits/main/
+[badge-since-last-ver]: https://github.com/andrewvaughan/template-core/commits/main/
+[badge-since-last-ver-img]: https://img.shields.io/github/commits-since/andrewvaughan/template-core/0.0.0?logo=github&label=new%20since%20v0.0.0
 [badge-sponsor]: https://andrewvaughan.github.io/sponsorships
 [badge-sponsor-img]: https://img.shields.io/badge/sponsor%20me!-4AAAEA.svg?style=flat&logo=githubsponsors&logoColor=EA4AAA
 [code-of-conduct]: .github/CODE_OF_CONDUCT.md

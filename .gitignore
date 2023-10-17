@@ -17,3 +17,11 @@
 **/*megalinter*
 .ruff_cache/
 megalinter-reports/
+
+##
+# VSCode
+#
+.vscode/**/*
+!.vscode/extensions.json
+!.vscode/README.md
+!.vscode/settings.json

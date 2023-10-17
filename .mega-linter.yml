@@ -48,6 +48,13 @@ SHOW_ELAPSED_TIME: true
 SHOW_SKIPPED_LINTERS: true
 
 ##
+# DevSkim outputs useless JSON by default
+#
+# @link
+#
+REPOSITORY_DEVSKIM_ARGUMENTS:
+
+##
 # Never run these linters, regardless of flavor or configuration
 #
 DISABLE_LINTERS:

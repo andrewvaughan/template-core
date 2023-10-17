@@ -5,6 +5,7 @@
     "naumovs.color-highlight",
     "ms-vscode-remote.remote-containers",
     "ms-azuretools.vscode-docker",
+    "ms-cst-e.vscode-devskim",
     "editorconfig.editorconfig",
     "github.vscode-github-actions",
     "eamodio.gitlens",

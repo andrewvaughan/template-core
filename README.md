@@ -221,7 +221,7 @@ _Add selected License short text in this area, if applicable._
 [badge-rel-edge]: https://github.com/andrewvaughan/template-core/commits/main/
 [badge-rel-edge-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?logo=github&label=edge%20release
 [badge-rel-prod]: https://github.com/andrewvaughan/template-core/commits/production/
-[badge-rel-prod-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=prod20%release
+[badge-rel-prod-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=prod%20release
 [badge-rel-stage]: https://github.com/andrewvaughan/template-core/commits/staging/
 [badge-rel-stage-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/staging?logo=github&label=stage%20release
 [badge-release]: https://github.com/andrewvaughan/template-core/releases

@@ -20,15 +20,13 @@
 [![License][badge-license-img]][badge-license]
 [![Build Status][badge-build-img]][badge-build]
 [![Code Coverage][badge-coverage-img]][badge-coverage]
+[![PRs Accepted][badge-pr-rate-img]][badge-pr-rate]
 <br/>
 
 [![Edge Release][badge-rel-edge-img]][badge-rel-edge]
 [![Staging Release][badge-rel-stage-img]][badge-rel-stage]
 [![Production Release][badge-rel-prod-img]][badge-rel-prod]
-<br/>
-
 [![Changes in Next Release][badge-changes-img]][badge-changes]
-[![PRs Accepted][badge-pr-rate-img]][badge-pr-rate]
 <br/>
 
 [![Sponsor This Project][badge-sponsor-img]][badge-sponsor]
@@ -45,20 +43,20 @@ _Replace this with a short description of what this project is about._
 ## Contents
 
 - [New project template](#new-project-template)
-  - [Installation](#installation)
-    - [Dependencies](#dependencies)
-    - [Quick start](#quick-start)
-    - [Manual installation](#manual-installation)
-  - [Usage](#usage)
-    - [Configuration](#configuration)
-  - [Support](#support)
-    - [Frequently asked questions](#frequently-asked-questions)
-  - [Contributing](#contributing)
-    - [Developer installation](#developer-installation)
-      - [Developer dependencies](#developer-dependencies)
-    - [Testing](#testing)
-  - [Release policy](#release-policy)
-  - [License](#license)
+    - [Installation](#installation)
+        - [Dependencies](#dependencies)
+        - [Quick start](#quick-start)
+        - [Manual installation](#manual-installation)
+    - [Usage](#usage)
+        - [Configuration](#configuration)
+    - [Support](#support)
+        - [Frequently asked questions](#frequently-asked-questions)
+    - [Contributing](#contributing)
+        - [Developer installation](#developer-installation)
+            - [Developer dependencies](#developer-dependencies)
+        - [Testing](#testing)
+    - [Release policy](#release-policy)
+    - [License](#license)
 
 ---
 <!-- prettier-ignore-end -->
@@ -213,17 +211,17 @@ _Add selected License short text in this area, if applicable._
 [badge-coverage]: https://github.com/andrewvaughan/template-core
 [badge-coverage-img]: https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg
 [badge-discord]: https://discord.gg/6x6T3yMtvB
-[badge-discord-img]: https://img.shields.io/badge/Join_the_Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white
+[badge-discord-img]: https://img.shields.io/badge/join%20the%20Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white
 [badge-license]: LICENSE
 [badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white
 [badge-pr-rate]: https://github.com/andrewvaughan/template-core/graphs/commit-activity/
-[badge-pr-rate-img]: https://img.shields.io/github/commit-activity/m/andrewvaughan/template-core/main?logo=github&label=PR%20rate
+[badge-pr-rate-img]: https://img.shields.io/github/commit-activity/m/andrewvaughan/template-core/main?logo=github&label=PR%20accepted
 [badge-rel-edge]: https://github.com/andrewvaughan/template-core/commits/main/
-[badge-rel-edge-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?logo=github&label=edge%20release
+[badge-rel-edge-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?label=edge%20release
 [badge-rel-prod]: https://github.com/andrewvaughan/template-core/commits/production/
-[badge-rel-prod-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=prod%20release
+[badge-rel-prod-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?label=prod%20release
 [badge-rel-stage]: https://github.com/andrewvaughan/template-core/commits/staging/
-[badge-rel-stage-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/staging?logo=github&label=stage%20release
+[badge-rel-stage-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/staging?label=stage%20release
 [badge-release]: https://github.com/andrewvaughan/template-core/releases
 [badge-release-img]: https://img.shields.io/github/v/release/andrewvaughan/template-core?sort=semver
 [badge-sponsor]: https://andrewvaughan.github.io/sponsorships

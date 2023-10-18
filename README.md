@@ -15,6 +15,18 @@
 
 <!-- Start Badges -->
 <div align="center">
+  <!-- Sponsor -->
+  <a href="https://andrewvaughan.github.io/sponsorships" target="_blank" title="Sponsor This Project">
+    <img src="https://img.shields.io/badge/sponsor%20me!-4AAAEA.svg?style=flat&logo=githubsponsors&logoColor=EA4AAA" alt="Sponsor This Project" />
+  </a>
+
+  <!-- Discord -->
+  <a href="https://discord.gg/6x6T3yMtvB" target="_blank" title="Discord">
+    <img src="https://img.shields.io/badge/Join_the_Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white" alt="Discord" />
+  </a>
+</div>
+<hr/>
+<div>
   <!-- Version -->
   <a href="https://github.com/andrewvaughan/template-core/releases" target="_blank" title="Version">
     <img src="https://img.shields.io/github/v/release/andrewvaughan/template-core?sort=semver" alt="Version" />
@@ -24,8 +36,7 @@
   <a href="LICENSE" target="_blank" title="License">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white" alt="License" />
   </a>
-</div>
-<div align="center">
+
   <!-- Build Status -->
   <a href="https://github.com/andrewvaughan/template-core/actions" target="_blank" title="Build Status">
     <img src="https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=flat&logo=dependabot&logoColor=white" alt="Build Status" />
@@ -41,23 +52,23 @@
     <img src="https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg" alt="Code Coverage" />
   </a>
 </div>
-<div align="center">
+<div>
   <!-- Last Edge Release -->
-  <a href="https://github.com/andrewvaughan/template-core/commits/main/" target="_blank" title="Last Edge Release">
-    <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?logo=github&label=last%20edge%20push" alt="Last Edge Release" />
+  <a href="https://github.com/andrewvaughan/template-core/commits/main/" target="_blank" title="Edge Released">
+    <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?logo=github&label=edge%release" alt="Last Edge Release" />
   </a>
 
   <!-- Last Staging Release -->
-  <a href="https://github.com/andrewvaughan/template-core/commits/staging/" target="_blank" title="Last Staging Release">
-    <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/staging?logo=github&label=last%20stage%20push" alt="Last Staging Release" />
+  <a href="https://github.com/andrewvaughan/template-core/commits/staging/" target="_blank" title="Stage Released">
+    <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/staging?logo=github&label=stage%release" alt="Last Staging Release" />
   </a>
 
   <!-- Last Production Release -->
   <a href="https://github.com/andrewvaughan/template-core/commits/production/" target="_blank" title="Last Production Release">
-    <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=last%20prod%20push" alt=Last Production Release" />
+    <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=%prod%release" alt=Last Production Release" />
   </a>
 </div>
-<div align="center">
+<div>
   <!-- New Since Last Version -->
   <a href="https://github.com/andrewvaughan/template-core/commits/main/" target="_blank" title="New Since Last Version">
     <img src="https://img.shields.io/github/commits-since/andrewvaughan/template-core/0.0.0?logo=github&label=new%20since%20v0.0.0" alt="New Since Last Version" />
@@ -66,17 +77,6 @@
   <!-- Issue Resolve Average -->
   <a href="https://github.com/andrewvaughan/template-core/graphs/commit-activity/" target="_blank" title="Issue Resolution Average per Month">
     <img src="https://img.shields.io/github/commit-activity/m/andrewvaughan/template-core/main?logo=github&label=issue%20solve%20avg" alt="Issue Resolution Average per Month" />
-  </a>
-</div>
-<div align="center">
-  <!-- Sponsor -->
-  <a href="https://andrewvaughan.github.io/sponsorships" target="_blank" title="Sponsor This Project">
-    <img src="https://img.shields.io/badge/sponsor%20me!-4AAAEA.svg?style=flat&logo=githubsponsors&logoColor=EA4AAA" alt="Sponsor This Project" />
-  </a>
-
-  <!-- Discord -->
-  <a href="https://discord.gg/6x6T3yMtvB" target="_blank" title="Discord">
-    <img src="https://img.shields.io/badge/Join_the_Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white" alt="Discord" />
   </a>
 </div>
 <!-- End Badges -->

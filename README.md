@@ -43,20 +43,20 @@ _Replace this with a short description of what this project is about._
 ## Contents
 
 - [New project template](#new-project-template)
-    - [Installation](#installation)
-        - [Dependencies](#dependencies)
-        - [Quick start](#quick-start)
-        - [Manual installation](#manual-installation)
-    - [Usage](#usage)
-        - [Configuration](#configuration)
-    - [Support](#support)
-        - [Frequently asked questions](#frequently-asked-questions)
-    - [Contributing](#contributing)
-        - [Developer installation](#developer-installation)
-            - [Developer dependencies](#developer-dependencies)
-        - [Testing](#testing)
-    - [Release policy](#release-policy)
-    - [License](#license)
+  - [Installation](#installation)
+    - [Dependencies](#dependencies)
+    - [Quick start](#quick-start)
+    - [Manual installation](#manual-installation)
+  - [Usage](#usage)
+    - [Configuration](#configuration)
+  - [Support](#support)
+    - [Frequently asked questions](#frequently-asked-questions)
+  - [Contributing](#contributing)
+    - [Developer installation](#developer-installation)
+      - [Developer dependencies](#developer-dependencies)
+    - [Testing](#testing)
+  - [Release policy](#release-policy)
+  - [License](#license)
 
 ---
 <!-- prettier-ignore-end -->
@@ -151,7 +151,7 @@ This project aims to be as agnostic as possible across all development environme
 are purposely limited to a few critical elements:
 
 | Dependency             | Purpose                                                                    |
-| :--------------------- | :------------------------------------------------------------------------- |
+|:-----------------------|:---------------------------------------------------------------------------|
 | [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally         |
 | [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code       |
 | [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands          |

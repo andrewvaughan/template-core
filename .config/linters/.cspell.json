@@ -13,6 +13,7 @@
     }
   ],
   "ignorePaths": [
+    "**/*.svg",
     "**/.config/linters/**",
     "**/.git/**",
     "**/.gitattributes",

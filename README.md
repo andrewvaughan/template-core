@@ -10,25 +10,11 @@
     <img src="docs/img/readme-banner-1896x498.svg" alt="New Project Template" min-height="200px" />
   </a>
 </div>
-
-<!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project -->
-
-<!-- Centered hero Badges -->
-<div align="center">
-  <!-- Sponsor -->
-  <a href="https://andrewvaughan.github.io/sponsorships" target="_blank" title="Sponsor This Project">
-    <img src="https://img.shields.io/badge/sponsor%20me!-4AAAEA.svg?style=flat&logo=githubsponsors&logoColor=EA4AAA" alt="Sponsor This Project" />
-  </a>
-
-  <!-- Discord -->
-  <a href="https://discord.gg/6x6T3yMtvB" target="_blank" title="Discord">
-    <img src="https://img.shields.io/badge/Join_the_Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white" alt="Discord" />
-  </a>
-</div>
-<hr/>
 <!-- editorconfig-checker-enable -->
 
-<!-- Project Badges -->
+# New project template
+
+<!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project -->
 
 [![Release][badge-release-img]][badge-release]
 [![License][badge-license-img]][badge-license]
@@ -43,11 +29,12 @@
 
 [![Changes in Next Release][badge-changes-img]][badge-changes]
 [![PRs Accepted][badge-pr-rate-img]][badge-pr-rate]
+<br/>
 
-<!-- End Badges -->
+[![Sponsor This Project][badge-sponsor-img]][badge-sponsor]
+[![Join the Discord][badge-discord-img]][badge-discord]
+
 <!-- markdownlint-enable MD033 -->
-
-# New project template
 
 <!-- TEMPLATE TODO -->
 
@@ -225,18 +212,22 @@ _Add selected License short text in this area, if applicable._
 [badge-changes-img]: https://img.shields.io/github/commits-since/andrewvaughan/template-core/latest?logo=github&label=changes%20in%20next%20release
 [badge-coverage]: https://github.com/andrewvaughan/template-core
 [badge-coverage-img]: https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg
+[badge-discord]: https://discord.gg/6x6T3yMtvB
+[badge-discord-img]: https://img.shields.io/badge/Join_the_Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white
 [badge-license]: LICENSE
 [badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white
 [badge-pr-rate]: https://github.com/andrewvaughan/template-core/graphs/commit-activity/
 [badge-pr-rate-img]: https://img.shields.io/github/commit-activity/m/andrewvaughan/template-core/main?logo=github&label=PR%20rate
 [badge-rel-edge]: https://github.com/andrewvaughan/template-core/commits/main/
-[badge-rel-edge-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?logo=github&label=edge%release
+[badge-rel-edge-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?logo=github&label=edge%20release
 [badge-rel-prod]: https://github.com/andrewvaughan/template-core/commits/production/
-[badge-rel-prod-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=edge%release
+[badge-rel-prod-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=edge20%release
 [badge-rel-stage]: https://github.com/andrewvaughan/template-core/commits/staging/
-[badge-rel-stage-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/staging?logo=github&label=edge%release
+[badge-rel-stage-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/staging?logo=github&label=edge%20release
 [badge-release]: https://github.com/andrewvaughan/template-core/releases
 [badge-release-img]: https://img.shields.io/github/v/release/andrewvaughan/template-core?sort=semver
+[badge-sponsor]: https://andrewvaughan.github.io/sponsorships
+[badge-sponsor-img]: https://img.shields.io/badge/sponsor%20me!-4AAAEA.svg?style=flat&logo=githubsponsors&logoColor=EA4AAA
 [code-of-conduct]: .github/CODE_OF_CONDUCT.md
 [contributing]: .github/CONTRIBUTING.md
 [discussions]: https://github.com/andrewvaughan/template-core/discussions

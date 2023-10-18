@@ -13,7 +13,7 @@
 
 <!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project -->
 
-<!-- Start Badges -->
+<!-- Centered hero Badges -->
 <div align="center">
   <!-- Sponsor -->
   <a href="https://andrewvaughan.github.io/sponsorships" target="_blank" title="Sponsor This Project">
@@ -26,63 +26,26 @@
   </a>
 </div>
 <hr/>
-<div>
-  <!-- Version -->
-  <a href="https://github.com/andrewvaughan/template-core/releases" target="_blank" title="Version">
-    <img src="https://img.shields.io/github/v/release/andrewvaughan/template-core?sort=semver" alt="Version" />
-  </a>
-
-  <!-- License -->
-  <a href="LICENSE" target="_blank" title="License">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white" alt="License" />
-  </a>
-
-  <!-- Build Status -->
-  <a href="https://github.com/andrewvaughan/template-core/actions" target="_blank" title="Build Status">
-    <img src="https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=flat&logo=dependabot&logoColor=white" alt="Build Status" />
-  </a>
-
-  <!-- Linting -->
-  <a href="https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml" target="_blank" title="MegaLinter">
-    <img src="https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml/badge.svg" alt="MegaLinter" />
-  </a>
-
-  <!-- Coverage -->
-  <a href="https://github.com/andrewvaughan/template-core" target="_blank" title="Code Coverage">
-    <img src="https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg" alt="Code Coverage" />
-  </a>
-</div>
-<div>
-  <!-- Last Edge Release -->
-  <a href="https://github.com/andrewvaughan/template-core/commits/main/" target="_blank" title="Edge Released">
-    <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?logo=github&label=edge%release" alt="Last Edge Release" />
-  </a>
-
-  <!-- Last Staging Release -->
-  <a href="https://github.com/andrewvaughan/template-core/commits/staging/" target="_blank" title="Stage Released">
-    <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/staging?logo=github&label=stage%release" alt="Last Staging Release" />
-  </a>
-
-  <!-- Last Production Release -->
-  <a href="https://github.com/andrewvaughan/template-core/commits/production/" target="_blank" title="Last Production Release">
-    <img src="https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=%prod%release" alt=Last Production Release" />
-  </a>
-</div>
-<div>
-  <!-- New Since Last Version -->
-  <a href="https://github.com/andrewvaughan/template-core/commits/main/" target="_blank" title="New Since Last Version">
-    <img src="https://img.shields.io/github/commits-since/andrewvaughan/template-core/0.0.0?logo=github&label=new%20since%20v0.0.0" alt="New Since Last Version" />
-  </a>
-
-  <!-- Issue Resolve Average -->
-  <a href="https://github.com/andrewvaughan/template-core/graphs/commit-activity/" target="_blank" title="Issue Resolution Average per Month">
-    <img src="https://img.shields.io/github/commit-activity/m/andrewvaughan/template-core/main?logo=github&label=issue%20solve%20avg" alt="Issue Resolution Average per Month" />
-  </a>
-</div>
-<!-- End Badges -->
-
-<!-- markdownlint-enable MD033 -->
 <!-- editorconfig-checker-enable -->
+
+<!-- Project Badges -->
+
+[![Release][badge-release-img]][badge-release]
+[![License][badge-license-img]][badge-license]
+[![Build Status][badge-build-img]][badge-build]
+[![Code Coverage][badge-coverage-img]][badge-coverage]
+<br/>
+
+[![Edge Release][badge-rel-edge-img]][badge-rel-edge]
+[![Staging Release][badge-rel-stage-img]][badge-rel-stage]
+[![Production Release][badge-rel-prod-img]][badge-rel-prod]
+<br/>
+
+[![Changes in Next Release][badge-changes-img]][badge-changes]
+[![PRs Accepted][badge-pr-rate-img]][badge-pr-rate]
+
+<!-- End Badges -->
+<!-- markdownlint-enable MD033 -->
 
 # New project template
 
@@ -203,7 +166,7 @@ This project aims to be as agnostic as possible across all development environme
 are purposely limited to a few critical elements:
 
 | Dependency             | Purpose                                                                    |
-|:-----------------------|:---------------------------------------------------------------------------|
+| :--------------------- | :------------------------------------------------------------------------- |
 | [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally         |
 | [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code       |
 | [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands          |
@@ -256,6 +219,24 @@ _Add selected License short text in this area, if applicable._
 <!-- vale off -->
 
 [actions]: https://github.com/andrewvaughan/template-core/actions
+[badge-build]: https://github.com/andrewvaughan/template-core/actions
+[badge-build-img]: https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=flat&logo=dependabot&logoColor=white
+[badge-changes]: https://github.com/andrewvaughan/template-core/commits/main/
+[badge-changes-img]: https://img.shields.io/github/commits-since/andrewvaughan/template-core/latest?logo=github&label=changes%20in%20next%20release
+[badge-coverage]: https://github.com/andrewvaughan/template-core
+[badge-coverage-img]: https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg
+[badge-license]: LICENSE
+[badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white
+[badge-pr-rate]: https://github.com/andrewvaughan/template-core/graphs/commit-activity/
+[badge-pr-rate-img]: https://img.shields.io/github/commit-activity/m/andrewvaughan/template-core/main?logo=github&label=PR%20rate
+[badge-rel-edge]: https://github.com/andrewvaughan/template-core/commits/main/
+[badge-rel-edge-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/main?logo=github&label=edge%release
+[badge-rel-prod]: https://github.com/andrewvaughan/template-core/commits/production/
+[badge-rel-prod-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/production?logo=github&label=edge%release
+[badge-rel-stage]: https://github.com/andrewvaughan/template-core/commits/staging/
+[badge-rel-stage-img]: https://img.shields.io/github/last-commit/andrewvaughan/template-core/staging?logo=github&label=edge%release
+[badge-release]: https://github.com/andrewvaughan/template-core/releases
+[badge-release-img]: https://img.shields.io/github/v/release/andrewvaughan/template-core?sort=semver
 [code-of-conduct]: .github/CODE_OF_CONDUCT.md
 [contributing]: .github/CONTRIBUTING.md
 [discussions]: https://github.com/andrewvaughan/template-core/discussions

@@ -113,3 +113,25 @@ Vale
 VSCode
 Wontfix
 X-Y Problem
+
+
+##
+# TODO - Remove this group when this Issue resolves and URLs are no longer linted:
+# https://github.com/errata-ai/vale/issues/711
+#
+
+branch
+discussions
+docker
+editorconfig
+fork
+issue
+issues
+license
+megalinter
+milestones
+mit
+release
+releases
+sdlc
+vale

@@ -98,16 +98,16 @@ REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"
 # @link https://vale.sh/docs/topics/config/#format-associations
 #
 SPELL_VALE_FILE_EXTENSIONS:
-  - .ecrc
-  - .editorconfig
-  - .gitattributes
-  - .gitignore
-  - .ini
-  #- .mk
+  # - .ecrc
+  # - .editorconfig
+  # - .gitattributes
+  # - .gitignore
+  # - .ini
+  # - .mk
   - .md
-  - .prettierignore
-  - .txt
-  #- Makefile
+  # - .prettierignore
+  # - .txt
+  # - Makefile
 
 ##
 # File ignore patterns for Vale.

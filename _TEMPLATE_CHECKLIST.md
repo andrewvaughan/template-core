@@ -16,7 +16,7 @@ When creating a new project from this template, ensure to take these steps immed
     - [Branch and Tag protection](#branch-and-tag-protection)
     - [Labels](#labels)
   - [2. Configure files for new project](#2-configure-files-for-new-project)
-  - [3. Select a License](#3-select-a-license)
+  - [3. Select a license](#3-select-a-license)
     - [Permissions](#permissions)
     - [Conditions](#conditions)
     - [Limitations](#limitations)
@@ -197,7 +197,7 @@ git lfs migrate import --everything
 
 ---
 
-## 3. Select a License
+## 3. Select a license
 
 Several [Licenses][choose-a-license] are available based on the privileges, conditions, and limitations for Licensees of
 the project. Each table includes Licenses in order from least-restrictive to most-restrictive in the sections, below.
@@ -223,7 +223,7 @@ rm LICENSE.*
 ### Permissions
 
 | License File                     | Commercial Use | Distribution | Modification | Patent Use | Private Use |
-| :------------------------------- | :------------: | :----------: | :----------: | :--------: | :---------: |
+|:---------------------------------|:--------------:|:------------:|:------------:|:----------:|:-----------:|
 | [`LICENSE.unlicense`][unlicense] |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
 | [`LICENSE.mit`][mit]             |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
 | [`LICENSE.apache`][apache2]      |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
@@ -233,7 +233,7 @@ rm LICENSE.*
 As described by:
 
 | Permission     | Description                                                               |
-| :------------- | :------------------------------------------------------------------------ |
+|:---------------|:--------------------------------------------------------------------------|
 | Commercial Use | This License grants use for commercial purpose, including derivatives     |
 | Distribution   | This License grants distribution of the licensed material                 |
 | Modification   | This Licensed grants modification rights                                  |
@@ -243,7 +243,7 @@ As described by:
 ### Conditions
 
 | License File                     | Disclose Source | License/Copyright Notice | Same License | State Changes |
-| :------------------------------- | :-------------: | :----------------------: | :----------: | :-----------: |
+|:---------------------------------|:---------------:|:------------------------:|:------------:|:-------------:|
 | [`LICENSE.unlicense`][unlicense] |        -        |            -             |      -       |       -       |
 | [`LICENSE.mit`][mit]             |        -        |           Yes            |      -       |       -       |
 | [`LICENSE.apache`][apache2]      |        -        |           Yes            |      -       |      Yes      |
@@ -255,7 +255,7 @@ As described by:
 <!-- editorconfig-checker-disable -->
 
 | Permission               | Description                                                                                                                                                          |
-| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Disclose Source          | Licensees must make source code available when distributing                                                                                                          |
 | License/Copyright Notice | Licensees must include a copy of the License and copyright notice with the material                                                                                  |
 | Same License             | Licensee must Release modifications under the same License when distributing the licensed material - in some cases the Licensee may use a similar or related License |
@@ -266,7 +266,7 @@ As described by:
 ### Limitations
 
 | License File                     | Limited Liability | No Trademark | No Warranty |
-| :------------------------------- | :---------------: | :----------: | :---------: |
+|:---------------------------------|:-----------------:|:------------:|:-----------:|
 | [`LICENSE.unlicense`][unlicense] |        Yes        |      -       |     Yes     |
 | [`LICENSE.mit`][mit]             |        Yes        |      -       |     Yes     |
 | [`LICENSE.apache`][apache2]      |        Yes        |     Yes      |     Yes     |
@@ -278,7 +278,7 @@ As described by:
 <!-- editorconfig-checker-disable -->
 
 | Permission        | Description                                                                                                                                                             |
-| :---------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Limited Liability | This License includes a limitation of liability                                                                                                                         |
 | No Trademark      | This License explicitly states that it doesn't grant trademark rights, even though Licenses without such a statement probably don't grant any implicit trademark rights |
 | No Warranty       | This License explicitly states that it doesn't provide any warranty                                                                                                     |
@@ -289,11 +289,11 @@ As described by:
 
 ## 4. Complete all `TEMPLATE TODO` items
 
-Each file in the template that has particular needs after copying the template will have those elements marked with a
-special `TEMPLATE TODO` comment.
+Each file in the template that has particular needs after copying the template has those elements marked with a special
+`TEMPLATE TODO` comment.
 
-If using VSCode, the recommended extensions and the provided workspace settings will provide a curated list of items
-that require attention and add a counter to the bottom status bar representing how many items remain.
+If using VSCode, the recommended extensions and the provided workspace settings provides a curated list of items that
+require attention and add a counter to the bottom status bar representing how many items remain.
 
 If not using the recommended IDE, search for all instances of this phrase and take the actions they state:
 
@@ -301,7 +301,7 @@ If not using the recommended IDE, search for all instances of this phrase and ta
 grep -r "TEMPLATE TODO" .
 ```
 
-Delete the `TEMPLATE TODO` comments in each file as they are completed.
+Delete the `TEMPLATE TODO` comments in each file as you complete them.
 
 ---
 
@@ -349,7 +349,7 @@ This template comes with the following standard folder structure:
 <!-- editorconfig-checker-disable -->
 
 | Folder                         | Purpose                                                                                        |
-| :----------------------------- | :--------------------------------------------------------------------------------------------- |
+|:-------------------------------|:-----------------------------------------------------------------------------------------------|
 | [.build](.build)               | All scripts and resources tied to deployment (for example, Docker Compose)                     |
 | [.config](.config)             | All configuration files for local development                                                  |
 | [.devcontainer](.devcontainer) | DevContainer configurations ([GitHub Docs][dc-gh], [VSCode Docs][dc-vsc], [Reference][dc-ref]) |

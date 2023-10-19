@@ -362,7 +362,6 @@ This template comes with the following standard folder structure:
 <!-- editorconfig-checker-enable -->
 
 <!-- Link repository -->
-
 <!-- editorconfig-checker-disable -->
 
 [apache2]: https://choosealicense.com/licenses/apache-2.0/
@@ -399,5 +398,4 @@ This template comes with the following standard folder structure:
 [gh-settings]: https://github.com/andrewvaughan/template-core/settings
 
 <!-- markdown-link-check-enable -->
-
 <!-- editorconfig-checker-enable -->

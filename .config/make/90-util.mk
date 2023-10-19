@@ -1,7 +1,7 @@
 ##
 # Utility Makefile targets.
 #
-# This file contains various utility targets that help developers get set up effeciently.
+# This file contains various utility targets that help developers get set up efficiently.
 #
 
 .PHONY: vscode

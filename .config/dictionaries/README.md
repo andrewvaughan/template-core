@@ -15,6 +15,20 @@ By default, this project includes two dictionaries:
 Developers should add additional [custom dictionaries][docs-dicts], as needed, in this directory. Don't forget to update
 the [`.cspell.json`][config] file when you add a dictionary, per the [CSpell instructions][add-dictionary].
 
+## Operations dependency directories
+
+The `ops-deps` folder contains dictionaries for technologies used in the project that aren't currently supported by the
+CSpell community. Eventually, contributing a full dictionary to the CSpell project for each of these tools would be
+ideal to both ensure projects have fully supported linting in these tools, but also to give back to the community.
+
+For now, dictionaries only contain tokens and words used by the project to keep dependency operations separate from
+project operations, allowing for easy removal as CSpell community capabilities improve.
+
+These dependencies include:
+
+- [`makefile.txt`](ops-deps/makefile.txt) - for `Makefile` commands and variables
+- [`terminfo.txt`](ops-deps/terminfo.txt) - for some common `terminfo` configurations, especially terminal colors
+
 <!-- Link repository -->
 
 [add-dictionary]: https://cspell.org/docs/dictionaries/#dictionary-definition

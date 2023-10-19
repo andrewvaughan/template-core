@@ -557,6 +557,7 @@ solve it the way they did.
 Here is an example of an excellent, [real][commit-example] commit message, adjusted for this project's standards:
 
 <!-- vale off -->
+<!-- cSpell:disable -->
 
 ```text
 commit eb0b56b19017ab5c16c745e6da39c53126924ed6
@@ -582,6 +583,7 @@ Date:   Fri Aug 1 22:57:55 2014 +0200
     them.
 ```
 
+<!-- cSpell:enable -->
 <!-- vale on -->
 
 #### Signed commits
@@ -693,7 +695,6 @@ top of your Issues and Pull Requests with the code `:candy:`: :candy:
 <!-- prettier-ignore-end -->
 
 <!-- Link repository -->
-
 <!-- editorconfig-checker-disable -->
 
 [branch-main]: https://github.com/andrewvaughan/template-core/tree/main

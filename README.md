@@ -199,9 +199,7 @@ The [LICENSE][license] file contains the full text of this project's License.
 _Add selected License short text in this area, if applicable._
 
 <!-- Link repository -->
-
 <!-- editorconfig-checker-disable -->
-<!-- vale off -->
 
 [actions]: https://github.com/andrewvaughan/template-core/actions
 [badge-build]: https://github.com/andrewvaughan/template-core/actions
@@ -242,5 +240,4 @@ _Add selected License short text in this area, if applicable._
 [sdlc]: .github/CONTRIBUTING.md#software-development-lifecycle
 [support]: .github/SUPPORT.md
 
-<!-- vale on -->
 <!-- editorconfig-checker-enable -->

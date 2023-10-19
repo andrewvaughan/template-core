@@ -93,6 +93,8 @@ REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"
 # and this capability would disappear if comments were solely linted. As such, a compromise solution is to not lint
 # YAML during integration, but enable visualization and management of possible errors in the editor.
 #
+# Note, JSON is explicitly not supported as there seems to be a problem parsing text in arrays.
+#
 # @link https://vale.sh/docs/topics/config/#format-associations
 #
 SPELL_VALE_FILE_EXTENSIONS:
@@ -101,12 +103,11 @@ SPELL_VALE_FILE_EXTENSIONS:
   - .gitattributes
   - .gitignore
   - .ini
-  - .json
-  - .mk
+  #- .mk
   - .md
   - .prettierignore
   - .txt
-  - Makefile
+  #- Makefile
 
 ##
 # File ignore patterns for Vale.

@@ -30,7 +30,7 @@ endef
 # Targets.
 #
 
-.PHONY: clean clean-dev clean-tests clean-build clean-deploy clean-images stop-containers
+.PHONY: clean clean-dev clean-tests clean-build clean-deploy clean-images stop-lint-containers
 
 
 ##
@@ -70,7 +70,7 @@ clean-tests:
 	$(call _recursive_purge, megalinter-reports, d)
 	$(call _recursive_purge, .ruff_cache, d)
 
-	$(MAKE) stop-test-containers
+	$(MAKE) stop-lint-containers
 
 
 ##
@@ -108,7 +108,7 @@ clean-images:
 		)) \
 	))
 
-	$(MAKE) stop-test-containers
+	$(MAKE) stop-lint-containers
 
 	$(call _header, Removing test images)
 
@@ -129,13 +129,12 @@ clean-images:
 		&& MAK_SAVED=$$(( \
 			$(START_SIZE) - $${MAK_END_SIZE} \
 		)) \
-		&& echo "Disk space freed: $$( numfmt --to iec --format "%.2f" $${MAK_SAVED} )"
-
+		&& printf "Disk space freed: %.2fG\n" "$$( echo "scale=2; $${MAK_SAVED} / (1024 ^ 3)" | bc )"
 
 ##
 # Stop and remove any running test containers for this project.
 #
-stop-test-containers:
+stop-lint-containers:
 	$(call _header, Stopping running test containers)
 
 	-docker stop $$( docker ps -aq -f "label=org.opencontainers.image.vendor=catthehacker" ) 2>/dev/null || true

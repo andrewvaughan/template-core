@@ -68,7 +68,6 @@ The more effort you put into preparing your question, the more likely a communit
 question quickly, letting you get back to doing what's important to you.
 
 <!-- Link repository -->
-
 <!-- editorconfig-checker-disable -->
 
 [code-conduct]: CODE_OF_CONDUCT.md

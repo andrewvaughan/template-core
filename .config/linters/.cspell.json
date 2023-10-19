@@ -1,7 +1,17 @@
 {
+  "version": "0.2",
+
+  "language": "en",
+
+  "allowCompoundWords": true,
+  "noConfigSearch": true,
+
   "dictionaries": [
     "ops",
     "project",
+
+    "makefile",
+    "terminfo",
 
     "companies",
     "computing-acronyms",
@@ -14,13 +24,23 @@
     "bash",
     "css",
     "docker",
-    "html",
-    "makefile"
+    "html"
   ],
+
   "dictionaryDefinitions": [
     {
       "name": "ops",
       "path": "../dictionaries/ops.txt",
+      "addWords": false
+    },
+    {
+      "name": "makefile",
+      "path": "../dictionaries/ops-deps/makefile.txt",
+      "addWords": false
+    },
+    {
+      "name": "terminfo",
+      "path": "../dictionaries/ops-deps/terminfo.txt",
       "addWords": false
     },
     {
@@ -29,10 +49,11 @@
       "addWords": true
     }
   ],
+
   "ignorePaths": [
     "**/*.svg",
     "**/.config/linters/vale/styles/Google/**",
-    "**/.config/linters/vale/Vocab/**/reject.txt",
+    "**/.config/linters/vale/styles/Vocab/**/reject.txt",
     "**/.git/**",
     "**/.gitattributes",
     "**/.gitignore",
@@ -42,8 +63,5 @@
     "**/vscode-extension/**",
     "**/docs/assets/**",
     "package-lock.json"
-  ],
-  "language": "en",
-  "noConfigSearch": true,
-  "version": "0.2"
+  ]
 }

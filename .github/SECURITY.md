@@ -73,10 +73,10 @@ For more information on CVD, please review the information provided in the follo
 
 - [ISO/IEC 29147:2018 on Vulnerability Disclosure][ISO-29147]
 - [The CERT Guide to Coordinated Vulnerability Disclosure][CERT-guide]
+
 <!-- vale on -->
 
 <!-- Link repository -->
-
 <!-- editorconfig-checker-disable -->
 
 [advisory]: https://github.com/andrewvaughan/template-core/security/advisories/new

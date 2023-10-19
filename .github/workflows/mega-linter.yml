@@ -181,7 +181,7 @@ jobs:
       # @link https://megalinter.io/latest/reporters/
       #
       - name: Archive production artifacts
-        if: ${{ success() }} || ${{ failure() }}
+        if: success() || failure()
         uses: actions/upload-artifact@v3
         with:
           name: MegaLinter reports

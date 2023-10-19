@@ -89,27 +89,19 @@
 
   "todo-tree.general.automaticGitRefreshInterval": 0,
   "todo-tree.general.showActivityBarBadge": true,
-  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
-  "todo-tree.general.statusBar": "top three",
   "todo-tree.general.statusBarClickBehaviour": "reveal",
   "todo-tree.highlights.enabled": true,
   "todo-tree.filtering.ignoreGitSubmodules": true,
-  "todo-tree.general.debug": false,
   "todo-tree.general.periodicRefreshInterval": 0,
-  "todo-tree.general.revealBehaviour": "start of todo",
   "todo-tree.highlights.highlightDelay": 500,
   "todo-tree.filtering.includeHiddenFiles": true,
-  "todo-tree.filtering.useBuiltInExcludes": "file excludes",
   "todo-tree.tree.autoRefresh": true,
   "todo-tree.tree.disableCompactFolders": false,
-  "todo-tree.tree.expanded": false,
   "todo-tree.tree.hideIconsWhenGroupedByTag": false,
   "todo-tree.tree.groupedBySubTag": true,
   "todo-tree.tree.groupedByTag": true,
   "todo-tree.tree.hideTreeWhenEmpty": false,
   "todo-tree.tree.scanAtStartup": true,
-  "todo-tree.tree.scanMode": "workspace only",
-  "todo-tree.tree.showBadges": true,
   "todo-tree.tree.showCountsInTree": true,
   "todo-tree.tree.showCurrentScanMode": true,
   "todo-tree.tree.sort": true,
@@ -122,7 +114,6 @@
   "todo-tree.tree.buttons.groupByTag": true,
   "todo-tree.tree.buttons.refresh": true,
   "todo-tree.tree.buttons.reveal": true,
-  "todo-tree.tree.buttons.scanMode": false,
   "todo-tree.tree.buttons.viewStyle": true,
   "todo-tree.regex.enableMultiLine": false,
   "todo-tree.filtering.excludeGlobs": [
@@ -138,6 +129,9 @@
     "CHECKLIST": ["TEMPLATE TODO", "- [ ]"],
     "TODO": ["BUG", "FIX", "TASK", "TODO"]
   },
+
+  "trivy.minimumReportedSeverity": "UNKNOWN",
+  "trivy.secretScanning": true,
 
   "vale.enableSpellcheck": false,
   "vale.valeCLI.minAlertLevel": "inherited",
@@ -161,5 +155,7 @@
   "yaml.style.flowSequence": "allow",
   "yaml.trace.server": "off",
   "yaml.validate": true,
-  "yaml.yamlVersion": "1.2"
+  "yaml.yamlVersion": "1.2",
+  "todo-tree.general.statusBar": "top three",
+  "todo-tree.highlights.useColourScheme": true
 }

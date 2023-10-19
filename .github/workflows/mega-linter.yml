@@ -10,9 +10,12 @@ name: MegaLinter
 
 on:
   ##
-  # Run after Pull Requests merge onto environment Branches
+  # Run whenever Pull Requests merge into environment Branches
   #
-  # Logic below configures a full code test on push for `staging` and `production`.
+  # Later logic enforces a full code-wide test on only the `production` and `staging` Branches. The `main` Branch only
+  # has changed files linted for efficiency.
+  #
+  # TEMPLATE TODO - Remove any environment Branches this project won't use
   #
   push:
     branches:
@@ -21,9 +24,9 @@ on:
       - staging
 
   ##
-  # Run MegaLinter any Pull Requests within the project
+  # Run whenever a Pull Request on any Branch, regardless of target, occurs in the Repository
   #
-  # Logic below configures a partial code test on only changed files on Pull Request.
+  # Later logic enforces linting on only changed files in these instances for efficiency.
   #
   pull_request:
 
@@ -36,21 +39,17 @@ env:
   ##
   # Apply linter fixes during integration for basic formatting Issues
   #
+  # With this configuration, both `push` and `pull_request` events apply fixes directly into the commit, as opposed to
+  # opening a separate Pull Request with the changes.
+  #
+  # @link https://megalinter.io/latest/config-apply-fixes/
+  #
   APPLY_FIXES: all
-
-  ##
-  # Decide which event triggers automatic fixes in a commit or a PR (`pull_request`, `push`, or `all`)
-  #
-  APPLY_FIXES_EVENT: pull_request
-
-  ##
-  # If using `APPLY_FIXES`, this defines if the fixes are directly committed (`commit`) or posted in a Pull Request
-  # (`pull_request`)
-  #
+  APPLY_FIXES_EVENT: all
   APPLY_FIXES_MODE: commit
 
 ##
-# Cancel in-progress actions on the same Branch when triggering a new workflow
+# Cancel any in-progress GitHub Actions on the same Branch when triggering a new workflow
 #
 # @link https://docs.github.com/en/actions/using-jobs/using-concurrency
 #
@@ -59,7 +58,7 @@ concurrency:
   cancel-in-progress: true
 
 ##
-# Code linting job configurations
+# Linting steps
 #
 # @link https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
 #
@@ -75,6 +74,8 @@ jobs:
     #
     # @link https://docs.github.com/en/actions/security-guides/automatic-token-authentication
     #
+    # TEMPLATE TODO - Remove `pull-requests` and `contents` permissions if not applying auto-fixes
+    #
     permissions:
       contents: write
       issues: write
@@ -82,7 +83,7 @@ jobs:
 
     steps:
       ##
-      # Checkout the full Repository for linting
+      # Checkout the Repository for linting
       #
       # @link https://github.com/actions/checkout
       #
@@ -91,22 +92,43 @@ jobs:
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
 
-          # If you use `VALIDATE_ALL_CODEBASE = true`, you can remove this line to improve performance
-          fetch-depth: 0
+          ##
+          # A fetch depth of `0` pulls the entire Repository's history, Branches, and Tags. This is only necessary when
+          # MegaLinter has to lookup what files have changed, which happens for all events except for `staging` and
+          # `production` Pull Requests.
+          #
+          # Whenever the codebase is fully linted, this keeps the fetch depth to `1` to reduce the cache size and
+          # increase performance of this step.
+          #
+          fetch-depth: >-
+            ${{
+              (
+                github.event_name == 'push'
+                && (
+                  github.ref == 'refs/heads/staging'
+                  || github.ref == 'refs/heads/production'
+                )
+              )
+              && 1
+              || 0
+            }}
 
       ##
       # Run MegaLinter
+      #
+      # @link https://github.com/oxsecurity/megalinter
       #
       - name: Lint with MegaLinter
         id: ml
 
         ##
-        # More specific flavors reduce container size and significantly increase performance
-        #
         # The template that generated this project uses the full MegaLinter image, by default, which is extremely large
         # and has numerous linters likely not needed by any one specific project.
         #
         # @link https://megalinter.io/flavors/
+        #
+        # TEMPLATE TODO - Select a more-specific MegaLinter flavor for the project and update the `uses` configuration
+        # here to significantly increase GitHub Action performance.
         #
         uses: oxsecurity/megalinter@v7
 
@@ -122,10 +144,15 @@ jobs:
           #
           VALIDATE_ALL_CODEBASE: >-
             ${{
-              github.event_name == 'push' && (
-                github.ref == 'refs/heads/staging' ||
-                github.ref == 'refs/heads/production'
+              (
+                github.event_name == 'push'
+                && (
+                  github.ref == 'refs/heads/staging'
+                  || github.ref == 'refs/heads/production'
+                )
               )
+              && 'true'
+              || 'false'
             }}
 
           ##

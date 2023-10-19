@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "aaron-bond.better-comments",
+    "aquasecurityofficial.trivy-vulnerability-scanner",
     "streetsidesoftware.code-spell-checker",
     "naumovs.color-highlight",
     "ms-vscode-remote.remote-containers",
@@ -18,6 +19,7 @@
     "gruntfuggly.todo-tree",
     "chrischinchilla.vale-vscode",
     "vscode-icons-team.vscode-icons",
-    "redhat.vscode-yaml"
+    "redhat.vscode-yaml",
+    "blackmist.linkcheckmd"
   ]
 }

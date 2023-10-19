@@ -151,7 +151,7 @@ This project aims to be as agnostic as possible across all development environme
 are purposely limited to a few critical elements:
 
 | Dependency             | Purpose                                                                    |
-|:-----------------------|:---------------------------------------------------------------------------|
+| :--------------------- | :------------------------------------------------------------------------- |
 | [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally         |
 | [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code       |
 | [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands          |
@@ -207,7 +207,7 @@ _Add selected License short text in this area, if applicable._
 [badge-build]: https://github.com/andrewvaughan/template-core/actions
 [badge-build-img]: https://img.shields.io/badge/build-N/A-rgb(200%2C200%2C200).svg?style=flat&logo=dependabot&logoColor=white
 [badge-changes]: https://github.com/andrewvaughan/template-core/commits/main/
-[badge-changes-img]: https://img.shields.io/github/commits-since/andrewvaughan/template-core/latest?logo=github&label=changes%20in%20next%20release
+[badge-changes-img]: https://img.shields.io/github/commits-since/andrewvaughan/template-core/latest?label=changes%20in%20next%20release
 [badge-coverage]: https://github.com/andrewvaughan/template-core
 [badge-coverage-img]: https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg
 [badge-discord]: https://discord.gg/6x6T3yMtvB

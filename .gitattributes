@@ -1,5 +1,9 @@
 ##
-# Enforces proper diff settings and makes use of GitHub LFS for binary files
+# GitAttributes
+#
+# Enforces proper diff settings and makes use of GitHub LFS for binary files.
+#
+# @link https://git-scm.com/docs/gitattributes
 #
 
 

@@ -20,9 +20,9 @@ When creating a new project from this template, ensure to take these steps immed
     - [Permissions](#permissions)
     - [Conditions](#conditions)
     - [Limitations](#limitations)
-  - [4. Configure linting](#4-configure-linting)
-  - [5. Cleanup](#5-cleanup)
-  - [Next steps](#next-steps)
+  - [4. Complete all `TEMPLATE TODO` items](#4-complete-all-template-todo-items)
+  - [5. Finishing up](#5-finishing-up)
+    - [Next steps](#next-steps)
   - [Appendix](#appendix)
     - [Folder structure](#folder-structure)
 
@@ -31,8 +31,13 @@ When creating a new project from this template, ensure to take these steps immed
 
 ## Pre-steps
 
-After checking out the new project, run the following command locally to update link targets to the new Repository
-instead of the original [`template-core`][template-core] Repository.
+After checking out the new project and setting the `origin` remote for `git`, run the following command locally to
+update link targets to the new Repository instead of the original [`template-core`][template-core] Repository:
+
+```sh
+REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
+  sed -i "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
+```
 
 > **Note:** If on FreeBSD/macOS, install [`gnu-sed`][homebrew-sed] or use this `sed` command, instead:
 >
@@ -40,11 +45,6 @@ instead of the original [`template-core`][template-core] Repository.
 > # ...
 >   sed -i "" "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
 > ```
-
-```bash
-REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
-  sed -i "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
-```
 
 For the rest of setup, refer to this changed document to have accurate links to references in the steps. For cleanest
 results, hold off on committing and pushing these changes until all steps in this file are complete.
@@ -175,29 +175,23 @@ Visit the [Rulesets][gh-rulesets] page for the Repository.
 
 ## 2. Configure files for new project
 
-- [ ] Enable `git lfs` for the project with `git lfs install`
 - [ ] Add and/or remove any files or [folders](#folder-structure) that don't apply to the project
-- [ ] Recommit any binary files to be `lfs` supported - for example, in the `docs` folder
-
 - [ ] Remove all `.empty` files
 
 ```bash
 find . -type f -name '.empty' -delete
 ```
 
-- [ ] Perform a search and replace for `andrewvaughan/template-core` and update the Repository name
+- [ ] Enable `git lfs` for the project
 
-> **Note:** If on FreeBSD/macOS, install [`gnu-sed`][homebrew-sed] or use this `sed` command, instead:
->
-> ```bash
-> # ...
->   sed -i "" "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
-> ```
+```sh
+git lfs install
+```
 
-```bash
-REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
-  grep -rl --exclude-dir=.git "andrewvaughan/template-core" . | \
-  xargs sed -i "s@andrewvaughan/template-core@${REPO}@g"
+- [ ] Migrate any existing binary files to be `lfs` supported
+
+```sh
+git lfs migrate import --everything
 ```
 
 ---
@@ -207,18 +201,28 @@ REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin
 Several [Licenses][choose-a-license] are available based on the privileges, conditions, and limitations for Licensees of
 the project. Each table includes Licenses in order from least-restrictive to most-restrictive in the sections, below.
 
-- [ ] Select the appropriate License using the tables below as a guide
-- [ ] Delete all [`LICENSE.*`][license-dir] files that aren't applicable
-- [ ] Replace the existing [`LICENSE`][license] file with the chosen License
+- [ ] Remove the `template-core` Repository's default `LICENSE` file
+
+```sh
+rm LICENSE
+```
+
+- [ ] Select the appropriate License using the tables, below, as a guide, and rename it to `LICENSE`
+- [ ] Delete all remaining [`LICENSE.*`][license-dir] files
+
+```sh
+rm LICENSE.*
+```
+
 - [ ] Check that all dates and copyright owners are correct
-- [ ] Update the `README.md` badge to show the correct License
+- [ ] Update the [`README.md`][readme] badge to show the correct License
 - [ ] Add the appropriate [`LICENSE`][license] boilerplate to the [`README.md`][readme] file, if applicable
 - [ ] Add the appropriate [`LICENSE`][license] boilerplate to any source files, if applicable
 
 ### Permissions
 
 | License File                     | Commercial Use | Distribution | Modification | Patent Use | Private Use |
-|:---------------------------------|:--------------:|:------------:|:------------:|:----------:|:-----------:|
+| :------------------------------- | :------------: | :----------: | :----------: | :--------: | :---------: |
 | [`LICENSE.unlicense`][unlicense] |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
 | [`LICENSE.mit`][mit]             |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
 | [`LICENSE.apache`][apache2]      |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
@@ -228,7 +232,7 @@ the project. Each table includes Licenses in order from least-restrictive to mos
 As described by:
 
 | Permission     | Description                                                               |
-|:---------------|:--------------------------------------------------------------------------|
+| :------------- | :------------------------------------------------------------------------ |
 | Commercial Use | This License grants use for commercial purpose, including derivatives     |
 | Distribution   | This License grants distribution of the licensed material                 |
 | Modification   | This Licensed grants modification rights                                  |
@@ -238,7 +242,7 @@ As described by:
 ### Conditions
 
 | License File                     | Disclose Source | License/Copyright Notice | Same License | State Changes |
-|:---------------------------------|:---------------:|:------------------------:|:------------:|:-------------:|
+| :------------------------------- | :-------------: | :----------------------: | :----------: | :-----------: |
 | [`LICENSE.unlicense`][unlicense] |        -        |            -             |      -       |       -       |
 | [`LICENSE.mit`][mit]             |        -        |           Yes            |      -       |       -       |
 | [`LICENSE.apache`][apache2]      |        -        |           Yes            |      -       |      Yes      |
@@ -250,7 +254,7 @@ As described by:
 <!-- editorconfig-checker-disable -->
 
 | Permission               | Description                                                                                                                                                          |
-|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Disclose Source          | Licensees must make source code available when distributing                                                                                                          |
 | License/Copyright Notice | Licensees must include a copy of the License and copyright notice with the material                                                                                  |
 | Same License             | Licensee must Release modifications under the same License when distributing the licensed material - in some cases the Licensee may use a similar or related License |
@@ -261,7 +265,7 @@ As described by:
 ### Limitations
 
 | License File                     | Limited Liability | No Trademark | No Warranty |
-|:---------------------------------|:-----------------:|:------------:|:-----------:|
+| :------------------------------- | :---------------: | :----------: | :---------: |
 | [`LICENSE.unlicense`][unlicense] |        Yes        |      -       |     Yes     |
 | [`LICENSE.mit`][mit]             |        Yes        |      -       |     Yes     |
 | [`LICENSE.apache`][apache2]      |        Yes        |     Yes      |     Yes     |
@@ -273,7 +277,7 @@ As described by:
 <!-- editorconfig-checker-disable -->
 
 | Permission        | Description                                                                                                                                                             |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :---------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Limited Liability | This License includes a limitation of liability                                                                                                                         |
 | No Trademark      | This License explicitly states that it doesn't grant trademark rights, even though Licenses without such a statement probably don't grant any implicit trademark rights |
 | No Warranty       | This License explicitly states that it doesn't provide any warranty                                                                                                     |
@@ -282,43 +286,40 @@ As described by:
 
 ---
 
-## 4. Configure linting
+## 4. Complete all `TEMPLATE TODO` items
 
-This project comes pre-configured with [MegaLinter][megalinter] as the test framework for all linting. By default, the
-project uses the full MegaLinter [flavor][megalinter-flavors] which is an extremely large and slow setup. Refined
-flavors are better configured for an intended and specific project.
+Each file in the template that has particular needs after copying the template will have those elements marked with a
+special `TEMPLATE TODO` comment.
 
-The [`Makefile`][makefile] uses the recommended [act][act] tool to replicate integration testing as closely as possible
-on development environments. It's highly recommended to continue this pattern.
+If using VSCode, the recommended extensions and the provided workspace settings will provide a curated list of items
+that require attention and add a counter to the bottom status bar representing how many items remain.
 
-<!-- editorconfig-checker-disable -->
+If not using the recommended IDE, search for all instances of this phrase and take the actions they state:
 
-- [ ] Choose the appropriate MegaLinter [flavor][megalinter-flavors] and update the [.mega-linter.yml][workflow-megalinter] workflow
-- [ ] Update the [`mega-linter.yml`][megalinter-config] file appropriate to the new project
-- [ ] Update any additional linting configurations in the [`.config/linters`][linters-config] directory
+```sh
+grep -r "TEMPLATE TODO" .
+```
 
-<!-- editorconfig-checker-enable -->
+Delete the `TEMPLATE TODO` comments in each file as they are completed.
 
 ---
 
-## 5. Cleanup
+## 5. Finishing up
 
 With everything else complete, there is only one step left:
 
-- [ ] Delete the [`_TEMPLATE_CHECKLIST.md`][checklist] file
+- [ ] Delete this [`_TEMPLATE_CHECKLIST.md`][checklist] file
 
----
-
-## Next steps
+### Next steps
 
 Once you have refined the template project for its purpose, the following steps are usually helpful:
 
 1. Update the [`README.md`][readme] file to best suit the project
-2. Configure the [`.vscode`][vscode] folder, as [described here][vscode-docs]
-3. Configure the [`.devcontainer`][devcontainer] folder, as [described here][devcontainer-docs]
+2. Prepare the [`.vscode`][vscode] folder, as [described here][vscode-docs]
+3. Prepare the [`.devcontainer`][devcontainer] folder, as [described here][devcontainer-docs]
 4. Update the `all`, `build`, and `test-unit` targets in the [Makefile folder][makefile]
 5. Add any specific dictionary words to the [`.config/dictionaries/project.txt`][dictionary] file
-6. Update the [Issue][tpl-issue] and [Pull Request][tpl-pr] templates
+6. Customize the [Issue][tpl-issue] and [Pull Request][tpl-pr] templates
 
 From there, it's a matter of getting started by creating new [source code][source], [tests][tests], and
 [build scripts][build] to make the project a reality.
@@ -334,7 +335,7 @@ This template comes with the following standard folder structure:
 <!-- editorconfig-checker-disable -->
 
 | Folder                         | Purpose                                                                                        |
-|:-------------------------------|:-----------------------------------------------------------------------------------------------|
+| :----------------------------- | :--------------------------------------------------------------------------------------------- |
 | [.build](.build)               | All scripts and resources tied to deployment (for example, Docker Compose)                     |
 | [.config](.config)             | All configuration files for local development                                                  |
 | [.devcontainer](.devcontainer) | DevContainer configurations ([GitHub Docs][dc-gh], [VSCode Docs][dc-vsc], [Reference][dc-ref]) |
@@ -350,7 +351,6 @@ This template comes with the following standard folder structure:
 
 <!-- editorconfig-checker-disable -->
 
-[act]: https://github.com/nektos/act
 [apache2]: https://choosealicense.com/licenses/apache-2.0/
 [build]: .build
 [checklist]: _TEMPLATE_CHECKLIST.md
@@ -364,11 +364,7 @@ This template comes with the following standard folder structure:
 [labels]: https://github.com/andrewvaughan/template-core/labels
 [license]: LICENSE
 [license-dir]: https://github.com/andrewvaughan/template-core/tree/main
-[linters-config]: .config/linters
 [makefile]: .config/make
-[megalinter]: https://megalinter.io/
-[megalinter-config]: .mega-linter.yml
-[megalinter-flavors]: https://megalinter.io/latest/flavors/
 [mit]: https://choosealicense.com/licenses/mit/
 [unlicense]: https://choosealicense.com/licenses/unlicense/
 [dc-gh]: https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
@@ -382,7 +378,6 @@ This template comes with the following standard folder structure:
 [tpl-pr]: .github/PULL_REQUEST_TEMPLATE
 [vscode]: .vscode
 [vscode-docs]: https://stackoverflow.com/questions/32964920/should-i-commit-the-vscode-folder-to-source-control
-[workflow-megalinter]: https://github.com/andrewvaughan/template-core/blob/main/.github/workflows/mega-linter.yml#L57
 
 <!-- markdown-link-check-disable -->
 

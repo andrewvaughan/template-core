@@ -6,3 +6,6 @@
 #
 # @link https://vale.sh/docs/topics/vocab/
 #
+# TEMPLATE TODO - Add the proper spelling of the project name, and any other known phrases with specific-formatting, to
+# start this dictionary.
+#

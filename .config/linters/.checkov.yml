@@ -1,9 +1,8 @@
 ##
-# Checkov linter configutration
+# Checkov linter configuration.
 #
-# Checkov scans cloud infrastructure configurations to find misconfigurations before they're deployed.
-#
-# MegaLinter manages all execution of this linter.
+# Checkov scans cloud infrastructure configurations to find misconfigurations before they're deployed. MegaLinter
+# manages all execution of this linter.
 #
 # @link https://www.checkov.io/
 # @link https://github.com/bridgecrewio/checkov
@@ -16,20 +15,20 @@
 #
 ---
 ##
-# Display only failed checks and turn off progress bars
+# Display only failed checks and turn off progress bars.
 #
 quiet: true
 
 ##
-# Disables specific checks
+# Disables specific checks.
 #
 skip-check:
   ##
-  # Ensure that containers have `HEALTHCHECK` instructions, the default from MegaLinter
+  # Ensure that containers have `HEALTHCHECK` instructions, the default from MegaLinter.
   #
   - CKV_DOCKER_2
 
   ##
-  # Ensures no GitHub Action files expose all write permissions, which currently creates false positives
+  # Ensures no GitHub Action files expose all write permissions, which currently creates false positives.
   #
   - CKV2_GHA_1

@@ -1,5 +1,5 @@
 ##
-# User interface configurations
+# User interface configurations.
 #
 # This file contains various constants and functions for interacting more clearly with the user. Developers can modify
 # the constants and functions in this file as a "template" to manage how targets create titles, headers, error messages,
@@ -38,7 +38,7 @@
 
 
 ## ---------------------------------------------------------------------------------------------------------------------
-# Terminal constants
+# Terminal constants.
 #
 # These are constants to influence the display of text in the user's terminal.
 #
@@ -46,14 +46,12 @@
 # @link https://man7.org/linux/man-pages/man4/console_codes.4.html
 #
 
-
 # Escape code for ANSI varies based on platform
 ifeq ($(UNAME_S),Darwin)
 _ESC := \x1B
 endif
 
 _ESC ?= \e
-
 
 # Text stylization
 _BOLD         := $(shell tput bold || echo "$(_ESC)[1m")
@@ -68,7 +66,6 @@ _NO_ITALIC    := $(shell tput ritm || echo "$(_ESC)[23m")
 _NO_UNDERLINE := $(shell tput rmul || echo "$(_ESC)[24m")
 _NO_INVERT    := $(_ESC)[27m
 
-
 # Foreground colors
 _FG_BLACK     := $(shell tput setaf 0)
 _FG_RED       := $(shell tput setaf 9 || tput setaf 1)
@@ -78,7 +75,6 @@ _FG_BLUE      := $(shell tput setaf 12 || tput setaf 4)
 _FG_MAGENTA   := $(shell tput setaf 13 || tput setaf 5)
 _FG_CYAN      := $(shell tput setaf 14 || tput setaf 6)
 _FG_WHITE     := $(shell tput setaf 15 || tput setaf 7)
-
 
 # Background colors
 _BG_BLACK     := $(shell tput setab 0)
@@ -92,14 +88,13 @@ _BG_WHITE     := $(shell tput setab 15 || tput setab 7)
 
 _RESET        := $(shell tput -Txterm sgr0 || echo "$(_ESC)[0m")
 
-
 # Terminal dimensions
 _TERM_ROWS = $(shell tput lines || echo "0")
 _TERM_COLS = $(shell tput cols || echo "80")
 
 
 ## ---------------------------------------------------------------------------------------------------------------------
-# Template constants
+# Template constants.
 #
 # This section intends to provide utilities for customization. Updating these variables controls how different messages
 # display. It's unlikely for other parts of this file to need modification with effective modification of these
@@ -108,7 +103,7 @@ _TERM_COLS = $(shell tput cols || echo "80")
 
 
 ##
-# The default width for titles, headers, and for word-wrapping
+# The default width for titles, headers, and for word-wrapping.
 #
 # This defaults to the user's configured terminal width.
 #
@@ -116,19 +111,19 @@ _TPL_WRAP_WIDTH := $(_TERM_COLS)
 
 
 ##
-# Color and style for titles
+# Color and style for titles.
 #
 _TPL_TITLE := $(_BOLD)$(_FG_BLACK)$(_BG_CYAN)
 
 
 ##
-# Color and style for headers
+# Color and style for headers.
 #
 _TPL_HEADER := $(_UNDERLINE)$(_FG_GREEN)
 
 
 ##
-# Color and style for basic log messages
+# Color and style for basic log messages.
 #
 # This doesn't include output from called programs.
 #
@@ -136,13 +131,13 @@ _TPL_INFO :=
 
 
 ##
-# The prefix added to all debug messages
+# The prefix added to all debug messages.
 #
 _TPL_DEBUG_PREFIX := $(_DIM)$(_ITALIC)$(_BOLD)$(_FG_BLUE)[MAKE DEBUG]
 
 
 ##
-# Color and style for basic debug messages
+# Color and style for basic debug messages.
 #
 # This affects the message itself, not the prefix described in the preceding section.
 #
@@ -150,31 +145,31 @@ _TPL_DEBUG := $(_DIM)$(_ITALIC)$(_FG_BLUE)
 
 
 ##
-# The color and text used for the warning message bar
+# The color and text used for the warning message bar.
 #
 _TPL_WARNING_BAR := $(_BOLD)$(_FG_BLACK)$(_BG_YELLOW)
 
 
 ##
-# Color and style for warning messages
+# Color and style for warning messages.
 #
 _TPL_WARNING := $(_BOLD)$(_FG_YELLOW)
 
 
 ##
-# The color, style, and text used for the error message bar
+# The color, style, and text used for the error message bar.
 #
 _TPL_ERROR_BAR := $(_BOLD)$(_FG_BLACK)$(_BG_RED)
 
 
 ##
-# Color and style for error messages
+# Color and style for error messages.
 #
 _TPL_ERROR := $(_BOLD)$(_FG_RED)
 
 
 ## ---------------------------------------------------------------------------------------------------------------------
-# User interface functions
+# User interface functions.
 #
 # The `call` command invokes all user interface functions, as they're standard `make` functions:
 #
@@ -192,7 +187,7 @@ _TPL_ERROR := $(_BOLD)$(_FG_RED)
 
 
 ##
-# Wrap given text with optional ANSI formatting
+# Wrap given text with optional ANSI formatting.
 #
 # Text over the fixed width is word wrapped, as needed. Due to a limitation in `make`, any text with commas must use
 # the `$(,)` variable, as described in that variables comment.
@@ -216,7 +211,7 @@ endef
 
 
 ##
-# Wrap given text to a fixed width with optional ANSI formatting
+# Wrap given text to a fixed width with optional ANSI formatting.
 #
 # Importantly, ANSI color codes for text are _not_ supported with this function given how the `printf` function works.
 #
@@ -242,7 +237,7 @@ endef
 
 
 ##
-# Print a formatted title to the terminal
+# Print a formatted title to the terminal.
 #
 # Text over the fixed width is word wrapped, as needed. Due to a limitation in `make`, any text with commas must use
 # the `$(,)` variable, as described in that variables comment.
@@ -257,7 +252,7 @@ endef
 
 
 ##
-# Print a formatted header to the terminal
+# Print a formatted header to the terminal.
 #
 # Text over the fixed width is word wrapped, as needed. Due to a limitation in `make`, any text with commas must use
 # the `$(,)` variable, as described in that variables comment.
@@ -272,7 +267,7 @@ endef
 
 
 ##
-# Print a formatted debug statement to the terminal
+# Print a formatted debug statement to the terminal.
 #
 # Text over the fixed width is word wrapped, as needed. Due to a limitation in `make`, any text with commas must use
 # the `$(,)` variable, as described in that variables comment.
@@ -293,7 +288,7 @@ endef
 
 
 ##
-# Print an informational message to the terminal
+# Print an informational message to the terminal.
 #
 # Text over the fixed width is word wrapped, as needed. Due to a limitation in `make`, any text with commas must use
 # the `$(,)` variable, as described in that variables comment.
@@ -307,7 +302,7 @@ endef
 
 
 ##
-# Print a warning message to the terminal
+# Print a warning message to the terminal.
 #
 # This command does _not_ call the `make` `warning` function, as this effectively duplicates, and improves, all
 # capabilities that the built-in `warning` function would execute.
@@ -326,7 +321,7 @@ endef
 
 
 ##
-# Print an error message to the terminal and stop execution
+# Print an error message to the terminal and stop execution.
 #
 # This command _does_ call the `make` `error` function and halts further progress.
 #
@@ -346,7 +341,7 @@ endef
 
 
 ##
-# Private error target only called by the `_error` function
+# Private error target only called by the `_error` function.
 #
 # This is necessary, as calling `$(error)` within a target prevents any other output from appearing in the terminal.
 #

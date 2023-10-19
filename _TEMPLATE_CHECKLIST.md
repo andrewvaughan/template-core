@@ -21,7 +21,8 @@ When creating a new project from this template, ensure to take these steps immed
     - [Conditions](#conditions)
     - [Limitations](#limitations)
   - [4. Complete all `TEMPLATE TODO` items](#4-complete-all-template-todo-items)
-  - [5. Finishing up](#5-finishing-up)
+  - [5. Update files that can't include comments](#5-update-files-that-cant-include-comments)
+  - [6. Finishing up](#6-finishing-up)
     - [Next steps](#next-steps)
   - [Appendix](#appendix)
     - [Folder structure](#folder-structure)
@@ -304,7 +305,20 @@ Delete the `TEMPLATE TODO` comments in each file as they are completed.
 
 ---
 
-## 5. Finishing up
+## 5. Update files that can't include comments
+
+- [ ] Add necessary dictionaries for the expected languages to `.config/linters/.cspell.json`
+
+```sh
+# To list all available dictionaries
+npx cspell trace -c .config/linters/.cspell.json -all ''
+```
+
+- [ ] Add any helpful VSCode recommended extensions and workspace settings for the language
+
+---
+
+## 6. Finishing up
 
 With everything else complete, there is only one step left:
 
@@ -347,7 +361,7 @@ This template comes with the following standard folder structure:
 
 <!-- editorconfig-checker-enable -->
 
-<!-- Link Repository -->
+<!-- Link repository -->
 
 <!-- editorconfig-checker-disable -->
 

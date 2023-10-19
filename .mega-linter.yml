@@ -1,11 +1,11 @@
 ##
-# Configuration file for MegaLinter
+# Configuration file for MegaLinter.
 #
 # @link https://megalinter.io/configuration/
 #
 
 ##
-# Linters that support fixing in-place do so within the commit
+# Linters that support fixing in-place do so within the commit.
 #
 # The fixing linter doesn't create another Pull Request or commit - the linter fixes small changes in-place during
 # testing.
@@ -13,34 +13,34 @@
 APPLY_FIXES: all
 
 ##
-# Never run these linters, regardless of flavor or configuration
+# Never run these linters, regardless of flavor or configuration.
 #
 DISABLE_LINTERS:
   # Lychee is _extremely_ slow right now - consider the usefulness of dead hyper link checking before re-enabling
   - SPELL_LYCHEE
 
 ##
-# Don't create public reports on file.io
+# Don't create public reports on file.io.
 #
 FILEIO_REPORTER: false
 
 ##
-# Recommend flavors to the developer to help reduce container layer size
+# Recommend flavors to the developer to help reduce container layer size.
 #
 FLAVOR_SUGGESTIONS: true
 
 ##
-# Follow the `.gitignore` file for what files to ignore in the linter
+# Follow the `.gitignore` file for what files to ignore in the linter.
 #
 IGNORE_GITIGNORED_FILES: true
 
 ##
-# All linting configuration is placed in the `.config` folder
+# Place linting configurations in this folder.
 #
 LINTER_RULES_PATH: .config/linters
 
 ##
-# TODO Manually adds a safe directory as this does not seem to run in this configuration
+# TODO Manually adds a safe directory as this doesn't seem to run in this configuration.
 # @link https://github.com/oxsecurity/megalinter/issues/3017
 #
 PRE_COMMANDS:
@@ -48,12 +48,12 @@ PRE_COMMANDS:
     cwd: "workspace"
 
 ##
-# Avoid unnecessary text output in logs
+# Avoid unnecessary text output in logs.
 #
 PRINT_ALPACA: false
 
 ##
-# Time checking helps with optimization
+# Time checking helps with optimization.
 #
 SHOW_ELAPSED_TIME: true
 
@@ -63,93 +63,72 @@ SHOW_ELAPSED_TIME: true
 SHOW_SKIPPED_LINTERS: true
 
 ## ---------------------------------------------------------------------------------------------------------------------
-# Linter configurations
+# Linter configurations.
 #
 
 ##
-# TODO Manually includes `*.mak` files as Checkmake doesn't currently support includes
+# TODO Manually includes `*.mk` files as Checkmake doesn't currently support includes.
 # @link https://github.com/mrtazz/checkmake/issues/97
 #
 MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
-  - .mak
+  - .mk
 
 ##
 # Don't include Vale styles in Markdown linting.
 #
-MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*)
+MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*)
 
 ##
 # Prevent DevSkim from reacting to other linters/utilities that may also need to configuration for sensitive areas.
+#
+# TODO This is a temporary fix until MegaLinter resolves this as default.
+# @link https://github.com/oxsecurity/megalinter/issues/3017
 #
 REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"]
 
 ##
 # MegaLinter doesn't lint code by default, limiting linting to `.md` and `.rst` files.
 #
-# These are Vale's supported file extensions, with other format mappings provided in `.vale.ini`.
-#
 # Note, YAML is explicitly not supported as many project benefit from having in-editor prose linting of content blocks,
 # and this capability would disappear if comments were solely linted. As such, a compromise solution is to not lint
 # YAML during integration, but enable visualization and management of possible errors in the editor.
 #
+# @link https://vale.sh/docs/topics/config/#format-associations
+#
 SPELL_VALE_FILE_EXTENSIONS:
-  - .bsh
-  - .c
-  - .cc
-  - .cpp
-  - .cs
-  - .css
-  - .csx
-  - .cxx
   - .ecrc
   - .editorconfig
   - .gitattributes
   - .gitignore
-  - .go
-  - .h
-  - .hpp
-  - .hs
   - .ini
-  - .java
-  - .js
   - .json
-  - .less
-  - .lua
-  - .mak
+  - .mk
   - .md
-  - .php
-  - .pl
-  - .pm
-  - .pod
   - .prettierignore
-  - .ps1
-  - .py
-  - .py3
-  - .pyi
-  - .pyw
-  - .r
-  - .R
-  - .rb
-  - .rs
-  - .rst
-  - .sass
-  - .sbt
-  - .scala
-  - .scss
-  - .swift
-  - .ts
-  - .tsx
+  - .txt
   - Makefile
 
 ##
-# Don't include Vale styles in v8r linting.
+# File ignore patterns for Vale.
+#
+#   - Vale style guide dependencies
+#   - Vale dictionary rejections
+#
+SPELL_VALE_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/(Google\/.+|Vocab\/.+\/reject\.txt))
+
+##
+# File ignore patterns for v8r.
+#
+#   - Vale style guide dependencies
 #
 # TODO Also temporarily ignores GitHub Issue templates due to problem with schema update.
 # @link https://github.com/andrewvaughan/template-core/issues/44
 #
-YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*|\.github/ISSUE_TEMPLATE/.*\.yml)
+YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*|\.github/ISSUE_TEMPLATE/.*\.yml)
 
 ##
-# Don't include Vale styles in YAML linting.
+# File ignore patterns for YAMLLint.
 #
-YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*)
+#   - Vale style guide dependencies
+#
+YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*)

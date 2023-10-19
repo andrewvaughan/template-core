@@ -1,16 +1,16 @@
 ##
-# GitHub Issue template configurations
+# GitHub Issue template configurations.
 #
 # @link https://t.ly/Cwouf
 #
 ---
 ##
-# This project doesn't support generic, empty Issues
+# This project doesn't support generic, empty Issues.
 #
 blank_issues_enabled: false
 
 ##
-# Additional links to community Discussions
+# Additional links to community Discussions.
 #
 contact_links:
   - name: Support request

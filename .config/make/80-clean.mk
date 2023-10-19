@@ -1,5 +1,5 @@
 ##
-# Cleaning
+# Cleaning Makefile targets.
 #
 # This file defines targets used for cleaning up artifacts created from the development, building, testing, and/or
 # deployment of this project.
@@ -7,12 +7,12 @@
 
 
 ## ---------------------------------------------------------------------------------------------------------------------
-# Functions
+# Functions.
 #
 
 
 ##
-# Recursively remove a glob file pattern in the project folder
+# Recursively remove a glob file pattern in the project folder.
 #
 # @param {string} (1) - the file glob to remove
 # @param {string} (2) - the type of file to remove (default: 'f'; choose 'd' for directory)
@@ -27,14 +27,14 @@ endef
 
 
 ## ---------------------------------------------------------------------------------------------------------------------
-# Targets
+# Targets.
 #
 
 .PHONY: clean clean-dev clean-tests clean-build clean-deploy clean-images stop-containers
 
 
 ##
-# Clean the entire project
+# Clean the entire project.
 #
 clean:
 	$(call _title, Cleaning all artifacts)
@@ -53,14 +53,15 @@ clean:
 
 
 ##
-# Clean artifacts left over from development
+# Clean artifacts left over from development.
 #
 clean-dev:
+	# TEMPLATE TODO
 	$(call _debug, No cleaning steps have been defined.)
 
 
 ##
-# Clean artifacts left over from testing
+# Clean artifacts left over from testing.
 #
 clean-tests:
 	$(call _header, Cleaning test artifacts)
@@ -73,21 +74,23 @@ clean-tests:
 
 
 ##
-# Clean artifacts left over from builds
+# Clean artifacts left over from builds.
 #
 clean-build:
+	# TEMPLATE TODO
 	$(call _debug, No cleaning steps have been defined.)
 
 
 ##
-# Clean artifacts leftover from deployments
+# Clean artifacts leftover from deployments.
 #
 clean-deploy:
+	# TEMPLATE TODO
 	$(call _debug, No cleaning steps have been defined.)
 
 
 ##
-# Stop and clean Docker images downloaded and used as part of this project
+# Stop and clean Docker images downloaded and used as part of this project.
 #
 clean-images:
 	$(call _title, Cleaning cached Docker images)
@@ -130,7 +133,7 @@ clean-images:
 
 
 ##
-# Stop and remove any running test containers for this project
+# Stop and remove any running test containers for this project.
 #
 stop-test-containers:
 	$(call _header, Stopping running test containers)

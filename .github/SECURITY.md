@@ -75,7 +75,7 @@ For more information on CVD, please review the information provided in the follo
 - [The CERT Guide to Coordinated Vulnerability Disclosure][CERT-guide]
 <!-- vale on -->
 
-<!-- Link Repository -->
+<!-- Link repository -->
 
 <!-- editorconfig-checker-disable -->
 

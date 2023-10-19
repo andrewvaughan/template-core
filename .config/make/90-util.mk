@@ -1,5 +1,5 @@
 ##
-# Utility
+# Utility Makefile targets.
 #
 # This file contains various utility targets that help developers get set up effeciently.
 #
@@ -7,7 +7,7 @@
 .PHONY: vscode
 
 ##
-# Installs and/or updates recommended VSCode extensions
+# Installs and/or updates recommended VSCode extensions.
 #
 vscode:
 	$(call _title, Installing/Updating VSCode extensions)

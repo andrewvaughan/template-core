@@ -1,5 +1,5 @@
 ##
-# Operational change request form GitHub Issue template
+# Operational change request GitHub Issue form configuration.
 #
 # @link https://t.ly/-Gbqv
 #
@@ -24,7 +24,7 @@ body:
         integration lifecycle is critical to maintaining rapid development.
 
   ##
-  # Description
+  # Description.
   #
   - type: textarea
     id: description
@@ -35,7 +35,7 @@ body:
       required: true
 
   ##
-  # Examples
+  # Examples.
   #
   - type: textarea
     id: examples
@@ -45,7 +45,9 @@ body:
         If you have any examples of this request in action, or can provide your own example of how this might function,
         please provide it here.
 
-  ## SUBJECTIVE --------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Subjective.
+  #
 
   - type: markdown
     attributes:
@@ -58,7 +60,7 @@ body:
         additional information you might provide helps to determine the prioritization and execution of this effort.
 
   ##
-  # Priority
+  # Priority.
   #
   - type: dropdown
     id: priority
@@ -73,7 +75,7 @@ body:
         - Trivial (nice to have)
 
   ##
-  # Additional Context
+  # Additional context.
   #
   - type: textarea
     id: additional_context
@@ -83,10 +85,12 @@ body:
         If there is anything else the Project Maintainers should know that helps explain or prioritize this Issue,
         please provide that additional information, here.
 
-  ## TERMS -------------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Terms of service.
+  #
 
   ##
-  # Code of Conduct
+  # Code of Conduct.
   #
   - type: checkboxes
     id: code_of_conduct
@@ -97,3 +101,4 @@ body:
         [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme).
       options:
         - label: I agree to follow this project's Code of Conduct
+          required: true

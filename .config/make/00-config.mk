@@ -1,5 +1,5 @@
 ##
-# Global make configurations
+# Global make configurations.
 #
 # The running of all Makefile targets in this project gather their configuration from this file. As such, it's
 # paramount that this configuration file be the first loaded, alphabetically, in this folder. It's generally recommended
@@ -8,7 +8,7 @@
 
 
 ## ---------------------------------------------------------------------------------------------------------------------
-# GNU make variables and configurations
+# GNU make variables and configurations.
 #
 # @link https://www.gnu.org/software/make/manual/html_node/Special-Variables.html
 # @link https://www.gnu.org/software/make/manual/html_node/Special-Targets.html
@@ -16,25 +16,26 @@
 
 
 ##
-# The default target to execute when provided no discrete target
+# The default target to execute when provided no discrete target.
 #
 .DEFAULT_GOAL := all
 
+
 ##
-# Ensures that, regardless of platform, the bash shell executes all commands
+# Ensures that, regardless of platform, the bash shell executes all commands.
 #
 SHELL := /bin/bash
 .SHELLFLAGS = -eu -o pipefail -c
 
 
 ##
-# Prevents the printing of the recipe from of each target for better commenting and readability
+# Prevents the printing of the recipe from of each target for better commenting and readability.
 #
 .SILENT:
 
 
 ##
-# Runs all commands in the same shell instead of creating a new shell instance per-command
+# Runs all commands in the same shell instead of creating a new shell instance per-command.
 #
 # @link https://www.gnu.org/software/make/manual/html_node/One-Shell.html
 #
@@ -55,12 +56,12 @@ MAKE := $(MAKE) --no-print-directory
 
 
 ## ---------------------------------------------------------------------------------------------------------------------
-# Custom variables and configurations
+# Custom variables and configurations.
 #
 
 
 ##
-# Configure `npx` calls to avoid prompts
+# Configure `npx` calls to avoid prompts.
 #
 NPX := npx -y
 

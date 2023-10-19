@@ -1,5 +1,5 @@
 ##
-# Bug request form GitHub template
+# Bug request GitHub Issue form configuration.
 #
 # @link https://t.ly/-Gbqv
 #
@@ -26,7 +26,9 @@ body:
         > **If you believe this is a Security Issue**, please draft a
         > [Security Advisory Report](https://github.com/andrewvaughan/template-core/security/advisories/new) instead.
 
-  ## ENVIRONMENT -------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Environment.
+  #
 
   - type: markdown
     attributes:
@@ -39,7 +41,7 @@ body:
         state of your machine when the bug occurred:
 
   ##
-  # Project version
+  # Project version.
   #
   - type: dropdown
     id: version
@@ -53,7 +55,7 @@ body:
       required: true
 
   ##
-  # Scope
+  # Scope.
   #
   - type: dropdown
     id: scope
@@ -66,7 +68,7 @@ body:
         - Other
 
   ##
-  # Operating system
+  # Operating system.
   #
   - type: dropdown
     id: operating_system
@@ -85,7 +87,7 @@ body:
       required: true
 
   ##
-  # Operating system version
+  # Operating system version.
   #
   - type: input
     id: operating_system_version
@@ -97,7 +99,7 @@ body:
       required: true
 
   ##
-  # Browser
+  # Browser.
   #
   - type: dropdown
     id: browser
@@ -119,7 +121,7 @@ body:
         - Other
 
   ##
-  # Browser version
+  # Browser version.
   #
   - type: input
     id: browser_version
@@ -128,7 +130,9 @@ body:
       description: What versions of the browsers in the preceding question were you using?
       placeholder: "Example: Version 117.0.5938.92 (Official Build) (arm64)"
 
-  ## COLLOQUY ----------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Colloquy.
+  #
 
   - type: markdown
     attributes:
@@ -141,7 +145,7 @@ body:
         questions:
 
   ##
-  # Expected results
+  # Expected results.
   #
   - type: textarea
     id: expected_results
@@ -152,7 +156,7 @@ body:
       required: true
 
   ##
-  # Actual results
+  # Actual results.
   #
   - type: textarea
     id: actual_results
@@ -163,7 +167,7 @@ body:
       required: true
 
   ##
-  # Steps to reproduce
+  # Steps to reproduce.
   #
   - type: textarea
     id: steps_to_reproduce
@@ -179,7 +183,7 @@ body:
       required: true
 
   ##
-  # Consistency
+  # Consistency.
   #
   - type: dropdown
     id: consistency
@@ -195,7 +199,9 @@ body:
     validations:
       required: true
 
-  ## DUMPS -------------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Dumps.
+  #
 
   - type: markdown
     attributes:
@@ -209,7 +215,7 @@ body:
         Maintainers to replicate this bug.
 
   ##
-  # Configuration Settings
+  # Configuration Settings.
   #
   - type: textarea
     id: configuration_settings
@@ -220,7 +226,7 @@ body:
       render: YAML
 
   ##
-  # Screenshots
+  # Screenshots.
   #
   - type: textarea
     id: screenshots
@@ -233,7 +239,7 @@ body:
         ![Example Screenshot Title](https://imgur.com/gallery/0DQQTAv/)
 
   ##
-  # Logs
+  # Logs.
   #
   - type: textarea
     id: logs
@@ -242,7 +248,9 @@ body:
       description: Please turn on verbose debugging via the command options (`-vv`) and paste your log output here.
       render: Shell
 
-  ## SUBJECTIVE --------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Subjective.
+  #
 
   - type: markdown
     attributes:
@@ -255,7 +263,7 @@ body:
         additional information you might provide helps to determine the prioritization and execution of this effort.
 
   ##
-  # Priority
+  # Priority.
   #
   - type: dropdown
     id: priority
@@ -270,7 +278,7 @@ body:
         - Trivial (nice to have)
 
   ##
-  # Additional Context
+  # Additional context.
   #
   - type: textarea
     id: additional_context
@@ -280,10 +288,12 @@ body:
         If there is anything else the Project Maintainers should know that helps explain or prioritize this Issue,
         please provide that additional information, here.
 
-  ## TERMS -------------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Terms of service.
+  #
 
   ##
-  # Code of Conduct
+  # Code of Conduct.
   #
   - type: checkboxes
     id: code_of_conduct

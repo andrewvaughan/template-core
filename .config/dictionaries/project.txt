@@ -1,5 +1,5 @@
 ##
-# Project dictionary
+# Project dictionary.
 #
 # This dictionary contains the various special words added as part of the project to ensure that the spellcheck
 # mechanism doesn't flag them as invalid.

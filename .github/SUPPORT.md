@@ -67,7 +67,7 @@ available prior to asking for community assistance. Some recommendations to star
 The more effort you put into preparing your question, the more likely a community member engages and answers your
 question quickly, letting you get back to doing what's important to you.
 
-<!-- Link Repository -->
+<!-- Link repository -->
 
 <!-- editorconfig-checker-disable -->
 

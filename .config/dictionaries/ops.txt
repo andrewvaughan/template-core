@@ -1,5 +1,5 @@
 ##
-# Operations dictionary
+# Operations dictionary.
 #
 # This dictionary contains the various special words implemented as part of the automation and operational dependencies,
 # including configuration files. Don't add words specific to this project in this file. Instead, please place these in
@@ -7,3 +7,15 @@
 #
 # @link https://cspell.org/docs/dictionaries-custom/
 #
+
+andrewvaughan
+Checkmake
+Checkmarx
+Chiberia
+devcontainer
+KICS
+Makefiles
+rulesets
+ruleset
+SDLC
+Wontfix

@@ -172,7 +172,7 @@ This Code of Conduct is an adaptation based on the following resources:
 
 All Repository documentation follows the [Google Developer Documentation Style Guide][google-style].
 
-<!-- Link Repository -->
+<!-- Link repository -->
 
 [covenant-14]: https://www.contributor-covenant.org/version/1/4/code-of-conduct/
 [covenant-21]: https://www.contributor-covenant.org/version/2/1/code_of_conduct/

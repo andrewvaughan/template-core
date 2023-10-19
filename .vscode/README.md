@@ -20,6 +20,7 @@ Repository. Project Maintainers may reject any commits that include changes to t
 ## Extensions
 
 <!-- editorconfig-checker-disable -->
+<!-- markdownlint-disable MD013 -->
 <!-- vale off -->
 
 | Extension                                                      |                         ID                         | Publisher            | Description                                                                                                                                                                                                                                                        |
@@ -47,6 +48,7 @@ Repository. Project Maintainers may reject any commits that include changes to t
 | [YAML][ext-yaml]                                               |                `redhat.vscode-yaml`                | Red Hat              | YAML Language Support by Red Hat, with built-in Kubernetes syntax support                                                                                                                                                                                          |
 
 <!-- vale on -->
+<!-- markdownlint-enable MD013 -->
 <!-- editorconfig-checker-enable -->
 
 <!-- Link repository -->

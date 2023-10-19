@@ -1,5 +1,5 @@
 ##
-# Feature request form GitHub Issue template
+# Feature request GitHub Issue form configuration.
 #
 # @link https://t.ly/-Gbqv
 #
@@ -24,7 +24,7 @@ body:
         [Contributing Guidelines](/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#submit-an-idea).
 
   ##
-  # Scope
+  # Scope.
   #
   - type: dropdown
     id: scope
@@ -40,7 +40,7 @@ body:
       required: true
 
   ##
-  # Problem
+  # Problem.
   #
   - type: textarea
     id: problem
@@ -51,7 +51,7 @@ body:
       required: true
 
   ##
-  # Benefits
+  # Benefits.
   #
   - type: textarea
     id: benefits
@@ -60,7 +60,7 @@ body:
       description: What benefit does this change bring to the project and community?
 
   ##
-  # Recommended Approach
+  # Recommended approach.
   #
   - type: textarea
     id: approach
@@ -72,7 +72,7 @@ body:
         editor below.
 
   ##
-  # Examples
+  # Examples.
   #
   - type: textarea
     id: examples
@@ -82,7 +82,9 @@ body:
         If you have any examples of other projects or utilities, or can provide your own example as to how this might
         function, please provide it here.
 
-  ## SUBJECTIVE --------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Subjective.
+  #
 
   - type: markdown
     attributes:
@@ -95,7 +97,7 @@ body:
         additional information you might provide helps to determine the prioritization and execution of this effort.
 
   ##
-  # Priority
+  # Priority.
   #
   - type: dropdown
     id: priority
@@ -110,7 +112,7 @@ body:
         - Trivial (nice to have)
 
   ##
-  # Additional Context
+  # Additional context.
   #
   - type: textarea
     id: additional_context
@@ -120,10 +122,12 @@ body:
         If there is anything else the Project Maintainers should know that helps explain or prioritize this Issue,
         please provide that additional information, here.
 
-  ## TERMS -------------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Terms of service.
+  #
 
   ##
-  # Code of Conduct
+  # Code of Conduct.
   #
   - type: checkboxes
     id: code_of_conduct
@@ -134,3 +138,4 @@ body:
         [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme).
       options:
         - label: I agree to follow this project's Code of Conduct
+          required: true

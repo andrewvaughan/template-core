@@ -1,5 +1,5 @@
 ##
-# Vale special words dictionary
+# Vale special words dictionary.
 #
 # This file defines acceptable words and phrases for common projects. This file is specifically setup for base
 # operations and templates. Add specific project phrases to the parallel `Project` vocabulary folder, reserving this

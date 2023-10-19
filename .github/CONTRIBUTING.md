@@ -692,7 +692,7 @@ top of your Issues and Pull Requests with the code `:candy:`: :candy:
 
 <!-- prettier-ignore-end -->
 
-<!-- Link Repository -->
+<!-- Link repository -->
 
 <!-- editorconfig-checker-disable -->
 

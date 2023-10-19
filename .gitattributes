@@ -1,5 +1,5 @@
 ##
-# GitAttributes
+# GitAttributes.
 #
 # Enforces proper diff settings and makes use of GitHub LFS for binary files.
 #
@@ -8,7 +8,7 @@
 
 
 ##
-# AUTO-DETECT
+# AUTO-DETECT.
 #
 # Handle line endings automatically for files detected as text and leave all files detected as binary untouched. This
 # handles all files not defined below.
@@ -18,7 +18,7 @@
 
 
 ##
-# Source Code
+# Source Code.
 #
 
 *.bat      text eol=crlf
@@ -53,7 +53,7 @@
 
 
 ##
-# Docker
+# Docker.
 #
 
 *.dockerignore text
@@ -61,7 +61,7 @@ Dockerfile     text
 
 
 ##
-# Documentation
+# Documentation.
 #
 
 *.ipynb      text
@@ -87,11 +87,10 @@ LICENSE      text
 NEWS         text
 readme       text
 *README*     text
-TODO         text
 
 
 ##
-# Templates
+# Templates.
 #
 
 *.dot        text
@@ -111,7 +110,7 @@ TODO         text
 
 
 ##
-# Linters
+# Linters.
 #
 
 .csslintrc    text
@@ -124,7 +123,7 @@ TODO         text
 
 
 ##
-# Configurations
+# Configurations.
 #
 
 *.bowerrc       text
@@ -148,7 +147,7 @@ makefile        text
 
 
 ##
-# Graphics
+# Graphics.
 #
 
 *.ai   filter=lfs diff=lfs merge=lfs -text
@@ -175,7 +174,7 @@ makefile        text
 
 
 ##
-# Audio
+# Audio.
 #
 
 *.kar  filter=lfs diff=lfs merge=lfs -text
@@ -188,7 +187,7 @@ makefile        text
 
 
 ##
-# Video
+# Video.
 #
 
 *.3gpp filter=lfs diff=lfs merge=lfs -text
@@ -211,7 +210,7 @@ makefile        text
 
 
 ##
-# Archives
+# Archives.
 #
 
 *.7z  filter=lfs diff=lfs merge=lfs -text
@@ -223,7 +222,7 @@ makefile        text
 
 
 ##
-# Fonts
+# Fonts.
 #
 
 *.ttf   filter=lfs diff=lfs merge=lfs -text
@@ -234,7 +233,7 @@ makefile        text
 
 
 ##
-# Executables
+# Executables.
 #
 
 *.exe filter=lfs diff=lfs merge=lfs -text

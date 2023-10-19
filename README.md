@@ -198,7 +198,7 @@ The [LICENSE][license] file contains the full text of this project's License.
 
 _Add selected License short text in this area, if applicable._
 
-<!-- Link Repository -->
+<!-- Link repository -->
 
 <!-- editorconfig-checker-disable -->
 <!-- vale off -->

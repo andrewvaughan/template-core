@@ -63,7 +63,7 @@ did not adjust any UI, please feel free to state so, here.
 
 ## What animated GIF best describes how this Pull Request makes you feel?
 
-<!-- This is a critical question -->
+<!-- This is a critical question. -->
 
 > These addons are recommend to view GIFs in Pull Requests:
 >

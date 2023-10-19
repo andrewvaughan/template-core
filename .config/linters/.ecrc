@@ -1,6 +1,6 @@
 {
   "Exclude": [
-    "^\\.config/linters/vale/styles/",
+    "^\\.config/linters/vale/styles/Google/*",
     ".github/PULL_REQUEST_TEMPLATE.md",
     ".github/ISSUE_TEMPLATE/*",
     ".github/PULL_REQUEST_TEMPLATE/*"

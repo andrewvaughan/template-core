@@ -1,5 +1,22 @@
 {
-  "dictionaries": ["ops", "project"],
+  "dictionaries": [
+    "ops",
+    "project",
+
+    "companies",
+    "computing-acronyms",
+    "data-science",
+    "filetypes",
+    "public-licenses",
+    "softwareTerms",
+    "web-services",
+
+    "bash",
+    "css",
+    "docker",
+    "html",
+    "makefile"
+  ],
   "dictionaryDefinitions": [
     {
       "name": "ops",
@@ -14,7 +31,8 @@
   ],
   "ignorePaths": [
     "**/*.svg",
-    "**/.config/linters/**",
+    "**/.config/linters/vale/styles/Google/**",
+    "**/.config/linters/vale/Vocab/**/reject.txt",
     "**/.git/**",
     "**/.gitattributes",
     "**/.gitignore",

@@ -1,5 +1,5 @@
 ##
-# Documentation update request form GitHub Issue template
+# Documentation update GitHub Issue form configuration.
 #
 # @link https://t.ly/-Gbqv
 #
@@ -24,7 +24,7 @@ body:
         that strategy.
 
   ##
-  # Scope
+  # Scope.
   #
   - type: dropdown
     id: scope
@@ -37,7 +37,7 @@ body:
         - Other
 
   ##
-  # New or update
+  # New or update.
   #
   - type: dropdown
     id: update_target
@@ -52,7 +52,7 @@ body:
       required: true
 
   ##
-  # Description
+  # Description.
   #
   - type: textarea
     id: description
@@ -63,7 +63,7 @@ body:
       required: true
 
   ##
-  # Examples
+  # Examples.
   #
   - type: textarea
     id: examples
@@ -73,7 +73,9 @@ body:
         If you have any examples of this documentation, or can provide your own example of how the documentation might
         look, please provide it here.
 
-  ## SUBJECTIVE --------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Subjective.
+  #
 
   - type: markdown
     attributes:
@@ -86,7 +88,7 @@ body:
         additional information you might provide helps to determine the prioritization and execution of this effort.
 
   ##
-  # Priority
+  # Priority.
   #
   - type: dropdown
     id: priority
@@ -101,7 +103,7 @@ body:
         - Trivial (nice to have)
 
   ##
-  # Additional Context
+  # Additional context.
   #
   - type: textarea
     id: additional_context
@@ -111,10 +113,12 @@ body:
         If there is anything else the Project Maintainers should know that helps explain or prioritize this Issue,
         please provide that additional information, here.
 
-  ## TERMS -------------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Terms of service.
+  #
 
   ##
-  # Code of Conduct
+  # Code of Conduct.
   #
   - type: checkboxes
     id: code_of_conduct
@@ -125,3 +129,4 @@ body:
         [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme).
       options:
         - label: I agree to follow this project's Code of Conduct
+          required: true

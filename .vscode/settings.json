@@ -2,12 +2,13 @@
   "better-comments.multilineComments": true,
 
   "cSpell.enabled": true,
-  "cSpell.caseSensitive": true,
-  "cSpell.language": "en,en-US",
+  "cSpell.language": "en",
   "cSpell.autoFormatConfigFile": false,
   "cSpell.diagnosticLevel": "Warning",
   "cSpell.showAutocompleteSuggestions": true,
   "cSpell.checkOnlyEnabledFileTypes": true,
+  "todo-tree.general.statusBar": "top three",
+  "todo-tree.highlights.useColourScheme": true,
   "cSpell.import": ["${workspaceFolder}/.config/linters/.cspell.json"],
 
   "color-highlight.markerType": "dot-before",
@@ -155,7 +156,5 @@
   "yaml.style.flowSequence": "allow",
   "yaml.trace.server": "off",
   "yaml.validate": true,
-  "yaml.yamlVersion": "1.2",
-  "todo-tree.general.statusBar": "top three",
-  "todo-tree.highlights.useColourScheme": true
+  "yaml.yamlVersion": "1.2"
 }

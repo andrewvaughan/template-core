@@ -1,5 +1,5 @@
 ##
-# Usage
+# Usage Makefile targets.
 #
 # This file contains help information on how to use this Makefile. Usage instructions for targets are auto-generated
 # based on the first line of comments after the double-hash (`##`) in the comment block preceding the target.
@@ -15,13 +15,13 @@ HELP_WIDTH := 120
 
 
 ##
-# How much right-padding to include when listing the table of targets in the usage instructions
+# How much right-padding to include when listing the table of targets in the usage instructions.
 #
 HELP_TARGET_WIDTH := 25
 
 
 ##
-# Print these usage instructions
+# Print these usage instructions.
 #
 # This automatically pulls the first line after the double-hash (`##`) comment for each target to print as the help. New
 # targets usage instructions are auto-generated, so long as the comment formatting remains correct. Targets must use the

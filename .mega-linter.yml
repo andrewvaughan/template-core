@@ -13,7 +13,14 @@
 APPLY_FIXES: all
 
 ##
-# Do not create public reports on file.io
+# Never run these linters, regardless of flavor or configuration
+#
+DISABLE_LINTERS:
+  # Lychee is _extremely_ slow right now - consider the usefulness of dead hyper link checking before re-enabling
+  - SPELL_LYCHEE
+
+##
+# Don't create public reports on file.io
 #
 FILEIO_REPORTER: false
 
@@ -33,6 +40,14 @@ IGNORE_GITIGNORED_FILES: true
 LINTER_RULES_PATH: .config/linters
 
 ##
+# TODO Manually adds a safe directory as this does not seem to run in this configuration
+# @link https://github.com/oxsecurity/megalinter/issues/3017
+#
+PRE_COMMANDS:
+  - command: git config --global --add safe.directory $PWD
+    cwd: "workspace"
+
+##
 # Avoid unnecessary text output in logs
 #
 PRINT_ALPACA: false
@@ -43,7 +58,7 @@ PRINT_ALPACA: false
 SHOW_ELAPSED_TIME: true
 
 ##
-# Allow developers to review other linters that may help with their project
+# Allow developers to review other linters that may help with their project.
 #
 SHOW_SKIPPED_LINTERS: true
 
@@ -51,71 +66,90 @@ SHOW_SKIPPED_LINTERS: true
 # Linter configurations
 #
 
-# editorconfig-checker-disable
-
 ##
-# Prevent DevSkim from reacting to other linters/utilities that may also need to configuration for sensitive areas
-#
-REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"]
-#   ["--ignore-globs", "**/.config/dictionaries/**,**/.config/linters/vale/**,**/.git/**,**/megalinter-reports/**"]
-
-# editorconfig-checker-enable
-
-##
-# Never run these linters, regardless of flavor or configuration
-#
-DISABLE_LINTERS:
-  # Lychee is _extremely_ slow right now - consider the usefulness of dead hyper link checking before re-enabling
-  - SPELL_LYCHEE
-
-##
-# Ensure to include the folder of Makefile targets (as Checkmake doesn't follow include directives)
-#
+# TODO Manually includes `*.mak` files as Checkmake doesn't currently support includes
 # @link https://github.com/mrtazz/checkmake/issues/97
 #
 MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
   - .mak
 
 ##
-# Don't include Vale style guides in the Markdown linter
+# Don't include Vale styles in Markdown linting.
 #
 MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*)
 
 ##
-# Don't include Vale style guides in the V8R linter
+# Prevent DevSkim from reacting to other linters/utilities that may also need to configuration for sensitive areas.
 #
-# Ignores the Vale and Issue template folders.
+REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"]
+
+##
+# MegaLinter doesn't lint code by default, limiting linting to `.md` and `.rst` files.
 #
+# These are Vale's supported file extensions, with other format mappings provided in `.vale.ini`.
+#
+# Note, YAML is explicitly not supported as many project benefit from having in-editor prose linting of content blocks,
+# and this capability would disappear if comments were solely linted. As such, a compromise solution is to not lint
+# YAML during integration, but enable visualization and management of possible errors in the editor.
+#
+SPELL_VALE_FILE_EXTENSIONS:
+  - .bsh
+  - .c
+  - .cc
+  - .cpp
+  - .cs
+  - .css
+  - .csx
+  - .cxx
+  - .ecrc
+  - .editorconfig
+  - .gitattributes
+  - .gitignore
+  - .go
+  - .h
+  - .hpp
+  - .hs
+  - .ini
+  - .java
+  - .js
+  - .json
+  - .less
+  - .lua
+  - .mak
+  - .md
+  - .php
+  - .pl
+  - .pm
+  - .pod
+  - .prettierignore
+  - .ps1
+  - .py
+  - .py3
+  - .pyi
+  - .pyw
+  - .r
+  - .R
+  - .rb
+  - .rs
+  - .rst
+  - .sass
+  - .sbt
+  - .scala
+  - .scss
+  - .swift
+  - .ts
+  - .tsx
+  - Makefile
+
+##
+# Don't include Vale styles in v8r linting.
+#
+# TODO Also temporarily ignores GitHub Issue templates due to problem with schema update.
 # @link https://github.com/andrewvaughan/template-core/issues/44
 #
 YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*|\.github/ISSUE_TEMPLATE/.*\.yml)
 
 ##
-# Don't include Vale
+# Don't include Vale styles in YAML linting.
 #
 YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/.*)
-
-## ---------------------------------------------------------------------------------------------------------------------
-# Everything below this line is debugging ongoing local testing Issues
-#
-PRE_COMMANDS:
-  ##
-  # @link https://github.com/oxsecurity/megalinter/issues/3017
-  #
-  - command: git config --global --add safe.directory $PWD
-    cwd: "workspace"
-
-  ##
-  # @link https://github.com/oxsecurity/megalinter/issues/2998
-  # @link https://github.com/nektos/act/issues/2039
-  # @link https://github.com/catthehacker/docker_images/issues/115
-  # @link https://github.com/nektos/act/discussions/2035
-  #
-#   - command: |
-#       {
-#         ssh-keyscan github.com;
-#         ssh-keyscan ssh.dev.azure.com
-#       } >>/etc/ssh/ssh_known_hosts
-#   - command: |
-#       echo "GITHUB_TOKEN: ${GITHUB_TOKEN}";
-#       echo "PAT: ${PAT}"

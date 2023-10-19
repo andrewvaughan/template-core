@@ -44,7 +44,6 @@ Definition of Done
 Discussion
 Discussions
 Docker
-editorconfig
 EditorConfig
 Fork
 Forks
@@ -81,7 +80,6 @@ Milestones
 MIT
 Pending Initiation
 Pending Staging
-pre-release
 Project Licenses
 Project Maintainer
 Project Maintainers
@@ -90,7 +88,6 @@ Pull Requests
 Primary Commit Message
 Release
 Released
-released
 Releases
 Repository
 Reviewer

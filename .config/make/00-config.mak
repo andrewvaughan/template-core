@@ -78,7 +78,7 @@ NPX := npx -y
 # of called commands. Otherwise, the `DEBUG` variable remains unset. This allows for the following type of conditional:
 #
 # ```make
-# $(if $(DEBUG), ...true..., ...false...)
+# $(if $(DEBUG), true option, false option)
 # ```
 #
 # Additionally, enabling the `DEBUG` flag is possible without increasing `make` verbosity by setting the `DEBUG`

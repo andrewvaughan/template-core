@@ -12,8 +12,6 @@
 </div>
 <!-- editorconfig-checker-enable -->
 
-<!-- omit from toc -->
-
 # New project template
 
 <!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project. -->

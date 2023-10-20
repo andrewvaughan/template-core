@@ -1,5 +1,3 @@
-<!-- omit from toc -->
-
 # Code of Conduct
 
 > **Last Updated:** October 14, 2023
@@ -8,20 +6,21 @@
 <!-- omit from toc -->
 ## Contents
 
-- [Community pledge](#community-pledge)
-- [Community standards](#community-standards)
-  - [Peaceful resolution](#peaceful-resolution)
-- [Community Leader responsibilities](#community-leader-responsibilities)
-- [Scope](#scope)
-- [Enforcement](#enforcement)
-  - [Reporting an incident](#reporting-an-incident)
-  - [Enforcement guidelines](#enforcement-guidelines)
-    - [Correction for minor infractions](#correction-for-minor-infractions)
-    - [Warning for repeat or moderate infractions](#warning-for-repeat-or-moderate-infractions)
-    - [Temporary ban for sustained or serious infractions](#temporary-ban-for-sustained-or-serious-infractions)
-    - [Permanent ban for sustained or severe infractions](#permanent-ban-for-sustained-or-severe-infractions)
-- [Conclusion](#conclusion)
-- [Attribution](#attribution)
+- [Code of Conduct](#code-of-conduct)
+  - [Community pledge](#community-pledge)
+  - [Community standards](#community-standards)
+    - [Peaceful resolution](#peaceful-resolution)
+  - [Community Leader responsibilities](#community-leader-responsibilities)
+  - [Scope](#scope)
+  - [Enforcement](#enforcement)
+    - [Reporting an incident](#reporting-an-incident)
+    - [Enforcement guidelines](#enforcement-guidelines)
+      - [Correction for minor infractions](#correction-for-minor-infractions)
+      - [Warning for repeat or moderate infractions](#warning-for-repeat-or-moderate-infractions)
+      - [Temporary ban for sustained or serious infractions](#temporary-ban-for-sustained-or-serious-infractions)
+      - [Permanent ban for sustained or severe infractions](#permanent-ban-for-sustained-or-severe-infractions)
+  - [Conclusion](#conclusion)
+  - [Attribution](#attribution)
 
 ---
 <!-- prettier-ignore-end -->

@@ -1,5 +1,3 @@
-<!-- omit from toc -->
-
 # Template checklist
 
 When creating a new project from this template, ensure to take these steps immediately after provisioning.
@@ -8,25 +6,26 @@ When creating a new project from this template, ensure to take these steps immed
 <!-- omit from toc -->
 ## Contents
 
-- [Pre-steps](#pre-steps)
-- [1. Configure GitHub Repository settings](#1-configure-github-repository-settings)
-  - [General settings](#general-settings)
-    - [Features](#features)
-    - [Pull Requests](#pull-requests)
-    - [Archives](#archives)
-  - [Branch and Tag protection](#branch-and-tag-protection)
-  - [Labels](#labels)
-- [2. Configure files for new project](#2-configure-files-for-new-project)
-- [3. Select a license](#3-select-a-license)
-  - [Permissions](#permissions)
-  - [Conditions](#conditions)
-  - [Limitations](#limitations)
-- [4. Complete all `TEMPLATE TODO` items](#4-complete-all-template-todo-items)
-- [5. Update files that can't include comments](#5-update-files-that-cant-include-comments)
-- [6. Finishing up](#6-finishing-up)
-  - [Next steps](#next-steps)
-- [Appendix](#appendix)
-  - [Folder structure](#folder-structure)
+- [Template checklist](#template-checklist)
+  - [Pre-steps](#pre-steps)
+  - [1. Configure GitHub Repository settings](#1-configure-github-repository-settings)
+    - [General settings](#general-settings)
+      - [Features](#features)
+      - [Pull Requests](#pull-requests)
+      - [Archives](#archives)
+    - [Branch and Tag protection](#branch-and-tag-protection)
+    - [Labels](#labels)
+  - [2. Configure files for new project](#2-configure-files-for-new-project)
+  - [3. Select a license](#3-select-a-license)
+    - [Permissions](#permissions)
+    - [Conditions](#conditions)
+    - [Limitations](#limitations)
+  - [4. Complete all `TEMPLATE TODO` items](#4-complete-all-template-todo-items)
+  - [5. Update files that can't include comments](#5-update-files-that-cant-include-comments)
+  - [6. Finishing up](#6-finishing-up)
+    - [Next steps](#next-steps)
+  - [Appendix](#appendix)
+    - [Folder structure](#folder-structure)
 
 ---
 <!-- prettier-ignore-end -->

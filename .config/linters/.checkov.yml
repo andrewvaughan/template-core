@@ -24,11 +24,8 @@ quiet: true
 #
 skip-check:
   ##
-  # Ensure that containers have `HEALTHCHECK` instructions, the default from MegaLinter.
+  # "Ensure that HEALTHCHECK instructions [are part of] container images"
+  #
+  # Not all linting dependencies have Healthchecks, unfortunately.
   #
   - CKV_DOCKER_2
-
-  ##
-  # Ensures no GitHub Action files expose all write permissions, which currently creates false positives.
-  #
-  - CKV2_GHA_1

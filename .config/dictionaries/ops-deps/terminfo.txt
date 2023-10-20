@@ -1,5 +1,5 @@
 ##
-# TermInfo dictionary for CSpell
+# TermInfo dictionary for CSpell.
 #
 # @link https://manpages.ubuntu.com/manpages/jammy/en/man5/terminfo.5.html
 #

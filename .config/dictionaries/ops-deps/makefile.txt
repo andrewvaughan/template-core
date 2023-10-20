@@ -1,5 +1,5 @@
 ##
-# Makefile dictionary for CSpell
+# Makefile dictionary for CSpell.
 #
 # @link https://github.com/streetsidesoftware/cspell-dicts/issues/2665
 # @link https://github.com/streetsidesoftware/vscode-spell-checker/issues/2883

@@ -1,9 +1,9 @@
 ##
 # Vale special words dictionary.
 #
-# This file defines acceptable words and phrases for common projects. This file is specifically setup for base
+# This file defines acceptable words and phrases for common projects. This file is specifically setup for common
 # operations and templates. Add specific project phrases to the parallel `Project` vocabulary folder, reserving this
-# file for common phrases.
+# file for phrases common to all projects and the core template set.
 #
 # @link https://vale.sh/docs/topics/vocab/
 #

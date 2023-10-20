@@ -25,12 +25,12 @@ when first working with this community's projects.
     - [Support, questions, and forums](#support-questions-and-forums)
   - [Working on issues](#working-on-issues)
     - [Software Development Lifecycle](#software-development-lifecycle)
-      - [1. `Pending Initiation`](#1-pending-initiation)
-      - [2. `In Progress`](#2-in-progress)
-      - [3. `Code Review`](#3-code-review)
-      - [4. `Pending Staging`](#4-pending-staging)
-      - [5. `Staged`](#5-staged)
-      - [6. `Released`](#6-released)
+      - [`Status: 01-Pending Initiation`](#status-01-pending-initiation)
+      - [`Status: 02-In Progress`](#status-02-in-progress)
+      - [`Status: 03-Code Review`](#status-03-code-review)
+      - [`Status: 04-Pending Staging`](#status-04-pending-staging)
+      - [`Status: 05-Staged`](#status-05-staged)
+      - [`Status: 06-Released`](#status-06-released)
     - [Issue triage](#issue-triage)
     - [Submission requirements](#submission-requirements)
       - [Testing](#testing)
@@ -215,19 +215,20 @@ Maintainers determine which Issues are road-mapped and plan [Project Milestones]
 ### Software Development Lifecycle
 
 All contributions to the project **must** follow this Software Development Lifecycle (SDLC). Six (6) distinct phases
-make up the SDLC, with each state represented by a different `State` label that matches one of the following:
+make up the SDLC, with each state represented by a different `Status` label that matches one of the following:
 
-#### 1. `Pending Initiation`
+#### `Status: 01-Pending Initiation`
 
 When [triage](#issue-triage) is complete, Issues are either approved or rejected. If approved, the Issue enters the
-`Pending Initiation` state. This means that the Issue is ready for development.
+`Status: 01-Pending Initiation` state. This means that the Issue is ready for development.
 
-Any Issue that's in the `Pending Initiation` state is free for claiming by a Contributor and is one of the best ways to
-find an Issue to work on, for those wishing to contribute.
+Any Issue that's in the `Status: 01-Pending Initiation` state is free for claiming by a Contributor and is one of the
+best ways to find an Issue to work on, for those wishing to contribute.
 
-When a volunteer chooses to take a `Pending Initiation` Issue, they **must** put a comment on the Issue stating their
-interest, at which point a Project Maintainer can update the status label to `In Progress` and assign the Issue to the
-Contributor. The Contributor should then create a [Fork][fork] of the Repository and begin working on the effort.
+When a volunteer chooses to take a `Status: 01-Pending Initiation` Issue, they **must** put a comment on the Issue
+stating their interest, at which point a Project Maintainer can update the status label to `Status: 02-In Progress` and
+assign the Issue to the Contributor. The Contributor should then create a [Fork][fork] of the Repository and begin
+working on the effort.
 
 > **Developer tip:** Adding an `upstream` remote and regularly [rebasing][rebasing] from the [`main`][branch-main]
 > Branch is important to keep updated with changes and prevent significant effort at the end of the development. To add
@@ -246,13 +247,13 @@ Contributor. The Contributor should then create a [Fork][fork] of the Repository
 >
 > You can then add your changes, as normal, on a new Branch.
 
-#### 2. `In Progress`
+#### `Status: 02-In Progress`
 
-While a Contributor is working on an Issue, the Issue **must** remain in the `In Progress` state. This marks the Issue
-as claimed for other developers and is the project's primary mechanism for avoiding a duplication of efforts.
+While a Contributor is working on an Issue, the Issue **must** remain in the `Status: 02-In Progress` state. This marks
+the Issue as claimed for other developers and is the project's primary mechanism for avoiding a duplication of efforts.
 
 If you, as a Contributor, can no longer work on an effort, please add a comment to the Issue so that the Project
-Maintainers can revert the Issue state back to `Pending Initiation` for another Contributor to claim.
+Maintainers can revert the Issue state back to `Status: 01-Pending Initiation` for another Contributor to claim.
 
 Contributors **must** create a [Primary Commit Message](#commit-message-conventions) with their commits to ensure the
 project's automation, changelog, and developer community stay in tact.
@@ -261,7 +262,7 @@ When a Contributor has completed their work and is ready for submission, they **
 [Pull Request][pull-requests] to the [`main`][branch-main] Branch to undergo automated integration tests and to start
 a Code Review process from the appropriate Code Owners.
 
-After the Pull Request opens, a Project Maintainer changes the Issue label and status to `Code Review`.
+After the Pull Request opens, a Project Maintainer changes the Issue label and status to `Status: 03-Code Review`.
 
 > **Developer tip:** During development, it's a good idea to regularly rebase from the `upstream` [`main`][branch-main]
 > Branch. This is also necessary at the end of the effort for a successful Pull Request:
@@ -274,7 +275,7 @@ After the Pull Request opens, a Project Maintainer changes the Issue label and s
 > If you aren't familiar with the rebase strategy, it's important to [become comfortable with it][rebasing] for this
 > project.
 
-#### 3. `Code Review`
+#### `Status: 03-Code Review`
 
 The creation of a Pull Request into the `main` Branch automatically triggers workflows that test all changed files, as
 opposed to the whole codebase, for linting. It also runs the entire unit test suite. It's up to the Contributor to
@@ -322,16 +323,16 @@ When all reviewers accept the Pull Request, the following actions occur:
 2. The Project Maintainer deletes the merged Branch, if not a remote Fork
 3. The Project Maintainer closes the Pull Request
 4. Automatic integration testing occurs - on only changed files, for the [`main`][branch-main] Branch, or end-to-end, for [`staging`][branch-staging] or [`production`][branch-production] Branches
-5. The Project Maintainer moves the Issue to the appropriate state, being one of `Pending Staging`, `Staged`, or `Released`, depending on the target Branch for the Pull Request
+5. The Project Maintainer moves the Issue to the appropriate state, being one of `Status: 04-Pending Staging`, `Status: 05-Staged`, or `Status: 06-Released`, depending on the target Branch for the Pull Request
 
 <!-- editorconfig-checker-enable -->
 
 **Don't** squash your commits manually. The Project Maintainer does this for you when accepting the Pull Request.
 
 > **Note:** While the Issue is technically "closed" at this point by GitHub, it's not "done." This project's
-> **Definition of Done** is when the Issue is in the `Released` state per the Issue's status label.
+> **Definition of Done** is when the Issue is in the `Status: 06-Released` state per the Issue's status label.
 
-#### 4. `Pending Staging`
+#### `Status: 04-Pending Staging`
 
 At this point in the Software Development Lifecycle, the work for the Contributor is effectively complete, apart from
 the rare occurrence where end-to-end integration tests - which occur immediately after the acceptance of a Pull
@@ -340,19 +341,20 @@ Request - returns an unexpected failure.
 In such a case, the associated environment Branch, generally [`production`][branch-production], undergoes a
 [Hot-Fix](#hot-fixes-and-critical-releases) pattern to resolve the problem.
 
-Issues **may** stay in the `Pending Staging` state for some time until a Project Maintainer performs a Release
-to the `staging` server. This occurs when the Project Maintainer performs a successful Pull Request from the
+Issues **may** stay in the `Status: 04-Pending Staging` state for some time until a Project Maintainer performs a
+Release to the `staging` server. This occurs when the Project Maintainer performs a successful Pull Request from the
 [`main`][branch-main] Branch to the [`staging`][branch-staging] Branch.
 
 This action creates a special integration that tests the entire project's codebase from end-to-end. If these tests pass,
 accepting the Pull Request results in a successful `staging` environment deployment and, generally, a `beta` Release. At
-this point, all Issues in-scope have the `Staged` status label applied.
+this point, all Issues in-scope have the `Status: 05-Staged` status label applied.
 
-> Not all projects have a `staging` environment and, therefore, don't use the `Pending Staging` or `Staged` status
-> labels. In such a case, the [`main`][branch-main] Branch merges directly on to the [`production`][branch-production]
-> Branch, and the Project Maintainers update Issue labels directly to `Released`.
+> Not all projects have a `staging` environment and, therefore, don't use the `Status: 04-Pending Staging` or
+> `Status: 05-Staged` status labels. In such a case, the [`main`][branch-main] Branch merges directly on to the
+> [`production`][branch-production] Branch, and the Project Maintainers update Issue labels directly to
+> `Status: 06-Released`.
 
-#### 5. `Staged`
+#### `Status: 05-Staged`
 
 Staged statuses reflect Issues that are on the [`staging`][branch-staging] Branch and environment. They're pending
 end-to-end testing before a Project Maintainer promotes them to the [`production`][branch-production] Branch.
@@ -365,13 +367,13 @@ project.
 When all `staging` efforts are complete, the [`staging`][branch-staging] Branch has a Pull Request created, merging it
 into the [`production`][branch-production] Branch for a `production` Release.
 
-#### 6. `Released`
+#### `Status: 06-Released`
 
-When all integration checks pass and Project Maintainers have completed all `production` checklists, a the Project
-Owner creates a Pull Request from the [`staging`][branch-staging] Branch (or from [`main`][branch-main], if no
-[`staging`][branch-staging] Branch is in use) for review and approval. When this approval occurs, the
+When all integration checks pass and Project Maintainers have completed all `production` checklists, the Project Owner
+creates a Pull Request from the [`staging`][branch-staging] Branch - or from the [`main`][branch-main] Branch if no
+[`staging`][branch-staging] Branch is in use) - for review and approval. When this approval occurs, the
 [`production`][branch-production] Branch becomes updated with all related Issue changes that were in the
-`Staged` state, and Project Maintainers update such Issues to the final `Released` status label.
+`Status: 05-Staged` state, and Project Maintainers update such Issues to the final `Status: 06-Released` status label.
 
 At this point the Software Development Lifecycle is complete for a given Issue, pending any unforeseen Hot-Fixes.
 

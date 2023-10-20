@@ -23,7 +23,7 @@ When creating a new project from this template, ensure to take these steps immed
   - [4. Complete all `TEMPLATE TODO` items](#4-complete-all-template-todo-items)
   - [5. Update files that can't include comments](#5-update-files-that-cant-include-comments)
   - [6. Finishing up](#6-finishing-up)
-    - [Next steps](#next-steps)
+  - [Next steps](#next-steps)
   - [Appendix](#appendix)
     - [Folder structure](#folder-structure)
 
@@ -40,15 +40,15 @@ REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin
   sed -i "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
 ```
 
-> **Note:** If on FreeBSD/macOS, install [`gnu-sed`][homebrew-sed] or use this `sed` command, instead:
+> **Note:** If on FreeBSD/macOS, install [`gnu-sed`][homebrew-sed] or use this slightly-altered command, instead:
 >
 > ```sh
-> # ...
+> REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
 >   sed -i "" "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
 > ```
 
-For the rest of setup, refer to this changed document to have accurate links to references in the steps. For cleanest
-results, hold off on committing and pushing these changes until all steps in this file are complete.
+For the rest of setup, refer to this - now updated - document to have accurate links to references in future steps. For
+the cleanest results, hold off on committing and pushing these changes until all steps in this file are complete.
 
 ## 1. Configure GitHub Repository settings
 
@@ -169,14 +169,14 @@ Visit the [Rulesets][gh-rulesets] page for the Repository.
 > Work is in progress on a [workflow][issue-label-sync] to automate label syncing with the core template; however, this
 > hasn't seem implementation, yet.
 >
-> In the meantime, copy all configurations manually from the [`template-core`][template-core] Repository to the
-> [Labels][labels] section.
+> In the meantime, copy all labels manually from the [`template-core`][template-core] Repository to the [Labels][labels]
+> section of this project. This may take some time.
 
 ---
 
 ## 2. Configure files for new project
 
-- [ ] Add and/or remove any files or [folders](#folder-structure) that don't apply to the project
+- [ ] Add and/or remove any files or [folders](#folder-structure) that don't apply to this project
 - [ ] Remove all `.empty` files
 
 ```bash
@@ -200,7 +200,7 @@ git lfs migrate import --everything
 ## 3. Select a License
 
 Several [Licenses][choose-a-license] are available based on the privileges, conditions, and limitations for Licensees of
-the project. Each table includes Licenses in order from least-restrictive to most-restrictive in the sections, below.
+the project. Each table lists Licenses in order from least-restrictive to most-restrictive in the sections, below.
 
 - [ ] Remove the `template-core` Repository's default `LICENSE` file
 
@@ -295,7 +295,7 @@ Each file in the template that has particular needs after copying the template h
 If using VSCode, the recommended extensions and the provided workspace settings provides a curated list of items that
 require attention and add a counter to the bottom status bar representing how many items remain.
 
-If not using the recommended IDE, search for all instances of this phrase and take the actions they state:
+If not using VSCode, search for all instances of this phrase and take the actions they state:
 
 ```sh
 grep -r "TEMPLATE TODO" .
@@ -314,7 +314,11 @@ Delete the `TEMPLATE TODO` comments in each file as you complete them.
 npx cspell trace -c .config/linters/.cspell.json -all ''
 ```
 
-- [ ] Add any helpful VSCode recommended extensions and workspace settings for the language
+- [ ] Install the recommended extensions via the prompt when first opening the workspace, or with the following command:
+
+```sh
+make vscode
+```
 
 ---
 
@@ -324,19 +328,25 @@ With everything else complete, there is only one step left:
 
 - [ ] Delete this [`_TEMPLATE_CHECKLIST.md`][checklist] file
 
-### Next steps
+---
+
+## Next steps
 
 Once you have refined the template project for its purpose, the following steps are usually helpful:
+
+<!-- editorconfig-checker-disable -->
 
 1. Update the [`README.md`][readme] file to best suit the project
 2. Prepare the [`.vscode`][vscode] folder, as [described here][vscode-docs]
 3. Prepare the [`.devcontainer`][devcontainer] folder, as [described here][devcontainer-docs]
 4. Update the `all`, `build`, and `test-unit` targets in the [Makefile folder][makefile]
-5. Add any specific dictionary words to the [`.config/dictionaries/project.txt`][dictionary] file
+5. Add any specific dictionary configurations to [`.config/dictionaries/project.txt`][dictionary] and [`.config/linters/vale/styles/Vocab/`][vale-vocab]
 6. Customize the [Issue][tpl-issue] and [Pull Request][tpl-pr] templates
 
+<!-- editorconfig-checker-enable -->
+
 From there, it's a matter of getting started by creating new [source code][source], [tests][tests], and
-[build scripts][build] to make the project a reality.
+[build scripts][build] to make your project a reality.
 
 ---
 
@@ -389,6 +399,7 @@ This template comes with the following standard folder structure:
 [tests]: tests
 [tpl-issue]: .github/ISSUE_TEMPLATE
 [tpl-pr]: .github/PULL_REQUEST_TEMPLATE
+[vale-vocab]: .config/linters/vale/styles/Vocab
 [vscode]: .vscode
 [vscode-docs]: https://stackoverflow.com/questions/32964920/should-i-commit-the-vscode-folder-to-source-control
 

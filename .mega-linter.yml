@@ -1,47 +1,148 @@
 ##
-# Configuration file for MegaLinter
+# Configuration file for MegaLinter.
 #
 # @link https://megalinter.io/configuration/
 #
 
+##
+# Linters that support fixing in-place do so within the commit.
+#
+# When applying basic fixes, this doesn't create another Pull Request or commit - MegaLinter fixes small changes
+# in-place during testing. Modify this in the `.github/workflows/.mega-linter.yml` configuration, if needed.
+#
 APPLY_FIXES: all
-FILEIO_REPORTER: false
-FLAVOR_SUGGESTIONS: true
-IGNORE_GITIGNORED_FILES: true
-LINTER_RULES_PATH: .config/linters
-PRINT_ALPACA: false
-SHOW_ELAPSED_TIME: true
-SHOW_SKIPPED_LINTERS: true
 
+##
+# Never run these linters, regardless of flavor or configuration.
+#
 DISABLE_LINTERS:
-  # Lychee is _extremely_ slow right now - consider the usefulness of dead hyper link checking before re-enabling
+  ##
+  # Lychee is _extremely_ slow right now, and Markdown link checking occurs with other linters. Consider the usefulness
+  # of dead hyper link checking in code comments before re-enabling.
+  #
   - SPELL_LYCHEE
 
-REPOSITORY_KICS_CONFIG_FILE: kics.yml
-
-MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
-  - .mak
+##
+# Don't create public reports on file.io.
+#
+FILEIO_REPORTER: false
 
 ##
-# Temporary
+# Recommend flavors to the developer to help reduce container layer size.
+#
+# Mature projects may want to turn this off to reduce linter spam.
+#
+FLAVOR_SUGGESTIONS: true
+
+##
+# Follow the `.gitignore` file for what files to ignore in the linter.
+#
+IGNORE_GITIGNORED_FILES: true
+
+##
+# The project moves linting configurations out of the project root to reduce root file bloat.
+#
+LINTER_RULES_PATH: .config/linters
+
+##
+# TODO Manually adds a safe directory as this doesn't seem to run in this configuration.
+# @link https://github.com/oxsecurity/megalinter/issues/3017
+#
+PRE_COMMANDS:
+  - command: git config --global --add safe.directory $PWD
+    cwd: "workspace"
+
+##
+# Avoid unnecessary text output in logs.
+#
+PRINT_ALPACA: false
+
+##
+# Time elapsed information helps with optimization.
+#
+SHOW_ELAPSED_TIME: true
+
+##
+# Allow developers to review other linters that may help with their project.
+#
+# Mature projects may want to turn this off to reduce linter spam.
+#
+SHOW_SKIPPED_LINTERS: true
+
+## ---------------------------------------------------------------------------------------------------------------------
+# Linter configurations.
+#
+
+##
+# TODO Manually include `*.mk` files, as Checkmake doesn't currently support includes.
+# @link https://github.com/mrtazz/checkmake/issues/97
+#
+MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
+  - .mk
+
+##
+# File ignore patterns for MarkdownLint.
+#
+#   - Vale style guide dependencies
+#
+MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*)
+
+##
+# Prevent DevSkim from reacting to other linters/utilities that may also need to configure sensitive areas.
+#
+# TODO This is a temporary fix until MegaLinter resolves this as default.
+# @link https://github.com/oxsecurity/megalinter/issues/3017
+#
+REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"]
+
+##
+# MegaLinter doesn't lint code by default, rather limiting linting to `.md` and `.rst` files. These configurations add
+# certain file extensions, some of which are natively supported, and others have their mapping in the `vale.ini` file.
+#
+# > Note, YAML is explicitly not supported as many project benefit from having in-editor prose linting of content
+# > blocks, and this capability would disappear if comments were solely linted. As such, a compromise solution is to not
+# > lint YAML during integration, but enable visualization and management of possible errors in the editor.
+#
+# > Note, JSON is explicitly not supported as there seems to be a problem parsing text in arrays. Since comments aren't
+# > supported in JSON, generally, this adds minor risk.
+#
+# @link https://vale.sh/docs/topics/config/#format-associations
+#
+# TEMPLATE TODO - Add file extensions and mappings based on what technologies are in the project.
+#
+SPELL_VALE_FILE_EXTENSIONS:
+  # - .ecrc
+  # - .editorconfig
+  # - .gitattributes
+  # - .gitignore
+  # - .ini
+  # - .mk
+  - .md
+  # - .prettierignore
+  # - .txt
+  # - Makefile
+
+##
+# File ignore patterns for Vale.
+#
+#   - Vale style guide dependencies
+#   - Vale dictionary rejections
+#
+SPELL_VALE_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/(Google\/.+|Vocab\/.+\/reject\.txt))
+
+##
+# File ignore patterns for v8r.
+#
+#   - Vale style guide dependencies
+#
+# TODO Also temporarily ignores GitHub Issue templates due to problem with schema update.
 # @link https://github.com/andrewvaughan/template-core/issues/44
 #
-YAML_V8R_FILTER_REGEX_EXCLUDE: (\.github/ISSUE_TEMPLATE/.*\.yml)
+YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*|\.github/ISSUE_TEMPLATE/.*\.yml)
+
 ##
-# Everything below this line is debugging ongoing local testing issues.
+# File ignore patterns for YAMLLint.
 #
-# @link https://github.com/oxsecurity/megalinter/issues/2998
-# @link https://github.com/nektos/act/issues/2039
-# @link https://github.com/catthehacker/docker_images/issues/115
-# @link https://github.com/nektos/act/discussions/2035
-
-# PRE_COMMANDS:
-#   - command: |
-#       {
-#         ssh-keyscan github.com;
-#         ssh-keyscan ssh.dev.azure.com
-#       } >>/etc/ssh/ssh_known_hosts
-
-#   - command: |
-#       echo "GITHUB_TOKEN: ${GITHUB_TOKEN}";
-#       echo "PAT: ${PAT}"
+#   - Vale style guide dependencies
+#
+YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*)

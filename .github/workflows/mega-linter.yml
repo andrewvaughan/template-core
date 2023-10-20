@@ -1,75 +1,190 @@
-# MegaLinter GitHub Action configuration file
-# More info at https://megalinter.io
+# kics-scan disable=555ab8f9-2001-455e-a077-f2d0f41e2fb9
+
+##
+# MegaLinter GitHub Action configuration file.
+#
+# @link https://megalinter.io
+#
 ---
-# kics-scan ignore
 name: MegaLinter
 
 on:
-  # Trigger mega-linter at every push. Action will also be visible from Pull Requests to master
-  # push: # Comment this line to trigger action only on pull-requests (not recommended if you don't pay for GH Actions)
-  pull_request:
-    branches: [main, production, staging]
-
-# Comment env block if you do not want to apply fixes
-env:
-  # Apply linter fixes configuration
+  ##
+  # Run whenever Pull Requests merge into environment Branches.
   #
-  # When active, APPLY_FIXES must also be defined as environment variable (in github/workflows/mega-linter.yml or other
-  # CI tool)
+  # Later logic enforces a full code-wide test on only the `production` and `staging` Branches. The `main` Branch only
+  # has changed files linted for efficiency.
+  #
+  # TEMPLATE TODO - Remove any environment Branches this project won't use.
+  #
+  push:
+    branches:
+      - main
+      - production
+      - staging
+
+  ##
+  # Run whenever a Pull Request occurs on any Branch, regardless of target.
+  #
+  # Later logic enforces linting on only changed files in these instances for efficiency.
+  #
+  pull_request:
+
+##
+# All steps should have read-only access, unless explicitly given.
+#
+permissions: read-all
+
+##
+# Environment configurations.
+#
+# @link https://docs.github.com/en/actions/learn-github-actions/contexts#env-context
+#
+env:
+  ##
+  # Automatically apply formatting fixes during linting for minor formatting and consistency problems.
+  #
+  # With this configuration, both `push` and `pull_request` events apply fixes directly into the commit, as opposed to
+  # opening a separate Pull Request with the changes.
+  #
+  # @link https://megalinter.io/latest/config-apply-fixes/
+  #
   APPLY_FIXES: all
-
-  # Decide which event triggers application of fixes in a commit or a PR (pull_request, push, all)
-  APPLY_FIXES_EVENT: pull_request
-
-  # If APPLY_FIXES is used, defines if the fixes are directly committed (commit) or posted in a PR (pull_request)
+  APPLY_FIXES_EVENT: all
   APPLY_FIXES_MODE: commit
 
+##
+# Cancel any in-progress GitHub Actions for the same Branch when triggering a new workflow.
+#
+# @link https://docs.github.com/en/actions/using-jobs/using-concurrency
+#
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
+##
+# Linting steps.
+#
+# @link https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
+#
 jobs:
   build:
     name: MegaLinter
     runs-on: ubuntu-latest
 
-    # Give the default GITHUB_TOKEN write permission to commit and push, comment issues & post new PR
-    # Remove the ones you do not need
+    ##
+    # This job's `GITHUB_TOKEN` or `PAT` must have these permissions.
+    #
+    # Always aim to provide as few permissions as possible for personal access tokens.
+    #
+    # @link https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+    #
+    # TEMPLATE TODO - Adjust permissions to the minimum possible for how this linter is being used.
+    #
     permissions:
       contents: write
       issues: write
       pull-requests: write
 
     steps:
-      # Git Checkout
-      - name: Checkout Code
+      ##
+      # Checkout the Repository for linting.
+      #
+      # @link https://github.com/actions/checkout
+      #
+      - name: Checkout code
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
 
-          # If you use VALIDATE_ALL_CODEBASE = true, you can remove this line to improve performances
-          fetch-depth: 0
+          ##
+          # A fetch depth of `0` pulls the entire Repository's history, Branches, and Tags. This is only necessary when
+          # MegaLinter has to lookup what files have changed, which happens for all events except for `staging` and
+          # `production` Pull Requests.
+          #
+          # Whenever the codebase is fully linted, this keeps the fetch depth to `1` to reduce the cache size and
+          # increase performance of this step.
+          #
+          fetch-depth: >-
+            ${{
+              (
+                github.event_name == 'push' &&
+                (
+                  github.ref == 'refs/heads/staging' ||
+                  github.ref == 'refs/heads/production'
+                )
+              )
+              && 1
+              || 0
+            }}
 
-      # MegaLinter
+      ##
+      # Run MegaLinter.
+      #
+      # @link https://github.com/oxsecurity/megalinter
+      #
       - name: Lint with MegaLinter
         id: ml
 
-        # You can override MegaLinter flavor used to have faster performances
-        # More info at https://megalinter.io/flavors/
+        ##
+        # The template that generated this project uses the full MegaLinter image, by default, which is extremely large
+        # and has numerous linters likely not needed by any one specific project.
+        #
+        # @link https://megalinter.io/flavors/
+        #
+        # TEMPLATE TODO - Select a more-specific MegaLinter flavor for the project and update the `uses` configuration
+        # here to significantly increase GitHub Action performance.
+        #
         uses: oxsecurity/megalinter@v7
 
-        # All available variables are described in documentation
+        ##
+        # Variables are overridden on GitHub workflows for certain conditions.
+        #
         # https://megalinter.io/configuration/
+        #
         env:
-          # Set true to validate entire codebase
-          VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+          ##
+          # Lint the entire codebase any time a staging or production Branch deployment occurs, otherwise, only test
+          # changed files for efficiency.
+          #
+          VALIDATE_ALL_CODEBASE: >-
+            ${{
+              (
+                github.event_name == 'push'
+                && (
+                  github.ref == 'refs/heads/staging'
+                  || github.ref == 'refs/heads/production'
+                )
+              )
+              && 'true'
+              || 'false'
+            }}
+
+          ##
+          # This token is automatically created on the GitHub server.
+          #
+          # If running locally, provide this token with the `gh` utility. For example, with `act`:
+          #
+          # ```sh
+          # act -s GITHUB_TOKEN="$(gh auth token)"
+          # ```
+          #
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          # ADD YOUR CUSTOM ENV VARIABLES HERE TO OVERRIDE VALUES OF .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
+          ##
+          # TEMPLATE TODO - Add custom environment variables here to override anything from the root .mega-linter.yml
+          #
 
-      # Upload MegaLinter artifacts
+      ##
+      # Upload MegaLinter artifacts.
+      #
+      # This stores each report and log from tests for reference after CI/CD.
+      #
+      # @link https://github.com/actions/upload-artifact
+      # @link https://megalinter.io/latest/reporters/
+      #
       - name: Archive production artifacts
-        if: ${{ success() }} || ${{ failure() }}
+        if: success() || failure()
         uses: actions/upload-artifact@v3
         with:
           name: MegaLinter reports
@@ -77,7 +192,11 @@ jobs:
             megalinter-reports
             mega-linter.log
 
-      # Create pull request if applicable (for now works only on PR from same repository, not from forks)
+      ##
+      # Create a Pull Request with any automatic fixes, if configured to do so.
+      #
+      # Note that this doesn't currently work for Forks, only Pull Requests from the same Repository.
+      #
       - name: Create Pull Request with applied fixes
         id: cpr
         if: |
@@ -99,7 +218,7 @@ jobs:
           title: "[MegaLinter] Apply linters automatic fixes"
           labels: bot
 
-      - name: Create PR output
+      - name: Create Pull Request output
         if: |
           steps.ml.outputs.has_updated_sources == 1 &&
           (
@@ -116,7 +235,6 @@ jobs:
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
           echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
 
-      # Push new commit if applicable (for now works only on PR from same repository, not from forks)
       - name: Prepare commit
         if: |
           steps.ml.outputs.has_updated_sources == 1 &&

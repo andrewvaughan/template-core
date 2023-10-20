@@ -1,8 +1,0 @@
-# This is based on the default Megalinter configuration with some additions
-#
-# @link https://github.com/oxsecurity/megalinter/blob/main/TEMPLATES/.checkov.yml
-
-quiet: true
-skip-check:
-  - CKV_DOCKER_2
-  - CKV2_GHA_1

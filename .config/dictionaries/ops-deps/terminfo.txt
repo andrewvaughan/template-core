@@ -1,0 +1,13 @@
+##
+# TermInfo dictionary for CSpell.
+#
+# @link https://manpages.ubuntu.com/manpages/jammy/en/man5/terminfo.5.html
+#
+
+rmul
+ritm
+setab
+setaf
+smul
+sitm
+Txterm

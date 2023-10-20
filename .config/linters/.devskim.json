@@ -1,0 +1,4 @@
+{
+  "Globs": ["**/.config/dictionaries/**", "**/.config/linters/vale/**", "**/.git/**", "**/megalinter-reports/**"],
+  "IgnoreRuleIds": ["DS176209"]
+}

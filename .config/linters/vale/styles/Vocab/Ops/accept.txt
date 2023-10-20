@@ -1,0 +1,138 @@
+##
+# Vale special words dictionary.
+#
+# This file defines acceptable words and phrases for common projects. This file is specifically setup for common
+# operations and templates. Add specific project phrases to the parallel `Project` vocabulary folder, reserving this
+# file for phrases common to all projects and the core template set.
+#
+# @link https://vale.sh/docs/topics/vocab/
+#
+
+All Rights Reserved
+amd64
+Andrew Vaughan
+andrewvaughan
+ANSI
+Apache
+Apple
+application
+ARM
+Branch
+Branches
+Checkmake
+Checkmarx
+Checkov
+Chiberia
+CI/CD
+Code of Conduct
+Code Owner
+Code Owners
+Code Review
+Code Reviewer
+Community Leader
+Community Leaders
+Continuous Delivery
+Continuous Integration
+Contributing Guidelines
+Contributor
+Contributors
+Coordinated Vulnerability Disclosure
+Coordinated Vulnerability Disclosure Policy
+CSpell
+CVD
+Definition of Done
+Discussion
+Discussions
+Docker
+EditorConfig
+Fork
+Forks
+FreeBSD
+GIF
+GIFs
+GitHub
+GitHub Action
+GitHub Actions
+GNU
+Google
+Hot-Fix
+Hot-Fixes
+ID
+In Progress
+in progress
+Issue
+Issues
+Keeping Infrastructure as Code Secure
+KICS
+LFS
+License
+Licensee
+Licenses
+Licensor
+M&Ms
+macOS
+Makefile
+Makefiles
+Markdown
+MegaLinter
+Milestone
+Milestones
+MIT
+Pending Initiation
+Pending Staging
+Project Licenses
+Project Maintainer
+Project Maintainers
+Pull Request
+Pull Requests
+Primary Commit Message
+Release
+Released
+Releases
+Repository
+Reviewer
+Rubber Duck Debugging
+Ruleset
+ruleset
+Rulesets
+rulesets
+SASS
+SCSS
+SDLC
+Security Issue
+Security Policy
+Semantic Versioning
+SemVer
+Software Development Lifecycle
+Staged
+Support Policy
+Tag
+URL
+URLs
+Vale
+VSCode
+Wontfix
+X-Y Problem
+
+
+##
+# TODO - Remove this group when this Issue resolves and URLs are no longer linted:
+# https://github.com/errata-ai/vale/issues/711
+#
+
+branch
+discussions
+docker
+editorconfig
+fork
+github
+issue
+issues
+license
+megalinter
+milestones
+mit
+release
+releases
+sdlc
+vale

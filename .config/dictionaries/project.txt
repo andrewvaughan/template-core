@@ -1,0 +1,8 @@
+##
+# Project dictionary.
+#
+# This dictionary contains various special words added as part of this specific project to ensure that the spellcheck
+# mechanism doesn't flag them as invalid.
+#
+# @link https://cspell.org/docs/dictionaries-custom/
+#

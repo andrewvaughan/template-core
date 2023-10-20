@@ -1,9 +1,46 @@
 {
-  "dictionaries": ["ops", "project"],
+  "version": "0.2",
+
+  "language": "en",
+
+  "allowCompoundWords": true,
+  "noConfigSearch": true,
+
+  "dictionaries": [
+    "ops",
+    "project",
+
+    "makefile",
+    "terminfo",
+
+    "companies",
+    "computing-acronyms",
+    "data-science",
+    "filetypes",
+    "public-licenses",
+    "softwareTerms",
+    "web-services",
+
+    "bash",
+    "css",
+    "docker",
+    "html"
+  ],
+
   "dictionaryDefinitions": [
     {
       "name": "ops",
       "path": "../dictionaries/ops.txt",
+      "addWords": false
+    },
+    {
+      "name": "makefile",
+      "path": "../dictionaries/ops-deps/makefile.txt",
+      "addWords": false
+    },
+    {
+      "name": "terminfo",
+      "path": "../dictionaries/ops-deps/terminfo.txt",
       "addWords": false
     },
     {
@@ -12,8 +49,11 @@
       "addWords": true
     }
   ],
+
   "ignorePaths": [
-    "**/.config/linters/**",
+    "**/*.svg",
+    "**/.config/linters/vale/styles/Google/**",
+    "**/.config/linters/vale/styles/Vocab/**/reject.txt",
     "**/.git/**",
     "**/.gitattributes",
     "**/.gitignore",
@@ -21,9 +61,7 @@
     "**/*megalinter*",
     "**/node_modules/**",
     "**/vscode-extension/**",
+    "**/docs/assets/**",
     "package-lock.json"
-  ],
-  "language": "en",
-  "noConfigSearch": true,
-  "version": "0.2"
+  ]
 }

@@ -550,9 +550,9 @@ The Contributor **must** create a body for the Primary Commit Message as a refle
 the overall, squashed commit.
 
 For example, if the overall effort was trivial with a single line change, and the title of the commit message clearly
-states everything needed for future developers, the necessity of a body may be in question (although, this is rare and
-commonly limited to operational changes). However, if the context includes the delivery of a feature or the fix of a
-bug, it's critical that the body exist and contain enough information to be informative for future developers.
+states everything needed for future developers, the necessity of a body may be negligible. This is rare and commonly
+limited to operational changes. If, however, the context includes the delivery of a feature or the fix of a bug it's
+critical that the body contain enough information to provide context for future developers.
 
 In such cases, the Primary Commit Message body **must** follow these requirements:
 
@@ -561,13 +561,12 @@ In such cases, the Primary Commit Message body **must** follow these requirement
 3. The body **should** explain _what_ and _why_ about the change - not the _how_
 
 Regarding item 3 in the preceding list, the goal is to prevent a fellow developer from having to try to determine what
-changes to investigate and prevent thing from having to spend significant time deciphering the "why" of a change through
-ineffective `diff` parsing. Conversely, determining "how" the accomplishment of a task happened is generally quite
-trivial by reading code and proper comments.
+changes to investigate and also prevent them from having to spend significant time deciphering the "why" of a change
+through ineffective `diff` parsing. Conversely, determining "how" the accomplishment of a task happened is generally
+quite trivial by reading code and proper comments.
 
-As such, generally, details about _how_ a change occurred **should 't** take up space in the Primary Commit Message
-body. Instead, write code in a way that's clear, self-explanatory, or otherwise documented _in the project,_ not the
-commit.
+As such, details about _how_ a change occurred **should 't** take up space in the Primary Commit Message body. Instead,
+write code in a way that's clear, self-explanatory, or otherwise documented _in the project,_ not the commit.
 
 The commit body **should** focus on making clear the reasons as to why changes ocurred in the first place, the way
 things worked before the change, why that needed changing, the way they work now, and why the Contributor decided to
@@ -607,49 +606,52 @@ Date:   Fri Aug 1 22:57:55 2014 +0200
 
 #### Signed commits
 
-While [signed commits][sign-commits] aren't currently required, the deprecation of unsigned commits is already in effect
-and future standards, in approximately mid-2024, should remove their support entirely.
+While [signed commits][sign-commits] aren't currently required, unsigned commits are considered deprecated. A
+requirement for signed commits is expected to be in place by mid-2024.
 
-It's possible that Project Maintainers _may_ have a requirement to squash unverified commits into verified commits
-during this transition to meet new project standards, potentially losing your contribution tracking and reflection on
-your GitHub profile when this occurs.
+It's possible that Project Maintainers _may_ have to squash unverified commits into verified commits during this
+transition to meet new project standards. If you use unsigned commits, this means you may potentially lose your
+contribution tracking and reflection on your GitHub profile for this work.
 
 As such, the Project Maintainers **highly** recommend that you configure your development environment for commit signing
 before contributing to secure your contributions across all of your projects and to prevent disruption to your workflow
-when this new requirement comes into effect.
+when this new requirement comes into effect. More information on how to do this can be found, here:
+
+<https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits>
 
 ---
 
 ## Releases
 
 The tracking and planning of Releases occurs via in the project's [Milestones][milestones] utility. Each Release has a
-version number and a respective Milestone which groups Issues into for planning and distribution. When a Milestone is
-complete, Project Maintainers create a new Release in the project's [Releases][releases] section.
+version number and a respective Milestone. The Milestones act as groups of Issues for planning and distribution. When a
+Milestone is complete, Project Maintainers create a new Release in the project's [Releases][releases] section.
 
 A Pull Request from the [`main`][branch-main] Branch to the [`staging`][branch-staging] Branch is the primary mechanism
-for executing a pre-release, whether that'ss considered a `staging` Release or a `beta` Release depends on the project.
+for executing a pre-release, whether that's considered a `beta` Release depends on the project.
 
-A Pull Request from the [`staging`][branch-staging] Branch, or the [`main`][branch-main] Branch, if no `staging`
-environment is in use, to the [`production`][branch-production] Branch is the primary mechanism for executing a
+A Pull Request from the [`staging`][branch-staging] Branch - or the [`main`][branch-main] Branch, if no `staging`
+environment is in use - to the [`production`][branch-production] Branch is the primary mechanism for executing a
 `production` Release for every project.
 
-These Pull Requests **must** match an Issue created explicitly for tracking the Release and **must** have the label
-`Type: Release`.
+Release Pull Requests **must** have a matching Issue created explicitly for tracking the Release and **must** have the
+label `Type: Release`. Any changes specific to the release process - for example, updating version badges - must occur
+in the Branch for that Issue.
 
-Unlike [`main`][branch-main] Branch commits, the entire codebase **must** be fully linted and tested any time a
-[`staging`][branch-staging] or [`production`][branch-production] Branch Pull Request occurs. While rare,
-occasionally Issues occur in these tests that only appear when end-to-end testing completes.
+Unlike [`main`][branch-main] Branch commits, the entire end-to-end codebase **must** be fully linted and tested any time
+a [`staging`][branch-staging] or [`production`][branch-production] Branch Pull Request occurs. While rare,
+occasionally, Issues occur in these end-to-end tests that do not appear in earlier testing phases.
 
 Code Review of the Pull Request **should** focus on user acceptance testing and ensuring that the project works as
 expected. When Project Maintainers accept such a Pull Request, a rebase strategy **must** happen when merging the two
-Branches. It's important that Project Maintainers use a rebase strategy retain the changelog from commit messages in
-chronological order.
+Branches. It's critical that Project Maintainers use a rebase strategy in order to retain the changelog from commit
+messages in chronological order.
 
-Once a Release completes, all Issues that were within scope of the Release **must** move to the `Released` state by
-changing those Issues' labels.
+Once a Release completes, all Issues that were within scope of the Release **must** move to the `Status: 06-Released`
+state by changing those Issues' labels.
 
 Finally, the last commit message for the Release **must** have a Tag added in the format `v#.#.#` to follow the Semantic
-Versioning standard, also called "SemVer", for short.
+Versioning standard, also called SemVer, for short.
 
 ### Semantic Versioning
 
@@ -666,7 +668,8 @@ scheme of the following format:
 
 Occasionally, a requirement for a Hot-Fix occurs that requires pushing additional capabilities or urgent fixes outside
 of the full Software Development Lifecycle. Hot-Fixes **must** always happen in collaboration with a Project
-Maintainer, as this is an exception to the community's agreed processes and requires a Project Maintainer to execute.
+Maintainer, as this is an exception to the community's agreed processes and requires a Project Maintainer to complete,
+anyway.
 
 A Hot-Fix occurs by creating a Fork from, and submitting a Pull Request to, the appropriate environment Branch - most
 commonly the [`production`][branch-production] Branch. This skips the [`main`][branch-main] Branch, entirely.
@@ -679,11 +682,10 @@ Once a Project Maintainer accepts and deploys a Hot-Fix Pull Request, the Projec
 the changes back to all prior Branches, including [`main`][branch-main] and potentially [`staging`][branch-staging],
 to ensure all Contributor Forks can incorporate the Hot-Fix changes into their work. With normal procedures, this should
 have minimal lifecycle impact for Contributors, requiring them only to rebase their working Branches prior to submitting
-a Pull Request, which is normal procedure. Occasionally, Contributors **may** require merge work for such a rebase to
-complete successfully.
+a Pull Request, which is a normal development procedure, as described in the preceding Software Development Lifecycle.
 
 Hot-Fixes have a significant opportunity for risk and often impact development teams negatively. As such, they're
-limited in their use, often to only security and major performance concerns.
+limited in their use, often to only major security, performance, and functionality concerns.
 
 ---
 
@@ -709,7 +711,9 @@ are awesome.
 
 Second, the Project Maintainers prioritize triage of any Issues that come from individuals who have read these
 Contributing Guidelines in full. To show that you are one of these rare individuals, please put this candy icon at the
-top of your Issues and Pull Requests with the code `:candy:`: :candy:
+top of your Issues and Pull Requests with the code `:candy:`:
+
+:candy:
 
 <!-- prettier-ignore-end -->
 

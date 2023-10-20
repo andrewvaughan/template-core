@@ -1,7 +1,7 @@
 # kics-scan disable=555ab8f9-2001-455e-a077-f2d0f41e2fb9
 
 ##
-# MegaLinter GitHub Action configuration file
+# MegaLinter GitHub Action configuration file.
 #
 # @link https://megalinter.io
 #
@@ -10,12 +10,12 @@ name: MegaLinter
 
 on:
   ##
-  # Run whenever Pull Requests merge into environment Branches
+  # Run whenever Pull Requests merge into environment Branches.
   #
   # Later logic enforces a full code-wide test on only the `production` and `staging` Branches. The `main` Branch only
   # has changed files linted for efficiency.
   #
-  # TEMPLATE TODO - Remove any environment Branches this project won't use
+  # TEMPLATE TODO - Remove any environment Branches this project won't use.
   #
   push:
     branches:
@@ -24,7 +24,7 @@ on:
       - staging
 
   ##
-  # Run whenever a Pull Request on any Branch, regardless of target, occurs in the Repository
+  # Run whenever a Pull Request occurs on any Branch, regardless of target.
   #
   # Later logic enforces linting on only changed files in these instances for efficiency.
   #
@@ -36,13 +36,13 @@ on:
 permissions: read-all
 
 ##
-# Environment configurations
+# Environment configurations.
 #
 # @link https://docs.github.com/en/actions/learn-github-actions/contexts#env-context
 #
 env:
   ##
-  # Apply linter fixes during integration for basic formatting Issues
+  # Automatically apply formatting fixes during linting for minor formatting and consistency problems.
   #
   # With this configuration, both `push` and `pull_request` events apply fixes directly into the commit, as opposed to
   # opening a separate Pull Request with the changes.
@@ -54,7 +54,7 @@ env:
   APPLY_FIXES_MODE: commit
 
 ##
-# Cancel any in-progress GitHub Actions on the same Branch when triggering a new workflow
+# Cancel any in-progress GitHub Actions for the same Branch when triggering a new workflow.
 #
 # @link https://docs.github.com/en/actions/using-jobs/using-concurrency
 #
@@ -63,7 +63,7 @@ concurrency:
   cancel-in-progress: true
 
 ##
-# Linting steps
+# Linting steps.
 #
 # @link https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
 #
@@ -73,13 +73,13 @@ jobs:
     runs-on: ubuntu-latest
 
     ##
-    # This job's `GITHUB_TOKEN` must have these permissions
+    # This job's `GITHUB_TOKEN` or `PAT` must have these permissions.
     #
     # Always aim to provide as few permissions as possible for personal access tokens.
     #
     # @link https://docs.github.com/en/actions/security-guides/automatic-token-authentication
     #
-    # TEMPLATE TODO - Remove `pull-requests` and `contents` permissions if not applying auto-fixes
+    # TEMPLATE TODO - Adjust permissions to the minimum possible for how this linter is being used.
     #
     permissions:
       contents: write
@@ -88,7 +88,7 @@ jobs:
 
     steps:
       ##
-      # Checkout the Repository for linting
+      # Checkout the Repository for linting.
       #
       # @link https://github.com/actions/checkout
       #
@@ -108,10 +108,10 @@ jobs:
           fetch-depth: >-
             ${{
               (
-                github.event_name == 'push'
-                && (
-                  github.ref == 'refs/heads/staging'
-                  || github.ref == 'refs/heads/production'
+                github.event_name == 'push' &&
+                (
+                  github.ref == 'refs/heads/staging' ||
+                  github.ref == 'refs/heads/production'
                 )
               )
               && 1
@@ -119,7 +119,7 @@ jobs:
             }}
 
       ##
-      # Run MegaLinter
+      # Run MegaLinter.
       #
       # @link https://github.com/oxsecurity/megalinter
       #
@@ -135,19 +135,19 @@ jobs:
         # TEMPLATE TODO - Select a more-specific MegaLinter flavor for the project and update the `uses` configuration
         # here to significantly increase GitHub Action performance.
         #
-        # TODO - Return to `oxsecurity/megalinter@v7` from beta once Vale updates to .5
+        # TODO - Return to `oxsecurity/megalinter@v7` from beta once Vale updates to at least v2.29.5.
         #
         uses: oxsecurity/megalinter@beta
 
         ##
-        # Variables are overridden on GitHub workflows for certain conditions
+        # Variables are overridden on GitHub workflows for certain conditions.
         #
         # https://megalinter.io/configuration/
         #
         env:
           ##
           # Lint the entire codebase any time a staging or production Branch deployment occurs, otherwise, only test
-          # changed files for efficiency
+          # changed files for efficiency.
           #
           VALIDATE_ALL_CODEBASE: >-
             ${{
@@ -163,7 +163,7 @@ jobs:
             }}
 
           ##
-          # This token is automatically created on the GitHub server
+          # This token is automatically created on the GitHub server.
           #
           # If running locally, provide this token with the `gh` utility. For example, with `act`:
           #
@@ -174,13 +174,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           ##
-          # ADD YOUR CUSTOM ENV VARIABLES HERE TO OVERRIDE VALUES OF .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
+          # TEMPLATE TODO - Add custom environment variables here to override anything from the root .mega-linter.yml
           #
 
       ##
-      # Upload MegaLinter artifacts
+      # Upload MegaLinter artifacts.
       #
-      # This stores each report and log from tests for reference during CI/CD.
+      # This stores each report and log from tests for reference after CI/CD.
       #
       # @link https://github.com/actions/upload-artifact
       # @link https://megalinter.io/latest/reporters/
@@ -195,7 +195,7 @@ jobs:
             mega-linter.log
 
       ##
-      # Create a Pull Request with any automatic fixes
+      # Create a Pull Request with any automatic fixes, if configured to do so.
       #
       # Note that this doesn't currently work for Forks, only Pull Requests from the same Repository.
       #

@@ -19,5 +19,4 @@ hot-fix
 (?i)Project's Maintainer
 (?i)Project's Maintainers
 (?i)Project's Owner
-Visual Studio Code
 VS Code

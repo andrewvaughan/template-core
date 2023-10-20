@@ -29,7 +29,7 @@ HELP_TARGET_WIDTH := 25
 #
 # ```make
 # ##
-# # Line to appear in the usage guide
+# # Line to appear in the usage guide.
 # #
 # # This comment and all following comments won't appear.
 # #

@@ -131,35 +131,3 @@ test-lint:
 test-unit:
 	# TEMPLATE TODO
 	$(call _debug, No unit tests have been defined.)
-
-
-## ---------------------------------------------------------------------------------------------------------------------
-# Utility targets.
-#
-
-.PHONY: prettier
-
-##
-# Clean formatting of files using `prettier`.
-#
-prettier:
-	$(call _title, Cleaning file formatting to project standards)
-
-	if [[ -n $$(git status --porcelain) ]]; then \
-		$(call _warning, You have uncommitted changes on this branch.); \
-		echo; \
-		while true; do \
-			printf "Are you sure you wish to run prettier which will modify your existing files? [yN] ";
-			read -n1 yn; \
-			echo; \
-			case $$yn in \
-				(y | Y) break ;; \
-				(n | N) echo; $(call _error, "Gracefully exiting to preserve file state.") ;; \
-				(*) ;; \
-			esac; \
-			echo; \
-		done; \
-	fi
-
-	$(call _header, Running formatter...)
-	$(NPX) prettier -w .

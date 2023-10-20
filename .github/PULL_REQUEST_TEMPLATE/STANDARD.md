@@ -25,7 +25,7 @@ What rationale was there for this change and what did you learn along the way?
 ## Describe your test plan
 
 <!--
-Testing is critical to this project; how do you know that this change is ready
+Testing is critical to this project. How do you know that this change is ready
 for production?
 -->
 
@@ -40,8 +40,8 @@ changes prior to review.
 
 - [ ] You performed a self-review of the code
 - [ ] No secrets or other confidential data remains in the codebase or in logging
-- [ ] You have commented your code and is otherwise readable, particularly in complex areas
-- [ ] You have tested with purpose, and not just to meet coverage targets
+- [ ] You have commented and your code is otherwise understandable, particularly in complex areas
+- [ ] You have tested with purpose and not just to meet coverage targets
 - [ ] You have made corresponding changes to the documentation
 - [ ] The code follows [SOLID](https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design) principals
 - [ ] There are no exposed debugging messages left in the code
@@ -56,14 +56,14 @@ Creating an inclusive user experience is critical to this project. If your code
 did not adjust any UI, please feel free to state so, here.
 -->
 
-- [ ] All HTML elements are [Semantic](https://www.w3schools.com/html/html5_semantic_elements.asp)
+- [ ] All HTML elements are [semantic](https://www.w3schools.com/html/html5_semantic_elements.asp)
 - [ ] Features include [keyboard operability](https://usability.yale.edu/web-accessibility/articles/focus-keyboard-operability)
 - [ ] [axe DevTools](https://www.deque.com/axe/) show no **Critical** or **Serious** problems
 - [ ] [EqualWeb](https://chrome.google.com/webstore/detail/equalweb-accessibility-ch/imemciokfejbnonkkinhcdfigdilcllg/related) shows no contrast problems
 
 ## What animated GIF best describes how this Pull Request makes you feel?
 
-<!-- This is a critical question. -->
+<!-- This is a super serious question. -->
 
 > These addons are recommend to view GIFs in Pull Requests:
 >

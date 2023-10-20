@@ -43,7 +43,7 @@ SHELL := /bin/bash
 
 
 ##
-# Export all variables to child processes
+# Export all variables to child processes.
 #
 .EXPORT_ALL_VARIABLES:
 
@@ -78,8 +78,8 @@ NPX := npx -y
 # The two preceding examples result in all targets having a `DEBUG` variable of `1` available for intelligent debugging
 # of called commands. Otherwise, the `DEBUG` variable remains unset. This allows for the following type of conditional:
 #
-# ```make
-# $(if $(DEBUG), true option, false option)
+# ```Makefile
+# $(if $(DEBUG), ...true option..., ...false option...)
 # ```
 #
 # Additionally, enabling the `DEBUG` flag is possible without increasing `make` verbosity by setting the `DEBUG`

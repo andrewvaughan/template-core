@@ -20,7 +20,7 @@ body:
     attributes:
       value: >-
         Thank you for taking the time to recommend a feature or submit an idea. Before submitting, please take a moment
-        to review the standards on accepting feature requests in the project's
+        to review the standards on what feature requests Project Maintainers accept in the project's
         [Contributing Guidelines](/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#submit-an-idea).
 
   ##
@@ -36,8 +36,6 @@ body:
         - Everything
         - Other
       default: 0
-    validations:
-      required: true
 
   ##
   # Problem.
@@ -69,7 +67,7 @@ body:
       description: >-
         If known, what approach do you recommend to the problem or opportunity? Please include any diagrams, mockups, or
         illustrations in this area, if they might help explain your idea, by using the image upload tool in the text
-        editor below.
+        editor.
 
   ##
   # Examples.
@@ -106,9 +104,9 @@ body:
       description: In your opinion, how important is this Issue?
       options:
         - Critical (project fails without it)
-        - Important (significantly improve the project)
-        - Moderate (similar to most work being done today)
-        - Low (clear value, but in no way urgent)
+        - Important (significantly improves the project)
+        - Moderate (similar to work prioritized currently)
+        - Low (not urgent)
         - Trivial (nice to have)
 
   ##

@@ -3,7 +3,7 @@
 <!-- markdownlint-disable MD041 MD033 -->
 <!-- editorconfig-checker-disable -->
 
-<!-- TEMPLATE TODO - Update or remove the hero image -->
+<!-- TEMPLATE TODO - Update or remove the hero image. -->
 <div align="center">
   <a href="https://github.com/andrewvaughan/template-core" target="blank" title="New Project Template">
     <!-- markdown-link-check-disable-next-line -->
@@ -12,9 +12,11 @@
 </div>
 <!-- editorconfig-checker-enable -->
 
+<!-- omit from toc -->
+
 # New project template
 
-<!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project -->
+<!-- TEMPLATE TODO - Update the URLs for these badges, below, to the appropriate state of the project. -->
 
 [![Release][badge-release-img]][badge-release]
 [![License][badge-license-img]][badge-license]
@@ -43,9 +45,9 @@ _Replace this with a short description of what this project is about._
 ## Contents
 
 - [New project template](#new-project-template)
+  - [Quick start](#quick-start)
   - [Installation](#installation)
     - [Dependencies](#dependencies)
-    - [Quick start](#quick-start)
     - [Manual installation](#manual-installation)
   - [Usage](#usage)
     - [Configuration](#configuration)
@@ -54,12 +56,20 @@ _Replace this with a short description of what this project is about._
   - [Contributing](#contributing)
     - [Developer installation](#developer-installation)
       - [Developer dependencies](#developer-dependencies)
+      - [Recommended development environment](#recommended-development-environment)
     - [Testing](#testing)
   - [Release policy](#release-policy)
   - [License](#license)
 
 ---
 <!-- prettier-ignore-end -->
+
+## Quick start
+
+<!-- TEMPLATE TODO -->
+
+_Add a brief set of instructions on how to get quickly up and running for the most-common use cases. Delete this section
+if a quick-start concept doesn't apply._
 
 ## Installation
 
@@ -72,15 +82,8 @@ _Add a brief introduction as to how users, not developers, perform a normal inst
 <!-- TEMPLATE TODO -->
 
 _Add detail in this section regarding any dependencies or installation requirements that users, not developers, need
-before installing and using the tool. This **must** focus on **using** the tool, not developing it. Delete this section
-if there are no production dependencies required for the project._
-
-### Quick start
-
-<!-- TEMPLATE TODO -->
-
-_Add a brief set of instructions on how to get quickly up and running for the most-common use cases. Delete this section
-if a quick-start concept doesn't apply._
+before installing and using the project. This **must** focus on **using** the tool, not developing it. Delete this
+section if there are no production dependencies required for the project._
 
 ### Manual installation
 
@@ -107,15 +110,15 @@ _If the project has configuration capabilities, provide them here in full detail
 
 ## Support
 
-The [Support Documentation][support] contains details for getting support for this project. As an open source project,
-support is generally limited to the surrounding community and isn't guaranteed. Please refer to these instructions prior
-to opening an [Issue][issues] or [Discussion][discussions].
+This project's [Support Policy][support] includes all details for users to get support for this project. As an open
+source project, support is generally limited to the surrounding community and isn't guaranteed. Please read this policy
+prior to opening an [Issue][issues] or [Discussion][discussions].
 
 Parties interested in contributing to the project must read the [Contributing Guidelines][contributing] prior to doing
 so.
 
-All individuals must adhere to the project's [Code of Conduct][code-of-conduct], regardless of how they choose to
-engage.
+Finally, all individuals must adhere to the project's [Code of Conduct][code-of-conduct], regardless of how they choose
+to engage with the community.
 
 ### Frequently asked questions
 
@@ -128,8 +131,7 @@ _If you can answer common questions for your project, start this section. Delete
 ## Contributing
 
 There are many ways to contribute to this project. If you have an idea, or have discovered a bug, please
-[open an Issue][new-issue]. You can also start or join a [Discussion][discussions] to get your feet wet with the
-project, first.
+[open an Issue][new-issue]. You can also start or join a [Discussion][discussions] to get your feet wet.
 
 If you have interest in contributing to the project through design or development, please read the project's
 [Contributing Guidelines][contributing].
@@ -138,25 +140,38 @@ If you have interest in contributing to the project through design or developmen
 
 <!-- TEMPLATE TODO -->
 
-_Add details for developers on how to setup their environment, including installing additional, developer dependencies,
-for individuals wishing to contribute to the project._
+_Add details for developers on how to setup their environment for individuals wishing to contribute to the project._
 
 #### Developer dependencies
 
 <!-- TEMPLATE TODO -->
 
-_Add or modify this section to describe the dependencies used in development._
+_Add or modify this section to describe the dependencies used in development required prior to development._
 
 This project aims to be as agnostic as possible across all development environments. As such, development dependencies
 are purposely limited to a few critical elements:
 
-| Dependency             | Purpose                                                                    |
-|:-----------------------|:---------------------------------------------------------------------------|
-| [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally         |
-| [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code       |
-| [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands          |
-| [Node.js][inst-nodejs] | Used to download certain command-line packages for `npx`                   |
-| [npx][inst-npx]        | Node.js package execution helper to run certain non-containerized commands |
+| Dependency             | Purpose                                                                     |
+| :--------------------- | :-------------------------------------------------------------------------- |
+| [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally.         |
+| [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code.       |
+| [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands.          |
+| [Node.js][inst-nodejs] | Used to download certain command-line packages for `npx`.                   |
+| [npx][inst-npx]        | Node.js package execution helper to run certain non-containerized commands. |
+
+#### Recommended development environment
+
+It's recommended to use [Visual Studio Code][vs-code] for development and the project provides several extensions and
+configurations to improve development efficiency. Any IDE is acceptable, but it's up to developers working against the
+standard to manage their own environments if not using the project default.
+
+You can install the project's recommended extensions and use the provided workspace configurations to reduce mistakes
+and duplicate effort. To install all recommended extensions, either accept the prompt when loading this project in
+Visual Studio Code, or use the `make` utility provided:
+
+```sh
+make vscode
+```
 
 ### Testing
 
@@ -239,5 +254,6 @@ _Add selected License short text in this area, if applicable._
 [release-tags]: https://github.com/andrewvaughan/template-core/tags
 [sdlc]: .github/CONTRIBUTING.md#software-development-lifecycle
 [support]: .github/SUPPORT.md
+[vs-code]: https://code.visualstudio.com/
 
 <!-- editorconfig-checker-enable -->

@@ -97,9 +97,9 @@ body:
       description: In your opinion, how important is this Issue?
       options:
         - Critical (project fails without it)
-        - Important (significantly improve the project)
-        - Moderate (similar to most work being done today)
-        - Low (clear value, but in no way urgent)
+        - Important (significantly improves the project)
+        - Moderate (similar to work prioritized currently)
+        - Low (not urgent)
         - Trivial (nice to have)
 
   ##

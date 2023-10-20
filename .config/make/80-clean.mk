@@ -132,7 +132,7 @@ clean-images:
 		&& printf "Disk space freed: %.2fG\n" "$$( echo "scale=2; $${MAK_SAVED} / (1024 ^ 3)" | bc )"
 
 ##
-# Stop and remove any running test containers for this project.
+# Stop and remove any running linting containers for this project.
 #
 stop-lint-containers:
 	$(call _header, Stopping running test containers)

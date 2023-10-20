@@ -173,7 +173,7 @@ _TPL_ERROR := $(_BOLD)$(_FG_RED)
 #
 # The `call` command invokes all user interface functions, as they're standard `make` functions:
 #
-# ```
+# ```Makefile
 # $(call _title, My Title)
 # $(call _header, My Header, 80)
 # $(call, _debug, This message only appears if debug is on)
@@ -275,7 +275,7 @@ endef
 # Unless the `DEBUG` variable equals `1`, debug statements won't appear. This happens automatically if `make` is in any
 # of its debug modes or if the `DEBUG` variable is explicitly with:
 #
-# ```
+# ```Makefile
 # make DEBUG=1 ...
 # ```
 #

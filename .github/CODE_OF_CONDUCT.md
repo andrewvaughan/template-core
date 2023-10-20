@@ -71,6 +71,8 @@ outcome of their dispute. If you are unable to resolve the matter for any reason
 harassing, report it. An environment where participants feel welcome and safe is the dedication the Community Leaders
 commit to with this policy.
 
+---
+
 ## Community Leader responsibilities
 
 The clarification of standards of acceptable behavior is the responsibility of the Community Leaders, and they're
@@ -80,12 +82,16 @@ Community Leaders have the right and responsibility to remove, edit, or reject c
 Issues, Discussions, Pull Requests and other contributions that aren't aligned to this Code of Conduct, and they're
 responsible for communicating the rationale of such moderation decisions, when appropriate.
 
+---
+
 ## Scope
 
 This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the
 project or its community. Examples of representing a project or community include using an official project email
 address, posting via an official social media account, or acting as an appointed representative at an online or offline
 event. Representation of a project may be further defined and clarified by Project Maintainers.
+
+---
 
 ## Enforcement
 
@@ -117,13 +123,18 @@ Community Leaders shall follow this Code of Conduct in determining the consequen
 violation of this Code of Conduct. The Project Owner has full and final discretion over the appropriate action and any
 appeals regarding the administration of these guidelines, including any deviations.
 
+<!-- markdownlint-disable MD024 -->
+
 #### 1. Correction for minor infractions
 
-**Community impact:** use of inappropriate language or other behavior deemed unprofessional or unwelcome in the
-community.
+##### Community impact
 
-**Consequence:** a private, written warning from Community Leaders, providing clarity around the nature of the violation
-and an explanation of why the behavior was inappropriate. Community Leaders may require a personal or public apology.
+Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the community.
+
+##### Consequence
+
+A private, written warning from Community Leaders, providing clarity around the nature of the violation and an
+explanation of why the behavior was inappropriate. Community Leaders may require a personal or public apology.
 
 #### 2. Warning for repeat or moderate infractions
 
@@ -133,29 +144,40 @@ A violation through a single incident or series of actions.
 
 ##### Consequence
 
-A warning with consequences for continued behavior. No interaction with the people involved, including
-unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding
+A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited
+interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding
 interactions in community spaces as well as external channels like social media. Violating these terms may lead to a
 temporary or permanent ban.
 
 #### 3. Temporary ban for sustained or serious infractions
 
-**Community impact:** a serious violation of community standards, including sustained, inappropriate behavior.
+##### Community impact
 
-**Consequence:** a temporary ban from any sort of interaction or public communication with the community for a specified
-period of time. Immediate placement of a prohibition on parties to the ban from interacting with any people involved
-during the ban period, including Community Leaders enforcing the Code of Conduct, in public or private forms, using
-direct or indirect methods of contact, whether solicited or unsolicited, is the primary method of discipline for such
-behavior.
+A serious violation of community standards, including sustained, inappropriate behavior.
+
+##### Consequence
+
+A temporary ban from any sort of interaction or public communication with the community for a specified period of time.
+Immediate placement of a prohibition on parties to the ban from interacting with any people involved during the ban
+period, including Community Leaders enforcing the Code of Conduct, in public or private forms, using direct or indirect
+methods of contact, whether solicited or unsolicited, is the primary method of discipline for such behavior.
 
 Violation of any of these terms universally results in the enforcement of a permanent ban.
 
 #### 4. Permanent ban for sustained or severe infractions
 
-**Community impact:** demonstrating a pattern of violation of community standards, including sustained inappropriate
-behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.
+##### Community impact
 
-**Consequence:** a permanent ban from any sort of public interaction within the community.
+Demonstrating a pattern of violation of community standards, including sustained inappropriate behavior, harassment of
+an individual, or aggression toward or disparagement of classes of individuals.
+
+##### Consequence
+
+A permanent ban from any sort of public interaction within the community.
+
+<!-- markdownlint-enable MD024 -->
+
+---
 
 ## Conclusion
 

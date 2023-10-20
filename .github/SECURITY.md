@@ -1,7 +1,7 @@
 # Security Policy
 
-This project take the security of its products and services seriously and follows the
-[MITRE.org definition][MITRE-definition] of a security vulnerability, which defines a security vulnerability as:
+This project takes the security of its products and services seriously and follows the
+[MITRE.org definition][MITRE-definition] of a security vulnerability, which is defined as:
 
 <!-- vale off -->
 
@@ -10,7 +10,7 @@ This project take the security of its products and services seriously and follow
 > vulnerabilities in this context typically involves coding changes but could also include specification changes or even
 > specification deprecations (e.g., removal of affected protocols or functionality in their entirety).”
 
-**_--[MITRE.org CNA Rules][MITRE-rules] 7.1_**
+**_[MITRE.org CNA Rules 7.1][MITRE-rules]_**
 
 <!-- vale on -->
 

@@ -11,6 +11,9 @@ make vscode
 
 ## Configuration files
 
+These files configure enough of a Microsoft VSCode workspace to provide testing, linting, and code policy enforcement
+and avoid surprises during integration:
+
 <!-- editorconfig-checker-disable -->
 
 - [`extensions.json`](extensions.json) - provide a number of recommendations of VSCode extensions to install - [Microsoft Documentation][docs-extensions]
@@ -18,15 +21,12 @@ make vscode
 
 <!-- editorconfig-checker-enable -->
 
-These files configure enough of a Microsoft VSCode workspace to provide testing, linting, and code policy enforcement
-and avoid surprises during integration.
-
 By no means must you install or configure these extensions as-presented, but the CI/CD integration pipeline enforces the
-policies they represent at time of integration, regardless of whether they're in use or not. Please feel free to
-override or modify your user or local workspace settings, as works best for you, but don't commit your changes to the
+policies they represent at time of integration, regardless of whether they're in use or not. Feel free to override or
+otherwise modify your user or local workspace settings, as works best for you, but don't commit your changes to the
 Repository. Project Maintainers may reject any commits that include changes to these files.
 
-## Extensions
+## Recommended extensions
 
 <!-- editorconfig-checker-disable -->
 <!-- markdownlint-disable MD013 -->

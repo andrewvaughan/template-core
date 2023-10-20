@@ -6,31 +6,19 @@ contributing to the project, please refer to the project's [Contributing Guideli
 Reading, understanding, and agreeing to this project's [Code of Conduct][code-conduct] is a requirement for anyone
 interested in participating in the community, regardless of intent or purpose.
 
-_To start a specific topic of conversation within the community, please make use the following resources:_
-
 <!-- prettier-ignore-start -->
 <!-- omit from toc -->
 ## Contents
 
 - [Support Policy](#support-policy)
-  - [Discord](#discord)
   - [GitHub Issues](#github-issues)
   - [GitHub Discussions](#github-discussions)
+  - [Discord](#discord)
   - [Other topics](#other-topics)
   - [Tips for getting the fastest support](#tips-for-getting-the-fastest-support)
 
 ---
 <!-- prettier-ignore-end -->
-
-## [Discord][discord]
-
-This project welcomes everyone to join the [Chiberia Projects Discord][discord]. Whether you have interest in
-contributing, need support, or are just looking for a fun community to be a part of, this is a great way to have live
-conversations with community members.
-
-> Please note that there is no guarantee that Project Maintainers can provide support or feedback through Discord -
-> while there is always an aim to be available, Project Maintainers have a primary focus and priority on formal GitHub
-> Issues, Pull Requests, and Discussions, as described, below.
 
 ## [GitHub Issues][gh-issues]
 
@@ -47,6 +35,18 @@ conversations with community members.
 - [Announcements][disc-announce] and [polls][disc-polls]
 - [General conversation][disc-general]
 
+## [Discord][discord]
+
+This project welcomes everyone to join the [Chiberia Projects Discord][discord] - Chiberia being one of Andrew's online
+handles.
+
+Whether you have interest in contributing, need support, or are just looking for a fun community to be a part of, this
+is a great way to have live conversations with community members.
+
+> Please note that there is no guarantee that Project Maintainers can provide support or feedback through Discord -
+> while there is always an aim to be available, Project Maintainers have a primary focus and priority on formal GitHub
+> Issues, Pull Requests, and Discussions, as described, in the preceding sections.
+
 ## Other topics
 
 - [Sponsorship interest][sponsorship]
@@ -55,13 +55,13 @@ conversations with community members.
 
 ## Tips for getting the fastest support
 
-If you are looking to get support for this project, as an open source project, the community is the primary source to
-get help. One of the best ways to ensure you receive the fastest resolution is to exhaust as many resources as you have
+If you are looking to get support for this project, as an open source project, the community is the primary source for
+that. One of the best ways to ensure you receive the fastest resolution is to exhaust as many resources as you have
 available prior to asking for community assistance. Some recommendations to start include:
 
 1. Perform a [Rubber Duck Debugging][rubber-duck] exercise
 2. Rephrase your question after reading about the [X-Y Problem][xy]
-3. Search for other Issues in the project that might help you get context more quickly
+3. [Search for other Issues][gh-issues] in the project that might help you get context more quickly
 4. Gather as much data as you can - screenshots, error message, verbose logs - and include them up front
 
 The more effort you put into preparing your question, the more likely a community member engages and answers your

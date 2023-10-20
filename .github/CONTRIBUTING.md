@@ -714,7 +714,7 @@ Contributing Guidelines in full. To show that you are one of these rare people, 
 your Issues and Pull Requests with the code `:candy:`.
 
 <!-- omit from toc -->
-### :candy:
+### :candy
 
 <!-- prettier-ignore-end -->
 

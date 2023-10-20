@@ -1,9 +1,10 @@
 ##
-# Feature request form GitHub issue template
+# Feature request GitHub Issue form configuration.
 #
 # @link https://t.ly/-Gbqv
-
-name: Feature Request
+#
+---
+name: Feature request
 
 description: Request a feature or submit an idea for development.
 
@@ -18,60 +19,70 @@ body:
   - type: markdown
     attributes:
       value: >-
-        Thank you for taking the time to submit an idea or feature request. Before submitting, please take some time to
-        review our standards on accepting feature requests in our
-        [Contributing Guidelines](https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#submit-an-idea).
+        Thank you for taking the time to recommend a feature or submit an idea. Before submitting, please take a moment
+        to review the standards on what feature requests Project Maintainers accept in the project's
+        [Contributing Guidelines](/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#submit-an-idea).
 
-  # Scope
+  ##
+  # Scope.
+  #
   - type: dropdown
     id: scope
     attributes:
-      label: Scope(s)
-      description: What component(s) within the project does this pertain to?
+      label: Scopes
+      description: What components within the project does this pertain to?
       multiple: true
       options:
         - Everything
         - Other
       default: 0
-    validations:
-      required: true
 
-  # Problem
+  ##
+  # Problem.
+  #
   - type: textarea
     id: problem
     attributes:
-      label: Problem Statement
+      label: Problem statement
       description: What problem are you trying to solve or opportunity do you see that exists for this idea or feature?
     validations:
       required: true
 
-  # Benefits
+  ##
+  # Benefits.
+  #
   - type: textarea
     id: benefits
     attributes:
       label: Benefits
-      description: What benefits will this provide the community and why?
+      description: What benefit does this change bring to the project and community?
 
-  # Recommended Approach
+  ##
+  # Recommended approach.
+  #
   - type: textarea
     id: approach
     attributes:
-      label: Recommended Approach
+      label: Recommended approach
       description: >-
         If known, what approach do you recommend to the problem or opportunity? Please include any diagrams, mockups, or
         illustrations in this area, if they might help explain your idea, by using the image upload tool in the text
-        editor below.
+        editor.
 
-  # Examples
+  ##
+  # Examples.
+  #
   - type: textarea
     id: examples
     attributes:
-      label: Example(s)
+      label: Examples
       description: >-
         If you have any examples of other projects or utilities, or can provide your own example as to how this might
         function, please provide it here.
 
-  ## SUBJECTIVE --------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Subjective.
+  #
 
   - type: markdown
     attributes:
@@ -80,41 +91,49 @@ body:
 
         ## Conclusion
 
-        Your expertise is extremely valuable in determining the appropriate course of action for this issue. Any
-        additional information you might provide us will help to determine the prioritization and execution of this
-        effort.
+        Your expertise is extremely valuable in determining the appropriate course of action for this Issue. Any
+        additional information you might provide helps to determine the prioritization and execution of this effort.
 
-  # Priority
+  ##
+  # Priority.
+  #
   - type: dropdown
     id: priority
     attributes:
       label: Priority
-      description: In your opinion, how important is this issue?
+      description: In your opinion, how important is this Issue?
       options:
-        - Critical (Project fails without it)
-        - Important (Significantly improve the project)
-        - Moderate (Similar to most work being done today)
-        - Low (Clear value, but in no way urgent)
-        - Trivial (Nice to have)
+        - Critical (project fails without it)
+        - Important (significantly improves the project)
+        - Moderate (similar to work prioritized currently)
+        - Low (not urgent)
+        - Trivial (nice to have)
 
-  # Additional Context
+  ##
+  # Additional context.
+  #
   - type: textarea
     id: additional_context
     attributes:
-      label: Additional Context
+      label: Additional context
       description: >-
-        If there is anything else the project maintainers should know that will help explain or prioritize this issue,
+        If there is anything else the Project Maintainers should know that helps explain or prioritize this Issue,
         please provide that additional information, here.
 
-  ## TERMS -------------------------------------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------------------------------------------
+  # Terms of service.
+  #
 
-  # Code of Conduct
+  ##
+  # Code of Conduct.
+  #
   - type: checkboxes
     id: code_of_conduct
     attributes:
       label: Code of Conduct
       description: >-
-        By submitting this issue, I agree to the terms within and will follow this project's
+        By submitting this Issue, I agree to the terms within and agree to follow this project's
         [Code of Conduct](https://github.com/andrewvaughan/template-core?tab=coc-ov-file#readme).
       options:
         - label: I agree to follow this project's Code of Conduct
+          required: true

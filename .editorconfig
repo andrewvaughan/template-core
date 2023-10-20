@@ -1,16 +1,20 @@
-######################################################################################################################
-# EditorConfig Configuration
-# http://EditorConfig.org
+##
+# EditorConfig configuration.
 #
 # Assists with style consistency within editors. Enforced with linting.
-########################################################################################################################
+#
+# @link https://editorconfig.org
+#
 
-
-### Prevents EditorConfig configurations that may exist in parent directories from being parsed
+##
+# Prevents parsing EditorConfig configurations that may exist in parent directories.
+#
 root = true
 
 
-### Apply uniform standards to all files, unless specified
+##
+# Apply uniform standards to all files, unless specified.
+#
 [*]
 charset = utf-8
 end_of_line = lf
@@ -21,13 +25,11 @@ trim_trailing_whitespace = true
 max_line_length = 120
 
 
-### Makefile requires tabs
-[{Makefile,*.mak}]
+##
+# Makefile requires tabs.
+#
+[{Makefile,*.mk}]
 indent_style = tab
 indent_size = 4
 tab_width = 4
 
-
-### Documentation filetypes have different needs than code
-[*.md]
-trim_trailing_whitespace = false

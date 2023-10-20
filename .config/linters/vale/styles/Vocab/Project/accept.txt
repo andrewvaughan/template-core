@@ -1,0 +1,11 @@
+##
+# Vale special words dictionary.
+#
+# This file defines acceptable words and phrases for this specific project. Add common operational phrases to the
+# parallel `Ops` vocabulary folder, reserving this file for project-specific phrases.
+#
+# @link https://vale.sh/docs/topics/vocab/
+#
+# TEMPLATE TODO - Add the proper spelling of the project name, and any other known phrases with specific-formatting, to
+# start this dictionary.
+#

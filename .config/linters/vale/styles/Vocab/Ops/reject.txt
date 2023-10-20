@@ -15,6 +15,7 @@
 Cspell
 (?i)Hot Fix
 hot-fix
+(?i)Note that
 (?i)Project Manager
 (?i)Project's Maintainer
 (?i)Project's Maintainers

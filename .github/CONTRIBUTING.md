@@ -288,11 +288,12 @@ squashed into the commit body when a Project Maintainer accepts the Pull Request
 The Code Review process is relatively simple for this project. Each area of the code has a defined set of
 [Code Owners][codeowners] that are responsible for the development and enforcement of standards, enforcement of which
 occurs during the Code Review process. If you change more than one Code Owners' section of code, expect to have multiple
-reviewers assigned to your Pull Request. Details on what project sections different Code Owners maintain is found in the
-[`CODEOWNERS`](CODEOWNERS) file.
+reviewers assigned to your Pull Request. The [`CODEOWNERS`][codeowners] file contains details on what project sections
+different Code Owners maintain.
 
-Code Owners may also enlist Project Maintainers for advanced review or areas that are complex or change significant
-portions of the project. Project Maintainers oversee the entire project and have final say on Code Reviews.
+Code Owners may also enlist Project Maintainers for advanced review, areas that are complex, or contributions that
+change significant portions of the project. Project Maintainers oversee the entire project and have final say on all
+Code Reviews.
 
 During Code Review, the following areas are, at minimum, reviewed:
 
@@ -308,8 +309,8 @@ During Code Review, the following areas are, at minimum, reviewed:
 - Adherence to Primary Commit Message standards
 
 Comments on your Pull Request may occur on specific pieces of code, or on the Pull Request, itself. All conversations
-within a Pull Request **must** achieve resolution, although not necessarily development, prior to being accept. This
-**may** require changes to the submission, or **may** entail a conversation to come to a common understanding on why
+within a Pull Request **must** achieve resolution, although not necessarily development, prior to acceptance. This
+**may** require changes to the submission or **may** entail a conversation to come to a common understanding on why
 the Contributor elected a particular methodology. Regardless, it's the responsibility of the Contributor to resolve all
 threads.
 
@@ -317,51 +318,52 @@ When all reviewers accept the Pull Request, the following actions occur:
 
 <!-- editorconfig-checker-disable -->
 
-1. The Project Maintainer [squashes]][squash] all commits to a single commit with the Primary Commit Message representing the title
+1. The Project Maintainer [squashes][squash] all commits to a single commit with the Primary Commit Message representing the title, and, by that action, the changelog message
 2. The Project Maintainer deletes the merged Branch, if not a remote Fork
 3. The Project Maintainer closes the Pull Request
-4. Automatic integration tests execute code-wide tests, if on the [`staging`][branch-staging] or [`production`][branch-production] Branches, or on changed code for the [`main`][branch-main] Branch, as appropriate
-5. The Project Maintainer move the Issue to the appropriate state, being one of `Pending Staging`, `Staged`, or `Released`, depending on which Branch acted as the base
+4. Automatic integration testing occurs - on only changed files, for the [`main`][branch-main] Branch, or end-to-end, for [`staging`][branch-staging] or [`production`][branch-production] Branches
+5. The Project Maintainer moves the Issue to the appropriate state, being one of `Pending Staging`, `Staged`, or `Released`, depending on the target Branch for the Pull Request
 
 <!-- editorconfig-checker-enable -->
 
-**Don't** squash your commits manually. The Project Maintainer does this for you.
+**Don't** squash your commits manually. The Project Maintainer does this for you when accepting the Pull Request.
 
-> **Note:** While the Issue is technically "closed" at this point by GitHub, it'ts not "done." This project's
-> **Definition of Done** is when the Issue is in the `Released` state.
+> **Note:** While the Issue is technically "closed" at this point by GitHub, it's not "done." This project's
+> **Definition of Done** is when the Issue is in the `Released` state per the Issue's status label.
 
 #### 4. `Pending Staging`
 
 At this point in the Software Development Lifecycle, the work for the Contributor is effectively complete, apart from
-the rare occurrence where end-to-end integration tests (which occur immediately the acceptance of a Pull Request)
-returns an unexpected failure.
+the rare occurrence where end-to-end integration tests - which occur immediately after the acceptance of a Pull
+Request - returns an unexpected failure.
 
 In such a case, the associated environment Branch, generally [`production`][branch-production], undergoes a
 [Hot-Fix](#hot-fixes-and-critical-releases) pattern to resolve the problem.
 
 Issues **may** stay in the `Pending Staging` state for some time until a Project Maintainer performs a Release
-to the staging server. This occurs when the Project Maintainer performs a successful Pull Request from the
+to the `staging` server. This occurs when the Project Maintainer performs a successful Pull Request from the
 [`main`][branch-main] Branch to the [`staging`][branch-staging] Branch.
 
 This action creates a special integration that tests the entire project's codebase from end-to-end. If these tests pass,
-accepting the Pull Request results ia successful `staging` environment (and, generally, `beta`) Release. At this point,
-all Issues have the `Staged` status label applied.
+accepting the Pull Request results in a successful `staging` environment deployment and, generally, a `beta` Release. At
+this point, all Issues in-scope have the `Staged` status label applied.
 
-> Note that not all projects have a `staging` environment, and therefore don't use the `Pending Staging` or `Staged`
-> status labels. In such a case, the [`main`][branch-main] Branch merges directly on to
-> [`production`][branch-production] and the Project Maintainers update the Issue label directly to `Released`.
+> Not all projects have a `staging` environment and, therefore, don't use the `Pending Staging` or `Staged` status
+> labels. In such a case, the [`main`][branch-main] Branch merges directly on to the [`production`][branch-production]
+> Branch, and the Project Maintainers update Issue labels directly to `Released`.
 
 #### 5. `Staged`
 
-Staged statuses reflect Issues that are on the [`staging`][branch-staging] Branch and environment. They're pending end-
-to-end testing before a Project Maintainer promotes them to the [`production`][branch-production] Branch.
+Staged statuses reflect Issues that are on the [`staging`][branch-staging] Branch and environment. They're pending
+end-to-end testing before a Project Maintainer promotes them to the [`production`][branch-production] Branch.
 
-Generally, Project Maintainers use this for efforts like performance testing, penetration testing, user acceptance
-testing, and other areas of effort that require a `staging` environment to perform. This Branch may also be available as
-a `beta` Release for users, but not always. The actions taken during this step vary from project to project.
+Generally, Project Maintainers use this for efforts such as performance testing, penetration testing, user acceptance
+testing, and other areas of focus that require a pre-production `staging` environment to perform. This Branch may also
+be available to end-users as a `beta` Release, but not always. The actions taken during this step vary from project to
+project.
 
-When all `staging` efforts are complete, the [`staging`][branch-staging] has a Pull Request created into the
-[`production`][branch-production] Branch for a `production` Release.
+When all `staging` efforts are complete, the [`staging`][branch-staging] Branch has a Pull Request created, merging it
+into the [`production`][branch-production] Branch for a `production` Release.
 
 #### 6. `Released`
 

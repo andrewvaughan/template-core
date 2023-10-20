@@ -9,8 +9,8 @@ This project takes the security of its products and services seriously and follo
 > exploited, results in a negative impact to confidentiality, integrity, OR availability. Mitigation of the
 > vulnerabilities in this context typically involves coding changes but could also include specification changes or even
 > specification deprecations (e.g., removal of affected protocols or functionality in their entirety).”
-
-**_[MITRE.org CNA Rules 7.1][MITRE-rules]_**
+>
+> **_[MITRE.org CNA Rules 7.1][MITRE-rules]_**
 
 <!-- vale on -->
 

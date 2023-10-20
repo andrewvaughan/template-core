@@ -51,7 +51,7 @@ This information helps triage such reports more quickly.
 
 ### Preferred language
 
-When possible, please use English when providing security reports.
+When possible, please use **English** when providing security reports.
 
 <!-- vale off -->
 

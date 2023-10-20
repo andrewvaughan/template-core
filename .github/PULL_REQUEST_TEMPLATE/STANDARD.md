@@ -69,3 +69,15 @@ did not adjust any UI, please feel free to state so, here.
 >
 > - [Chrome](https://chrome.google.com/webstore/detail/gifs-for-github/dkgjnpbipbdaoaadbdhpiokaemhlphep/related?hl=en)
 > - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/gifs-for-github/)
+
+## Agreement
+
+<!--
+This box must be checked for any submission to be considered for approval.
+Please read the Contributing Guidelines carefully prior to submitting this
+Pull Request.
+-->
+
+- [ ] By checking this box, I agree to the project's Contributing Guidelines as provided, here:
+
+<https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md>

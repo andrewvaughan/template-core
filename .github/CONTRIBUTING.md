@@ -9,8 +9,8 @@ Please read this document carefully before contributing, as it answers many of t
 when first working with this community's projects.
 
 > This guide serves to set clear expectations for everyone involved with the project so that the community can work
-> together in creating a welcoming space for everyone to participate. Following these guidelines ensures a positive
-> experience for all Contributors and maintainers.
+> together in creating a welcoming space for all interested individuals to participate. Following these guidelines
+> ensures a positive experience for all Contributors and Project Maintainers.
 
 <!-- prettier-ignore-start -->
 <!-- omit from toc -->
@@ -23,7 +23,7 @@ when first working with this community's projects.
       - [Reporting a security vulnerability](#reporting-a-security-vulnerability)
     - [Submit an idea](#submit-an-idea)
     - [Support, questions, and forums](#support-questions-and-forums)
-  - [Working on Issues](#working-on-issues)
+  - [Working on issues](#working-on-issues)
     - [Software Development Lifecycle](#software-development-lifecycle)
       - [1. `Pending Initiation`](#1-pending-initiation)
       - [2. `In Progress`](#2-in-progress)
@@ -100,7 +100,7 @@ You also understand and agree that:
 <!-- editorconfig-checker-disable -->
 
 1. This project and all contributions are, or may become at any time, public;
-2. That a record of any and all contributions, including all personal information submitted with, including permissions, are indefinitely maintained and redistribution may occur without notice or approval;
+2. That a record of any and all contributions, including all personal information submitted, as well as permissions granted, are indefinitely maintained and that redistribution may occur without notice or approval;
 3. That you grant this project and the Project Maintainers a non-exclusive, irrevocable License to use your submitted work in any manner in compliance with the Project License; and,
 4. You are capable of granting these rights for all contributions.
 
@@ -114,7 +114,7 @@ There are many methods of contribution you can participate in to enhance this pr
 certainly not limited to, helping develop the core product. You can help the project with any of the following:
 
 - [Work on a new or existing project Issue](#working-on-issues)
-- [Report any bugs You find](#report-a-bug)
+- [Report any bugs you find](#report-a-bug)
 - [Submit an idea or request a feature](#submit-an-idea)
 - [Participate in a community Discussion][discussions]
 - [Join the Discord][discord]
@@ -138,7 +138,8 @@ Perfect code is rare, and this project is no exception. Before submitting a bug 
 
 If you do find an existing Issue that matches your concern, please add any context that might help solve it, whether
 that be your specific replication steps or information about your platform. It can be surprising what data helps crack
-open the understanding of a complex, or even simple, problem.
+open the understanding of a complex, or even simple, problem. Let the Project Maintainers know that you are also having
+a problem by commenting on that Issue. This helps them prioritize work effectively.
 
 If you perform these steps and are still sure a bug exists, please [file a bug report][issue-bug] so the community can
 address it. Expect to come prepared with the following information for your bug report to move out of
@@ -151,10 +152,10 @@ address it. Expect to come prepared with the following information for your bug 
 
 The [bug report template][issue-bug] helps you organize each of these elements.
 
-Additionally, including any errors, configurations, logs, stack traces, screenshots, output, or other data that may be
-useful for someone to debug the problem is critical to provide to ensure fast turnaround for bug reports. The more of
-this you provide up-front, the more quickly a resolution might happen. The quality of response is, quite often, entirely
-dictated by the effort put forward in helping resolve your problem.
+Additionally, aim to include any errors, configurations, logs, stack traces, screenshots, output, or other data that may
+be useful for someone to debug the problem. This is critical to provide to ensure fast turnaround for bug reports. The
+more information you provide up-front, the more quickly a resolution might occur. The quality of a response is, quite
+often, entirely dictated by the effort put forward up front.
 
 #### Reporting a security vulnerability
 
@@ -162,6 +163,9 @@ All security vulnerabilities are high-priority until determined otherwise. If yo
 that may pose a security risk to users or developers, even if you aren't certain, please
 [file a security report][issue-security] as soon as possible. It's highly preferred that you create a potential report
 that may prove to be nothing than not submit a report because you aren't sure.
+
+**DON'T file security vulnerabilities using GitHub Issues, Discussions, or via Discord.** Only use the provided
+[security vulnerability reporting mechanism][issue-security].
 
 For more information, please refer to the project's [Security Policy][security].
 
@@ -196,12 +200,14 @@ directly to help.
 For anything conversational, including asking for support, please make use of the [Discussions][discussions] feature
 available on the project. Opening an Issue isn't appropriate for these types of communication.
 
+Additionally, you are welcome to join the project's [Discord][discord] for less-formal communications.
+
 Please make sure to review the project's [Support Documentation][support] and [Code of Conduct][conduct] prior to
 participating in any Discussions.
 
 ---
 
-## Working on Issues
+## Working on issues
 
 The [GitHub Issues][issues] section manages the project's bugs, features, and formal efforts. It's here that Project
 Maintainers determine which Issues are road-mapped and plan [Project Milestones][milestones] accordingly.
@@ -209,15 +215,15 @@ Maintainers determine which Issues are road-mapped and plan [Project Milestones]
 ### Software Development Lifecycle
 
 All contributions to the project **must** follow this Software Development Lifecycle (SDLC). Six (6) distinct phases
-make up the SDLC with each state represented by a different `State` label that matches one of the following:
+make up the SDLC, with each state represented by a different `State` label that matches one of the following:
 
 #### 1. `Pending Initiation`
 
 When [triage](#issue-triage) is complete, Issues are either approved or rejected. If approved, the Issue enters the
 `Pending Initiation` state. This means that the Issue is ready for development.
 
-Any Issue that's in the `Pending Initiation` state is free to for claiming and is one of the best ways to find an Issue
-to work on, for those wishing to contribute.
+Any Issue that's in the `Pending Initiation` state is free for claiming by a Contributor and is one of the best ways to
+find an Issue to work on, for those wishing to contribute.
 
 When a volunteer chooses to take a `Pending Initiation` Issue, they **must** put a comment on the Issue stating their
 interest, at which point a Project Maintainer can update the status label to `In Progress` and assign the Issue to the
@@ -225,7 +231,7 @@ Contributor. The Contributor should then create a [Fork][fork] of the Repository
 
 > **Developer tip:** Adding an `upstream` remote and regularly [rebasing][rebasing] from the [`main`][branch-main]
 > Branch is important to keep updated with changes and prevent significant effort at the end of the development. To add
-> an `upstream`, you can run:
+> an `upstream` for this project, you can run this command:
 >
 > ```bash
 > git remote add upstream https://github.com/andrewvaughan/template-core
@@ -242,8 +248,8 @@ Contributor. The Contributor should then create a [Fork][fork] of the Repository
 
 #### 2. `In Progress`
 
-While the Contributor is working on the Issue, the Issue **must** remain in the `In Progress` state. This marks the
-Issue as claimed for other developers and is the project's primary mechanism for avoiding a duplication of efforts.
+While a Contributor is working on an Issue, the Issue **must** remain in the `In Progress` state. This marks the Issue
+as claimed for other developers and is the project's primary mechanism for avoiding a duplication of efforts.
 
 If you, as a Contributor, can no longer work on an effort, please add a comment to the Issue so that the Project
 Maintainers can revert the Issue state back to `Pending Initiation` for another Contributor to claim.
@@ -251,9 +257,9 @@ Maintainers can revert the Issue state back to `Pending Initiation` for another 
 Contributors **must** create a [Primary Commit Message](#commit-message-conventions) with their commits to ensure the
 project's automation, changelog, and developer community stay in tact.
 
-When a Contributor has completed their work and are ready for submission, they **must** open a
+When a Contributor has completed their work and is ready for submission, they **must** open a
 [Pull Request][pull-requests] to the [`main`][branch-main] Branch to undergo automated integration tests and to start
-a Code Review process from the appropriate Project Maintainers.
+a Code Review process from the appropriate Code Owners.
 
 After the Pull Request opens, a Project Maintainer changes the Issue label and status to `Code Review`.
 
@@ -265,22 +271,25 @@ After the Pull Request opens, a Project Maintainer changes the Issue label and s
 > git rebase upstream/main
 > ```
 >
-> If you aren't familiar with the rebase strategy, it's important to [become familiar with it][rebasing] for this
+> If you aren't familiar with the rebase strategy, it's important to [become comfortable with it][rebasing] for this
 > project.
 
 #### 3. `Code Review`
 
-The creation of a Pull Request automatically triggers workflows that test all changed files (as opposed to the whole
-codebase) for linting. It also runs the entire unit test suite. It's up to the Contributor to ensure that all
-integration tests pass, as a Code Reviewer **may not** start their work until all integration checks are passing.
+The creation of a Pull Request into the `main` Branch automatically triggers workflows that test all changed files, as
+opposed to the whole codebase, for linting. It also runs the entire unit test suite. It's up to the Contributor to
+ensure that all integration tests pass, as a Code Reviewer **may not** start their work until all integration checks are
+passing.
 
-Developers **may** commit directly to their forked Branch to see their updates appear in the Pull Request. These commit
-messages don't need to follow the verbose standards of the Primary Commit Message.
+Developers **may** create additional commits directly to their forked Branch to see their updates appear in the Pull
+Request. These commit messages don't need to follow the verbose standards of the Primary Commit Message, as they're
+squashed into the commit body when a Project Maintainer accepts the Pull Request.
 
 The Code Review process is relatively simple for this project. Each area of the code has a defined set of
-[Code Owners][codeowners] that are responsible for the development and enforcement of standards, which occurs
-during the Code Review process. If you change more than one Code Owners' section of code, expect to have multiple
-reviewers assigned to your Pull Request.
+[Code Owners][codeowners] that are responsible for the development and enforcement of standards, enforcement of which
+occurs during the Code Review process. If you change more than one Code Owners' section of code, expect to have multiple
+reviewers assigned to your Pull Request. Details on what project sections different Code Owners maintain is found in the
+[`CODEOWNERS`](CODEOWNERS) file.
 
 Code Owners may also enlist Project Maintainers for advanced review or areas that are complex or change significant
 portions of the project. Project Maintainers oversee the entire project and have final say on Code Reviews.

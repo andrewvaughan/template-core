@@ -117,7 +117,7 @@ Visit the [Rulesets][gh-rulesets] page for the Repository.
     - **CHECK** `Maintain`
   - Click `+ Add target`
     - Select `Include all branches`
-  - Under **Tag protections**:
+  - Under **Branch protections**:
     - **CHECK** `Restrict creations`
 
 - [ ] Click `New branch ruleset` with the following configuration:
@@ -135,7 +135,7 @@ Visit the [Rulesets][gh-rulesets] page for the Repository.
   - Click `+ Add target`
     - Select `Include by pattern`
       - **Naming Pattern:** `production`
-  - Under **Tag protections**:
+  - Under **Branch protections**:
     - **CHECK** `Restrict creations`
     - **CHECK** `Restrict updates`
     - **CHECK** `Require a pull request before merging`
@@ -146,8 +146,9 @@ Visit the [Rulesets][gh-rulesets] page for the Repository.
       - **CHECK** `Require conversation resolution before merging`
     - **CHECK** `Require status checks to pass before merging`
       - **CHECK** `Require branches to be up to date before merging`
+      - Add **`MegaLinter`** and click the `+` button
 
-- [ ] From the dropdown, select `New tag ruleset` with the following configuration:
+- [ ] From the dropdown, select `New branch ruleset` with the following configuration:
 
   - **Ruleset Name:** `Restrict Release Branches`
   - **Enforcement Status:** `Active`
@@ -158,11 +159,12 @@ Visit the [Rulesets][gh-rulesets] page for the Repository.
       - **Naming Pattern:** `release/*`
     - Select `Include by pattern`
       - **Naming Pattern:** `release/**/*`
-  - Under **Tag protections**:
+  - Under **Branch protections**:
     - **CHECK** `Restrict creations`
     - **CHECK** `Restrict updates`
     - **CHECK** `Require status checks to pass before merging`
       - **CHECK** `Require branches to be up to date before merging`
+      - Add **`MegaLinter`** and click the `+` button
 
 ### Labels
 

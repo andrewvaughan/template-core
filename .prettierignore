@@ -1,7 +1,7 @@
 ##
 # Prettier ignore configuration.
 #
-# Ensures that built and loaded resources aren't modified by formatting scripts and checks.
+# Ensures that compiled and third-party resources aren't modified by formatting scripts and checks.
 #
 # @link https://prettier.io/docs/en/ignore
 #

@@ -33,9 +33,3 @@ indent_style = tab
 indent_size = 4
 tab_width = 4
 
-
-##
-# Documentation filetypes have different needs than code.
-#
-[*.md]
-trim_trailing_whitespace = false

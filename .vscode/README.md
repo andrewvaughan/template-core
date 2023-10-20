@@ -2,6 +2,15 @@
 
 This configuration folder helps new developers get up and running as quickly as possible to dive right into coding.
 
+You can bulk install the extensions recommended here by accepting the dialog box that appears when first-opening the
+project in VSCode, or by running the provided helper target:
+
+```sh
+make vscode
+```
+
+## Configuration files
+
 <!-- editorconfig-checker-disable -->
 
 - [`extensions.json`](extensions.json) - provide a number of recommendations of VSCode extensions to install - [Microsoft Documentation][docs-extensions]

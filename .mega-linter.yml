@@ -7,8 +7,8 @@
 ##
 # Linters that support fixing in-place do so within the commit.
 #
-# The fixing linter doesn't create another Pull Request or commit - the linter fixes small changes in-place during
-# testing.
+# When applying basic fixes, this doesn't create another Pull Request or commit - MegaLinter fixes small changes
+# in-place during testing. Modify this in the `.github/workflows/.mega-linter.yml` configuration, if needed.
 #
 APPLY_FIXES: all
 
@@ -16,7 +16,10 @@ APPLY_FIXES: all
 # Never run these linters, regardless of flavor or configuration.
 #
 DISABLE_LINTERS:
-  # Lychee is _extremely_ slow right now - consider the usefulness of dead hyper link checking before re-enabling
+  ##
+  # Lychee is _extremely_ slow right now, and Markdown link checking occurs with other linters. Consider the usefulness
+  # of dead hyper link checking in code comments before re-enabling.
+  #
   - SPELL_LYCHEE
 
 ##
@@ -27,6 +30,8 @@ FILEIO_REPORTER: false
 ##
 # Recommend flavors to the developer to help reduce container layer size.
 #
+# Mature projects may want to turn this off to reduce linter spam.
+#
 FLAVOR_SUGGESTIONS: true
 
 ##
@@ -35,7 +40,7 @@ FLAVOR_SUGGESTIONS: true
 IGNORE_GITIGNORED_FILES: true
 
 ##
-# Place linting configurations in this folder.
+# The project moves linting configurations out of the project root to reduce root file bloat.
 #
 LINTER_RULES_PATH: .config/linters
 
@@ -53,12 +58,14 @@ PRE_COMMANDS:
 PRINT_ALPACA: false
 
 ##
-# Time checking helps with optimization.
+# Time elapsed information helps with optimization.
 #
 SHOW_ELAPSED_TIME: true
 
 ##
 # Allow developers to review other linters that may help with their project.
+#
+# Mature projects may want to turn this off to reduce linter spam.
 #
 SHOW_SKIPPED_LINTERS: true
 
@@ -67,19 +74,21 @@ SHOW_SKIPPED_LINTERS: true
 #
 
 ##
-# TODO Manually includes `*.mk` files as Checkmake doesn't currently support includes.
+# TODO Manually include `*.mk` files, as Checkmake doesn't currently support includes.
 # @link https://github.com/mrtazz/checkmake/issues/97
 #
 MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
   - .mk
 
 ##
-# Don't include Vale styles in Markdown linting.
+# File ignore patterns for MarkdownLint.
+#
+#   - Vale style guide dependencies
 #
 MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*)
 
 ##
-# Prevent DevSkim from reacting to other linters/utilities that may also need to configuration for sensitive areas.
+# Prevent DevSkim from reacting to other linters/utilities that may also need to configure sensitive areas.
 #
 # TODO This is a temporary fix until MegaLinter resolves this as default.
 # @link https://github.com/oxsecurity/megalinter/issues/3017
@@ -87,15 +96,19 @@ MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Go
 REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"]
 
 ##
-# MegaLinter doesn't lint code by default, limiting linting to `.md` and `.rst` files.
+# MegaLinter doesn't lint code by default, rather limiting linting to `.md` and `.rst` files. These configurations add
+# certain file extensions, some of which are natively supported, and others have their mapping in the `vale.ini` file.
 #
-# Note, YAML is explicitly not supported as many project benefit from having in-editor prose linting of content blocks,
-# and this capability would disappear if comments were solely linted. As such, a compromise solution is to not lint
-# YAML during integration, but enable visualization and management of possible errors in the editor.
+# > Note, YAML is explicitly not supported as many project benefit from having in-editor prose linting of content
+# > blocks, and this capability would disappear if comments were solely linted. As such, a compromise solution is to not
+# > lint YAML during integration, but enable visualization and management of possible errors in the editor.
 #
-# Note, JSON is explicitly not supported as there seems to be a problem parsing text in arrays.
+# > Note, JSON is explicitly not supported as there seems to be a problem parsing text in arrays. Since comments aren't
+# > supported in JSON, generally, this adds minor risk.
 #
 # @link https://vale.sh/docs/topics/config/#format-associations
+#
+# TEMPLATE TODO - Add file extensions and mappings based on what technologies are in the project.
 #
 SPELL_VALE_FILE_EXTENSIONS:
   # - .ecrc

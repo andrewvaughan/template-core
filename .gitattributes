@@ -1,9 +1,11 @@
 ##
 # GitAttributes.
 #
-# Enforces proper diff settings and makes use of GitHub LFS for binary files.
+# Enforces proper diff settings and makes use of GitHub LFS for binary files. If you add any extensions to this file,
+# please consider adding them to the `template-core` project to create a central Repository of mappings.
 #
 # @link https://git-scm.com/docs/gitattributes
+# @link https://git-lfs.com/
 #
 
 

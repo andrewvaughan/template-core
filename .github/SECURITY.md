@@ -1,7 +1,7 @@
 # Security Policy
 
 This project takes the security of its products and services seriously and follows the
-[MITRE.org definition][MITRE-definition] of a security vulnerability, which is defined as:
+[MITRE.org definition][MITRE-definition] of a security vulnerability, as-follows:
 
 <!-- vale off -->
 

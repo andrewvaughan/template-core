@@ -16,7 +16,7 @@ When creating a new project from this template, ensure to take these steps immed
     - [Branch and Tag protection](#branch-and-tag-protection)
     - [Labels](#labels)
   - [2. Configure files for new project](#2-configure-files-for-new-project)
-  - [3. Select a license](#3-select-a-license)
+  - [3. Select a License](#3-select-a-license)
     - [Permissions](#permissions)
     - [Conditions](#conditions)
     - [Limitations](#limitations)
@@ -197,7 +197,7 @@ git lfs migrate import --everything
 
 ---
 
-## 3. Select a license
+## 3. Select a License
 
 Several [Licenses][choose-a-license] are available based on the privileges, conditions, and limitations for Licensees of
 the project. Each table includes Licenses in order from least-restrictive to most-restrictive in the sections, below.

@@ -196,8 +196,6 @@ This Code of Conduct is an adaptation based on the following resources:
 - [Google Code of Conduct][google-conduct]
 - [IndieWeb Code of Conduct][indieweb-conduct]
 
-All Repository documentation follows the [Google Developer Documentation Style Guide][google-style].
-
 <!-- Link repository -->
 
 [covenant-14]: https://www.contributor-covenant.org/version/1/4/code-of-conduct/
@@ -205,5 +203,4 @@ All Repository documentation follows the [Google Developer Documentation Style G
 [email]: mailto:hello+github@andrewvaughan.io?subject=GitHub%20Code%20of%20Conduct%20Report
 [github-antiharassment]: https://geekfeminism.fandom.com/wiki/Conference_anti-harassment/Policy
 [google-conduct]: https://github.com/google/.github/blob/master/CODE_OF_CONDUCT.md
-[google-style]: https://developers.google.com/style/
 [indieweb-conduct]: https://indieweb.org/code-of-conduct

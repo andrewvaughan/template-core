@@ -43,9 +43,9 @@ handles.
 Whether you have interest in contributing, need support, or are just looking for a fun community to be a part of, this
 is a great way to have live conversations with community members.
 
-> Please note that there is no guarantee that Project Maintainers can provide support or feedback through Discord -
-> while there is always an aim to be available, Project Maintainers have a primary focus and priority on formal GitHub
-> Issues, Pull Requests, and Discussions, as described, in the preceding sections.
+> There is no guarantee that Project Maintainers can provide support or feedback through Discord - while there is always
+> an aim to be available, Project Maintainers have a primary focus and priority on formal GitHub Issues, Pull Requests,
+> and Discussions, as described, in the preceding sections.
 
 ## Other topics
 

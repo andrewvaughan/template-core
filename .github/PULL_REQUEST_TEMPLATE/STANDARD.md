@@ -78,6 +78,6 @@ Please read the Contributing Guidelines carefully prior to submitting this
 Pull Request.
 -->
 
-- [ ] By checking this box, I agree to the project's Contributing Guidelines as provided, here:
+- [ ] By checking this box, you agree to the project's Contributing Guidelines as provided, here:
 
 <https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md>

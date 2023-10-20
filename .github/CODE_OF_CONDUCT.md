@@ -15,10 +15,10 @@
   - [Enforcement](#enforcement)
     - [Reporting an incident](#reporting-an-incident)
     - [Enforcement guidelines](#enforcement-guidelines)
-      - [Correction for minor infractions](#correction-for-minor-infractions)
-      - [Warning for repeat or moderate infractions](#warning-for-repeat-or-moderate-infractions)
-      - [Temporary ban for sustained or serious infractions](#temporary-ban-for-sustained-or-serious-infractions)
-      - [Permanent ban for sustained or severe infractions](#permanent-ban-for-sustained-or-severe-infractions)
+      - [1. Correction for minor infractions](#1-correction-for-minor-infractions)
+      - [2. Warning for repeat or moderate infractions](#2-warning-for-repeat-or-moderate-infractions)
+      - [3. Temporary ban for sustained or serious infractions](#3-temporary-ban-for-sustained-or-serious-infractions)
+      - [4. Permanent ban for sustained or severe infractions](#4-permanent-ban-for-sustained-or-severe-infractions)
   - [Conclusion](#conclusion)
   - [Attribution](#attribution)
 
@@ -35,7 +35,7 @@ project and the community, nor do the Community Leaders tolerate any behavior th
 person feeling unsafe, insecure, or frightened for their physical or emotional well-being. All communication should be
 appropriate for a professional audience, including people of many different backgrounds.
 
-This project's Community Leaders value diverse opinions, but value respectful behavior more.
+This project's Community Leaders value diverse opinions, but they value respectful behavior more.
 
 ## Community standards
 
@@ -77,8 +77,8 @@ The clarification of standards of acceptable behavior is the responsibility of t
 expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
 
 Community Leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits,
-Issues, and other contributions that aren't aligned to this Code of Conduct, and they're responsible for communicating
-the rationale of such moderation decisions, when appropriate.
+Issues, Discussions, Pull Requests and other contributions that aren't aligned to this Code of Conduct, and they're
+responsible for communicating the rationale of such moderation decisions, when appropriate.
 
 ## Scope
 
@@ -89,8 +89,8 @@ event. Representation of a project may be further defined and clarified by Proje
 
 ## Enforcement
 
-Contact the project team at any time to report instances of abusive, harassing, or otherwise unacceptable behavior. All
-complaints result in a review, investigation, and response appropriate and necessary to the circumstances. Community
+Contact the Community Leaders at any time to report instances of abusive, harassing, or otherwise unacceptable behavior.
+All complaints result in a review, investigation, and response appropriate and necessary to the circumstances. Community
 Leaders always maintain confidentiality with regard to the reporter of any incident. On occasion, Community Leaders may
 post details of specific enforcement policies separately.
 
@@ -117,7 +117,7 @@ Community Leaders shall follow this Code of Conduct in determining the consequen
 violation of this Code of Conduct. The Project Owner has full and final discretion over the appropriate action and any
 appeals regarding the administration of these guidelines, including any deviations.
 
-#### Correction for minor infractions
+#### 1. Correction for minor infractions
 
 **Community impact:** use of inappropriate language or other behavior deemed unprofessional or unwelcome in the
 community.
@@ -125,16 +125,20 @@ community.
 **Consequence:** a private, written warning from Community Leaders, providing clarity around the nature of the violation
 and an explanation of why the behavior was inappropriate. Community Leaders may require a personal or public apology.
 
-#### Warning for repeat or moderate infractions
+#### 2. Warning for repeat or moderate infractions
 
-**Community impact:** a violation through a single incident or series of actions.
+##### Community impact
 
-**Consequence:** a warning with consequences for continued behavior. No interaction with the people involved, including
+A violation through a single incident or series of actions.
+
+##### Consequence
+
+A warning with consequences for continued behavior. No interaction with the people involved, including
 unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding
 interactions in community spaces as well as external channels like social media. Violating these terms may lead to a
 temporary or permanent ban.
 
-#### Temporary ban for sustained or serious infractions
+#### 3. Temporary ban for sustained or serious infractions
 
 **Community impact:** a serious violation of community standards, including sustained, inappropriate behavior.
 
@@ -146,7 +150,7 @@ behavior.
 
 Violation of any of these terms universally results in the enforcement of a permanent ban.
 
-#### Permanent ban for sustained or severe infractions
+#### 4. Permanent ban for sustained or severe infractions
 
 **Community impact:** demonstrating a pattern of violation of community standards, including sustained inappropriate
 behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.

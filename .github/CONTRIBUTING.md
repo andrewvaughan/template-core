@@ -377,6 +377,8 @@ creates a Pull Request from the [`staging`][branch-staging] Branch - or from the
 
 At this point the Software Development Lifecycle is complete for a given Issue, pending any unforeseen Hot-Fixes.
 
+---
+
 ### Issue triage
 
 Issues are regularly triaged by Project Maintainers to review and potentially accept. Issues stay in a `Requested` state
@@ -387,7 +389,7 @@ During triage, Project Maintainers either accept or reject all pending Issues. I
 
 1. Project Maintainers remove the `Needs Triage` label
 2. Project Maintainers change the `Requested` label to the appropriate Issue `Type` label
-3. Project Maintainers apply the `Status: 01-Pending` label
+3. Project Maintainers apply the `Status: 01-Pending Initiation` label
 4. Project Maintainers elect an appropriate `Priority` and add that label
 
 If Project Maintainers reject an Issue, generally, they add a comment explaining the rationale, but this isn't
@@ -397,28 +399,30 @@ necessarily required. In such a case, the Project Maintainers remove the `Needs 
 Project Maintainers understand that times and needs change, and therefore are open to reconsidering rejected requests.
 If you have a rejected Issue, or you have interest in another parties' rejected Issue, you may resubmit it for
 reconsideration no-fewer than 3-months past the rejection date for subsequent review. Please don't comment on existing,
-closed Issues, as Project Maintainers don't monitor or respond to such comments. Always open another Issue when re-
-requesting a topic.
+closed Issues, as Project Maintainers don't monitor or respond to such comments. Always open another Issue when
+re-requesting a topic.
 
 Any individual that abuses the Issue submission mechanism may be subject to restrictions from the project as described
 in the [Code of Conduct][conduct].
 
+---
+
 ### Submission requirements
 
-This project aims to keep code clean and consistent to ensure contribution is available and easy for as many individuals
-as feasible. As such, the project maintains a number of requirements as part of integration testing. All contributions
+This project aims to keep code clean and consistent to ensure contribution is accessible to as many individuals as
+feasible. As such, the project maintains a number of requirements as part of integration testing. All contributions
 undergo testing for these requirements.
 
 #### Testing
 
 All code must be fully tested with thorough unit testing. This project maintains a high **95% branching code coverage**
-policy. This ensures that Contributors write all code from the start with a high level of testability preventing complex
-integrations and tedious refactors in the future. Please don't submit any Pull Requests without developing a
+policy. This ensures that Contributors write all code from the start with a high level of testability, thus preventing
+complex integrations and tedious refactors in the future. Please don't submit any Pull Requests without developing a
 comprehensive test suite, first.
 
 The GitHub integration platform tests the project in a Docker containerized infrastructure, allowing testing locally in
 as many local development environments as possible. All testing additions for operational changes must have automation
-included as part of the central core of the project's Continuous Integration / Continuous Delivery (CI/CD) mandate.
+included as part of the central core of the project's Continuous Integration / Continuous Delivery, or CI/CD, policy.
 
 Testing of this project also includes:
 
@@ -436,18 +440,19 @@ For more information on testing procedures, please refer to the project's [`READ
 This project enforces significant code style standards through [linting][linting] tools during the Pull Request process.
 The details of these requirements vary depending on the files edited.
 
-Rules for code style vary by file type and project, and are best reviewed by accessing these resources:
+Rules for code style vary by file type and project. These are best identified by reviewing these resources:
 
 - [`.editorconfig`][editorconfig] - enforces spacing and typesets; supported by most IDEs
 - [`.mega-linter.yml`][megalinter-yml] - [MegaLinter][megalinter] runs the linting suite for this project
 
-The `.mega-linter.yml` configuration file contains details on how linter configurations. Paired with the
-[MegaLinter website][megalinter], Contributors may work to understand default behavior and requirements for this
-project.
+The `.mega-linter.yml` configuration file contains details on linter configurations and enforcements for the project.
+Paired with the [MegaLinter website][megalinter], Contributors should work to understand how project code and
+documentation undergoes lint checks when developing for this project.
 
-That said, the MegaLinter output, itself, aims to be extremely informative in a "learn as you go" approach. This occurs
-by running `make test-lint` - or `make test`, to include unit tests - after installing any
-[development dependencies][dev-dependencies] described in the [`README.md`][readme] file.
+The MegaLinter output, itself, aims to be extremely informative in a "learn as you go" approach. By running
+`make test-lint` after installing all [development dependencies][dev-dependencies], as described in the
+[`README.md`][readme] file, developers can fix and learn linting styles as they go. Additionally, recommended VSCode
+extensions can inform developers linting requirements in realtime, boosting development speed significantly.
 
 #### Branch naming conventions
 
@@ -456,9 +461,9 @@ Repository, the Project Maintainers enforce the following rules:
 
 <!-- editorconfig-checker-disable -->
 
-1. The [`main`][branch-main] Branch **must** be the primary Branch, and it **must** always reflect the `edge`` Release of the project
+1. The [`main`][branch-main] Branch **must** be the primary Branch, and it **must** always reflect the `edge` Release of the project
 2. The [`staging`][branch-staging] Branch, if used, **must** be the first Branch Released to from [`main`][branch-main] and **must** reflect the `staging`, `pre-release`, or `beta` Release of the project
-3. The [`production`][branch-production] Branch **must** be the final Branch and **must** reflect the latest `production` Release - this Branch **must** have a Release version Tag in the format `vX.X.X`, as defined at [Semantic Versioning](#semantic-versioning)
+3. The [`production`][branch-production] Branch **must** be the final Branch and **must** reflect the latest, stable `production` Release - this Branch **must** have a Release version Tag in the format `vX.X.X`, as defined in [Semantic Versioning](#semantic-versioning)
 
 <!-- editorconfig-checker-enable -->
 
@@ -490,16 +495,16 @@ the changelog for the project and to act as a record of decisions made during th
 
 Each Issue **must** have a **Primary Commit Message** - this is the final representation of the Issue, Branch, and
 Pull Request in a format that allows for adequate insight into the solution generated. Any additional commits made
-subsequent to the Primary Commit Message - for example, during Code Review - don't need to follow these standards as
-they're [squashed][squash] into the Primary Commit Message during acceptance.
+subsequent to the Primary Commit Message as part of a Pull Request - for example, during Code Review - don't need to
+follow these standards, as they're [squashed][squash] into the Primary Commit Message during acceptance.
 
-The Primary Commit Message is the commit message used to represent a submission for a Pull Request and in the project's
-changelog. Developers **should** make this the first commit into the Branch for a given Issue, otherwise significant
-effort may have to occur from the Contributor to clean the commit formatting during the Pull Request submission.
+The Primary Commit Message title is the text used to represent the changes made from a Pull Request in the project's
+Changelog. Developers **should** make this the first commit into the Branch for a given Issue - otherwise, significant
+effort may occur from the Contributor to clean committed files during the Pull Request process.
 
-Finally, it's also important to create a [good commit][commit-msg] for the Primary Commit Message to ensure that
-integrations work correctly and so that future developers have the appropriate reference for code changed beyond the
-corresponding Issue, if it's ever required.
+Finally, it's important to create a [good commit][commit-msg] for the Primary Commit Message to ensure that integrations
+work correctly and so that future developers have the appropriate reference for code changed beyond the corresponding
+Issue, if ever required.
 
 ##### Commit message title
 
@@ -507,36 +512,37 @@ The commit message title of all Primary Commit Messages messages **must** follow
 workflows and to ensure proper changelog generation:
 
 ```text
-Type: Short description (closes #42)
+<Type>: <Short description> (closes #<ID>)
 ```
 
 Where:
 
 <!-- editorconfig-checker-disable -->
 
-- `Type` matches the Issue label `Type`, being one of:
+- `<Type>` matches the Issue label `Type`, being one of:
   - `Fix` for a bug-fix
   - `Docs` for documentation changes
   - `New` for a new feature
   - `Update` for an update to a feature
   - `Ops` for operational changes
   - `Release` for a Release (only available to Project Maintainers)
-- `Short description` describing the change for the changelog. This **must** have proper capitalization in sentence form, lack ending punctuation, and read like a changelog message. For example, `Changed all titles to Spanish`.
-- `(closes #42)` a reference to the Issue - this is critical for automation
+- `<Short description>` describes the change for the changelog. This **must** have proper capitalization in sentence form, lack ending punctuation, and read like a changelog message. For example, `Changed all titles to Spanish`.
+- `(closes #<ID>)` a reference to the Issue ID resolved with the change - this is critical for automation and GitHub linking when reviewing project history
 
 <!-- editorconfig-checker-enable -->
 
 The total size of the commit message title **should** be fewer than 50 characters and **must** be fewer than 72
 characters.
 
-Commits **must not** close multiple Issues, even though GitHub supports it. If duplicates Issues should close or other
-Issues become obsolete, Contributors and Project Maintainers **must** manage this through the GitHub website interface
-with appropriate comments for context. This ensures proper communication between parties that might differ between
-different Issues, and occasionally, projects.
+Commits **may** close multiple Issues in the format `(closes #42, closes #43, ...)`, but only if they're duplicate in
+effort or if another issue becomes obsolete with the given change. Pull Requests **must not** contain multiple
+capabilities or Issue resolutions. Project Maintainers never accept Pull Requests with multiple features or fixes.
 
-Additionally, Primary Commit Message titles **must not** use other control words besides `closes` for automation or
-other purposes, even if GitHub supports them. This ensures future automation efforts and changelog parsing remain
-consistent.
+No other commit within a Pull Request may use the `closes` control word except for the Primary Commit Message. A
+Project Maintainer may amend this message at time of acceptance, if needed.
+
+Additionally, commit message titles **must not** use other control words besides `closes`, even if GitHub
+supports them. This ensures future automation efforts and changelog parsing remain functional.
 
 ##### Commit message body
 

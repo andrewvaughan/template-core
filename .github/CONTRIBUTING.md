@@ -710,10 +710,11 @@ First, you are an amazing human for reading this document and taking the time to
 are awesome.
 
 Second, the Project Maintainers prioritize triage of any Issues that come from individuals who have read these
-Contributing Guidelines in full. To show that you are one of these rare individuals, please put this candy icon at the
-top of your Issues and Pull Requests with the code `:candy:`:
+Contributing Guidelines in full. To show that you are one of these rare people, please put this candy icon at the top of
+your Issues and Pull Requests with the code `:candy:`.
 
-:candy:
+<!-- omit from toc -->
+# :candy:
 
 <!-- prettier-ignore-end -->
 

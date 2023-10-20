@@ -19,6 +19,7 @@
 [![Release][badge-release-img]][badge-release]
 [![License][badge-license-img]][badge-license]
 [![Build Status][badge-build-img]][badge-build]
+[![MegaLinter][badge-megalinter-img]][badge-megalinter]
 [![Code Coverage][badge-coverage-img]][badge-coverage]
 [![PRs Accepted][badge-pr-rate-img]][badge-pr-rate]
 <br/>
@@ -225,6 +226,8 @@ _Add selected License short text in this area, if applicable._
 [badge-discord-img]: https://img.shields.io/badge/join%20the%20Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white
 [badge-license]: LICENSE
 [badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white
+[badge-megalinter]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml?query=branch%3Amain
+[badge-megalinter-img]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml/badge.svg?branch=main
 [badge-pr-rate]: https://github.com/andrewvaughan/template-core/graphs/commit-activity/
 [badge-pr-rate-img]: https://img.shields.io/github/commit-activity/m/andrewvaughan/template-core/main?logo=github&label=PR%20accepted
 [badge-rel-edge]: https://github.com/andrewvaughan/template-core/commits/main/

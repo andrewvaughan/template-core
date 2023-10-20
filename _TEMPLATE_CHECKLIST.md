@@ -16,7 +16,7 @@ When creating a new project from this template, ensure to take these steps immed
     - [Branch and Tag protection](#branch-and-tag-protection)
     - [Labels](#labels)
   - [2. Configure files for new project](#2-configure-files-for-new-project)
-  - [3. Select a License](#3-select-a-license)
+  - [3. Select a license](#3-select-a-license)
     - [Permissions](#permissions)
     - [Conditions](#conditions)
     - [Limitations](#limitations)
@@ -40,7 +40,7 @@ REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin
   sed -i "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
 ```
 
-> **Note:** If on FreeBSD/macOS, install [`gnu-sed`][homebrew-sed] or use this slightly-altered command, instead:
+> **Note:** If on FreeBSD/macOS, install [`gnu-sed`][homebrew-sed] or use this slightly altered command, instead:
 >
 > ```sh
 > REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
@@ -197,7 +197,7 @@ git lfs migrate import --everything
 
 ---
 
-## 3. Select a License
+## 3. Select a license
 
 Several [Licenses][choose-a-license] are available based on the privileges, conditions, and limitations for Licensees of
 the project. Each table lists Licenses in order from least-restrictive to most-restrictive in the sections, below.

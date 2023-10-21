@@ -5,7 +5,7 @@
 # the constants and functions in this file as a "template" to manage how targets create titles, headers, error messages,
 # debug statements, and more.
 #
-# It's important to note that output from called commands doesn't get filtered through any UI configurations in this
+# It's important to remember that output from called commands doesn't get filtered through any UI configurations in this
 # file. Additionally, it's the responsibility of the developer to ensure adherence to these functions within targets to
 # ensure formatting is consistent between commands.
 #

@@ -79,7 +79,7 @@ jobs:
     #
     # @link https://docs.github.com/en/actions/security-guides/automatic-token-authentication
     #
-    # TEMPLATE TODO - Adjust permissions to the minimum possible for how this linter is being used.
+    # TEMPLATE TODO - Adjust permissions to the minimum possible for how you use this linter.
     #
     permissions:
       contents: write
@@ -98,21 +98,18 @@ jobs:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
 
           ##
-          # A fetch depth of `0` pulls the entire Repository's history, Branches, and Tags. This is only necessary when
-          # MegaLinter has to lookup what files have changed, which happens for all events except for `staging` and
-          # `production` Pull Requests.
+          # A fetch depth of `0` pulls the entire Repository's history, Branches, and Tags. Limiting this to `1`
+          # increases efficiency, but is only applicable for end-to-end code tests.
           #
-          # Whenever the codebase is fully linted, this keeps the fetch depth to `1` to reduce the cache size and
-          # increase performance of this step.
+          # End-to-end tests only occur when pushing to environment Branches, or when the `production` or `staging`
+          # Branches have a Pull Request. Any Pull Requests into `main` tests only changed files, and therefore requires
+          # requires a full checkout of the Repository.
           #
           fetch-depth: >-
             ${{
               (
-                github.event_name == 'push' &&
-                (
-                  github.ref == 'refs/heads/staging' ||
-                  github.ref == 'refs/heads/production'
-                )
+                github.event_name == 'push' ||
+                ( github.event_name == 'pull_request' && github.ref != 'refs/head/main' )
               )
               && 1
               || 0
@@ -144,17 +141,14 @@ jobs:
         #
         env:
           ##
-          # Lint the entire codebase any time a staging or production Branch deployment occurs, otherwise, only test
-          # changed files for efficiency.
+          # Lint the entire codebase any time a push, or merge, occurs on any environment Branch, or for any Pull
+          # Requests that are on any Branch but `main`.
           #
           VALIDATE_ALL_CODEBASE: >-
             ${{
               (
-                github.event_name == 'push'
-                && (
-                  github.ref == 'refs/heads/staging'
-                  || github.ref == 'refs/heads/production'
-                )
+                github.event_name == 'push' ||
+                ( github.event_name == 'pull_request' && github.ref != 'refs/head/main' )
               )
               && 'true'
               || 'false'
@@ -195,7 +189,7 @@ jobs:
       ##
       # Create a Pull Request with any automatic fixes, if configured to do so.
       #
-      # Note that this doesn't currently work for Forks, only Pull Requests from the same Repository.
+      # This doesn't currently work for Forks, only Pull Requests from the same Repository.
       #
       - name: Create Pull Request with applied fixes
         id: cpr

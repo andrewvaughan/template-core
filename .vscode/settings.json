@@ -9,7 +9,7 @@
   "cSpell.checkOnlyEnabledFileTypes": true,
   "todo-tree.general.statusBar": "top three",
   "todo-tree.highlights.useColourScheme": true,
-  "cSpell.import": ["${workspaceFolder}/.config/linters/.cspell.json"],
+  "cSpell.import": ["${workspaceFolder}/.config/linters/cspell.yml"],
 
   "color-highlight.markerType": "dot-before",
   "color-highlight.markRuler": true,

@@ -309,11 +309,11 @@ Delete the `TEMPLATE TODO` comments in each file as you complete them.
 
 ## 5. Update files that can't include comments
 
-- [ ] Add necessary dictionaries for the expected languages to `.config/linters/.cspell.json`
+- [ ] Add necessary dictionaries for the expected languages to `.config/linters/cspell.yml`
 
 ```sh
 # To list all available dictionaries
-npx cspell trace -c .config/linters/.cspell.json -all ''
+npx cspell trace -c .config/linters/cspell.yml -all ''
 ```
 
 - [ ] Install the recommended extensions via the prompt when first opening the workspace, or with the following command:

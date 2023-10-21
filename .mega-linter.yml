@@ -96,6 +96,11 @@ MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Go
 REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"]
 
 ##
+# Use YAML instead of the default JSON for better documentation.
+#
+SPELL_CSPELL_CONFIG_FILE: cspell.yml
+
+##
 # MegaLinter doesn't lint code by default, rather limiting linting to `.md` and `.rst` files. These configurations add
 # certain file extensions, some of which are natively supported, and others have their mapping in the `vale.ini` file.
 #

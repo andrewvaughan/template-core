@@ -1,0 +1,115 @@
+##
+# CSpell configuration file.
+#
+# Provides spellcheck capabilities to the project and to supported IDEs.
+#
+# @link https://cspell.org/configuration/
+# @link https://streetsidesoftware.com/vscode-spell-checker/docs/configuration/
+#
+---
+##
+# The CSpell version in use.
+#
+version: "0.2"
+
+##
+# Defaults to English, specifically, US English.
+#
+# @link https://streetsidesoftware.com/vscode-spell-checker/docs/configuration/#cspelllanguage
+#
+language: en
+
+##
+# Allow for users to combine words together and still maintain validity.
+#
+# This may cause issues if words are accidentally combined, but significantly helps with common development when some
+# code sets, for example, variables, are a combination of readable words.
+#
+# @link https://streetsidesoftware.com/vscode-spell-checker/docs/configuration/#cspellallowcompoundwords
+#
+allowCompoundWords: true
+
+##
+# Prevents searching for local configuration when checking individual documents.
+#
+# @link https://streetsidesoftware.com/vscode-spell-checker/docs/configuration/#cspellnoconfigsearch
+#
+noConfigSearch: true
+
+##
+# List of dictionaries to use. Each entry should match the name of the dictionary. To remove a dictionary from the list
+# add `!` before the name. For example, `!typescript` turns off the dictionary with the name `typescript`.
+#
+# @link https://streetsidesoftware.com/vscode-spell-checker/docs/configuration/#cspelldictionaries
+#
+dictionaries:
+  # Custom dictionaries
+  - ops
+  - project
+
+  # Ops technology dictionaries
+  - makefile
+  - terminfo
+
+  # Common built-in dictionaries
+  - companies
+  - computing-acronyms
+  - data-science
+  - filetypes
+  - public-licenses
+  - softwareTerms
+  - web-services
+
+  # Programming languages
+  - bash
+  - css
+  - docker
+  - html
+
+##
+# Define additional custom dictionaries.
+#
+# @link https://streetsidesoftware.com/vscode-spell-checker/docs/configuration/#cspelldictionarydefinitions
+#
+dictionaryDefinitions:
+  - name: project
+    path: ../dictionaries/project.txt
+    addWords: true
+
+  - name: ops
+    path: ../dictionaries/ops.txt
+    addWords: false
+
+  # Ops technologies
+  - name: makefile
+    path: ../dictionaries/ops-deps/makefile.txt
+    addWords: false
+
+  - name: terminfo
+    path: ../dictionaries/ops-deps/terminfo.txt
+    addWords: false
+
+  - name: project
+    path: ../dictionaries/project.txt
+    addWords: true
+
+##
+# Glob patterns of files to ignore.
+#
+# The patterns are relative to the `cSpell.globRoot`` of the configuration file that defines them.
+#
+# @link https://streetsidesoftware.com/vscode-spell-checker/docs/configuration/#cspellignorepaths
+#
+ignorePaths:
+  - "**/*.svg"
+  - "**/.config/linters/vale/styles/Google/**"
+  - "**/.config/linters/vale/styles/Vocab/**/reject.txt"
+  - "**/.git/**"
+  - "**/.gitattributes"
+  - "**/.gitignore"
+  - "**/.pnpm-lock.json"
+  - "**/*megalinter*"
+  - "**/node_modules/**"
+  - "**/vscode-extension/**"
+  - "**/docs/assets/**"
+  - "package-lock.json"

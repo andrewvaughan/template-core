@@ -10,7 +10,7 @@ description: Request a feature or submit an idea for development.
 
 labels:
   - "Needs Triage"
-  - "Request: Feature Request"
+  - "Request: Feature"
 
 assignees:
   - andrewvaughan

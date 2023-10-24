@@ -111,6 +111,14 @@ module.exports = class AbstractManager {
   _io;
 
   /**
+   * The logger helper to help with GitHub workflow commands.
+   *
+   * @type Logger
+   * @protected
+   */
+  _logger;
+
+  /**
    * Makes available all contexts provided by the `actions/github-script` action for use by the class.
    *
    * @param {octokit/rest.js} github - a pre-authenticated octokit/rest.js client with pagination plugins
@@ -145,5 +153,7 @@ module.exports = class AbstractManager {
     this._io = io;
     this._exec = exec;
     this._fetch = fetch;
+
+    this._logger = require("../Logger");
   }
 };

@@ -1,0 +1,89 @@
+##
+# Automations that tigger when assignment of a user on an Issue occurs.
+#
+# To run this workflow locally via `act`, use the following commands. If you haven't authenticated with the appropriate
+# scopes included in your login, as shown below, you need to reauthenticate before running this workflow:
+#
+# ```sh
+# gh auth login -s "project"
+# act --rm -s GITHUB_TOKEN=$(gh auth token) -j auto-issue-assign-user issues
+# ```
+#
+# The authentication command is generally not required again after it's run the first time.
+#
+# @link https://megalinter.io
+#
+---
+name: Automation on Issue Assigned to User
+
+on:
+  ##
+  # Run if assignment of an issue changes.
+  #
+  issues:
+    types:
+      - assigned
+
+##
+# All steps should have read-only access, unless explicitly given.
+#
+permissions: read-all
+
+##
+# Linting steps.
+#
+# @link https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
+#
+jobs:
+  auto-issue-assign-user:
+    name: Update Issue Labels
+    runs-on: ubuntu-latest
+
+    ##
+    # This job's `GITHUB_TOKEN` or `PAT` must have these permissions.
+    #
+    # Always aim to provide as few permissions as possible for personal access tokens.
+    #
+    # @link https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+    #
+    permissions:
+      issues: write
+
+    steps:
+      ##
+      # Update the labels on the issue based on the action and the state.
+      #
+      # @link https://github.com/actions/github-script
+      #
+      - name: Update labels based on state
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+
+          script: |-
+
+            // Provides the updated `github-script` require method to classes
+            global.ghScriptRequire = require;
+
+            const IssueManager = require('./src/Managers/IssueManager');
+            const ProjectManager = require('./src/Managers/ProjectManager')
+
+            const issue = new IssueManager(github, context, core, glob, io, exec, fetch);
+            const project = new ProjectManager(github, context, core, glob, io, exec, fetch);
+
+            // Remove the `Help Wanted` Label from the Project, if set
+            issue.removeLabel('Help Wanted');
+
+            // Lookup our project by name
+            
+
+      ##
+      # If the Issue Project status is any of the following in the Project, add a warning comment to the Issue:
+      #
+      #   - `No Status`
+      #   - `Done`
+      #   - `Parking Lot`
+      #
+      # @link https://github.com/actions/github-script
+      #
+      # - name: Add warning to Issue if in invalid Project status

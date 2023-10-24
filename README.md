@@ -57,6 +57,7 @@ _Replace this with a short description of what this project is about._
       - [Developer dependencies](#developer-dependencies)
       - [Recommended development environment](#recommended-development-environment)
     - [Testing](#testing)
+  - [Workflows](#workflows)
   - [Release policy](#release-policy)
   - [License](#license)
 
@@ -151,9 +152,10 @@ This project aims to be as agnostic as possible across all development environme
 are purposely limited to a few critical elements:
 
 | Dependency             | Purpose                                                                     |
-|:-----------------------|:----------------------------------------------------------------------------|
+| :--------------------- | :-------------------------------------------------------------------------- |
 | [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally.         |
 | [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code.       |
+| [gh][inst-gh]          | The GitHub command line tool used for authentication.                       |
 | [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands.          |
 | [Node.js][inst-nodejs] | Used to download certain command-line packages for `npx`.                   |
 | [npx][inst-npx]        | Node.js package execution helper to run certain non-containerized commands. |
@@ -188,6 +190,28 @@ development. You can find the full list by running:
 ```bash
 make help
 ```
+
+---
+
+## Workflows
+
+This project provides a fair amount of automation utilities through GitHub Workflows. Developers should use the
+[`act`][inst-act] to run and test these workflows locally.
+
+Prior to running any workflows locally, it's important to authenticate with the [`gh`][inst-gh] utility in the required
+scopes:
+
+```sh
+gh auth login --scopes "project"
+```
+
+From here, developers can run any workflow locally. To get a list of all available workflows:
+
+```sh
+act -l
+```
+
+Please refer to each individual workflow for available jobs, recommended testing procedures, and additional information.
 
 ---
 
@@ -245,6 +269,7 @@ _Add selected License short text in this area, if applicable._
 [discussions]: https://github.com/andrewvaughan/template-core/discussions
 [inst-act]: https://github.com/nektos/act
 [inst-docker]: https://www.docker.com/get-started/
+[inst-gh]: https://github.com/cli/cli
 [inst-make]: https://www.gnu.org/software/make/
 [inst-nodejs]: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 [inst-npx]: https://www.npmjs.com/package/npx#install

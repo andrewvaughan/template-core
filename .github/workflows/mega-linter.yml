@@ -3,6 +3,16 @@
 ##
 # MegaLinter GitHub Action configuration file.
 #
+# To run this workflow locally via `act`, use the following commands. Authenticating with the `gh` utility and the
+# addition of the `GITHUB_TOKEN` is only required if running against a private Repository:
+#
+# ```sh
+# gh auth login
+# act --rm -s GITHUB_TOKEN=$(gh auth token) -j megalinter pull_request
+# ```
+#
+# The authentication command is generally not required again after it's run the first time.
+#
 # @link https://megalinter.io
 #
 ---
@@ -68,7 +78,7 @@ concurrency:
 # @link https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
 #
 jobs:
-  build:
+  megalinter:
     name: MegaLinter
     runs-on: ubuntu-latest
 

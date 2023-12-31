@@ -18,7 +18,6 @@ const WorkflowAbstract = require("../WorkflowAbstract");
  * @class @extends WorkflowAbstract
  */
 module.exports = class OnIssue extends WorkflowAbstract {
-
   /**
    * Handles the user assigned event for Issues.
    *
@@ -30,7 +29,6 @@ module.exports = class OnIssue extends WorkflowAbstract {
    * @public @static @async
    */
   static async handleUserAssigned() {
-
     const eCore = new EnhancedCore("OnIssue.handleUserAssigned");
 
     const owner = ActionContext.context.repo.owner;
@@ -39,74 +37,76 @@ module.exports = class OnIssue extends WorkflowAbstract {
 
     const issue = new Issue(issueNumber, repository, owner);
 
-    return issue.load()
+    return (
+      issue
+        .load()
 
-      // Remove the "Help Wanted" Label from the Issue, if it exists
-      .then(function removeHelpWantedLabel() {
-        eCore.startGroup("Removing Help Wanted Label");
+        // // Remove the "Help Wanted" Label from the Issue, if it exists
+        .then(function removeHelpWantedLabel() {
+          eCore.startGroup("Removing Help Wanted Label");
 
-        if ("Help Wanted" in issue.labels) {
-          eCore.info("Removing existing 'Help Wanted' Label...")
+          for (var i = 0; i < issue.labels.length; i++) {
+            if (issue.labels[i].name == "Help Wanted") {
+              eCore.info("Removing existing 'Help Wanted' Label...");
 
-          return issue.removeLabels("Help Wanted");
-        }
+              return issue.removeLabels("Help Wanted");
+            }
+          }
 
-        eCore.info("Label 'Help Wanted' doesn't exist on Issue; continuing.");
-      })
+          eCore.info("Label 'Help Wanted' doesn't exist on Issue; continuing.");
+        })
 
-      .then(() => {
-        eCore.endGroup();
-      })
+        .then(() => {
+          eCore.endGroup();
+        })
 
+        // // Add a warning to the Issue if the "Needs Triage" Label still exists
+        .then(function checkNeedsTriageLabel() {
+          eCore.startGroup("Checking for Needs Triage Label");
 
-      // Add a warning to the Issue if the "Needs Triage" Label still exists
-      .then(function checkNeedsTriageLabel() {
-        eCore.startGroup("Checking for Needs Triage Label");
+          for (var i = 0; i < issue.labels.length; i++) {
+            if (issue.labels[i].name == "Needs Triage") {
+              eCore.info("Issue has `Needs Triage` Label - adding warning.");
 
-        if ("Needs Triage" in issue.labels) {
-          eCore.info("Issue has `Needs Triage` Label - adding warning.");
+              eCore.warning(
+                eCore.shrinkWhitespace(
+                  `Assigning non-triaged issues can be indicative of not following the defined Software Development
+                  Lifecycle. This runner is adding a warning to the Issue to explain the risk.`,
+                ),
 
-          eCore.warning(
-            eCore.shrinkWhitespace(`
-              Assigning non-triaged issues can be indicative of not following the defined Software Development
-              Lifecycle. This runner is adding a warning to the Issue to explain the risk.
-            `),
+                `Label 'Needs Triage' found on ${owner}/${repository} Issue #${issueNumber} during user assignment`,
+              );
 
-            `Label 'Needs Triage' found on ${owner}/${repository} Issue #${issueNumber} during user assignment`,
-          );
+              return issue.addWarning(
+                eCore.shrinkWhitespace(
+                  `A Contributor assignment was just made, however, this Issue is still marked as being in
+                  [Triage](${Constants.URL.CONTRIBUTING}#issue-triage). Issued marked as needing triage can't undergo
+                  approval. There is no responsibility for Project Maintainers to accept any work performed on
+                  non-triaged issues.
 
-          return issue.addWarning(
-            eCore.shrinkWhitespace(`
-              A Contributor assignment was just made, however, this Issue is still marked as being in
-              [Triage](${Constants.URL.CONTRIBUTING}#issue-triage). Issued marked as needing triage can't undergo
-              approval. There is no responsibility for Project Maintainers to accept any work performed on non-triaged
-              issues.
+                  A Project Maintainer needs to triage this issue or inform the Contributor on whether to halt progress.
 
-              A Project Maintainer needs to triage this issue or inform the Contributor on whether to halt progress.
+                  - [ ] @andrewvaughan to resolve the triage for this Issue`,
+                ),
+              );
+            }
+          }
 
-              - [ ] @andrewvaughan to resolve the triage for this Issue
-            `)
-          );
-
-        } else {
           eCore.info("Label 'Needs Triage' doesn't exist on Issue, as expected; continuing.");
-        }
-      })
+        })
 
-      .then(() => {
-        eCore.endGroup();
-      })
+        .then(() => {
+          eCore.endGroup();
+        })
 
+      // // Add a warning to the Issue if the Issue has an invalid Project status
+      // .then(function checkIssueProjectStatus() {
+      //   eCore.startGroup("Checking Issue's Project status");
 
-      // Add a warning to the Issue if the Issue has an invalid Project status
-      .then(function checkIssueProjectStatus() {
-        eCore.startGroup("Checking Issue's Project status");
+      //   // TODO
 
-        // TODO
-
-        eCore.endGroup();
-      });
-
+      //   eCore.endGroup();
+      // })
+    );
   }
-
 };

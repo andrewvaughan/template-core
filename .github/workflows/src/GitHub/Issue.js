@@ -1,7 +1,8 @@
 const crypto = require("crypto");
 
 const ActionContext = require("../ActionContext");
-const WorkflowAbstract = require("../WorkflowAbstract");
+const GraphQLObject = require("./GraphQLObject");
+const Label = require("./Label");
 
 /**
  * Issue.
@@ -15,22 +16,20 @@ const WorkflowAbstract = require("../WorkflowAbstract");
  * @author Andrew Vaughan <hello@andrewvaughan.io>
  * @license MIT
  *
- * @class @extends WorkflowAbstract
+ * @class @extends GraphQLObject
  */
-module.exports = class Issue extends WorkflowAbstract {
-
+module.exports = class Issue extends GraphQLObject {
   /**
    * The GraphQL ID for this Issue.
    *
    * @public @readonly @type {String}
    */
+  id;
 
   /**
-   * The Labels on the Issue.
+   * The Labels associated with the Issue.
    *
-   * The key of this Object is the Label name, with the value being the Label ID.
-   *
-   * @public @readonly @type {Object<String, String>}
+   * @public @readonly @type {Label[]}
    */
   labels;
 
@@ -49,6 +48,13 @@ module.exports = class Issue extends WorkflowAbstract {
   owner;
 
   /**
+   * The ProjectItems (V2) associated with this Issue.
+   *
+   * @public @readonly @type {ProjectItem[]}
+   */
+  projectItems;
+
+  /**
    * The Repository name containing the Issue.
    *
    * @public @readonly @type {String}
@@ -62,7 +68,6 @@ module.exports = class Issue extends WorkflowAbstract {
    */
   title;
 
-
   /**
    * Create an Issue.
    *
@@ -73,14 +78,14 @@ module.exports = class Issue extends WorkflowAbstract {
    * @param {Number} number - the Issue number to load
    * @param {String} [repository=context.repo.repo] - the Repository the Issue is part of
    * @param {String} [owner=context.repo.owner] - the owner of the Repository
+   * @param {Object<String, *>} [data={}] - any additional fields to map to this object
    *
-   * @returns {Proxy} of this object to allow for enhanced getters and setters
+   * @returns {Issue} this GraphQL object
    *
    * @override @public @constructor
    */
-  constructor(number, repository = undefined, owner = undefined) {
-
-    super();
+  constructor(number, repository = undefined, owner = undefined, data = {}) {
+    super(data);
 
     this._debugCall("constructor", arguments);
 
@@ -89,14 +94,19 @@ module.exports = class Issue extends WorkflowAbstract {
     this.owner = owner ? owner : ActionContext.context.repo.owner;
 
     this._eCore.debug(`NEW Issue(number: ${this.number}, repository: ${this.repository}, owner: ${this.owner})`);
-
   }
 
-
   /**
-   * Load the Issue from the GraphQL server.
+   * Load the Issue from the GraphQL API server.
+   *
+   * @param {Boolean} [force=false] - whether to force a reload from GitHub, even with cached data
+   *
+   * @return {Promise} resolving when the data loads
+   *
+   * @public @async
    */
-  async load() {
+  async load(force = false) {
+    this._debugCall("load", arguments);
 
     const query = `
       query GetIssueByNumber($owner: String!, $repository: String!, $issueNumber: Int!) {
@@ -105,10 +115,21 @@ module.exports = class Issue extends WorkflowAbstract {
             id
             title
             labels (first: 20) {
-              totalCount,
+              totalCount
               nodes {
                 id
                 name
+              }
+            }
+            projectItems(first: 20) {
+              totalCount
+              nodes {
+                id
+                status: fieldValueByName(name: "Status") {
+                  ... on ProjectV2ItemFieldSingleSelectValue {
+                    name
+                  }
+                }
               }
             }
           }
@@ -121,29 +142,45 @@ module.exports = class Issue extends WorkflowAbstract {
       issueNumber: this.number,
     };
 
-    this._eCore.debug(`Loading ${this.owner}/${this.repository} Issue #${this.number} from GitHub API...`);
-
     const self = this;
 
-    return ActionContext.github.graphql(query, map).then(function handleGitHubAPIResponse(response) {
+    return super.load(force, query, map).then(function handleGitHubAPIResponse(response) {
+      // If the response came from cache, take no action
+      if (response === false) {
+        return;
+      }
 
-      self.id = response["repository"]["issue"]["id"];
+      self._eCore.verbose("Loading remote API data into Issue object...");
+
+      const data = response["repository"]["issue"];
+
+      self.id = data["id"];
       self._eCore.debug(`ID: ${self.id}`);
 
-      self.title = response["repository"]["issue"]["title"];
-      self._eCore.debug(`Title: ${self.title}`)
+      self.title = data["title"];
+      self._eCore.debug(`Title: ${self.title}`);
 
       self.labels = [];
-      response["repository"]["issue"]["labels"]["nodes"].forEach(function addLabel(label) {
-        self.labels[label["name"]] = label["id"];
+      data["labels"]["nodes"].forEach(function buildLabel(node) {
+        self.labels.push(
+          new Label(node["name"], {
+            id: node["id"],
+          }),
+        );
       });
+      self._eCore.verbose(`Labels:`);
+      self._eCore.verbose(self.labels);
 
-      self._eCore.debug("Labels:");
-      self._eCore.debug(self.labels);
+      // this.projectItems = [];
+      // data["projectItems"]["nodes"].forEach(function buildProjectItem(node) {
+      //   this.projectItems.push(new ProjectItem(node["id"], {
 
+      //   }));
+      // });
     });
   }
 
+  // Labels ------------------------------------------------------------------------------------------------------------
 
   /**
    * Remove a Label from the Issue.
@@ -260,7 +297,7 @@ module.exports = class Issue extends WorkflowAbstract {
    *
    * @param {string} message - the message to include in the comment
    *
-   * @returns {Object<string, *>>} - the full response from the GitHub REST API
+   * @returns {Object<string, *>} - the full response from the GitHub REST API
    *
    * @public @async
    */
@@ -271,5 +308,4 @@ module.exports = class Issue extends WorkflowAbstract {
 
     return this.addComment(`## :rotating_light: Error\n\n${message}`);
   }
-
 };

@@ -52,7 +52,6 @@
 name: Automation on Issue Assigned to User
 
 on:
-
   ##
   # Run if assignment of an issue changes.
   #

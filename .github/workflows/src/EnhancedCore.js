@@ -426,12 +426,12 @@ class EnhancedCore {
     }
 
     // If the message is a string, split up the newlines
-    if (typeof message === "string" || (message instanceof String)) {
+    if (typeof message === "string" || message instanceof String) {
       message = message.split("\n");
 
-    // If the message isn't a String, convert it
+      // If the message isn't a String, convert it
     } else {
-      message = util.inspect(message).split("\n");
+      message = util.inspect(message, false, 12).split("\n");
     }
 
     // If the message still isn't an array, convert it
@@ -482,7 +482,10 @@ class EnhancedCore {
    * @public
    */
   shrinkWhitespace(message) {
-    return message.replace(/([^\n])\n([^\n])/g, "$1 $2").replace(/ +/g, " ").trim();
+    return message
+      .replace(/([^\n])\n([^\n])/g, "$1 $2")
+      .replace(/ +/g, " ")
+      .trim();
   }
 
   // Logging Groups ----------------------------------------------------------------------------------------------------

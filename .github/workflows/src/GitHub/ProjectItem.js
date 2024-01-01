@@ -2,10 +2,10 @@ const GraphQLObject = require("./GraphQLObject");
 const NotImplementedError = require("../Errors/NotImplementedError");
 
 /**
- * Label.
+ * ProjectItem (V2).
  *
  * @classdesc
- * Manages various actions on GitHub Labels via GraphQL API.
+ * Manages various actions on GitHub ProjectItems (V2) via GraphQL API.
  *
  * @see {@link https://docs.github.com/en/graphql/reference/objects#label}
  * @see {@link https://github.com/actions/github-script}
@@ -15,29 +15,29 @@ const NotImplementedError = require("../Errors/NotImplementedError");
  *
  * @class @extends GraphQLObject
  */
-module.exports = class Label extends GraphQLObject {
+module.exports = class ProjectItem extends GraphQLObject {
   /**
-   * Create a Label.
+   * Create a ProjectItem.
    *
    * This doesn't load data from GitHub.
    *
    * @see Label.load()
    *
-   * @param {String} name - the Label name to load
+   * @param {String} id - the ProjectItem ID
    * @param {Object<String, *>} [data={}] - any additional fields to map to this object
    *
    * @returns {Label} this GraphQL object
    *
    * @override @public @constructor
    */
-  constructor(name, data = {}) {
+  constructor(id, data = {}) {
     super(data);
 
     this._debugCall("constructor", arguments);
 
-    this.name = name;
+    this.id = id;
 
-    this._eCore.debug(`NEW Label(name: ${this.name})`);
+    this._eCore.debug(`NEW ProjectItem(id: ${this.id})`);
   }
 
   /**

@@ -3,6 +3,7 @@ const crypto = require("crypto");
 const ActionContext = require("../ActionContext");
 const GraphQLObject = require("./GraphQLObject");
 const Label = require("./Label");
+const ProjectItem = require("./ProjectItem");
 
 /**
  * Issue.
@@ -19,55 +20,6 @@ const Label = require("./Label");
  * @class @extends GraphQLObject
  */
 module.exports = class Issue extends GraphQLObject {
-  /**
-   * The GraphQL ID for this Issue.
-   *
-   * @public @readonly @type {String}
-   */
-  id;
-
-  /**
-   * The Labels associated with the Issue.
-   *
-   * @public @readonly @type {Label[]}
-   */
-  labels;
-
-  /**
-   * The Issue number.
-   *
-   * @public @readonly @type {Number}
-   */
-  number;
-
-  /**
-   * The Owner name for the Repository.
-   *
-   * @public @readonly @type {String}
-   */
-  owner;
-
-  /**
-   * The ProjectItems (V2) associated with this Issue.
-   *
-   * @public @readonly @type {ProjectItem[]}
-   */
-  projectItems;
-
-  /**
-   * The Repository name containing the Issue.
-   *
-   * @public @readonly @type {String}
-   */
-  repository;
-
-  /**
-   * The Issue title.
-   *
-   * @public @readonly @type {String}
-   */
-  title;
-
   /**
    * Create an Issue.
    *
@@ -171,12 +123,14 @@ module.exports = class Issue extends GraphQLObject {
       self._eCore.verbose(`Labels:`);
       self._eCore.verbose(self.labels);
 
-      // this.projectItems = [];
-      // data["projectItems"]["nodes"].forEach(function buildProjectItem(node) {
-      //   this.projectItems.push(new ProjectItem(node["id"], {
-
-      //   }));
-      // });
+      self.projectItems = [];
+      data["projectItems"]["nodes"].forEach(function buildProjectItem(node) {
+        self.projectItems.push(
+          new ProjectItem(node["id"], {
+            status: node["status"]["name"],
+          })
+        );
+      });
     });
   }
 

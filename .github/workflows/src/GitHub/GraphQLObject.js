@@ -36,11 +36,9 @@ module.exports = class GraphQLObject extends WorkflowAbstract {
     this._eCore.verbose("Mapping initialization data onto GraphQL object:");
     this._eCore.verbose(data);
 
-    const self = this;
-
-    Object.keys(data).forEach(function mapInitializationData(key) {
-      self[key] = data[key];
-    });
+    for (const [key, value] of Object.entries(data)) {
+      this[key] = value;
+    }
   }
 
   /**

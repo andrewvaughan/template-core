@@ -77,9 +77,21 @@ module.exports = class Issue extends GraphQLObject {
               totalCount
               nodes {
                 id
+                project {
+                  id
+                }
                 status: fieldValueByName(name: "Status") {
                   ... on ProjectV2ItemFieldSingleSelectValue {
                     name
+                    field {
+                      ... on ProjectV2SingleSelectField {
+                        id
+                        options {
+                          id
+                          name
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -127,8 +139,12 @@ module.exports = class Issue extends GraphQLObject {
       data["projectItems"]["nodes"].forEach(function buildProjectItem(node) {
         self.projectItems.push(
           new ProjectItem(node["id"], {
+            projectID: node["project"]["id"],
+
+            statusID: node["status"]["field"]["id"],
+            statusOptions: node["status"]["field"]["options"],
             status: node["status"]["name"],
-          })
+          }),
         );
       });
     });

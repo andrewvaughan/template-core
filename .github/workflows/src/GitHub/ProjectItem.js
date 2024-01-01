@@ -1,5 +1,8 @@
+const crypto = require("crypto");
+
 const GraphQLObject = require("./GraphQLObject");
 const NotImplementedError = require("../Errors/NotImplementedError");
+const ActionContext = require("../ActionContext");
 
 /**
  * ProjectItem (V2).
@@ -33,7 +36,7 @@ module.exports = class ProjectItem extends GraphQLObject {
   constructor(id, data = {}) {
     super(data);
 
-    this._debugCall("constructor", arguments);
+    this._debugCall("constructor", { id, data: "..." });
 
     this.id = id;
 
@@ -53,5 +56,57 @@ module.exports = class ProjectItem extends GraphQLObject {
     this._debugCall("load", arguments);
 
     throw new NotImplementedError();
+  }
+
+  // Fields ------------------------------------------------------------------------------------------------------------
+
+  /**
+   * Set the status field of a Project Item.
+   *
+   * @param {String} status - the name of the status to set
+   *
+   * @return {Promise} resolving when the status is set
+   */
+  async setStatus(status) {
+    this._debugCall("setStatus", arguments);
+
+    this._eCore.debug(`Calling GitHub GraphQL API to set Project Item status to '${status}'...`);
+
+    // Lookup the new status in the options
+    let optionID = null;
+
+    for (let i = 0; i < this.statusOptions.length; i++) {
+      if (this.statusOptions[i].name == status) {
+        optionID = this.statusOptions[i].id;
+        break;
+      }
+    }
+
+    if (!optionID) {
+      throw new Error(`Invalid Project Item status: ${status}`);
+    }
+
+    return ActionContext.github.graphql(
+      `mutation SetProjectItemStatus($clientID: String!, $fieldID: ID!, $itemID: ID!, $projectID: ID!, $optionID: String!) {
+        updateProjectV2ItemFieldValue(input: {
+            clientMutationId: $clientID,
+            fieldId: $fieldID,
+            itemId: $itemID,
+            projectId: $projectID,
+            value: {
+              singleSelectOptionId: $optionID
+            }
+          }) {
+            clientMutationId
+          }
+        }`,
+      {
+        clientID: crypto.randomUUID(),
+        projectID: this.projectID,
+        itemID: this.id,
+        fieldID: this.statusID,
+        optionID: optionID,
+      },
+    );
   }
 };

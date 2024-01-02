@@ -87,7 +87,13 @@ module.exports = class ProjectItem extends GraphQLObject {
     }
 
     return ActionContext.github.graphql(
-      `mutation SetProjectItemStatus($clientID: String!, $fieldID: ID!, $itemID: ID!, $projectID: ID!, $optionID: String!) {
+      `mutation SetProjectItemStatus(
+        $clientID: String!,
+        $fieldID: ID!,
+        $itemID: ID!,
+        $projectID: ID!,
+        $optionID: String!
+      ) {
         updateProjectV2ItemFieldValue(input: {
             clientMutationId: $clientID,
             fieldId: $fieldID,

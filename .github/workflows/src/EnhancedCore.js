@@ -147,7 +147,7 @@ class EnhancedCore {
    *
    * While GitHub allows developers to enable debugging via GitHub Secrets, this utility doesn't, as scripts don't have
    * access to secrets, by default, for security purposes. To mimic this capability, set your secret as an environment
-   * variable simlar to:
+   * variable similar to:
    *
    * ```yml
    * - name: Verbose via secret
@@ -298,7 +298,7 @@ class EnhancedCore {
   /**
    * Log a notice annotation.
    *
-   * @see {@link https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-a-notice-message}
+   * @see {@link https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions}
    *
    * @param {*} message - the message or object to output
    * @param {String} [title=undefined] - the title of the annotation
@@ -328,7 +328,7 @@ class EnhancedCore {
   /**
    * Log a warning annotation.
    *
-   * @see {@link https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-a-warning-message}
+   * @see {@link https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions}
    *
    * @param {*} message - the message or object to output
    * @param {String} [title=undefined] - the title of the annotation
@@ -358,7 +358,7 @@ class EnhancedCore {
   /**
    * Log an error annotation.
    *
-   * @see {@link https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message}
+   * @see {@link https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions}
    *
    * @param {*} message - the message or object to output
    * @param {String} [title=undefined] - the title of the annotation
@@ -472,7 +472,7 @@ class EnhancedCore {
   /**
    * Reduces multiple whitespace characters in a string, including tabs, but not newlines, into a single space.
    *
-   * This is useful for creating large messages and strings formatted in mutiple, indented lines for code, but that
+   * This is useful for creating large messages and strings formatted in multiple, indented lines for code, but that
    * need to have that indentation whitespace removed when used.
    *
    * @param {String} message - the message to reduce whitespace from

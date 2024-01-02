@@ -1,5 +1,5 @@
 ##
-# Automations that tigger when assignment of a user on an Issue occurs.
+# Automations that trigger when assignment of a user on an Issue occurs.
 #
 # To run this workflow locally via `act`, use the following commands. If you haven't authenticated with the appropriate
 # scopes included in your login, as shown below, you need to reauthenticate before running this workflow:
@@ -21,7 +21,7 @@
 # ```
 #
 # This *does* make changes on GitHub. Reserve Issue #1 and Pull Request #1 for testing purposes. To change this
-# configuration, see the preceeding file in the `.github/workflows/tests/payloads` directory.
+# configuration, see the preceding file in the `.github/workflows/tests/payloads` directory.
 #
 # To see debug messages:
 #

@@ -12,7 +12,10 @@ const ActionContext = require("./ActionContext");
  * @class
  */
 module.exports = class Constants {
-  static REPO_BASE_URL = `${ActionContext.context.serverUrl}/${ActionContext.context.repo.owner}/${ActionContext.context.repo.repo}`;
+  static REPO_BASE_URL =
+    ActionContext.context.serverUrl + "/" +
+    ActionContext.context.repo.owner + "/" +
+    ActionContext.context.repo.repo;
 
   static URL = {
     CONTRIBUTING: `${Constants.REPO_BASE_URL}/blob/main/.github/CONTRIBUTING.md`,

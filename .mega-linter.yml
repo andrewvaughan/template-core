@@ -116,10 +116,13 @@ SPELL_VALE_FILE_EXTENSIONS:
   # - .gitattributes
   # - .gitignore
   # - .ini
+  # - .js
   # - .mk
   - .md
   # - .prettierignore
   # - .txt
+  #- .yaml
+  #- .yml
   # - Makefile
 
 ##

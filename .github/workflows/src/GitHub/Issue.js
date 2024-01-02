@@ -4,6 +4,7 @@ const ActionContext = require("../ActionContext");
 const GraphQLObject = require("./GraphQLObject");
 const Label = require("./Label");
 const ProjectItem = require("./ProjectItem");
+const User = require("./User");
 
 /**
  * Issue.
@@ -66,6 +67,14 @@ module.exports = class Issue extends GraphQLObject {
           issue(number: $issueNumber) {
             id
             title
+            assignees (first: 10) {
+              totalCount
+              nodes {
+                id
+                login
+                name
+              }
+            }
             labels (first: 20) {
               totalCount
               nodes {
@@ -89,6 +98,24 @@ module.exports = class Issue extends GraphQLObject {
                         options {
                           id
                           name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            pullRequests: timelineItems(first: 20, itemTypes: CLOSED_EVENT) {
+              nodes {
+                ... on ClosedEvent {
+                  closer {
+                    ... on Commit {
+                      associatedPullRequests (first: 10) {
+                        totalCount
+                        nodes {
+                          id
+                          number
+                          closed
                         }
                       }
                     }
@@ -124,6 +151,18 @@ module.exports = class Issue extends GraphQLObject {
       self.title = data["title"];
       self._eCore.debug(`Title: ${self.title}`);
 
+      self.assignees = [];
+      data["assignees"]["nodes"].forEach(function buildAssignee(node) {
+        self.assignees.push(
+          new User(node["login"], {
+            id: node["id"],
+            name: node["name"],
+          }),
+        );
+      });
+      self._eCore.verbose("Assignees:");
+      self._eCore.verbose(self.assignees);
+
       self.labels = [];
       data["labels"]["nodes"].forEach(function buildLabel(node) {
         self.labels.push(
@@ -132,7 +171,7 @@ module.exports = class Issue extends GraphQLObject {
           }),
         );
       });
-      self._eCore.verbose(`Labels:`);
+      self._eCore.verbose("Labels:");
       self._eCore.verbose(self.labels);
 
       self.projectItems = [];
@@ -147,13 +186,120 @@ module.exports = class Issue extends GraphQLObject {
           }),
         );
       });
+      self._eCore.verbose("Project Items:");
+      self._eCore.verbose(self.projectItems);
+
+      self.pullRequests = {
+        open: [],
+        closed: [],
+      };
+      data["pullRequests"]["nodes"].forEach(function buildPullRequests(node) {
+        self.pullRequests[node["closed"] ? "closed" : "open"].push(
+          new PullRequest(node["number"], self.repository, self.owner, {
+            id: node["id"],
+            closed: node["closed"],
+          })
+        );
+      });
+      self._eCore.verbose("Pull Requests:");
+      self._eCore.verbose(self.pullRequests);
     });
   }
 
   // Labels ------------------------------------------------------------------------------------------------------------
 
   /**
-   * Remove a Label from the Issue.
+   * Add a Label or Labels to the Issue.
+   *
+   * @param {String|String[]} labels - the name or names of the Labels to add
+   *
+   * @return {Promise} of the API call
+   */
+  async addLabels(labels) {
+    this._debugCall("addLabels", arguments);
+
+    if (!Array.isArray(labels)) {
+      labels = [labels];
+    }
+
+    const self = this;
+
+    this._eCore.debug("Looking up Label IDs from GitHub GraphQL API...");
+
+    return ActionContext.github
+      .graphql(
+        `query GetRepositoryLabels($owner: String!, $repository: String!, $labelQuery: String!) {
+        repository(owner: $owner, name: $repository) {
+          labels(query: $labelQuery, first: 50) {
+            totalCount
+            nodes {
+              id
+              name
+            }
+          }
+        }
+      }`,
+        {
+          owner: self.owner,
+          repository: self.repository,
+          labelQuery: labels.join(" "),
+        },
+      )
+
+      .then(function addLabelsToIssue(lookup) {
+        self._eCore.verbose("Label lookup response:");
+        self._eCore.verbose(lookup);
+
+        let labelIDs = [];
+
+        lookup["repository"]["labels"]["nodes"].forEach(function addLabelID(label) {
+          if (labels.includes(label["name"])) {
+            self._eCore.verbose(`Label '${label["name"]}' found in labels to add.`);
+            labelIDs.push(label["id"]);
+          } else {
+            self._eCore.verbose(`Label '${label["name"]}' NOT found in labels to add.`);
+          }
+        });
+
+        if (labelIDs.length != labels.length) {
+          self._eCore.debug("Label ID array mismatch:");
+
+          self._eCore.debug("Expected:");
+          self._eCore.debug(labels);
+
+          self._eCore.debug("Response:");
+          self._eCore.debug(lookup["repository"]["labels"]["nodes"]);
+
+          self._eCore.debug("Processed:");
+          self._eCore.debug(labelIDs);
+
+          throw new Error("Expected Label IDs not returned from GitHub API.");
+        }
+
+        self._eCore.debug(`Calling GitHub GraphQL API to add Labels to Issue #${self.number}...`);
+        self._eCore.verbose(`Label IDs: ${labelIDs.join(", ")}`);
+
+        return ActionContext.github.graphql(
+          `mutation AddLabelsToIssue($clientID: String!, $labelIDs: [ID!]!, $issueID: ID!) {
+          addLabelsToLabelable(input: {
+            clientMutationId: $clientID,
+            labelIds: $labelIDs,
+            labelableId: $issueID
+          }) {
+            clientMutationId
+          }
+        }`,
+          {
+            clientID: crypto.randomUUID(),
+            labelIDs: labelIDs,
+            issueID: self.id,
+          },
+        );
+      });
+  }
+
+  /**
+   * Remove a Label or Labels from the Issue.
    *
    * @param {String|String[]} labels - the name or names of the Labels to remove
    *
@@ -178,14 +324,14 @@ module.exports = class Issue extends GraphQLObject {
 
     return ActionContext.github.graphql(
       `mutation RemoveLabelsFromIssue($clientID: String!, $labelIDs: [ID!]!, $issueID: ID!) {
-          removeLabelsFromLabelable(input: {
-            clientMutationId: $clientID,
-            labelIds: $labelIDs,
-            labelableId: $issueID
-          }) {
-            clientMutationId
-          }
-        }`,
+        removeLabelsFromLabelable(input: {
+          clientMutationId: $clientID,
+          labelIds: $labelIDs,
+          labelableId: $issueID
+        }) {
+          clientMutationId
+        }
+      }`,
       {
         clientID: crypto.randomUUID(),
         labelIDs: labelIDs,

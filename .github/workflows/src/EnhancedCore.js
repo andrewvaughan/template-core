@@ -16,6 +16,11 @@ const util = require("util");
  * @class
  */
 class EnhancedCore {
+  /**
+   * The escape character to use for the terminal.
+   *
+   * @public @static @constant @type {String}
+   */
   static ANSI_ESC = "\u001b[";
 
   /**

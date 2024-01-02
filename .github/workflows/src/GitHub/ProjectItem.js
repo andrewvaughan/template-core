@@ -44,7 +44,7 @@ module.exports = class ProjectItem extends GraphQLObject {
   }
 
   /**
-   * Load the Label from the GraphQL API server.
+   * Load the ProjectItem from the GraphQL API server.
    *
    * @param {Boolean} [force=false] - whether to force a reload from GitHub, even with cached data
    *

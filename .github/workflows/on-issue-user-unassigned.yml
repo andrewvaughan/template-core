@@ -1,6 +1,7 @@
 ##
-# Automations that trigger when assignment of a user on an Issue occurs.
+# Automations that trigger when unassignment of a user on an Issue occurs.
 #
+# @example
 # To run this workflow locally via `act`, use the following commands. If you haven't authenticated with the appropriate
 # scopes included in your login, as shown below, you need to reauthenticate before running this workflow:
 #
@@ -15,8 +16,8 @@
 # ```sh
 # act \
 #   -s GITHUB_TOKEN=$(gh auth token) \
-#   -e .github/workflows/tests/payloads/on-issue-assigned-user.json \
-#   -j on-issue-assigned-user \
+#   -e .github/workflows/tests/payloads/issue-simple.json \
+#   -j on-issue-user-unassigned \
 #   issues
 # ```
 #
@@ -28,9 +29,9 @@
 # ```sh
 # act \
 #   -s GITHUB_TOKEN=$(gh auth token) \
-#   -e .github/workflows/tests/payloads/on-issue-assigned-user.json \
+#   -e .github/workflows/tests/payloads/issue-simple.json \
 #   --env ACTIONS_RUNNER_DEBUG=true \
-#   -j on-issue-assigned-user \
+#   -j on-issue-user-unassigned \
 #   issues
 # ```
 #
@@ -39,17 +40,17 @@
 # ```sh
 # act \
 #   -s GITHUB_TOKEN=$(gh auth token) \
-#   -e .github/workflows/tests/payloads/on-issue-assigned-user.json \
+#   -e .github/workflows/tests/payloads/issue-simple.json \
 #   --env ACTIONS_RUNNER_DEBUG=true \
 #   --env ACTIONS_RUNNER_DEBUG_VERBOSE=true \
-#   -j on-issue-assigned-user \
+#   -j on-issue-user-unassigned \
 #   issues
 # ```
 #
 # @see {@link https://docs.github.com/en/webhooks/webhook-events-and-payloads#issues}
 #
 ---
-name: Automation on Issue Assigned to User
+name: Automation on Issue User Unassigned
 
 on:
   ##
@@ -70,8 +71,8 @@ permissions: read-all
 # @link https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
 #
 jobs:
-  on-issue-assigned-user:
-    name: Update Issue Labels
+  on-issue-user-assigned:
+    name: Issue User Assigned Automation
     runs-on: ubuntu-latest
 
     ##
@@ -96,7 +97,7 @@ jobs:
             .github/workflows
 
       ##
-      # Remove the Need Help Label, if it exists.
+      # Run the Node.js helper library.
       #
       # @link https://github.com/actions/github-script
       #

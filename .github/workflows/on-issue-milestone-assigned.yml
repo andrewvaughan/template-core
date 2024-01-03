@@ -1,0 +1,115 @@
+##
+# Automations that trigger when assignment of a Milestone on an Issue occurs.
+#
+# @example
+# To run this workflow locally via `act`, use the following commands. If you haven't authenticated with the appropriate
+# scopes included in your login, as shown below, you need to reauthenticate before running this workflow:
+#
+# ```sh
+# gh auth login -s "project"
+# ```
+#
+# The authentication command generally only needs to be ran once and then only if `act` asks for it.
+#
+# A basic test payload is in the `tests` folder:
+#
+# ```sh
+# act \
+#   -s GITHUB_TOKEN=$(gh auth token) \
+#   -e .github/workflows/tests/payloads/issue-simple.json \
+#   -j on-issue-milestone-assigned \
+#   issues
+# ```
+#
+# This *does* make changes on GitHub. Reserve Issue #1 and Pull Request #1 for testing purposes. To change this
+# configuration, see the preceding file in the `.github/workflows/tests/payloads` directory.
+#
+# To see debug messages:
+#
+# ```sh
+# act \
+#   -s GITHUB_TOKEN=$(gh auth token) \
+#   -e .github/workflows/tests/payloads/issue-simple.json \
+#   --env ACTIONS_RUNNER_DEBUG=true \
+#   -j on-issue-milestone-assigned \
+#   issues
+# ```
+#
+# To see all verbose debug messages at the maximum level:
+#
+# ```sh
+# act \
+#   -s GITHUB_TOKEN=$(gh auth token) \
+#   -e .github/workflows/tests/payloads/issue-simple.json \
+#   --env ACTIONS_RUNNER_DEBUG=true \
+#   --env ACTIONS_RUNNER_DEBUG_VERBOSE=true \
+#   -j on-issue-milestone-assigned \
+#   issues
+# ```
+#
+# @see {@link https://docs.github.com/en/webhooks/webhook-events-and-payloads#issues}
+#
+---
+  name: Automation on Issue Milestone Assigned
+
+  on:
+    ##
+    # Run if assignment of an Issue Milestone occurs.
+    #
+    issues:
+      types:
+        - milestoned
+
+  ##
+  # All steps should have read-only access, unless explicitly given.
+  #
+  permissions: read-all
+
+  ##
+  # Linting steps.
+  #
+  # @link https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
+  #
+  jobs:
+    on-issue-milestone-assigned:
+      name: Issue Milestone Assigned Automation
+      runs-on: ubuntu-latest
+
+      ##
+      # This job's `GITHUB_TOKEN` or `PAT` must have these permissions.
+      #
+      # Always aim to provide as few permissions as possible for personal access tokens.
+      #
+      # @link https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+      #
+      permissions:
+        issues: write
+
+      steps:
+        ##
+        # Checkout the Repository workflow source.
+        #
+        - name: Checkout the Repository workflow source
+          uses: actions/checkout@v4
+          with:
+            fetch-depth: 1
+            sparse-checkout: |-
+              .github/workflows
+
+        ##
+        # Run the Node.js helper library.
+        #
+        # @link https://github.com/actions/github-script
+        #
+        - name: Handle Milestone assigned to Issue
+          uses: actions/github-script@v6
+          with:
+            github-token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+
+            script: |-
+              require(".github/workflows/src/GitHub/Common/ActionContext").init(
+                github, context, core, glob, io, exec, fetch
+              );
+
+              const OnIssue = require(".github/workflows/src/Automation/OnIssue");
+              await OnIssue.handleMilestoneAssigned();

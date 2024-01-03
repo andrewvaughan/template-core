@@ -1,5 +1,5 @@
 ##
-# Automations that trigger when assignment of a user on an Issue occurs.
+# Automations that trigger when unassignment of a user on an Issue occurs.
 #
 # @example
 # To run this workflow locally via `act`, use the following commands. If you haven't authenticated with the appropriate
@@ -17,7 +17,7 @@
 # act \
 #   -s GITHUB_TOKEN=$(gh auth token) \
 #   -e .github/workflows/tests/payloads/issue-simple.json \
-#   -j on-issue-user-assigned \
+#   -j on-issue-user-unassigned \
 #   issues
 # ```
 #
@@ -31,7 +31,7 @@
 #   -s GITHUB_TOKEN=$(gh auth token) \
 #   -e .github/workflows/tests/payloads/issue-simple.json \
 #   --env ACTIONS_RUNNER_DEBUG=true \
-#   -j on-issue-user-assigned \
+#   -j on-issue-user-unassigned \
 #   issues
 # ```
 #
@@ -43,22 +43,22 @@
 #   -e .github/workflows/tests/payloads/issue-simple.json \
 #   --env ACTIONS_RUNNER_DEBUG=true \
 #   --env ACTIONS_RUNNER_DEBUG_VERBOSE=true \
-#   -j on-issue-user-assigned \
+#   -j on-issue-user-unassigned \
 #   issues
 # ```
 #
 # @see {@link https://docs.github.com/en/webhooks/webhook-events-and-payloads#issues}
 #
 ---
-name: Automation on Issue User Assigned
+name: Automation on Issue User Unassigned
 
 on:
   ##
-  # Run if unassignment of an issue occurs.
+  # Run if assignment of an issue changes.
   #
   issues:
     types:
-      - unassigned
+      - assigned
 
 ##
 # All steps should have read-only access, unless explicitly given.
@@ -71,8 +71,8 @@ permissions: read-all
 # @link https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
 #
 jobs:
-  on-issue-user-unassigned:
-    name: Issue User Unassigned Automation
+  on-issue-user-assigned:
+    name: Issue User Assigned Automation
     runs-on: ubuntu-latest
 
     ##
@@ -101,7 +101,7 @@ jobs:
       #
       # @link https://github.com/actions/github-script
       #
-      - name: Handle User unassigned from Issue
+      - name: Handle User assigned to Issue
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
@@ -112,4 +112,4 @@ jobs:
             );
 
             const OnIssue = require(".github/workflows/src/Automation/OnIssue");
-            await OnIssue.handleUserUnassigned();
+            await OnIssue.handleUserAssigned();

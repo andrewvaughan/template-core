@@ -329,11 +329,21 @@ module.exports = class Issue extends Commentable {
     let labelIDs = [];
 
     labels.forEach(function addLabelID(label) {
-      labelIDs.push(self.labels[label]);
+      for (let i = 0; i < self.labels.length; i++) {
+        if (self.labels[i]["name"] == label) {
+          labelIDs.push(self.labels[i]["id"]);
+        }
+      }
     });
 
+    if (labelIDs.length <= 0) {
+      this._eCore.info("No matching labels on Issue to remove.");
+      return;
+    }
+
     this._eCore.debug(`Calling GitHub GraphQL API to remove Labels from Issue #${this.number}...`);
-    this._eCore.verbose(`Label IDs: ${labelIDs.join(", ")}`);
+    this._eCore.verbose("Label IDs:");
+    this._eCore.verbose(labelIDs);
 
     return ActionContext.github.graphql(
       `mutation RemoveLabelsFromIssue($clientID: String!, $labelIDs: [ID!]!, $issueID: ID!) {

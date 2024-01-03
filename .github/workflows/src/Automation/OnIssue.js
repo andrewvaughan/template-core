@@ -19,9 +19,136 @@ const WorkflowAbstract = require("../WorkflowAbstract");
  */
 module.exports = class OnIssue extends WorkflowAbstract {
   /**
+   * Handle when an Issue Milestone assignment occurs.
+   *
+   * @returns {Promise} that resolves when actions complete
+   *
+   * @public @static @async
+   */
+  static async handleMilestoneAssigned() {
+    const eCore = new EnhancedCore("OnIssue.handleMilestoneAssigned");
+
+    const owner = ActionContext.context.repo.owner;
+    const repository = ActionContext.context.repo.repo;
+    const issueNumber = ActionContext.context.issue.number;
+
+    const issue = new Issue(issueNumber, repository, owner);
+
+    return (
+      issue
+        .load()
+
+        // Remove the `Needs Release Assignment` Label
+        .then(function removeNeedsReleaseAssignmentLabel() {
+          eCore.startGroup("Removing Needs Release Assignment Label");
+
+          eCore.info("Removing 'Needs Release Assignment' Label (if it exists)...");
+
+          return issue.removeLabels("Needs Release Assignment");
+        })
+
+        .then(() => {
+          eCore.endGroup();
+        })
+
+        // Add a warning if in the `No Status`, `Parking Lot`, or empty Project status
+        .then(function addWarningIfInvalidStatus() {
+          eCore.startGroup("Checking Issue's Project status");
+
+          if (issue.projectItems.length <= 0) {
+            eCore.info("No Project is associated with Issue - adding warning.");
+
+            eCore.warning(
+              eCore.shrinkWhitespace(
+                `This Issue was not found to be referenced by any Project, which is against the Software Development
+                Lifecycle for this Repository. This runner is adding a warning to the Issue to explain the risk.`,
+              ),
+
+              `No Project association found for Issue`,
+            );
+
+            return issue.addWarning(
+              eCore.shrinkWhitespace(
+                `This Issue isn't part of an ongoing Project, but was assigned to a Milestone.
+
+                This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
+                [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
+                needs to resolve this Issue with the appropriate Project and give it the appropriate status.
+
+                - [ ] @${Constants.MAINTAINER_USER} to resolve the missing Project`,
+              ),
+            );
+          }
+
+          if (issue.projectItems.length > 1) {
+            eCore.info("Multiple Project items associated with Issue - adding warning.");
+
+            eCore.warning(
+              eCore.shrinkWhitespace(
+                `This Issue was found to be referenced by multiple Project items, which is against the Software
+              Development Lifecycle for this Repository. This runner is adding a warning to the Issue to explain the
+              risk.`,
+              ),
+
+              `Multiple Project associations found for Issue`,
+            );
+
+            return issue.addWarning(
+              eCore.shrinkWhitespace(
+                `This Issue is associated with multiple Project items when it was assigned to a Milestone.
+
+                This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
+                [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
+                needs to resolve this Issue with the appropriate Project and give it the appropriate status.
+
+                - [ ] @${Constants.MAINTAINER_USER} to resolve duplicate Project items for Issue`,
+              ),
+            );
+          }
+
+          const status = issue.projectItems[0].status;
+
+          const invalidStates = ["Pending Deployment", "User Acceptance Testing", "Done"];
+
+          if (!status || invalidStates.includes(status)) {
+            eCore.info("Invalid Project status associated with Issue - adding warning.");
+
+            eCore.warning(
+              eCore.shrinkWhitespace(
+                `This Issue is associated with a Project item in an invalid state for Milestone assignment.
+              Specifically, the \`${status}\` state. This goes against the Software Development Lifecycle for this
+              Repository. This runner is adding a warning to the Issue to explain the risk.`,
+              ),
+
+              `Invalid Project status associated with Issue`,
+            );
+
+            return issue.addWarning(
+              eCore.shrinkWhitespace(
+                `This Issue was associated with a Project item in the status \`${status}\` during Milestone assignment.
+
+                This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
+                [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
+                needs to resolve this Issue with the appropriate Project and give it the appropriate status.
+
+                - [ ] @${Constants.MAINTAINER_USER} to resolve invalid Project status`,
+              ),
+            );
+          }
+
+          eCore.info("Project status for Issue is as-expected; continuing.");
+        })
+
+        .then(() => {
+          eCore.endGroup();
+        })
+    );
+  }
+
+  /**
    * Handle when an Issue User assignment occurs.
    *
-   * @returns {Promise} that resolves when
+   * @returns {Promise} that resolves when actions complete
    *
    * @public @static @async
    */
@@ -42,15 +169,9 @@ module.exports = class OnIssue extends WorkflowAbstract {
         .then(function removeHelpWantedLabel() {
           eCore.startGroup("Removing Help Wanted Label");
 
-          for (var i = 0; i < issue.labels.length; i++) {
-            if (issue.labels[i].name == "Help Wanted") {
-              eCore.info("Removing existing 'Help Wanted' Label...");
+          eCore.info("Removing 'Help Wanted' Label (if it exists)...");
 
-              return issue.removeLabels("Help Wanted");
-            }
-          }
-
-          eCore.info("Label 'Help Wanted' doesn't exist on Issue; continuing.");
+          return issue.removeLabels("Help Wanted");
         })
 
         .then(() => {
@@ -161,7 +282,7 @@ module.exports = class OnIssue extends WorkflowAbstract {
             eCore.warning(
               eCore.shrinkWhitespace(
                 `This Issue is associated with a Project item in an invalid state for Contributor assignment.
-              Specifically, the '${status}' state. This goes against the Software Development Lifecycle for this
+              Specifically, the \`${status}\` state. This goes against the Software Development Lifecycle for this
               Repository. This runner is adding a warning to the Issue to explain the risk.`,
               ),
 
@@ -170,7 +291,8 @@ module.exports = class OnIssue extends WorkflowAbstract {
 
             return issue.addWarning(
               eCore.shrinkWhitespace(
-                `This Issue was associated with a Project item in the status '${status}' during Contributor assignment.
+                `This Issue was associated with a Project item in the status \`${status}\` during Contributor
+                assignment.
 
                 This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
                 [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
@@ -205,7 +327,7 @@ module.exports = class OnIssue extends WorkflowAbstract {
 
               return issue.projectItems[0].setStatus("In Progress");
             } else {
-              eCore.info(`Didn't advance Project status as linked Project Item is in the '${status}' state.`);
+              eCore.info(`Didn't advance Project status as linked Project Item is in the \`${status}\` state.`);
             }
           } else {
             eCore.info("Couldn't advance Project status due to missing 1-to-1 Project Item - adding warning.");
@@ -230,7 +352,7 @@ module.exports = class OnIssue extends WorkflowAbstract {
   /**
    * Handle when an Issue User unassignment occurs.
    *
-   * @returns {Promise} that resolves when
+   * @returns {Promise} that resolves when actions complete
    *
    * @public @static @async
    */

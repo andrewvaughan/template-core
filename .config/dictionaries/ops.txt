@@ -19,6 +19,7 @@ Chiberia
 CODEOWNERS
 Commentable
 davidanson
+demilestoned
 devcontainer
 DevSkim
 eamodio

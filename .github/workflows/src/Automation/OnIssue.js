@@ -146,6 +146,265 @@ module.exports = class OnIssue extends WorkflowAbstract {
   }
 
   /**
+   * Handle when an Issue Milestone unassignment occurs.
+   *
+   * @returns {Promise} that resolves when actions complete
+   *
+   * @public @static @async
+   */
+  static async handleMilestoneUnassigned() {
+    const eCore = new EnhancedCore("OnIssue.handleMilestoneUnassigned");
+
+    const owner = ActionContext.context.repo.owner;
+    const repository = ActionContext.context.repo.repo;
+    const issueNumber = ActionContext.context.issue.number;
+
+    const issue = new Issue(issueNumber, repository, owner);
+
+    return (
+      issue
+        .load()
+
+        // Add the `Needs Release Assignment` Label
+        .then(function addNeedsReleaseAssignmentLabel() {
+          eCore.startGroup("Adding Needs Release Assignment Label");
+
+          eCore.info("Adding 'Needs Release Assignment' Label to Issue...");
+
+          return issue.addLabels("Needs Release Assignment");
+        })
+
+        .then(() => {
+          eCore.endGroup();
+        })
+
+        // Add a warning if the linked Project is in an invalid status
+        .then(function checkProjectStatus() {
+          eCore.startGroup("Checking Issue's Project status");
+
+          // If no Project Items exist, skip this step
+          if (issue.projectItems.length <= 0) {
+            eCore.info("No project assigned to Issue; skipping.");
+            return;
+          }
+
+          // If too many Project Items exist, add a warning
+          if (issue.projectItems.length > 1) {
+            eCore.info("Multiple Project items associated with Issue - adding warning.");
+
+            eCore.warning(
+              eCore.shrinkWhitespace(
+                `This Issue was found to be referenced by multiple Project items, which is against the Software
+              Development Lifecycle for this Repository. This runner is adding a warning to the Issue to explain the
+              risk.`,
+              ),
+
+              `Multiple Project associations found for Issue`,
+            );
+
+            return issue.addWarning(
+              eCore.shrinkWhitespace(
+                `This Issue was associated with multiple Project Items when it was unassigned from a Milestone.
+
+                This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
+                [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
+                needs to resolve this Issue with the appropriate Project and give it the appropriate status.
+
+              - [ ] @${Constants.MAINTAINER_USER} to resolve duplicate Project assignments`,
+              ),
+            );
+          }
+
+          const projectStatus = issue.projectItems[0].status;
+
+          // If the Project is in status `In Progress`, add a notice
+          if (projectStatus == "In Progress") {
+            eCore.info(`Issue in \`${projectStatus}\` state; adding notice.`);
+
+            return issue.addNotice(
+                eCore.shrinkWhitespace(
+                  `This Issue was in the \`${projectStatus}\` Project status when the Milestone was removed. Ensure this
+                  is intentional, as the Issue is in-progress.`,
+                ),
+              );
+          }
+
+          // If the Project is in status `Code Review`, add a warning to the Issue and the Pull Request
+          if (projectStatus == "Code Review") {
+            eCore.info("Issue in 'Code Review' state; adding warning to Issue and Pull Request.");
+
+            eCore.warning(
+              eCore.shrinkWhitespace(
+                `This Issue has been removed from its Milestone during the Code Review process. Adding a warning to the
+                associated Issue and Pull Request.`,
+              ),
+
+              `Issue Milestone unassigned during Code Review`,
+            );
+
+            return issue.addWarning(
+                eCore.shrinkWhitespace(
+                  `This Issue had its Milestone unassigned during the \`Code Review\` SDLC state. A warning has been
+                  added to the associated Pull Request.
+
+                  This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
+                  [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
+                  needs to determine appropriate next steps for this Issue and any associated Pull Requests.
+
+                  - [ ] @${Constants.MAINTAINER_USER} to resolve Milestone unassignments during Code Review`,
+                ),
+              )
+
+              .then(function checkPullRequests() {
+                eCore.debug("Checking for Issue Pull Requests...");
+                eCore.verbose(issue.pullRequests);
+
+                // If the Issue has no PR associated, add a warning
+                if (!issue.pullRequests || !issue.pullRequests["open"].length) {
+                  eCore.info(
+                    eCore.shrinkWhitespace(
+                      `No comments in the Git history refer to closing this Issue are associated with any open Pull
+                    Requests; adding a warning to the Issue.`,
+                    ),
+                  );
+
+                  eCore.warning(
+                    eCore.shrinkWhitespace(
+                      `This Issue was in the 'Code Review' Project status, but no open Pull Requests exist that contain
+                      a commit message that closes this Issue.
+
+                      It's possible that a Pull Request has been opened, but no commit message was pushed that contains
+                      a \`closes\` reference (e.g., \`... (closes #${issue.number}))\`. A warning will be added to the
+                      Issue.`,
+                    ),
+
+                    `No Pull Request cross-referenced during Code Review`,
+                  );
+
+                  return issue.addWarning(
+                    eCore.shrinkWhitespace(
+                      `This Issue was in the \`Code Review\` Project status, but no open Pull Requests exist that
+                      contains a commit message that closes this Issue.
+
+                      It's possible that a Pull Request has been opened, but no commit message was pushed that contains
+                      a \`closes\` reference (e.g., \`... (closes #${issue.number})\`). Alternatively, a Pull Request
+                      may never have been opened, and the Project status was updated manually.
+
+                      This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
+                      [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
+                      needs to determine why this cross-reference is missing or why the Project status doesn't match the
+                      Pull Request status.
+
+                      - [ ] @${Constants.MAINTAINER_USER} to identify missing Pull Request and/or commit message`,
+                    ),
+                  );
+                }
+
+                // If there are multiple PRs associated, add a warning
+                if (issue.pullRequests["open"].length > 1) {
+                  eCore.info("Multiple open Pull Requests are associated with this Issue");
+
+                  eCore.warning(
+                    eCore.shrinkWhitespace(
+                      `This Issue was in the 'Code Review' Project status while multiple, open Pull Requests referred to
+                      this Issue. A warning will be added to the Issue and the corresponding Pull Requests.`,
+                    ),
+
+                    `Multiple Pull Requests cross-referenced during Code Review`,
+                  );
+
+                  return issue
+                    .addWarning(
+                      eCore.shrinkWhitespace(
+                        `This Issue was in the \`Code Review\` Project status while multiple, open Pull Requests
+                        referred to this Issue. This breaks automation capabilities, so no changes will be made to
+                        statuses.
+
+                      This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
+                      [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
+                      needs to identify and resolve the multiple Pull Requests for this issue.
+
+                      - [ ] @${Constants.MAINTAINER_USER} to identify and resolve multiple Pull Requests`,
+                      ),
+                    )
+
+                    .then(() => {
+                      let promises = [];
+                      issue.pullRequests["open"].forEach(function commentMultiplePRs(pr) {
+                        eCore.info(`Adding warning to Pull Request #${pr.number}`);
+
+                        promises.push(
+                          pr.addWarning(
+                            eCore.shrinkWhitespace(
+                              `This Pull Request is linked to Issue #${issue.number}, which was just unassigned from its
+                          Milestone; however, this Pull Request is one of ${issue.pullRequests["open"].length} Pull
+                          Requests that are currently Open and connected to the given Issue, so no action can be
+                          automatically taken.
+
+                          This leaves the Pull Request in an unusual state without clear ownership or direction for the
+                          relevant Issue. A task has been added to the Issue for a Project Maintainer to resolve this
+                          problem.`,
+                            ),
+                          ),
+                        );
+                      });
+
+                      return Promise.all(promises);
+                    });
+                }
+
+                // Add a warning to the associated PR
+                eCore.info("Adding warning to the associated Pull Request.");
+
+                return issue.pullRequests["open"][0].addWarning(
+                  eCore.shrinkWhitespace(
+                    `This Pull Request is linked to Issue #${issue.number}, which was just unassigned from its
+                    Milestone.
+
+                    This leaves the Pull Request in an unusual state without clear deployment plans for the relevant
+                    Issue. A task has been added to the Issue for a Project Maintainer to resolve this problem.`,
+                  ),
+                );
+              });
+          }
+
+          // If Project Item isn't in status `Parking Lot`, `Approved for Development`, or empty, add a warning
+          if (projectStatus && !["Parking Lot", "Approved for Development"].includes(projectStatus)) {
+            eCore.info("Issue Milestone unassigned late in SDLC - adding warning.");
+
+            eCore.warning(
+              eCore.shrinkWhitespace(
+                `This Issue had its Milestone unassigned late in the Software Development Lifecycle. A warning will be
+                added to the Issue.`,
+              ),
+
+              `Issue Milestone unassigned late in SDLC`,
+            );
+
+            return issue.addWarning(
+              eCore.shrinkWhitespace(
+                `This Issue was unassigned from its Milestone while in the \`${projectStatus}\` state.
+
+                This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
+                [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
+                needs to determine appropriate next steps for this Issue and any associated Pull Requests.
+
+              - [ ] @${Constants.MAINTAINER_USER} to resolve late Milestone unassignments`,
+              ),
+            );
+          }
+
+          // Otherwise, this is a valid state to have unassignment occur
+          eCore.info("Project status in valid state for Milestone unassignment.");
+        })
+
+        .then(() => {
+          eCore.endGroup();
+        })
+    )
+  }
+
+  /**
    * Handle when an Issue User assignment occurs.
    *
    * @returns {Promise} that resolves when actions complete
@@ -473,7 +732,7 @@ module.exports = class OnIssue extends WorkflowAbstract {
               .then(() => {
                 return issue.addWarning(
                   eCore.shrinkWhitespace(
-                    `This Issue was completely unassigned from Users during the Code Review SDLC state. It has been
+                    `This Issue was completely unassigned from Users during the \`Code Review\` SDLC state. It has been
                     automatically reverted to the \`Approved for Development\` status and a warning has been added to
                     the associated Pull Request.
 
@@ -613,7 +872,7 @@ module.exports = class OnIssue extends WorkflowAbstract {
 
             return issue.addWarning(
               eCore.shrinkWhitespace(
-                `This Issue was completely unassigned from Users while in the '${projectStatus}' state.
+                `This Issue was completely unassigned from Users while in the \`${projectStatus}\` state.
 
                 This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
                 [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer

@@ -11,7 +11,7 @@
 #
 # The authentication command generally only needs to be ran once and then only if `act` asks for it.
 #
-# A basic test payload is provided in the `tests` folder:
+# A basic test payload is in the `tests` folder:
 #
 # ```sh
 # act \

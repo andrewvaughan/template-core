@@ -5,10 +5,10 @@ const NotImplementedError = require("../Errors/NotImplementedError");
 const ActionContext = require("./Common/ActionContext");
 
 /**
- * ProjectItem (V2).
+ * ProjectItem V2.
  *
  * @classdesc
- * Manages various actions on GitHub ProjectItems (V2) via GraphQL API.
+ * Manages various actions on GitHub ProjectItems V2 via GraphQL API.
  *
  * @see {@link https://docs.github.com/en/graphql/reference/objects#label}
  * @see {@link https://github.com/actions/github-script}
@@ -65,7 +65,7 @@ module.exports = class ProjectItem extends GraphQLObject {
    *
    * @param {String} status - the name of the status to set
    *
-   * @return {Promise} resolving when the status is set
+   * @return {Promise} resolving when the status call completes
    */
   async setStatus(status) {
     this._debugCall("setStatus", arguments);

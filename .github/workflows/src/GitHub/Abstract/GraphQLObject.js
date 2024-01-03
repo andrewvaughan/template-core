@@ -17,7 +17,7 @@ const WorkflowAbstract = require("../../WorkflowAbstract");
  */
 module.exports = class GraphQLObject extends WorkflowAbstract {
   /**
-   * Whether the data in this GraphQL object has been loaded from the GitHub API.
+   * The cache state of the data in this object from the GitHub API.
    *
    * @protected @readonly @type {Boolean}
    */

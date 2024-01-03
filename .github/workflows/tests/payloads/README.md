@@ -10,7 +10,7 @@ For information on GitHub payloads:
 
 ## Running with payloads
 
-Event payloads are loaded with the `-e` command. To test a user assignment, for instance:
+Load event payloads with the `-e` argument. To test a user assignment, for instance:
 
 ```sh
 act \

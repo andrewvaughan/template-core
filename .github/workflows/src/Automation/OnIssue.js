@@ -269,11 +269,10 @@ module.exports = class OnIssue extends WorkflowAbstract {
         .then(function checkProjectStatus() {
           eCore.startGroup("Checking Issue's Project status");
 
-          // TODO
-          // if (issue.assignees.length > 0) {
-          //   eCore.info("Assignees still present on Issue; skipping.");
-          //   return;
-          // }
+          if (issue.assignees.length > 0) {
+            eCore.info("Assignees still present on Issue; skipping.");
+            return;
+          }
 
           // If no Project Items exist, skip this step
           if (issue.projectItems.length <= 0) {
@@ -314,25 +313,28 @@ module.exports = class OnIssue extends WorkflowAbstract {
           if (projectStatus == "In Progress") {
             eCore.info("Issue in 'In Progress' state; reverting to 'Approved for Development' and adding notice.");
 
-            return issue.projectItems[0].setStatus("Approved for Development")
+            return issue.projectItems[0]
+              .setStatus("Approved for Development")
 
               .then(() => {
                 issue.addNotice(
                   eCore.shrinkWhitespace(
                     `This Issue has no remaining Users assigned; it has been automatically reverted to the
-                    \`Approved for Development\` Project status.`
+                    \`Approved for Development\` Project status.`,
                   ),
                 );
-              })
+              });
           }
 
           // If Project Item is in status `Code Review`, revert it to `Approved for Development` and add a warning to
           // the Pull Request
           if (projectStatus == "Code Review") {
-            eCore.info(eCore.shrinkWhitespace(
-              `Issue in 'Code Review' state; reverting to 'Approved for Development' and adding warning to Issue and
-              Pull Request.`
-            ));
+            eCore.info(
+              eCore.shrinkWhitespace(
+                `Issue in 'Code Review' state; reverting to 'Approved for Development' and adding warning to Issue and
+              Pull Request.`,
+              ),
+            );
 
             eCore.warning(
               eCore.shrinkWhitespace(
@@ -343,14 +345,15 @@ module.exports = class OnIssue extends WorkflowAbstract {
               `Issue completely unassigned during Code Review`,
             );
 
-            return issue.projectItems[0].setStatus("Approved for Development")
+            return issue.projectItems[0]
+              .setStatus("Approved for Development")
 
               .then(() => {
                 return issue.addWarning(
                   eCore.shrinkWhitespace(
                     `This Issue was completely unassigned from Users during the Code Review SDLC state. It has been
-                    automatically reverted to the \`Approved for Development\` status and a warning has been added to the
-                    associated Pull Request.
+                    automatically reverted to the \`Approved for Development\` status and a warning has been added to
+                    the associated Pull Request.
 
                     This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
                     [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
@@ -358,7 +361,7 @@ module.exports = class OnIssue extends WorkflowAbstract {
 
                     - [ ] @${Constants.MAINTAINER_USER} to resolve user unassignments during Code Review`,
                   ),
-                )
+                );
               })
 
               .then(function checkPullRequests() {
@@ -367,10 +370,12 @@ module.exports = class OnIssue extends WorkflowAbstract {
 
                 // If the Issue has no PR associated, add a warning
                 if (!issue.pullRequests || !issue.pullRequests["open"].length) {
-                  eCore.info(eCore.shrinkWhitespace(
-                    `No comments in the Git history refer to closing this Issue are associated with any open Pull
-                    Requests; adding a warning to the Issue.`
-                  ));
+                  eCore.info(
+                    eCore.shrinkWhitespace(
+                      `No comments in the Git history refer to closing this Issue are associated with any open Pull
+                    Requests; adding a warning to the Issue.`,
+                    ),
+                  );
 
                   eCore.warning(
                     eCore.shrinkWhitespace(
@@ -417,40 +422,44 @@ module.exports = class OnIssue extends WorkflowAbstract {
                     `Multiple Pull Requests cross-referenced during Code Review`,
                   );
 
-                  return issue.addWarning(
-                    eCore.shrinkWhitespace(
-                      `This Issue was in the \`Code Review\` Project status while multiple, open Pull Requests referred
-                      to this Issue. This breaks automation capabilities, so no changes will be made to statuses.
+                  return issue
+                    .addWarning(
+                      eCore.shrinkWhitespace(
+                        `This Issue was in the \`Code Review\` Project status while multiple, open Pull Requests
+                        referred to this Issue. This breaks automation capabilities, so no changes will be made to
+                        statuses.
 
                       This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
                       [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
                       needs to identify and resolve the multiple Pull Requests for this issue.
 
                       - [ ] @${Constants.MAINTAINER_USER} to identify and resolve multiple Pull Requests`,
-                    ),
-                  )
+                      ),
+                    )
 
-                  .then(() => {
-                    let promises = [];
-                    issue.pullRequests["open"].forEach(function commentMultiplePRs(pr) {
-                      eCore.info(`Adding warning to Pull Request #${pr.number}`);
+                    .then(() => {
+                      let promises = [];
+                      issue.pullRequests["open"].forEach(function commentMultiplePRs(pr) {
+                        eCore.info(`Adding warning to Pull Request #${pr.number}`);
 
-                      promises.push(pr.addWarning(
-                        eCore.shrinkWhitespace(
-                          `This Pull Request is linked to Issue #${issue.number}, which was just unassigned from all
+                        promises.push(
+                          pr.addWarning(
+                            eCore.shrinkWhitespace(
+                              `This Pull Request is linked to Issue #${issue.number}, which was just unassigned from all
                           Users; however, this Pull Request is one of ${issue.pullRequests["open"].length} Pull
                           Requests that are currently Open and connected to the given Issue, so no action can be
                           automatically taken.
 
                           This leaves the Pull Request in an unusual state without clear ownership or direction for the
                           relevant Issue. A task has been added to the Issue for a Project Maintainer to resolve this
-                          problem.`
-                        )
-                      ));
-                    });
+                          problem.`,
+                            ),
+                          ),
+                        );
+                      });
 
-                    return Promise.all(promises);
-                  });
+                      return Promise.all(promises);
+                    });
                 }
 
                 // Add a warning to the associated PR
@@ -461,8 +470,8 @@ module.exports = class OnIssue extends WorkflowAbstract {
                     `This Pull Request is linked to Issue #${issue.number}, which was just unassigned from all Users.
 
                     This leaves the Pull Request in an unusual state without clear ownership for the relevant Issue. A
-                    task has been added to the Issue for a Project Maintainer to resolve this problem.`
-                  )
+                    task has been added to the Issue for a Project Maintainer to resolve this problem.`,
+                  ),
                 );
               });
           }
@@ -494,7 +503,7 @@ module.exports = class OnIssue extends WorkflowAbstract {
           }
 
           // Otherwise, this is a valid state to have unassignment occur
-          eCore.info("Project status in valid state for unassignment.")
+          eCore.info("Project status in valid state for unassignment.");
         })
 
         .then(() => {

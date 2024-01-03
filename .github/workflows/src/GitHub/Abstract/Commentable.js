@@ -17,7 +17,6 @@ const GraphQLObject = require("./GraphQLObject");
  * @abstract @class @extends GraphQLObject
  */
 module.exports = class Commentable extends GraphQLObject {
-
   /**
    * Adds a comment to the Issue.
    *
@@ -100,5 +99,4 @@ module.exports = class Commentable extends GraphQLObject {
 
     return this.addComment(`## :rotating_light: Error\n\n${message}`);
   }
-
 };

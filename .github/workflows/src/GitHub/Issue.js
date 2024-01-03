@@ -175,7 +175,7 @@ module.exports = class Issue extends Commentable {
 
       self.projectItems = [];
       data["projectItems"]["nodes"].forEach(function buildProjectItem(node) {
-        const commit = node["commit"]
+        const commit = node["commit"];
         self.projectItems.push(
           new ProjectItem(node["id"], {
             projectID: node["project"]["id"],
@@ -194,7 +194,6 @@ module.exports = class Issue extends Commentable {
         closed: [],
       };
       data["pullRequests"]["nodes"].forEach(function processCommitReferences(commitNode) {
-
         // Parse each associated PR
         commitNode["commit"]["associatedPullRequests"]["nodes"].forEach(function processPullRequestReference(pr) {
           const key = pr["closed"] ? "closed" : "open";
@@ -211,10 +210,9 @@ module.exports = class Issue extends Commentable {
             new PullRequest(pr["number"], self.repository, self.owner, {
               id: pr["id"],
               closed: pr["closed"],
-            })
+            }),
           );
         });
-
       });
       self._eCore.verbose("Pull Requests:");
       self._eCore.verbose(self.pullRequests);
@@ -354,5 +352,4 @@ module.exports = class Issue extends Commentable {
       },
     );
   }
-
 };

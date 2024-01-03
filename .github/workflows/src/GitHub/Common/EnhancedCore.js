@@ -145,6 +145,7 @@ class EnhancedCore {
    * @see {@link https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging}
    * @see {@link https://docs.github.com/en/actions/learn-github-actions/variables}
    *
+   * @example
    * The `EnhancedCore` implementation suppresses debug messages unless the environment has the debug variable
    * explicitly set, unlike the normal `core` logging behavior. In addition, setting the `ACTIONS_RUNNER_DEBUG` variable
    * to `true` enables additional, verbose logging capabilities. You must enable regular debugging for verbose logging

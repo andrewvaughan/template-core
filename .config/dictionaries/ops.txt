@@ -17,6 +17,7 @@ Checkmake
 Checkmarx
 Chiberia
 CODEOWNERS
+Commentable
 davidanson
 devcontainer
 DevSkim
@@ -26,6 +27,7 @@ esbenp
 Gruntfuggly
 KICS
 linkcheckmd
+Labelable
 Makefiles
 MarkdownLint
 mdtxt
@@ -39,6 +41,8 @@ Sergii
 statusBarClickBehaviour
 stefanzweifel
 Trivy
+unassignment
+unassignments
 venv
 Wontfix
 yzhang

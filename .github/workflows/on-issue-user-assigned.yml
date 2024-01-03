@@ -107,7 +107,7 @@ jobs:
           github-token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
 
           script: |-
-            require(".github/workflows/src/ActionContext").init(
+            require(".github/workflows/src/GitHub/Common/ActionContext").init(
               github, context, core, glob, io, exec, fetch
             );
 

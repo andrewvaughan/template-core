@@ -1,4 +1,4 @@
-const GraphQLObject = require("./GraphQLObject");
+const Commentable = require("./Abstract/Commentable");
 const NotImplementedError = require("../Errors/NotImplementedError");
 
 /**
@@ -15,7 +15,7 @@ const NotImplementedError = require("../Errors/NotImplementedError");
  *
  * @class @extends GraphQLObject
  */
-module.exports = class PullRequest extends GraphQLObject {
+module.exports = class PullRequest extends Commentable {
   /**
    * Create a PullRequest.
    *

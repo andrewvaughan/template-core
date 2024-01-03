@@ -1,4 +1,4 @@
-const GraphQLObject = require("./GraphQLObject");
+const GraphQLObject = require("./Abstract/GraphQLObject");
 const NotImplementedError = require("../Errors/NotImplementedError");
 
 /**

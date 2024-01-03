@@ -1,6 +1,6 @@
-const ActionContext = require("../ActionContext");
+const ActionContext = require("../GitHub/Common/ActionContext");
 const Constants = require("../Constants");
-const EnhancedCore = require("../EnhancedCore");
+const EnhancedCore = require("../GitHub/Common/EnhancedCore");
 const Issue = require("../GitHub/Issue");
 const WorkflowAbstract = require("../WorkflowAbstract");
 
@@ -328,7 +328,7 @@ module.exports = class OnIssue extends WorkflowAbstract {
 
           // If Project Item is in status `Code Review`, revert it to `Approved for Development` and add a warning to
           // the Pull Request
-          else if (projectStatus == "Code Review") {
+          if (projectStatus == "Code Review") {
             eCore.info(eCore.shrinkWhitespace(
               `Issue in 'Code Review' state; reverting to 'Approved for Development' and adding warning to Issue and
               Pull Request.`
@@ -362,9 +362,11 @@ module.exports = class OnIssue extends WorkflowAbstract {
               })
 
               .then(function checkPullRequests() {
+                eCore.debug("Checking for Issue Pull Requests...");
+                eCore.verbose(issue.pullRequests);
 
-                // If no PR is associated, add a warning
-                if (!issue.pullRequests || !issue.pullRequests["open"]) {
+                // If the Issue has no PR associated, add a warning
+                if (!issue.pullRequests || !issue.pullRequests["open"].length) {
                   eCore.info(eCore.shrinkWhitespace(
                     `No comments in the Git history refer to closing this Issue are associated with any open Pull
                     Requests; adding a warning to the Issue.`
@@ -385,11 +387,11 @@ module.exports = class OnIssue extends WorkflowAbstract {
 
                   return issue.addWarning(
                     eCore.shrinkWhitespace(
-                      `This Issue was in the 'Code Review' Project status, but no open Pull Requests exist that contains
-                      a commit message that closes this Issue.
+                      `This Issue was in the \`Code Review\` Project status, but no open Pull Requests exist that
+                      contains a commit message that closes this Issue.
 
                       It's possible that a Pull Request has been opened, but no commit message was pushed that contains
-                      a \`closes\` reference (e.g., \`... (closes #${issue.number}))\`. Alternatively, a Pull Request
+                      a \`closes\` reference (e.g., \`... (closes #${issue.number})\`). Alternatively, a Pull Request
                       may never have been opened, and the Project status was updated manually.
 
                       This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
@@ -404,9 +406,7 @@ module.exports = class OnIssue extends WorkflowAbstract {
 
                 // If there are multiple PRs associated, add a warning
                 if (issue.pullRequests["open"].length > 1) {
-                  eCore.info(eCore.shrinkWhitespace(
-                    `Multiple open Pull Requests are associated with this Issue`
-                  ));
+                  eCore.info("Multiple open Pull Requests are associated with this Issue");
 
                   eCore.warning(
                     eCore.shrinkWhitespace(
@@ -419,8 +419,8 @@ module.exports = class OnIssue extends WorkflowAbstract {
 
                   return issue.addWarning(
                     eCore.shrinkWhitespace(
-                      `This Issue was in the 'Code Review' Project status while multiple, open Pull Requests referred to
-                      this Issue. This breaks automation capabilities, so no changes will be made to statuses.
+                      `This Issue was in the \`Code Review\` Project status while multiple, open Pull Requests referred
+                      to this Issue. This breaks automation capabilities, so no changes will be made to statuses.
 
                       This goes against the [Software Development Lifecycle](${Constants.URL.SDLC}) and
                       [Contributing Guidelines](${Constants.URL.CONTRIBUTING}). A Project Maintainer
@@ -431,16 +431,44 @@ module.exports = class OnIssue extends WorkflowAbstract {
                   )
 
                   .then(() => {
-                    // TODO - Add a warning to each PR
+                    let promises = [];
+                    issue.pullRequests["open"].forEach(function commentMultiplePRs(pr) {
+                      eCore.info(`Adding warning to Pull Request #${pr.number}`);
+
+                      promises.push(pr.addWarning(
+                        eCore.shrinkWhitespace(
+                          `This Pull Request is linked to Issue #${issue.number}, which was just unassigned from all
+                          Users; however, this Pull Request is one of ${issue.pullRequests["open"].length} Pull
+                          Requests that are currently Open and connected to the given Issue, so no action can be
+                          automatically taken.
+
+                          This leaves the Pull Request in an unusual state without clear ownership or direction for the
+                          relevant Issue. A task has been added to the Issue for a Project Maintainer to resolve this
+                          problem.`
+                        )
+                      ));
+                    });
+
+                    return Promise.all(promises);
                   });
                 }
 
-                // TODO - Add a warning to the associated PR
-              })
+                // Add a warning to the associated PR
+                eCore.info("Adding warning to the associated Pull Request.");
+
+                return issue.pullRequests["open"][0].addWarning(
+                  eCore.shrinkWhitespace(
+                    `This Pull Request is linked to Issue #${issue.number}, which was just unassigned from all Users.
+
+                    This leaves the Pull Request in an unusual state without clear ownership for the relevant Issue. A
+                    task has been added to the Issue for a Project Maintainer to resolve this problem.`
+                  )
+                );
+              });
           }
 
           // If Project Item isn't in status `Parking Lot`, `Approved for Development`, or empty, add a warning
-          else if (projectStatus && !["Parking Lot", "Approved for Development"].includes(projectStatus)) {
+          if (projectStatus && !["Parking Lot", "Approved for Development"].includes(projectStatus)) {
             eCore.info("Issue completely unassigned late in SDLC - adding warning.");
 
             eCore.warning(

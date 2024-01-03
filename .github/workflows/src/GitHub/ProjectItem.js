@@ -1,8 +1,8 @@
 const crypto = require("crypto");
 
-const GraphQLObject = require("./GraphQLObject");
+const GraphQLObject = require("./Abstract/GraphQLObject");
 const NotImplementedError = require("../Errors/NotImplementedError");
-const ActionContext = require("../ActionContext");
+const ActionContext = require("./Common/ActionContext");
 
 /**
  * ProjectItem (V2).

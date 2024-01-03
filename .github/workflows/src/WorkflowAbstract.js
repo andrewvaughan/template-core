@@ -1,4 +1,4 @@
-const EnhancedCore = require("./EnhancedCore");
+const EnhancedCore = require("./GitHub/Common/EnhancedCore");
 
 /**
  * WorkflowAbstract.

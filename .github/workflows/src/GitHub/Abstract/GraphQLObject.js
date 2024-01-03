@@ -1,5 +1,5 @@
-const ActionContext = require("../ActionContext");
-const WorkflowAbstract = require("../WorkflowAbstract");
+const ActionContext = require("../Common/ActionContext");
+const WorkflowAbstract = require("../../WorkflowAbstract");
 
 /**
  * GraphQLObject.
@@ -13,7 +13,7 @@ const WorkflowAbstract = require("../WorkflowAbstract");
  * @author Andrew Vaughan <hello@andrewvaughan.io>
  * @license MIT
  *
- * @class @extends WorkflowAbstract
+ * @abstract @class @extends WorkflowAbstract
  */
 module.exports = class GraphQLObject extends WorkflowAbstract {
   /**

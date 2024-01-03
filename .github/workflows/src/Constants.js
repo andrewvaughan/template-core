@@ -1,4 +1,4 @@
-const ActionContext = require("./ActionContext");
+const ActionContext = require("./GitHub/Common/ActionContext");
 
 /**
  * Constants.

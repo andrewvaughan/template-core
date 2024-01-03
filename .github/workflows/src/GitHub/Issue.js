@@ -1,9 +1,10 @@
 const crypto = require("crypto");
 
-const ActionContext = require("../ActionContext");
-const GraphQLObject = require("./GraphQLObject");
+const ActionContext = require("./Common/ActionContext");
+const Commentable = require("./Abstract/Commentable");
 const Label = require("./Label");
 const ProjectItem = require("./ProjectItem");
+const PullRequest = require("./PullRequest");
 const User = require("./User");
 
 /**
@@ -20,7 +21,7 @@ const User = require("./User");
  *
  * @class @extends GraphQLObject
  */
-module.exports = class Issue extends GraphQLObject {
+module.exports = class Issue extends Commentable {
   /**
    * Create an Issue.
    *
@@ -105,18 +106,16 @@ module.exports = class Issue extends GraphQLObject {
                 }
               }
             }
-            pullRequests: timelineItems(first: 20, itemTypes: CLOSED_EVENT) {
+            pullRequests: timelineItems(first: 250, itemTypes: REFERENCED_EVENT) {
               nodes {
-                ... on ClosedEvent {
-                  closer {
-                    ... on Commit {
-                      associatedPullRequests (first: 10) {
-                        totalCount
-                        nodes {
-                          id
-                          number
-                          closed
-                        }
+                ... on ReferencedEvent {
+                  commit {
+                    associatedPullRequests(first: 20) {
+                      totalCount
+                      nodes {
+                        id
+                        number
+                        closed
                       }
                     }
                   }
@@ -176,6 +175,7 @@ module.exports = class Issue extends GraphQLObject {
 
       self.projectItems = [];
       data["projectItems"]["nodes"].forEach(function buildProjectItem(node) {
+        const commit = node["commit"]
         self.projectItems.push(
           new ProjectItem(node["id"], {
             projectID: node["project"]["id"],
@@ -193,13 +193,28 @@ module.exports = class Issue extends GraphQLObject {
         open: [],
         closed: [],
       };
-      data["pullRequests"]["nodes"].forEach(function buildPullRequests(node) {
-        self.pullRequests[node["closed"] ? "closed" : "open"].push(
-          new PullRequest(node["number"], self.repository, self.owner, {
-            id: node["id"],
-            closed: node["closed"],
-          })
-        );
+      data["pullRequests"]["nodes"].forEach(function processCommitReferences(commitNode) {
+
+        // Parse each associated PR
+        commitNode["commit"]["associatedPullRequests"]["nodes"].forEach(function processPullRequestReference(pr) {
+          const key = pr["closed"] ? "closed" : "open";
+
+          // If the PR already exists in the Issue, skip it
+          for (let i = 0; i < self.pullRequests[key].length; i++) {
+            if (self.pullRequests[key][i]["number"] == pr["number"]) {
+              return;
+            }
+          }
+
+          // Add the PR to the list
+          self.pullRequests[key].push(
+            new PullRequest(pr["number"], self.repository, self.owner, {
+              id: pr["id"],
+              closed: pr["closed"],
+            })
+          );
+        });
+
       });
       self._eCore.verbose("Pull Requests:");
       self._eCore.verbose(self.pullRequests);
@@ -340,88 +355,4 @@ module.exports = class Issue extends GraphQLObject {
     );
   }
 
-  // Comments ----------------------------------------------------------------------------------------------------------
-
-  /**
-   * Adds a comment to the Issue.
-   *
-   * @param {String} comment - the message to include in the comment
-   *
-   * @returns {Object<String, *>} - the full response from the GitHub REST API
-   *
-   * @public @async
-   */
-  async addComment(comment) {
-    this._debugCall("addComment", { comment: "..." });
-
-    this._eCore.verbose(comment);
-
-    return ActionContext.github.graphql(
-      `mutation AddCommentToIssue($clientID: String!, $issueID: ID!, $comment: String!) {
-        addComment(input: {
-          clientMutationId: $clientID,
-          subjectId: $issueID,
-          body: $comment
-        }) {
-          clientMutationId
-        }
-      }`,
-      {
-        clientID: crypto.randomUUID(),
-        issueID: this.id,
-        comment: comment,
-      },
-    );
-  }
-
-  /**
-   * Adds a notice-formatted comment to the Issue.
-   *
-   * @param {String} message - the message to include in the comment
-   *
-   * @returns {Object<String, *>} - the full response from the GitHub REST API
-   *
-   * @public @async
-   */
-  async addNotice(message) {
-    this._debugCall("addNotice", { message: "..." });
-
-    this._eCore.verbose(message);
-
-    return this.addComment(`## :thought_balloon: Notice\n\n${message}`);
-  }
-
-  /**
-   * Adds a warning-formatted comment to the Issue.
-   *
-   * @param {string} message - the message to include in the comment
-   *
-   * @returns {Object<string, *>} - the full response from the GitHub REST API
-   *
-   * @public @async
-   */
-  async addWarning(message) {
-    this._debugCall("addWarning", { message: "..." });
-
-    this._eCore.verbose(message);
-
-    return this.addComment(`## :warning: Warning\n\n${message}`);
-  }
-
-  /**
-   * Adds an error-formatted comment to the Issue.
-   *
-   * @param {string} message - the message to include in the comment
-   *
-   * @returns {Object<string, *>} - the full response from the GitHub REST API
-   *
-   * @public @async
-   */
-  async addError(message) {
-    this._debugCall("addError", { message: "..." });
-
-    this._eCore.verbose(message);
-
-    return this.addComment(`## :rotating_light: Error\n\n${message}`);
-  }
 };

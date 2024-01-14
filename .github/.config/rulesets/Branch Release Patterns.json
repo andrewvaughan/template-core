@@ -25,18 +25,6 @@
       "type": "update"
     },
     {
-      "type": "required_status_checks",
-      "parameters": {
-        "strict_required_status_checks_policy": true,
-        "required_status_checks": [
-          {
-            "context": "MegaLinter",
-            "integration_id": 15368
-          }
-        ]
-      }
-    },
-    {
       "type": "required_linear_history"
     },
     {
@@ -47,6 +35,18 @@
         "require_code_owner_review": true,
         "require_last_push_approval": true,
         "required_review_thread_resolution": true
+      }
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "required_status_checks": [
+          {
+            "context": "MegaLinter",
+            "integration_id": 15368
+          }
+        ]
       }
     }
   ],

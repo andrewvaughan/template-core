@@ -22,5 +22,5 @@ make dev-dependencies
 
 <!-- Link repository -->
 
-[vale-extension]: https://marketplace.visualstudio.com/items?itemName=errata-ai.vale-server
+[vale-extension]: https://marketplace.visualstudio.com/items?itemName=ChrisChinchilla.vale-vscode
 [vale-install]: https://vale.sh/docs/vale-cli/installation/

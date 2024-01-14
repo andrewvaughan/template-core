@@ -81,90 +81,14 @@ Visit the [General Settings][gh-settings] page for the Repository.
 
 Visit the [Rulesets][gh-rulesets] page for the Repository.
 
-- [ ] From the dropdown, select `New tag ruleset` with the following configuration:
+In the project, visit the [`.github/.config/rulesets`](.github/.config/rulesets) and import each of the GitHub Rulesets
+in the directory into the project:
 
-  - **Ruleset Name:** `Restrict Tag Creation`
-  - **Enforcement Status:** `Active`
-  - Click `+ Add bypass`
-    - **CHECK** `Repository Admin`
-    - **CHECK** `Maintain`
-  - Click `+ Add target`
-    - Select `Include all tags`
-  - Under **Tag protections**:
-    - **CHECK** `Restrict creations`
-
-- [ ] From the dropdown, select `New tag ruleset` with the following configuration:
-
-  - **Ruleset Name:** `Restrict Release Tags`
-  - **Enforcement Status:** `Active`
-  - Click `+ Add bypass`
-    - **CHECK** `Repository Admin`
-  - Click `+ Add target`
-    - Select `Include by pattern`
-      - **Naming Pattern:** `v*`
-  - Under **Tag protections**:
-    - **CHECK** `Restrict creations`
-    - **CHECK** `Restrict updates`
-    - **CHECK** `Require status checks to pass before merging`
-      - **CHECK** `Require branches to be up to date before merging`
-
-- [ ] Click `New branch ruleset` with the following configuration:
-
-  - **Ruleset Name:** `Restrict Branch Creation`
-  - **Enforcement Status:** `Active`
-  - Click `+ Add bypass`
-    - **CHECK** `Repository Admin`
-    - **CHECK** `Maintain`
-  - Click `+ Add target`
-    - Select `Include all branches`
-  - Under **Branch protections**:
-    - **CHECK** `Restrict creations`
-
-- [ ] Click `New branch ruleset` with the following configuration:
-
-  - **Ruleset Name:** `Environment Branch Protections`
-  - **Enforcement Status:** `Active`
-  - Click `+ Add bypass`
-    - **CHECK** `Repository Admin`
-    - **CHECK** `Maintain`
-  - Click `+ Add target`
-    - Select `Include default branch`
-  - Click `+ Add target`
-    - Select `Include by pattern`
-      - **Naming Pattern:** `staging`
-  - Click `+ Add target`
-    - Select `Include by pattern`
-      - **Naming Pattern:** `production`
-  - Under **Branch protections**:
-    - **CHECK** `Restrict creations`
-    - **CHECK** `Restrict updates`
-    - **CHECK** `Require a pull request before merging`
-      - Required approvals set to `1`
-      - **CHECK** `Dismiss stale pull request approvals when new commits are pushed`
-      - **CHECK** `Require review from Code Owners`
-      - **CHECK** `Require approval of the most recent reviewable push`
-      - **CHECK** `Require conversation resolution before merging`
-    - **CHECK** `Require status checks to pass before merging`
-      - **CHECK** `Require branches to be up to date before merging`
-      - Add **`MegaLinter`** and click the `+` button
-
-- [ ] From the dropdown, select `New branch ruleset` with the following configuration:
-
-  - **Ruleset Name:** `Restrict Release Branches`
-  - **Enforcement Status:** `Active`
-  - Click `+ Add bypass`
-    - **CHECK** `Repository Admin`
-  - Click `+ Add target`
-    - Select `Include by pattern`
-      - **Naming Pattern:** `release/*`
-    - Select `Include by pattern`
-      - **Naming Pattern:** `release/**/*`
-  - Under **Branch protections**:
-    - **CHECK** `Restrict creations`
-    - **CHECK** `Restrict updates`
-    - **CHECK** `Require status checks to pass before merging`
-      - **CHECK** `Require branches to be up to date before merging`
-      - Add **`MegaLinter`** and click the `+` button
+- [ ] Branch Common Rules
+- [ ] Branch Environment Rules
+- [ ] Branch Release Patterns
+- [ ] Tag Common Rules
+- [ ] Tag Release Patterns
 
 ### Labels
 

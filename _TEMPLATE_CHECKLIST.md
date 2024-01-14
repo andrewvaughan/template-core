@@ -81,90 +81,14 @@ Visit the [General Settings][gh-settings] page for the Repository.
 
 Visit the [Rulesets][gh-rulesets] page for the Repository.
 
-- [ ] From the dropdown, select `New tag ruleset` with the following configuration:
+In the project, visit the [`.github/.config/rulesets`](.github/.config/rulesets) and import each of the GitHub Rulesets
+in the directory into the project:
 
-  - **Ruleset Name:** `Restrict Tag Creation`
-  - **Enforcement Status:** `Active`
-  - Click `+ Add bypass`
-    - **CHECK** `Repository Admin`
-    - **CHECK** `Maintain`
-  - Click `+ Add target`
-    - Select `Include all tags`
-  - Under **Tag protections**:
-    - **CHECK** `Restrict creations`
-
-- [ ] From the dropdown, select `New tag ruleset` with the following configuration:
-
-  - **Ruleset Name:** `Restrict Release Tags`
-  - **Enforcement Status:** `Active`
-  - Click `+ Add bypass`
-    - **CHECK** `Repository Admin`
-  - Click `+ Add target`
-    - Select `Include by pattern`
-      - **Naming Pattern:** `v*`
-  - Under **Tag protections**:
-    - **CHECK** `Restrict creations`
-    - **CHECK** `Restrict updates`
-    - **CHECK** `Require status checks to pass before merging`
-      - **CHECK** `Require branches to be up to date before merging`
-
-- [ ] Click `New branch ruleset` with the following configuration:
-
-  - **Ruleset Name:** `Restrict Branch Creation`
-  - **Enforcement Status:** `Active`
-  - Click `+ Add bypass`
-    - **CHECK** `Repository Admin`
-    - **CHECK** `Maintain`
-  - Click `+ Add target`
-    - Select `Include all branches`
-  - Under **Branch protections**:
-    - **CHECK** `Restrict creations`
-
-- [ ] Click `New branch ruleset` with the following configuration:
-
-  - **Ruleset Name:** `Environment Branch Protections`
-  - **Enforcement Status:** `Active`
-  - Click `+ Add bypass`
-    - **CHECK** `Repository Admin`
-    - **CHECK** `Maintain`
-  - Click `+ Add target`
-    - Select `Include default branch`
-  - Click `+ Add target`
-    - Select `Include by pattern`
-      - **Naming Pattern:** `staging`
-  - Click `+ Add target`
-    - Select `Include by pattern`
-      - **Naming Pattern:** `production`
-  - Under **Branch protections**:
-    - **CHECK** `Restrict creations`
-    - **CHECK** `Restrict updates`
-    - **CHECK** `Require a pull request before merging`
-      - Required approvals set to `1`
-      - **CHECK** `Dismiss stale pull request approvals when new commits are pushed`
-      - **CHECK** `Require review from Code Owners`
-      - **CHECK** `Require approval of the most recent reviewable push`
-      - **CHECK** `Require conversation resolution before merging`
-    - **CHECK** `Require status checks to pass before merging`
-      - **CHECK** `Require branches to be up to date before merging`
-      - Add **`MegaLinter`** and click the `+` button
-
-- [ ] From the dropdown, select `New branch ruleset` with the following configuration:
-
-  - **Ruleset Name:** `Restrict Release Branches`
-  - **Enforcement Status:** `Active`
-  - Click `+ Add bypass`
-    - **CHECK** `Repository Admin`
-  - Click `+ Add target`
-    - Select `Include by pattern`
-      - **Naming Pattern:** `release/*`
-    - Select `Include by pattern`
-      - **Naming Pattern:** `release/**/*`
-  - Under **Branch protections**:
-    - **CHECK** `Restrict creations`
-    - **CHECK** `Restrict updates`
-    - **CHECK** `Require status checks to pass before merging`
-      - **CHECK** `Require branches to be up to date before merging`
-      - Add **`MegaLinter`** and click the `+` button
+- [ ] Branch Common Rules
+- [ ] Branch Environment Rules
+- [ ] Branch Release Patterns
+- [ ] Tag Common Rules
+- [ ] Tag Release Patterns
 
 ### Labels
 
@@ -225,7 +149,7 @@ rm LICENSE.*
 ### Permissions
 
 | License File                     | Commercial Use | Distribution | Modification | Patent Use | Private Use |
-|:---------------------------------|:--------------:|:------------:|:------------:|:----------:|:-----------:|
+| :------------------------------- | :------------: | :----------: | :----------: | :--------: | :---------: |
 | [`LICENSE.unlicense`][unlicense] |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
 | [`LICENSE.mit`][mit]             |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
 | [`LICENSE.apache`][apache2]      |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
@@ -235,7 +159,7 @@ rm LICENSE.*
 As described by:
 
 | Permission     | Description                                                               |
-|:---------------|:--------------------------------------------------------------------------|
+| :------------- | :------------------------------------------------------------------------ |
 | Commercial Use | This License grants use for commercial purpose, including derivatives     |
 | Distribution   | This License grants distribution of the licensed material                 |
 | Modification   | This Licensed grants modification rights                                  |
@@ -245,7 +169,7 @@ As described by:
 ### Conditions
 
 | License File                     | Disclose Source | License/Copyright Notice | Same License | State Changes |
-|:---------------------------------|:---------------:|:------------------------:|:------------:|:-------------:|
+| :------------------------------- | :-------------: | :----------------------: | :----------: | :-----------: |
 | [`LICENSE.unlicense`][unlicense] |        -        |            -             |      -       |       -       |
 | [`LICENSE.mit`][mit]             |        -        |           Yes            |      -       |       -       |
 | [`LICENSE.apache`][apache2]      |        -        |           Yes            |      -       |      Yes      |
@@ -257,7 +181,7 @@ As described by:
 <!-- editorconfig-checker-disable -->
 
 | Permission               | Description                                                                                                                                                          |
-|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Disclose Source          | Licensees must make source code available when distributing                                                                                                          |
 | License/Copyright Notice | Licensees must include a copy of the License and copyright notice with the material                                                                                  |
 | Same License             | Licensee must Release modifications under the same License when distributing the licensed material - in some cases the Licensee may use a similar or related License |
@@ -268,7 +192,7 @@ As described by:
 ### Limitations
 
 | License File                     | Limited Liability | No Trademark | No Warranty |
-|:---------------------------------|:-----------------:|:------------:|:-----------:|
+| :------------------------------- | :---------------: | :----------: | :---------: |
 | [`LICENSE.unlicense`][unlicense] |        Yes        |      -       |     Yes     |
 | [`LICENSE.mit`][mit]             |        Yes        |      -       |     Yes     |
 | [`LICENSE.apache`][apache2]      |        Yes        |     Yes      |     Yes     |
@@ -280,7 +204,7 @@ As described by:
 <!-- editorconfig-checker-disable -->
 
 | Permission        | Description                                                                                                                                                             |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :---------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Limited Liability | This License includes a limitation of liability                                                                                                                         |
 | No Trademark      | This License explicitly states that it doesn't grant trademark rights, even though Licenses without such a statement probably don't grant any implicit trademark rights |
 | No Warranty       | This License explicitly states that it doesn't provide any warranty                                                                                                     |
@@ -361,7 +285,7 @@ This template comes with the following standard folder structure:
 <!-- editorconfig-checker-disable -->
 
 | Folder                         | Purpose                                                                                        |
-|:-------------------------------|:-----------------------------------------------------------------------------------------------|
+| :----------------------------- | :--------------------------------------------------------------------------------------------- |
 | [.build](.build)               | All scripts and resources tied to deployment (for example, Docker Compose)                     |
 | [.config](.config)             | All configuration files for local development                                                  |
 | [.devcontainer](.devcontainer) | DevContainer configurations ([GitHub Docs][dc-gh], [VSCode Docs][dc-vsc], [Reference][dc-ref]) |

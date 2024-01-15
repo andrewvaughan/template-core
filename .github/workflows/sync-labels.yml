@@ -54,7 +54,7 @@ jobs:
 
           # If you're using a private source repo or a URL that needs an 'Authorization' header, you'll need to add a
           # custom token for the action to read it
-          # request-token: ${{ secrets.YOUR_OWN_SECRET }}
+          request-token: ${{ secrets.GITHUB_TOKEN }}
 
           # Delete any Labels that don't meet the standard
           delete-other-labels: true

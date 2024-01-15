@@ -24,6 +24,7 @@ eamodio
 ecrc
 esbenp
 Gruntfuggly
+gsed
 KICS
 linkcheckmd
 Makefiles

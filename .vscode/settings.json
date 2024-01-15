@@ -7,8 +7,6 @@
   "cSpell.diagnosticLevel": "Warning",
   "cSpell.showAutocompleteSuggestions": true,
   "cSpell.checkOnlyEnabledFileTypes": true,
-  "todo-tree.general.statusBar": "top three",
-  "todo-tree.highlights.useColourScheme": true,
   "cSpell.import": ["${workspaceFolder}/.config/linters/.cspell.json"],
 
   "color-highlight.markerType": "dot-before",
@@ -94,7 +92,9 @@
   "todo-tree.highlights.enabled": true,
   "todo-tree.filtering.ignoreGitSubmodules": true,
   "todo-tree.general.periodicRefreshInterval": 0,
+  "todo-tree.general.statusBar": "top three",
   "todo-tree.highlights.highlightDelay": 500,
+  "todo-tree.highlights.useColourScheme": true,
   "todo-tree.filtering.includeHiddenFiles": true,
   "todo-tree.tree.autoRefresh": true,
   "todo-tree.tree.disableCompactFolders": false,

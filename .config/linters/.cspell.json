@@ -13,18 +13,25 @@
     "makefile",
     "terminfo",
 
+    "en_us",
+    "en-common-misspellings",
+    "en-us-common-misspelling",
+
     "companies",
     "computing-acronyms",
     "data-science",
     "filetypes",
+    "fonts",
+    "networking-terms",
     "public-licenses",
     "softwareTerms",
     "web-services",
 
     "bash",
-    "css",
     "docker",
-    "html"
+    "git",
+    "html",
+    "npm"
   ],
 
   "dictionaryDefinitions": [

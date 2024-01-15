@@ -33,6 +33,7 @@ mdtxt
 mdwn
 minphony
 naumovs
+rgba
 rulesets
 ruleset
 SDLC

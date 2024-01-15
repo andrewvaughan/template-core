@@ -151,7 +151,7 @@ This project aims to be as agnostic as possible across all development environme
 are purposely limited to a few critical elements:
 
 | Dependency             | Purpose                                                                     |
-|:-----------------------|:----------------------------------------------------------------------------|
+| :--------------------- | :-------------------------------------------------------------------------- |
 | [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally.         |
 | [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code.       |
 | [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands.          |

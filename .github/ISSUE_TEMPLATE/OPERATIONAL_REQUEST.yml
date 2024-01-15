@@ -10,7 +10,7 @@ description: Request updates to automation, integrations, or other operational e
 
 labels:
   - "Needs Triage"
-  - "Request: Ops"
+  - "Request: Operations"
 
 assignees:
   - andrewvaughan

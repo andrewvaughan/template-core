@@ -1,5 +1,3 @@
-# kics-scan disable=555ab8f9-2001-455e-a077-f2d0f41e2fb9
-
 ##
 # MegaLinter GitHub Action configuration file.
 #
@@ -93,7 +91,7 @@ jobs:
       # @link https://github.com/actions/checkout
       #
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # @3.6.0
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
 
@@ -132,7 +130,7 @@ jobs:
         # TEMPLATE TODO - Select a more-specific MegaLinter flavor for the project and update the `uses` configuration
         # here to significantly increase GitHub Action performance.
         #
-        uses: oxsecurity/megalinter@v7
+        uses: oxsecurity/megalinter@7e042c726c68415475b05a65a686c612120a1232 # @v7.7.0
 
         ##
         # Variables are overridden on GitHub workflows for certain conditions.
@@ -179,7 +177,7 @@ jobs:
       #
       - name: Archive production artifacts
         if: success() || failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # @3.1.3
         with:
           name: MegaLinter reports
           path: |
@@ -205,7 +203,7 @@ jobs:
             github.event.pull_request.head.repo.full_name == github.repository
           ) &&
           !contains(github.event.head_commit.message, 'skip fix')
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 # @5.0.2
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
           commit-message: "[MegaLinter] Apply linters automatic fixes"
@@ -259,7 +257,7 @@ jobs:
             github.event.pull_request.head.repo.full_name == github.repository
           ) &&
           !contains(github.event.head_commit.message, 'skip fix')
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@3ea6ae190baf489ba007f7c92608f33ce20ef04a # @4.16.0
         with:
           branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
           commit_message: "[MegaLinter] Apply linters fixes"

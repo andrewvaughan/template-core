@@ -92,11 +92,11 @@ in the directory into the project:
 
 ### Labels
 
-> Work is in progress on a [workflow][issue-label-sync] to automate label syncing with the core template; however, this
-> hasn't seem implementation, yet.
->
-> In the meantime, copy all labels manually from the [`template-core`][template-core] Repository to the [Labels][labels]
-> section of this project. This may take some time.
+A manual workflow called `Sync Labels` must trigger from the GitHub Actions page for this Repository to create the
+Labels necessary for automation to function and for the Software Development Lifecycle. You must trigger this workflow
+manually.
+
+- [ ] Run the [`Sync Labels`][workflow-labels] workflow for this project
 
 ---
 
@@ -149,7 +149,7 @@ rm LICENSE.*
 ### Permissions
 
 | License File                     | Commercial Use | Distribution | Modification | Patent Use | Private Use |
-|:---------------------------------|:--------------:|:------------:|:------------:|:----------:|:-----------:|
+| :------------------------------- | :------------: | :----------: | :----------: | :--------: | :---------: |
 | [`LICENSE.unlicense`][unlicense] |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
 | [`LICENSE.mit`][mit]             |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
 | [`LICENSE.apache`][apache2]      |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
@@ -159,7 +159,7 @@ rm LICENSE.*
 As described by:
 
 | Permission     | Description                                                               |
-|:---------------|:--------------------------------------------------------------------------|
+| :------------- | :------------------------------------------------------------------------ |
 | Commercial Use | This License grants use for commercial purpose, including derivatives     |
 | Distribution   | This License grants distribution of the licensed material                 |
 | Modification   | This Licensed grants modification rights                                  |
@@ -169,7 +169,7 @@ As described by:
 ### Conditions
 
 | License File                     | Disclose Source | License/Copyright Notice | Same License | State Changes |
-|:---------------------------------|:---------------:|:------------------------:|:------------:|:-------------:|
+| :------------------------------- | :-------------: | :----------------------: | :----------: | :-----------: |
 | [`LICENSE.unlicense`][unlicense] |        -        |            -             |      -       |       -       |
 | [`LICENSE.mit`][mit]             |        -        |           Yes            |      -       |       -       |
 | [`LICENSE.apache`][apache2]      |        -        |           Yes            |      -       |      Yes      |
@@ -181,7 +181,7 @@ As described by:
 <!-- editorconfig-checker-disable -->
 
 | Permission               | Description                                                                                                                                                          |
-|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Disclose Source          | Licensees must make source code available when distributing                                                                                                          |
 | License/Copyright Notice | Licensees must include a copy of the License and copyright notice with the material                                                                                  |
 | Same License             | Licensee must Release modifications under the same License when distributing the licensed material - in some cases the Licensee may use a similar or related License |
@@ -192,7 +192,7 @@ As described by:
 ### Limitations
 
 | License File                     | Limited Liability | No Trademark | No Warranty |
-|:---------------------------------|:-----------------:|:------------:|:-----------:|
+| :------------------------------- | :---------------: | :----------: | :---------: |
 | [`LICENSE.unlicense`][unlicense] |        Yes        |      -       |     Yes     |
 | [`LICENSE.mit`][mit]             |        Yes        |      -       |     Yes     |
 | [`LICENSE.apache`][apache2]      |        Yes        |     Yes      |     Yes     |
@@ -204,7 +204,7 @@ As described by:
 <!-- editorconfig-checker-disable -->
 
 | Permission        | Description                                                                                                                                                             |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :---------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Limited Liability | This License includes a limitation of liability                                                                                                                         |
 | No Trademark      | This License explicitly states that it doesn't grant trademark rights, even though Licenses without such a statement probably don't grant any implicit trademark rights |
 | No Warranty       | This License explicitly states that it doesn't provide any warranty                                                                                                     |
@@ -285,7 +285,7 @@ This template comes with the following standard folder structure:
 <!-- editorconfig-checker-disable -->
 
 | Folder                         | Purpose                                                                                        |
-|:-------------------------------|:-----------------------------------------------------------------------------------------------|
+| :----------------------------- | :--------------------------------------------------------------------------------------------- |
 | [.build](.build)               | All scripts and resources tied to deployment (for example, Docker Compose)                     |
 | [.config](.config)             | All configuration files for local development                                                  |
 | [.devcontainer](.devcontainer) | DevContainer configurations ([GitHub Docs][dc-gh], [VSCode Docs][dc-vsc], [Reference][dc-ref]) |
@@ -309,8 +309,6 @@ This template comes with the following standard folder structure:
 [dictionary]: .config/dictionaries/project.txt
 [gpl3]: https://choosealicense.com/licenses/gpl-3.0/
 [homebrew-sed]: https://formulae.brew.sh/formula/gnu-sed
-[issue-label-sync]: https://github.com/andrewvaughan/template-core/issues/1
-[labels]: https://github.com/andrewvaughan/template-core/labels
 [license]: LICENSE
 [license-dir]: https://github.com/andrewvaughan/template-core/tree/main
 [makefile]: .config/make
@@ -328,6 +326,7 @@ This template comes with the following standard folder structure:
 [vale-vocab]: .config/linters/vale/styles/Vocab
 [vscode]: .vscode
 [vscode-docs]: https://stackoverflow.com/questions/32964920/should-i-commit-the-vscode-folder-to-source-control
+[workflow-labels]: https://github.com/andrewvaughan/template-core/actions/workflows/sync-labels.yml
 
 <!-- markdown-link-check-disable -->
 

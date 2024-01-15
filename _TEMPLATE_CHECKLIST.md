@@ -2,12 +2,12 @@
 
 When creating a new project from this template, ensure to take these steps immediately after provisioning.
 
+<!-- editorconfig-checker-disable -->
 <!-- prettier-ignore-start -->
 <!-- omit from toc -->
 ## Contents
 
 - [Template checklist](#template-checklist)
-  - [Pre-steps](#pre-steps)
   - [1. Configure GitHub Repository settings](#1-configure-github-repository-settings)
     - [General settings](#general-settings)
       - [Features](#features)
@@ -15,38 +15,24 @@ When creating a new project from this template, ensure to take these steps immed
       - [Archives](#archives)
     - [Branch and Tag protection](#branch-and-tag-protection)
     - [Labels](#labels)
-  - [2. Configure files for new project](#2-configure-files-for-new-project)
-  - [3. Select a license](#3-select-a-license)
+  - [2. Configure the Repository for `git-lfs`](#2-configure-the-repository-for-git-lfs)
+  - [3. Update all references to `template-core` to this Repository](#3-update-all-references-to-template-core-to-this-repository)
+  - [4. Configure prepared files and directories for new project](#4-configure-prepared-files-and-directories-for-new-project)
+    - [Only for Windows-only development environments](#only-for-windows-only-development-environments)
+  - [5. Select a license](#5-select-a-license)
     - [Permissions](#permissions)
     - [Conditions](#conditions)
     - [Limitations](#limitations)
-  - [4. Complete all `TEMPLATE TODO` items](#4-complete-all-template-todo-items)
-  - [5. Update files that can't include comments](#5-update-files-that-cant-include-comments)
-  - [6. Finishing up](#6-finishing-up)
+  - [6. Complete all `TEMPLATE TODO` items](#6-complete-all-template-todo-items)
+  - [7. Update files that can't include comments](#7-update-files-that-cant-include-comments)
+  - [8. Finishing up](#8-finishing-up)
   - [Next steps](#next-steps)
   - [Appendix](#appendix)
     - [Folder structure](#folder-structure)
 
 ---
 <!-- prettier-ignore-end -->
-
-## Pre-steps
-
-After checking out the new project and setting the `origin` remote for `git`, run the following command locally to
-update link targets to the new Repository instead of the original [`template-core`][template-core] Repository:
-
-> **Note** - this assumes that you are on macOS using GNU `sed` installed via [Homebrew][homebrew-sed] as `gsed`. If you
-> are running this on Linux, or otherwise have GNU `sed` installed as a default, simply replace `gsed` with `sed` below
-> prior to running this command:
-
-```sh
-REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
-  find . \( -type d -name .git -prune \) -o -type f -print0 | \
-  xargs -0 gsed -i "s@andrewvaughan/template-core@${REPO}@g"
-```
-
-For the rest of setup, refer to this - now updated - document to have accurate links to references in future steps. For
-the cleanest results, hold off on committing and pushing these changes until all steps in this file are complete.
+<!-- editorconfig-checker-enable -->
 
 ## 1. Configure GitHub Repository settings
 
@@ -98,7 +84,50 @@ manually.
 
 ---
 
-## 2. Configure files for new project
+## 2. Configure the Repository for `git-lfs`
+
+Configuring the Repository to use `git-lfs` properly will diverge the Repository and require a force-push. As such, it's
+much better to do this at the beginning of your process:
+
+- [ ] Enable `git lfs` for the project
+
+```sh
+git lfs install
+```
+
+- [ ] Migrate any existing binary files to be `lfs` supported and run garbage collection to prune the branch size
+
+> **Important!** This entirely rewrites your branch, so you must perform a force-push after these steps.
+
+```sh
+git lfs migrate import --everything --yes
+git gc --prune=now
+git push --force
+```
+
+---
+
+## 3. Update all references to `template-core` to this Repository
+
+After checking out the new project and setting the `origin` remote for `git`, run the following command locally to
+update link targets to the new Repository instead of the original [`template-core`][template-core] Repository:
+
+> **Note** - this assumes that you are on macOS using GNU `sed` installed via [Homebrew][homebrew-sed] as `gsed`. If you
+> are running this on Linux, or otherwise have GNU `sed` installed as a default, simply replace `gsed` with `sed` below
+> prior to running this command:
+
+```sh
+REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
+  find . \( -type d -name .git -prune \) -o -type f -print0 | \
+  xargs -0 gsed -i "s@andrewvaughan/template-core@${REPO}@g"
+```
+
+For the rest of setup, refer to this - now updated - document to have accurate links to references in future steps. For
+the cleanest results, hold off on committing and pushing these changes until all steps in this file are complete.
+
+---
+
+## 4. Configure prepared files and directories for new project
 
 - [ ] Add and/or remove any files or [folders](#folder-structure) that don't apply to this project
 - [ ] Remove all `.empty` files
@@ -107,21 +136,19 @@ manually.
 find . -type f -name '.empty' -delete
 ```
 
-- [ ] Enable `git lfs` for the project
+### Only for Windows-only development environments
 
-```sh
-git lfs install
-```
+- [ ] Update `.gitattributes` and `.editorconfig` file endings to `CRLF`
+- [ ] Update all files to the new file ending in Command Prompt
 
-- [ ] Migrate any existing binary files to be `lfs` supported
-
-```sh
-git lfs migrate import --everything
+```bat
+for /R %f in (.*) do UNIX2DOS %f ...
+for /R %f in (*.*) do UNIX2DOS %f ...
 ```
 
 ---
 
-## 3. Select a license
+## 5. Select a license
 
 Several [Licenses][choose-a-license] are available based on the privileges, conditions, and limitations for Licensees of
 the project. Each table lists Licenses in order from least-restrictive to most-restrictive in the sections, below.
@@ -211,7 +238,7 @@ As described by:
 
 ---
 
-## 4. Complete all `TEMPLATE TODO` items
+## 6. Complete all `TEMPLATE TODO` items
 
 Each file in the template that has particular needs after copying the template has those elements marked with a special
 `TEMPLATE TODO` comment.
@@ -229,7 +256,7 @@ Delete the `TEMPLATE TODO` comments in each file as you complete them.
 
 ---
 
-## 5. Update files that can't include comments
+## 7. Update files that can't include comments
 
 - [ ] Add necessary dictionaries for the expected languages to `.config/linters/.cspell.json`
 
@@ -246,7 +273,7 @@ make vscode
 
 ---
 
-## 6. Finishing up
+## 8. Finishing up
 
 With everything else complete, there is only one step left:
 

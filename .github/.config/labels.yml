@@ -5,7 +5,6 @@
 # @see {@link https://github.com/marketplace/actions/label-sync#config-files}
 #
 ---
-
 - name: Blocked
   color: "#B60205"
   description: This Issue is dependent on another Issue's resolution.
@@ -41,7 +40,6 @@
 - name: Stale
   color: "#ffb16f"
   description: This Issue hasn't had any activity in preceding 30 days and may close soon.
-
 
 ## REQUESTS ############################################################################################################
 
@@ -88,7 +86,6 @@
   description: A versioned release of the Project.
   aliases:
     - "Release"
-
 
 ## REJECTIONS ##########################################################################################################
 

@@ -2,55 +2,58 @@
 
 When creating a new project from this template, ensure to take these steps immediately after provisioning.
 
+<!-- editorconfig-checker-disable -->
 <!-- prettier-ignore-start -->
 <!-- omit from toc -->
 ## Contents
 
 - [Template checklist](#template-checklist)
-  - [Pre-steps](#pre-steps)
-  - [1. Configure GitHub Repository settings](#1-configure-github-repository-settings)
+  - [1. Update all references to `template-core` to this Repository](#1-update-all-references-to-template-core-to-this-repository)
+  - [2. Configure GitHub Repository settings](#2-configure-github-repository-settings)
     - [General settings](#general-settings)
       - [Features](#features)
       - [Pull Requests](#pull-requests)
       - [Archives](#archives)
     - [Branch and Tag protection](#branch-and-tag-protection)
     - [Labels](#labels)
-  - [2. Configure files for new project](#2-configure-files-for-new-project)
-  - [3. Select a license](#3-select-a-license)
+  - [3. Prepare the Repository files](#3-prepare-the-repository-files)
+    - [Only for Windows-only development environments](#only-for-windows-only-development-environments)
+  - [4. Select a license](#4-select-a-license)
     - [Permissions](#permissions)
     - [Conditions](#conditions)
     - [Limitations](#limitations)
-  - [4. Complete all `TEMPLATE TODO` items](#4-complete-all-template-todo-items)
-  - [5. Update files that can't include comments](#5-update-files-that-cant-include-comments)
-  - [6. Finishing up](#6-finishing-up)
+  - [5. Complete all `TEMPLATE TODO` items](#5-complete-all-template-todo-items)
+  - [6. Update files that can't include comments](#6-update-files-that-cant-include-comments)
+  - [7. Finishing up](#7-finishing-up)
   - [Next steps](#next-steps)
   - [Appendix](#appendix)
     - [Folder structure](#folder-structure)
 
 ---
 <!-- prettier-ignore-end -->
+<!-- editorconfig-checker-enable -->
 
-## Pre-steps
+## 1. Update all references to `template-core` to this Repository
 
 After checking out the new project and setting the `origin` remote for `git`, run the following command locally to
 update link targets to the new Repository instead of the original [`template-core`][template-core] Repository:
 
+> **Note** - this assumes that you are on macOS using GNU `sed` installed via [Homebrew][homebrew-sed] as `gsed`. If you
+> are running this on Linux, or otherwise have GNU `sed` installed as a default, simply replace `gsed` with `sed` below
+> prior to running this command:
+
 ```sh
 REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
-  sed -i "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
+  find . \( -type d -name .git -prune \) -o -type f -print0 | \
+  xargs -0 gsed -i "s@andrewvaughan/template-core@${REPO}@g"
 ```
-
-> **Note:** If on FreeBSD/macOS, install [`gnu-sed`][homebrew-sed] or use this slightly altered command, instead:
->
-> ```sh
-> REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
->   sed -i "" "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
-> ```
 
 For the rest of setup, refer to this - now updated - document to have accurate links to references in future steps. For
 the cleanest results, hold off on committing and pushing these changes until all steps in this file are complete.
 
-## 1. Configure GitHub Repository settings
+---
+
+## 2. Configure GitHub Repository settings
 
 The GitHub template system has many limitations, only copying over files and, if selected, Branches from the parent
 Repository. As such, it's important to configure the Repository to the project standard prior to modifying any of the
@@ -100,7 +103,13 @@ manually.
 
 ---
 
-## 2. Configure files for new project
+## 3. Prepare the Repository files
+
+- [ ] Enable `git lfs` for the project if it hasn't already been installed
+
+```sh
+git lfs install
+```
 
 - [ ] Add and/or remove any files or [folders](#folder-structure) that don't apply to this project
 - [ ] Remove all `.empty` files
@@ -109,21 +118,19 @@ manually.
 find . -type f -name '.empty' -delete
 ```
 
-- [ ] Enable `git lfs` for the project
+### Only for Windows-only development environments
 
-```sh
-git lfs install
-```
+- [ ] Update `.gitattributes` and `.editorconfig` file endings to `CRLF`
+- [ ] Update all files to the new file ending in Command Prompt
 
-- [ ] Migrate any existing binary files to be `lfs` supported
-
-```sh
-git lfs migrate import --everything
+```bat
+for /R %f in (.*) do UNIX2DOS %f ...
+for /R %f in (*.*) do UNIX2DOS %f ...
 ```
 
 ---
 
-## 3. Select a license
+## 4. Select a license
 
 Several [Licenses][choose-a-license] are available based on the privileges, conditions, and limitations for Licensees of
 the project. Each table lists Licenses in order from least-restrictive to most-restrictive in the sections, below.
@@ -149,7 +156,7 @@ rm LICENSE.*
 ### Permissions
 
 | License File                     | Commercial Use | Distribution | Modification | Patent Use | Private Use |
-| :------------------------------- | :------------: | :----------: | :----------: | :--------: | :---------: |
+|:---------------------------------|:--------------:|:------------:|:------------:|:----------:|:-----------:|
 | [`LICENSE.unlicense`][unlicense] |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
 | [`LICENSE.mit`][mit]             |      Yes       |     Yes      |     Yes      |     -      |     Yes     |
 | [`LICENSE.apache`][apache2]      |      Yes       |     Yes      |     Yes      |    Yes     |     Yes     |
@@ -159,7 +166,7 @@ rm LICENSE.*
 As described by:
 
 | Permission     | Description                                                               |
-| :------------- | :------------------------------------------------------------------------ |
+|:---------------|:--------------------------------------------------------------------------|
 | Commercial Use | This License grants use for commercial purpose, including derivatives     |
 | Distribution   | This License grants distribution of the licensed material                 |
 | Modification   | This Licensed grants modification rights                                  |
@@ -169,7 +176,7 @@ As described by:
 ### Conditions
 
 | License File                     | Disclose Source | License/Copyright Notice | Same License | State Changes |
-| :------------------------------- | :-------------: | :----------------------: | :----------: | :-----------: |
+|:---------------------------------|:---------------:|:------------------------:|:------------:|:-------------:|
 | [`LICENSE.unlicense`][unlicense] |        -        |            -             |      -       |       -       |
 | [`LICENSE.mit`][mit]             |        -        |           Yes            |      -       |       -       |
 | [`LICENSE.apache`][apache2]      |        -        |           Yes            |      -       |      Yes      |
@@ -181,7 +188,7 @@ As described by:
 <!-- editorconfig-checker-disable -->
 
 | Permission               | Description                                                                                                                                                          |
-| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Disclose Source          | Licensees must make source code available when distributing                                                                                                          |
 | License/Copyright Notice | Licensees must include a copy of the License and copyright notice with the material                                                                                  |
 | Same License             | Licensee must Release modifications under the same License when distributing the licensed material - in some cases the Licensee may use a similar or related License |
@@ -192,7 +199,7 @@ As described by:
 ### Limitations
 
 | License File                     | Limited Liability | No Trademark | No Warranty |
-| :------------------------------- | :---------------: | :----------: | :---------: |
+|:---------------------------------|:-----------------:|:------------:|:-----------:|
 | [`LICENSE.unlicense`][unlicense] |        Yes        |      -       |     Yes     |
 | [`LICENSE.mit`][mit]             |        Yes        |      -       |     Yes     |
 | [`LICENSE.apache`][apache2]      |        Yes        |     Yes      |     Yes     |
@@ -204,7 +211,7 @@ As described by:
 <!-- editorconfig-checker-disable -->
 
 | Permission        | Description                                                                                                                                                             |
-| :---------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Limited Liability | This License includes a limitation of liability                                                                                                                         |
 | No Trademark      | This License explicitly states that it doesn't grant trademark rights, even though Licenses without such a statement probably don't grant any implicit trademark rights |
 | No Warranty       | This License explicitly states that it doesn't provide any warranty                                                                                                     |
@@ -213,7 +220,7 @@ As described by:
 
 ---
 
-## 4. Complete all `TEMPLATE TODO` items
+## 5. Complete all `TEMPLATE TODO` items
 
 Each file in the template that has particular needs after copying the template has those elements marked with a special
 `TEMPLATE TODO` comment.
@@ -231,7 +238,7 @@ Delete the `TEMPLATE TODO` comments in each file as you complete them.
 
 ---
 
-## 5. Update files that can't include comments
+## 6. Update files that can't include comments
 
 - [ ] Add necessary dictionaries for the expected languages to `.config/linters/.cspell.json`
 
@@ -248,7 +255,7 @@ make vscode
 
 ---
 
-## 6. Finishing up
+## 7. Finishing up
 
 With everything else complete, there is only one step left:
 
@@ -285,7 +292,7 @@ This template comes with the following standard folder structure:
 <!-- editorconfig-checker-disable -->
 
 | Folder                         | Purpose                                                                                        |
-| :----------------------------- | :--------------------------------------------------------------------------------------------- |
+|:-------------------------------|:-----------------------------------------------------------------------------------------------|
 | [.build](.build)               | All scripts and resources tied to deployment (for example, Docker Compose)                     |
 | [.config](.config)             | All configuration files for local development                                                  |
 | [.devcontainer](.devcontainer) | DevContainer configurations ([GitHub Docs][dc-gh], [VSCode Docs][dc-vsc], [Reference][dc-ref]) |

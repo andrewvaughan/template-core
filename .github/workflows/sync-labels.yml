@@ -33,7 +33,7 @@ jobs:
     # @link https://docs.github.com/en/actions/security-guides/automatic-token-authentication
     #
     permissions:
-      actions: write
+      contents: read
       issues: write
 
     steps:

@@ -35,17 +35,15 @@ When creating a new project from this template, ensure to take these steps immed
 After checking out the new project and setting the `origin` remote for `git`, run the following command locally to
 update link targets to the new Repository instead of the original [`template-core`][template-core] Repository:
 
+> **Note** - this assumes that you are on macOS using GNU `sed` installed via [Homebrew][homebrew-sed] as `gsed`. If you
+> are running this on Linux, or otherwise have GNU `sed` installed as a default, simply replace `gsed` with `sed` below
+> prior to running this command:
+
 ```sh
 REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
-  sed -i "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
+  find . \( -type d -name .git -prune \) -o -type f -print0 | \
+  xargs -0 gsed -i "s@andrewvaughan/template-core@${REPO}@g"
 ```
-
-> **Note:** If on FreeBSD/macOS, install [`gnu-sed`][homebrew-sed] or use this slightly altered command, instead:
->
-> ```sh
-> REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
->   sed -i "" "s@/andrewvaughan/template-core@/${REPO}@g" _TEMPLATE_CHECKLIST.md
-> ```
 
 For the rest of setup, refer to this - now updated - document to have accurate links to references in future steps. For
 the cleanest results, hold off on committing and pushing these changes until all steps in this file are complete.

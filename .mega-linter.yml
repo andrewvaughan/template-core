@@ -136,7 +136,7 @@ SPELL_VALE_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/(Google\/.+|V
 #   - Vale style guide dependencies
 #
 # TODO Also temporarily ignores GitHub Issue templates due to problem with schema update.
-# @link https://github.com/andrewvaughan/template-core/issues/44
+# @link http://tinyurl.com/tplcore44
 #
 YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*|\.github/ISSUE_TEMPLATE/.*\.yml)
 

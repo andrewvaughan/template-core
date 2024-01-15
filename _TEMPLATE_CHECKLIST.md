@@ -92,11 +92,11 @@ in the directory into the project:
 
 ### Labels
 
-> Work is in progress on a [workflow][issue-label-sync] to automate label syncing with the core template; however, this
-> hasn't seem implementation, yet.
->
-> In the meantime, copy all labels manually from the [`template-core`][template-core] Repository to the [Labels][labels]
-> section of this project. This may take some time.
+A manual workflow called `Sync Labels` must trigger from the GitHub Actions page for this Repository to create the
+Labels necessary for automation to function and for the Software Development Lifecycle. You must trigger this workflow
+manually.
+
+- [ ] Run the [`Sync Labels`][workflow-labels] workflow for this project
 
 ---
 
@@ -328,6 +328,7 @@ This template comes with the following standard folder structure:
 [vale-vocab]: .config/linters/vale/styles/Vocab
 [vscode]: .vscode
 [vscode-docs]: https://stackoverflow.com/questions/32964920/should-i-commit-the-vscode-folder-to-source-control
+[workflow-labels]: https://github.com/andrewvaughan/template-core/actions/workflows/sync-labels.yml
 
 <!-- markdown-link-check-disable -->
 

@@ -1,0 +1,101 @@
+##
+# Label configurations used on GitHub.com as part of the Software Development Lifecycle of this project.
+#
+# @see {@link https://github.com/andrewvaughan/template-core/blob/main/.github/CONTRIBUTING.md#working-on-issues}
+# @see {@link https://github.com/marketplace/actions/label-sync#config-files}
+#
+---
+
+- name: Blocked
+  color: "#B60205"
+  description: This Issue is dependent on another Issue's resolution.
+
+- name: Help Wanted
+  color: "#66ff66"
+  description: The Project Maintainers are requesting assistance from the community to complete this Issue.
+
+- name: Needs More Info
+  color: "#ffb16f"
+  description: The Reporter must provide more information for this Issue to progress.
+  aliases:
+    - Need More Info
+
+- name: Needs Triage
+  color: "#ff00ff"
+  description: This Issue is pending initial acceptance review from the Repository's Project Maintainers.
+  aliases:
+    - triage
+
+- name: On Hold
+  color: "#ffb16f"
+  description: A Project Maintainer has placed a stop on development. See the Issue for details.
+  aliases:
+    - "Status: On Hold"
+
+- name: Pending Release Assignment
+  color: "#ff00ff"
+  description: A Project Maintainer must add this to the Roadmap by assigning a Release Milestone.
+  aliases:
+    - Needs Release Assignment
+
+- name: Stale
+  color: "#ffb16f"
+  description: This Issue hasn't had any activity in preceding 30 days and may close soon.
+
+
+## REQUESTS ############################################################################################################
+
+- name: "Request: Bug Fix"
+  color: "#ffdddd"
+  description: A preliminary report of an unintended outcome, experience, or problem with the Project.
+
+- name: "Type: Bug Fix"
+  color: "#ff7474"
+  description: A task to rectify An unintended outcome, experience, or problem with the Project.
+
+- name: "Request: Documentation"
+  color: "#fff6cc"
+  description: A preliminary request to update or create documentation and/or documentation tooling for the Project.
+
+- name: "Type: Documentation"
+  color: "#ffe67c"
+  description: A task to update or create documentation and/or documentation tooling for the Project.
+
+- name: "Request: Feature"
+  color: "#ddffd7"
+  description: A preliminary request for a new feature and/or enhancement to the capabilities of the Project.
+
+- name: "Type: Feature"
+  color: "#aaffc7"
+  description: A task to create or update a feature and/or enhancement to the existing capabilities of the Project.
+
+- name: "Request: Operations"
+  color: "#dfefff"
+  description: A preliminary request for an update to dependencies and/or other operational capabilities of the Project.
+  aliases:
+    - "Request: DevOps"
+    - "Request: Ops"
+
+- name: "Type: Operations"
+  color: "#8fe1e7"
+  description: A task to update dependencies and/or other operational capabilities of the Project.
+  aliases:
+    - "Type: DevOps"
+    - "Type: Ops"
+
+- name: "Type: Release"
+  color: "#000000"
+  description: A versioned release of the Project.
+  aliases:
+    - "Release"
+
+
+## REJECTIONS ##########################################################################################################
+
+- name: "Wontfix: Duplicate"
+  color: "#555555"
+  description: This Issue is a duplicate of another Issue. See Issue for details.
+
+- name: "Wontfix: Invalid"
+  color: "#555555"
+  description: This Issue is invalid or inappropriate. See Issue for details.

@@ -112,11 +112,14 @@ git lfs install
 ```
 
 - [ ] Add and/or remove any files or [folders](#folder-structure) that don't apply to this project
-- [ ] Remove all `.empty` files
 
-```bash
-find . -type f -name '.empty' -delete
-```
+> **Optional**
+>
+> - [ ] Remove all `.empty` files
+>
+> ```bash
+> find . -type f -name '.empty' -delete
+> ```
 
 ### Only for Windows-only development environments
 

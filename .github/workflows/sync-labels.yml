@@ -1,0 +1,77 @@
+##
+# GitHub Action that syncs labels from the parent `template-core` Repository.
+#
+# @link https://github.com/andrewvaughan/template-core/labels
+#
+---
+name: Replace GitHub Labels with Standard
+
+on:
+  # This action must trigger manually from the GitHub Actions interface
+  workflow_dispatch:
+
+##
+# All steps should have read-only access, unless explicitly given.
+#
+permissions: read-all
+
+##
+# Sync labels from `andrewvaughan/template-core` parent Repository.
+#
+# @link https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
+#
+jobs:
+  sync-labels:
+    name: Replace GitHub Labels with Standard
+    runs-on: ubuntu-latest
+
+    ##
+    # This job's `GITHUB_TOKEN` or `PAT` must have these permissions.
+    #
+    # Always aim to provide as few permissions as possible for personal access tokens.
+    #
+    # @link https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+    #
+    permissions:
+      actions: write
+      issues: write
+
+    steps:
+      ##
+      # Checkout just the label configuration from this project for the sync manager to access.
+      #
+      - name: Checkout Label configuration
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # @4.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+          sparse-checkout: |
+            .github/.config/labels.yml
+
+      ##
+      # Sync the labels from the parent Repository.
+      #
+      # @see {@link https://github.com/marketplace/actions/label-sync}
+      #
+      - name: Sync Labels
+        uses: EndBug/label-sync@da00f2c11fdb78e4fae44adac2fdd713778ea3e8 # @2.3.2
+        with:
+          # Configure from the label configuration imported from `template-core`
+          config-file: .github/.config/labels.yml
+
+          # This can also stay up to date with the `template-core` Repository Labels, but this may cause issues with
+          # automation and isn't generally recommended:
+          # source-repo: andrewvaughan/template-core
+
+          # If you're using a private source repo or a URL that needs an 'Authorization' header, you'll need to add a
+          # custom token for the action to read it
+          request-token: ${{ secrets.GITHUB_TOKEN }}
+
+          # Delete any Labels that don't meet the standard
+          delete-other-labels: true
+
+          # Available for dry-run testing, if needed
+          # dry-run: true
+
+          # By default, this uses the user's `GITHUB_TOKEN`, but any PAT can live here with appropriate permissions
+          token: ${{ secrets.GITHUB_TOKEN }}

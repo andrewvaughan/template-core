@@ -130,7 +130,7 @@ jobs:
         # TEMPLATE TODO - Select a more-specific MegaLinter flavor for the project and update the `uses` configuration
         # here to significantly increase GitHub Action performance.
         #
-        uses: oxsecurity/megalinter@7e042c726c68415475b05a65a686c612120a1232 # @v7.7.0
+        uses: oxsecurity/megalinter@688bc7466d7ab4faa83d614c2e6f9acf42b674dc # @v7.8.0
 
         ##
         # Variables are overridden on GitHub workflows for certain conditions.

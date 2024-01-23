@@ -7,7 +7,7 @@
 <div align="center">
   <a href="https://github.com/andrewvaughan/template-core" target="blank" title="New Project Template">
     <!-- markdown-link-check-disable-next-line -->
-    <img src="docs/img/readme-banner-1896x498.svg" alt="New Project Template" min-height="200px" />
+    <img src="docs/img/readme-banner-1897x499.png" alt="New Project Template" min-height="200px" />
   </a>
 </div>
 <!-- editorconfig-checker-enable -->
@@ -151,7 +151,7 @@ This project aims to be as agnostic as possible across all development environme
 are purposely limited to a few critical elements:
 
 | Dependency             | Purpose                                                                     |
-| :--------------------- | :-------------------------------------------------------------------------- |
+|:-----------------------|:----------------------------------------------------------------------------|
 | [act][inst-act]        | Allows for running the project's GitHub [actions][actions] locally.         |
 | [Docker][inst-docker]  | Virtualization platform used for testing, running, and building code.       |
 | [GNU Make][inst-make]  | Primary tool for executing test, build, clean, and other commands.          |

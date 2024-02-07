@@ -7,7 +7,11 @@
 <div align="center">
   <a href="https://github.com/andrewvaughan/template-core" target="blank" title="New Project Template">
     <!-- markdown-link-check-disable-next-line -->
-    <img src="docs/img/readme-banner-1897x499.png" alt="New Project Template" min-height="200px" />
+    <img
+      src="https://media.githubusercontent.com/media/andrewvaughan/template-assets/main/png/readme/template-banner-1897x499.png"
+      alt="New Project Template"
+      min-height="200px"
+    />
   </a>
 </div>
 <!-- editorconfig-checker-enable -->

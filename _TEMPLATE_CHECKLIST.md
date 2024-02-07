@@ -276,7 +276,7 @@ Once you have refined the template project for its purpose, the following steps 
 2. Prepare the [`.vscode`][vscode] folder, as [described here][vscode-docs]
 3. Prepare the [`.devcontainer`][devcontainer] folder, as [described here][devcontainer-docs]
 4. Update the `all`, `build`, and `test-unit` targets in the [Makefile folder][makefile]
-5. Add any specific dictionary configurations to [`.config/dictionaries/project.txt`][dictionary] and [`.config/linters/vale/styles/Vocab/`][vale-vocab]
+5. Add any specific dictionary configurations to [`.config/dictionaries/project.txt`][dictionary] and [`.config/linters/vale/config/vocabularies/`][vale-vocab]
 6. Customize the [Issue][tpl-issue] and [Pull Request][tpl-pr] templates
 
 <!-- editorconfig-checker-enable -->

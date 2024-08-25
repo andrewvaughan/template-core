@@ -41,7 +41,7 @@ jobs:
       # Checkout just the label configuration from this project for the sync manager to access.
       #
       - name: Checkout Label configuration
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # @4.1.1
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #@v4.1.7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 1
@@ -54,7 +54,7 @@ jobs:
       # @see {@link https://github.com/marketplace/actions/label-sync}
       #
       - name: Sync Labels
-        uses: EndBug/label-sync@da00f2c11fdb78e4fae44adac2fdd713778ea3e8 # @2.3.2
+        uses: EndBug/label-sync@52074158190acb45f3077f9099fea818aa43f97a # @v2.3.3
         with:
           # Configure from the label configuration imported from `template-core`
           config-file: .github/.config/labels.yml

@@ -19,7 +19,7 @@ Chiberia
 CODEOWNERS
 davidanson
 devcontainer
-DevSkim
+DEVSKIM
 eamodio
 ecrc
 esbenp

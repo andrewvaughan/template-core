@@ -568,7 +568,7 @@ quite trivial by reading code and proper comments.
 As such, details about _how_ a change occurred **should 't** take up space in the Primary Commit Message body. Instead,
 write code in a way that's clear, self-explanatory, or otherwise documented _in the project,_ not the commit.
 
-The commit body **should** focus on making clear the reasons as to why changes ocurred in the first place, the way
+The commit body **should** focus on making clear the reasons as to why changes occurred in the first place, the way
 things worked before the change, why that needed changing, the way they work now, and why the Contributor decided to
 solve it the way they did.
 

@@ -333,7 +333,7 @@ This template comes with the following standard folder structure:
 [tests]: tests
 [tpl-issue]: .github/ISSUE_TEMPLATE
 [tpl-pr]: .github/PULL_REQUEST_TEMPLATE
-[vale-vocab]: .config/linters/vale/styles/Vocab
+[vale-vocab]: .config/linters/vale/styles/config/vocabularies
 [vscode]: .vscode
 [vscode-docs]: https://stackoverflow.com/questions/32964920/should-i-commit-the-vscode-folder-to-source-control
 [workflow-labels]: https://github.com/andrewvaughan/template-core/actions/workflows/sync-labels.yml

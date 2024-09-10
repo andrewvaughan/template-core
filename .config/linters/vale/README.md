@@ -3,7 +3,7 @@
 Vale is a prose linter that ensures that these projects have easy-to-read, well executed documentation. While the
 Project Maintainers recommend linting all files, currently, linting only occurs on documentation files such as Markdown.
 
-## Installing Vale locally
+## Installing vale locally
 
 Vale has detailed [installation instructions][vale-install] for any platform. The Project Maintainers also recommend
 installing the [Vale extension][vale-extension] for VSCode, this project's preferred IDE, which helps to improve more

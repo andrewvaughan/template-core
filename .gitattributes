@@ -16,7 +16,7 @@
 # handles all files not defined below.
 #
 
-* text=auto
+* text=auto eol=lf
 
 
 ##

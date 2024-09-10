@@ -1,5 +1,5 @@
 ##
-# Vale special words dictionary rejections.
+# Vale special words formatting dictionary. This isn't intended for spell-checking, but for formatting.
 #
 # This file defines unacceptable words and phrases for this specific project. Add common operational phrases to the
 # parallel `Ops` vocabulary folder, reserving this file for project-specific phrases.

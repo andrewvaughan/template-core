@@ -1,9 +1,8 @@
 ##
-# Vale special words dictionary.
+# Vale special words formatting dictionary. This isn't intended for spell-checking, but for formatting.
 #
-# This file defines acceptable words and phrases for common projects. This file is specifically setup for common
-# operations and templates. Add specific project phrases to the parallel `Project` vocabulary folder, reserving this
-# file for phrases common to all projects and the core template set.
+# This file defines acceptable words and phrases common to all projects. Add specific project phrases to the parallel
+# `Project` vocabulary folder, reserving this file for phrases common to all projects and the core template set.
 #
 # @link https://vale.sh/docs/topics/vocab/
 #
@@ -60,8 +59,8 @@ Hot-Fixes
 ID
 In Progress
 in progress
-Issue
-Issues
+[Ii]ssue
+[Ii]ssues
 Keeping Infrastructure as Code Secure
 KICS
 LFS
@@ -86,16 +85,13 @@ Project Maintainers
 Pull Request
 Pull Requests
 Primary Commit Message
-Release
-Released
+[Rr]elease
 Releases
 Repository
 Reviewer
 Rubber Duck Debugging
-Ruleset
-ruleset
-Rulesets
-rulesets
+[Rr]uleset
+[Rr]ulesets
 SASS
 SCSS
 SDLC
@@ -113,7 +109,6 @@ Vale
 VSCode
 Wontfix
 X-Y Problem
-
 
 ##
 # TODO - Remove this group when this Issue resolves and URLs are no longer linted:

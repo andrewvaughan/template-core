@@ -22,7 +22,7 @@ interested in participating in the community, regardless of intent or purpose.
 
 ## GitHub issues
 
-The project's [GitHub issues][gh-issues] are separated into these categories:
+The project organizes [GitHub issues][gh-issues] into these categories:
 
 - [Bug reports][issue-bug]
 - [Feature requests][issue-feature]
@@ -32,7 +32,7 @@ The project's [GitHub issues][gh-issues] are separated into these categories:
 
 ## GitHub Discussions
 
-The project's [GitHub discussions][gh-discussions] are separated into these categories:
+The project organizes [GitHub Discussions][gh-discussions] into these categories:
 
 - [Support requests][disc-support]
 - [Ideas][disc-ideas]
@@ -41,8 +41,8 @@ The project's [GitHub discussions][gh-discussions] are separated into these cate
 
 ## Discord
 
-The project's maintainers welcome everyone to join the [Chiberia Projects Discord][discord] - Chiberia being one of
-Andrew's online handles.
+This project welcomes everyone to join the [Chiberia Projects Discord][discord] - Chiberia being one of Andrew's online
+handles.
 
 Whether you have interest in contributing, need support, or are just looking for a fun community to be a part of, this
 is a great way to have live conversations with community members.

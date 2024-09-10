@@ -42,6 +42,7 @@ when first working with this community's projects.
     - [Semantic Versioning](#semantic-versioning)
   - [Hot-Fixes and critical Releases](#hot-fixes-and-critical-releases)
   - [Standards subject to change](#standards-subject-to-change)
+    - [:candy:](#candy)
 
 ---
 <!-- prettier-ignore-end -->
@@ -606,16 +607,12 @@ Date:   Fri Aug 1 22:57:55 2014 +0200
 
 #### Signed commits
 
-While [signed commits][sign-commits] aren't currently required, unsigned commits are considered deprecated. A
-requirement for signed commits is expected to be in place by mid-2024.
-
-It's possible that Project Maintainers _may_ have to squash unverified commits into verified commits during this
-transition to meet new project standards. If you use unsigned commits, this means you may potentially lose your
-contribution tracking and reflection on your GitHub profile for this work.
+Contributors must [sign all commits][sign-commits] for acceptance to this Repository. This requirement is for both
+security and to maintain your contribution tracking within the GitHub ecosystem.
 
 As such, the Project Maintainers **highly** recommend that you configure your development environment for commit signing
 before contributing to secure your contributions across all of your projects and to prevent disruption to your workflow
-when this new requirement comes into effect. More information on how to do this can be found, here:
+when this new requirement comes into effect. You can find more information on this, here:
 
 <https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits>
 
@@ -640,12 +637,12 @@ in the Branch for that Issue.
 
 Unlike [`main`][branch-main] Branch commits, the entire end-to-end codebase **must** be fully linted and tested any time
 a [`staging`][branch-staging] or [`production`][branch-production] Branch Pull Request occurs. While rare,
-occasionally, Issues occur in these end-to-end tests that do not appear in earlier testing phases.
+occasionally, Issues occur in these end-to-end tests that don't appear in earlier testing phases.
 
 Code Review of the Pull Request **should** focus on user acceptance testing and ensuring that the project works as
 expected. When Project Maintainers accept such a Pull Request, a rebase strategy **must** happen when merging the two
-Branches. It's critical that Project Maintainers use a rebase strategy in order to retain the changelog from commit
-messages in chronological order.
+Branches. It's critical that Project Maintainers use a rebase strategy to retain the changelog from commit messages in
+chronological order.
 
 Once a Release completes, all Issues that were within scope of the Release **must** move to the `Status: 06-Released`
 state by changing those Issues' labels.
@@ -685,7 +682,7 @@ have minimal lifecycle impact for Contributors, requiring them only to rebase th
 a Pull Request, which is a normal development procedure, as described in the preceding Software Development Lifecycle.
 
 Hot-Fixes have a significant opportunity for risk and often impact development teams negatively. As such, they're
-limited in their use, often to only major security, performance, and functionality concerns.
+limited in their use, often to only major security, performance, and capability concerns.
 
 ---
 
@@ -714,7 +711,9 @@ Contributing Guidelines in full. To show that you are one of these rare people, 
 your Issues and Pull Requests with the code `:candy:`.
 
 <!-- omit from toc -->
-### :candy
+<!-- vale off -->
+### :candy:
+<!-- vale on -->
 
 <!-- prettier-ignore-end -->
 

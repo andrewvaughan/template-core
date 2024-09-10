@@ -11,7 +11,7 @@ interested in participating in the community, regardless of intent or purpose.
 ## Contents
 
 - [Support Policy](#support-policy)
-  - [GitHub Issues](#github-issues)
+  - [GitHub issues](#github-issues)
   - [GitHub Discussions](#github-discussions)
   - [Discord](#discord)
   - [Other topics](#other-topics)
@@ -20,7 +20,9 @@ interested in participating in the community, regardless of intent or purpose.
 ---
 <!-- prettier-ignore-end -->
 
-## [GitHub Issues][gh-issues]
+## GitHub issues
+
+The project organizes [GitHub issues][gh-issues] into these categories:
 
 - [Bug reports][issue-bug]
 - [Feature requests][issue-feature]
@@ -28,14 +30,16 @@ interested in participating in the community, regardless of intent or purpose.
 - [Operational requests][issue-ops]
 - [Security vulnerability reports][issue-security]
 
-## [GitHub Discussions][gh-discussions]
+## GitHub Discussions
+
+The project organizes [GitHub Discussions][gh-discussions] into these categories:
 
 - [Support requests][disc-support]
 - [Ideas][disc-ideas]
 - [Announcements][disc-announce] and [polls][disc-polls]
 - [General conversation][disc-general]
 
-## [Discord][discord]
+## Discord
 
 This project welcomes everyone to join the [Chiberia Projects Discord][discord] - Chiberia being one of Andrew's online
 handles.

@@ -2,7 +2,7 @@
   "aliveStatusCodes": [200, 203, 206],
   "retryOn429": true,
   "retryCount": 2,
-  "timeout": "5s",
+  "timeout": "20s",
 
   "ignorePatterns": [
     {

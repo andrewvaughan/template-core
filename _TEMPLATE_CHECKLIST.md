@@ -18,7 +18,7 @@ When creating a new project from this template, ensure to take these steps immed
     - [Labels](#labels)
   - [3. Prepare the Repository files](#3-prepare-the-repository-files)
     - [Only for Windows-only development environments](#only-for-windows-only-development-environments)
-  - [4. Select a license](#4-select-a-license)
+  - [4. Select a License](#4-select-a-license)
     - [Permissions](#permissions)
     - [Conditions](#conditions)
     - [Limitations](#limitations)
@@ -105,7 +105,7 @@ manually.
 
 ## 3. Prepare the Repository files
 
-- [ ] Enable `git lfs` for the project if it hasn't already been installed
+- [ ] Enable `git lfs` for the project if, not already installed
 
 ```sh
 git lfs install
@@ -133,7 +133,7 @@ for /R %f in (*.*) do UNIX2DOS %f ...
 
 ---
 
-## 4. Select a license
+## 4. Select a License
 
 Several [Licenses][choose-a-license] are available based on the privileges, conditions, and limitations for Licensees of
 the project. Each table lists Licenses in order from least-restrictive to most-restrictive in the sections, below.
@@ -333,7 +333,7 @@ This template comes with the following standard folder structure:
 [tests]: tests
 [tpl-issue]: .github/ISSUE_TEMPLATE
 [tpl-pr]: .github/PULL_REQUEST_TEMPLATE
-[vale-vocab]: .config/linters/vale/styles/Vocab
+[vale-vocab]: .config/linters/vale/styles/config/vocabularies
 [vscode]: .vscode
 [vscode-docs]: https://stackoverflow.com/questions/32964920/should-i-commit-the-vscode-folder-to-source-control
 [workflow-labels]: https://github.com/andrewvaughan/template-core/actions/workflows/sync-labels.yml

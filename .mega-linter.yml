@@ -17,6 +17,12 @@ APPLY_FIXES: all
 #
 DISABLE_LINTERS:
   ##
+  # Per Megalinter staff, DevSkim doesn't provide significant value and can be very problematic.
+  #
+  # @see {@link https://github.com/oxsecurity/megalinter/issues/3017}
+  - REPOSITORY_DEVSKIM
+
+  ##
   # Lychee is _extremely_ slow right now, and Markdown link checking occurs with other linters. Consider the usefulness
   # of dead hyper link checking in code comments before re-enabling.
   #
@@ -43,14 +49,6 @@ IGNORE_GITIGNORED_FILES: true
 # The project moves linting configurations out of the project root to reduce root file bloat.
 #
 LINTER_RULES_PATH: .config/linters
-
-##
-# TODO Manually adds a safe directory as this doesn't seem to run in this configuration.
-# @link https://github.com/oxsecurity/megalinter/issues/3017
-#
-PRE_COMMANDS:
-  - command: git config --global --add safe.directory $PWD
-    cwd: "workspace"
 
 ##
 # Avoid unnecessary text output in logs.
@@ -86,14 +84,6 @@ MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
 #   - Vale style guide dependencies
 #
 MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*)
-
-##
-# Prevent DevSkim from reacting to other linters/utilities that may also need to configure sensitive areas.
-#
-# TODO This is a temporary fix until MegaLinter resolves this as default.
-# @link https://github.com/oxsecurity/megalinter/issues/3017
-#
-REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"]
 
 ##
 # MegaLinter doesn't lint code by default, rather limiting linting to `.md` and `.rst` files. These configurations add

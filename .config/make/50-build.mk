@@ -31,6 +31,8 @@ dev-dependencies:
 
 	$(call _header, Updating prose style guide)
 	echo
-	rm -rf .config/linters/vale/styles/Google
+
+	# Update Vale linter base styles
 	$(NPX) vale sync
+
 	echo

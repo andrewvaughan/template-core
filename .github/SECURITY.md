@@ -80,7 +80,7 @@ For more information on CVD, please review the information provided in the follo
 <!-- editorconfig-checker-disable -->
 
 [advisory]: https://github.com/andrewvaughan/template-core/security/advisories/new
-[CERT-guide]: https://resources.sei.cmu.edu/asset_files/SpecialReport/2017_003_001_503340.pdf
+[CERT-guide]: https://insights.sei.cmu.edu/documents/1945/2017_003_001_503340.pdf
 [ISO-29147]: https://www.iso.org/standard/72311.html
 [MITRE-definition]: https://www.cve.org/ResourcesSupport/AllResources/CNARules#section_7-1_what_is_a_vulnerability
 [MITRE-rules]: https://www.cve.org/ResourcesSupport/AllResources/CNARules

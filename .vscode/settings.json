@@ -68,15 +68,6 @@
     "!**/.config/linters/vale/styles"
   ],
 
-  "MS-CST-E.vscode-devskim.rules.enableCriticalSeverityRules": true,
-  "MS-CST-E.vscode-devskim.rules.enableImportantSeverityRules": true,
-  "MS-CST-E.vscode-devskim.rules.enableModerateSeverityRules": true,
-  "MS-CST-E.vscode-devskim.rules.enableHighConfidenceRules": true,
-  "MS-CST-E.vscode-devskim.rules.enableMediumConfidenceRules": true,
-  "MS-CST-E.vscode-devskim.rules.enableLowConfidenceRules": false,
-  "MS-CST-E.vscode-devskim.rules.enableManualReviewSeverityRules": false,
-  "MS-CST-E.vscode-devskim.rules.enableBestPracticeSeverityRules": false,
-
   "prettier.configPath": ".config/linters/.prettierrc.json",
   "prettier.embeddedLanguageFormatting": "auto",
   "prettier.enable": true,

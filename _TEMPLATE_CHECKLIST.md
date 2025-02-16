@@ -43,7 +43,7 @@ update link targets to the new Repository instead of the original [`template-cor
 > prior to running this command:
 
 ```sh
-REPO=$(sed -E 's@.*github\.com:(.+)\.git$@\1@g' <(git ls-remote --get-url origin)); \
+REPO=$(sed -E 's@.*:(.+)(\.git)?$@\1@g' <(git ls-remote --get-url origin)); \
   find . \( -type d -name .git -prune \) -o -type f -print0 | \
   xargs -0 gsed -i "s@andrewvaughan/template-core@${REPO}@g"
 ```

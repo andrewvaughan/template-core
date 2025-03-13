@@ -139,7 +139,7 @@ For more information, see the [Development Container `README.md`][devcontainer-r
 
 #### Recommended development environment
 
-The Project Maintainers recommend that [Visual Studio Code][vs-code] and [Docker][docker] be used as the underlying
+The Project Maintainers recommend that [Visual Studio Code][vs-code] and [Docker][docker] are the underlying
 environment for the Development Container. Further, only *nix-based systems (for example, Linux, macOS) are formally
 supported for development with this project. Issues with Windows development environments isn't supported by Project
 Maintainers.
@@ -228,6 +228,6 @@ The [LICENSE][license] file contains the full text of this project's License.
 [release-tags]: https://github.com/andrewvaughan/template-core/tags
 [sdlc]: .github/CONTRIBUTING.md#software-development-lifecycle
 [support]: .github/SUPPORT.md
-[vs-code]: https://code.visualstudio.com/
+[vs-code]: https://code.visualstudio.com
 
 <!-- editorconfig-checker-enable -->

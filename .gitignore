@@ -31,7 +31,7 @@ megalinter-reports/
 # This is an exception to the IDE rules in the preceding description, as VSCode is the formally supported IDE for this
 # project, and certain configurations are available to best support the project's Software Development Lifecycle.
 #
-# @link https://code.visualstudio.com/
+# @link https://code.visualstudio.com
 #
 .vscode/**/*
 !.vscode/extensions.json

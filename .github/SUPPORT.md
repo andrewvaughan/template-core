@@ -19,7 +19,9 @@ interested in participating in the community, regardless of intent or purpose.
 ---
 <!-- prettier-ignore-end -->
 
-## [GitHub Issues][gh-issues]
+## GitHub Issues
+
+[GitHub][gh-issues] is the source of truth for all Issues.
 
 - [Bug reports][issue-bug]
 - [Feature requests][issue-feature]
@@ -27,14 +29,16 @@ interested in participating in the community, regardless of intent or purpose.
 - [Operational requests][issue-ops]
 - [Security vulnerability reports][issue-security]
 
-## [GitHub Discussions][gh-discussions]
+## GitHub Discussions
+
+[GitHub][gh-discussions] is the source of truth for all Discussions.
 
 - [Support requests][disc-support]
 - [Ideas][disc-ideas]
 - [Announcements][disc-announce] and [polls][disc-polls]
 - [General conversation][disc-general]
 
-## [Discord][discord]
+## Discord
 
 This project welcomes everyone to join the [Chiberia Projects Discord][discord] - Chiberia being one of Andrew's online
 handles.

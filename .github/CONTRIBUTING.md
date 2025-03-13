@@ -23,7 +23,7 @@ when first working with this community's projects.
       - [Reporting a security vulnerability](#reporting-a-security-vulnerability)
     - [Submit an idea](#submit-an-idea)
     - [Support, questions, and forums](#support-questions-and-forums)
-  - [Working on issues](#working-on-issues)
+  - [Working on Issues](#working-on-issues)
     - [Software Development Lifecycle](#software-development-lifecycle)
       - [`Status: 01-Pending Initiation`](#status-01-pending-initiation)
       - [`Status: 02-In Progress`](#status-02-in-progress)
@@ -209,15 +209,15 @@ participating in any Discussions.
 
 ---
 
-## Working on issues
+## Working on Issues
 
 The [GitHub Issues][issues] section manages the project's bugs, features, and formal efforts. It's here that Project
 Maintainers determine which Issues are road-mapped and plan [Project Milestones][milestones] accordingly.
 
 ### Software Development Lifecycle
 
-All contributions to the project **must** follow this Software Development Lifecycle (SDLC). Six (6) distinct phases
-make up the SDLC, with each state represented by a different `Status` label that matches one of the following:
+All contributions to the project **must** follow this Software Development Lifecycle, or SDLC. Six distinct phases make
+up the SDLC, with each state represented by a different `Status` label that matches one of the following:
 
 #### `Status: 01-Pending Initiation`
 
@@ -510,7 +510,7 @@ Issue, if ever required.
 
 ##### Commit message title
 
-The commit message title of all Primary Commit Messages messages **must** follow this format to both trigger automation
+The commit message title of all Primary Commit Messages **must** follow this format to both trigger automation
 workflows and to ensure proper changelog generation:
 
 ```text
@@ -537,7 +537,7 @@ The total size of the commit message title **should** be fewer than 50 character
 characters.
 
 Commits **may** close multiple Issues in the format `(closes #42, closes #43, ...)`, but only if they're duplicate in
-effort or if another issue becomes obsolete with the given change. Pull Requests **must not** contain multiple
+effort or if another Issue becomes obsolete with the given change. Pull Requests **must not** contain multiple
 capabilities or Issue resolutions. Project Maintainers never accept Pull Requests with multiple features or fixes.
 
 No other commit within a Pull Request may use the `closes` control word except for the Primary Commit Message. A
@@ -570,7 +570,7 @@ quite trivial by reading code and proper comments.
 As such, details about _how_ a change occurred **should 't** take up space in the Primary Commit Message body. Instead,
 write code in a way that's clear, self-explanatory, or otherwise documented _in the project,_ not the commit.
 
-The commit body **should** focus on making clear the reasons as to why changes ocurred in the first place, the way
+The commit body **should** focus on making clear the reasons as to why changes occurred in the first place, the way
 things worked before the change, why that needed changing, the way they work now, and why the Contributor decided to
 solve it the way they did.
 
@@ -608,8 +608,7 @@ Date:   Fri Aug 1 22:57:55 2014 +0200
 
 #### Signed commits
 
-While [signed commits][sign-commits] aren't currently required, unsigned commits are considered deprecated. A
-requirement for signed commits is expected to be in place by mid-2024.
+You are required to [signed all commits][sign-commits] for acceptance into this Repository.
 
 It's possible that Project Maintainers _may_ have to squash unverified commits into verified commits during this
 transition to meet new project standards. If you use unsigned commits, this means you may potentially lose your
@@ -617,7 +616,7 @@ contribution tracking and reflection on your GitHub profile for this work.
 
 As such, the Project Maintainers **highly** recommend that you configure your development environment for commit signing
 before contributing to secure your contributions across all of your projects and to prevent disruption to your workflow
-when this new requirement comes into effect. More information on how to do this can be found, here:
+when this new requirement comes into effect. More information on how to do this, here:
 
 <https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits>
 
@@ -630,14 +629,14 @@ version number and a respective Milestone. The Milestones act as groups of Issue
 Milestone is complete, Project Maintainers create a new Release in the project's [Releases][releases] section.
 
 A Pull Request from the [`main`][branch-main] Branch to the [`staging`][branch-staging] Branch is the primary mechanism
-for executing a pre-release, whether that's considered a `beta` Release depends on the project.
+for executing a pre-Release, whether that's considered a `beta` Release depends on the project.
 
 A Pull Request from the [`staging`][branch-staging] Branch - or the [`main`][branch-main] Branch, if no `staging`
 environment is in use - to the [`production`][branch-production] Branch is the primary mechanism for executing a
 `production` Release for every project.
 
 Release Pull Requests **must** have a matching Issue created explicitly for tracking the Release and **must** have the
-label `Type: Release`. Any changes specific to the release process - for example, updating version badges - must occur
+label `Type: Release`. Any changes specific to the Release process - for example, updating version badges - must occur
 in the Branch for that Issue.
 
 Unlike [`main`][branch-main] Branch commits, the entire end-to-end codebase **must** be fully linted and tested any time
@@ -646,8 +645,8 @@ occasionally, Issues occur in these end-to-end tests that do not appear in earli
 
 Code Review of the Pull Request **should** focus on user acceptance testing and ensuring that the project works as
 expected. When Project Maintainers accept such a Pull Request, a rebase strategy **must** happen when merging the two
-Branches. It's critical that Project Maintainers use a rebase strategy in order to retain the changelog from commit
-messages in chronological order.
+Branches. It's critical that Project Maintainers use a rebase strategy to retain the changelog from commit messages in
+chronological order.
 
 Once a Release completes, all Issues that were within scope of the Release **must** move to the `Status: 06-Released`
 state by changing those Issues' labels.
@@ -687,7 +686,7 @@ have minimal lifecycle impact for Contributors, requiring them only to rebase th
 a Pull Request, which is a normal development procedure, as described in the preceding Software Development Lifecycle.
 
 Hot-Fixes have a significant opportunity for risk and often impact development teams negatively. As such, they're
-limited in their use, often to only major security, performance, and functionality concerns.
+limited in their use, often to only major security, performance, and capability concerns.
 
 ---
 
@@ -716,7 +715,7 @@ Contributing Guidelines in full. To show that you are one of these rare people, 
 your Issues and Pull Requests with the code `:candy:`.
 
 <!-- omit from toc -->
-### :candy
+:candy:
 
 <!-- prettier-ignore-end -->
 

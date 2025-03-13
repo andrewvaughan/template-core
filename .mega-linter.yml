@@ -1,26 +1,31 @@
 ##
 # Configuration file for MegaLinter.
 #
-# @link https://megalinter.io/configuration/
+# @link https://megalinter.io/latest/configuration/
 #
-
+---
 ##
 # Linters that support fixing in-place do so within the commit.
 #
 # When applying basic fixes, this doesn't create another Pull Request or commit - MegaLinter fixes small changes
 # in-place during testing. Modify this in the `.github/workflows/.mega-linter.yml` configuration, if needed.
 #
-APPLY_FIXES: all
+APPLY_FIXES: "all"
+
+##
+# Clear the `megalinter-reports` folder before each run.
+#
+CLEAR_REPORT_FOLDER: true
 
 ##
 # Never run these linters, regardless of flavor or configuration.
 #
-DISABLE_LINTERS:
-  ##
-  # Lychee is _extremely_ slow right now, and Markdown link checking occurs with other linters. Consider the usefulness
-  # of dead hyper link checking in code comments before re-enabling.
-  #
-  - SPELL_LYCHEE
+# DISABLE_LINTERS:
+##
+# Lychee is _extremely_ slow right now, and Markdown link checking occurs with other linters. Consider the usefulness
+# of dead hyper link checking in code comments before re-enabling.
+#
+#   - SPELL_LYCHEE
 
 ##
 # Don't create public reports on file.io.
@@ -40,17 +45,25 @@ FLAVOR_SUGGESTIONS: true
 IGNORE_GITIGNORED_FILES: true
 
 ##
-# The project moves linting configurations out of the project root to reduce root file bloat.
+# For Javascript / Typescript projects, use the Prettier style.
 #
-LINTER_RULES_PATH: .config/linters
+JAVASCRIPT_DEFAULT_STYLE: "prettier"
+TYPESCRIPT_DEFAULT_STYLE: "prettier"
 
 ##
-# TODO Manually adds a safe directory as this doesn't seem to run in this configuration.
-# @link https://github.com/oxsecurity/megalinter/issues/3017
+# The project moves linting configurations out of the project root to reduce root file bloat.
 #
-PRE_COMMANDS:
-  - command: git config --global --add safe.directory $PWD
-    cwd: "workspace"
+LINTER_RULES_PATH: ".config/linters"
+
+##
+# Use markdownlint styling instead of remark.
+#
+MARKDOWN_DEFAULT_STYLE: "markdownlint"
+
+##
+# Run linters in parallel for performance.
+#
+PARALLEL: true
 
 ##
 # Avoid unnecessary text output in logs.
@@ -69,58 +82,26 @@ SHOW_ELAPSED_TIME: true
 #
 SHOW_SKIPPED_LINTERS: true
 
+##
+# To speed up development, only validate changed files. Pull Requests still check all files.
+#
+VALIDATE_ALL_CODEBASE: false
+
 ## ---------------------------------------------------------------------------------------------------------------------
 # Linter configurations.
 #
+
+##
+# The default Editor Config Checker filename has changed from the Megalinter default.
+#
+EDITORCONFIG_EDITORCONFIG_CHECKER_CONFIG_FILE: ".editorconfig-checker.json"
 
 ##
 # TODO Manually include `*.mk` files, as Checkmake doesn't currently support includes.
 # @link https://github.com/mrtazz/checkmake/issues/97
 #
 MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
-  - .mk
-
-##
-# File ignore patterns for MarkdownLint.
-#
-#   - Vale style guide dependencies
-#
-MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*)
-
-##
-# Prevent DevSkim from reacting to other linters/utilities that may also need to configure sensitive areas.
-#
-# TODO This is a temporary fix until MegaLinter resolves this as default.
-# @link https://github.com/oxsecurity/megalinter/issues/3017
-#
-REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"]
-
-##
-# MegaLinter doesn't lint code by default, rather limiting linting to `.md` and `.rst` files. These configurations add
-# certain file extensions, some of which are natively supported, and others have their mapping in the `vale.ini` file.
-#
-# > Note, YAML is explicitly not supported as many project benefit from having in-editor prose linting of content
-# > blocks, and this capability would disappear if comments were solely linted. As such, a compromise solution is to not
-# > lint YAML during integration, but enable visualization and management of possible errors in the editor.
-#
-# > Note, JSON is explicitly not supported as there seems to be a problem parsing text in arrays. Since comments aren't
-# > supported in JSON, generally, this adds minor risk.
-#
-# @link https://vale.sh/docs/topics/config/#format-associations
-#
-# TODO - Add file extensions and mappings based on what technologies are in the project.
-#
-SPELL_VALE_FILE_EXTENSIONS:
-  # - .ecrc
-  # - .editorconfig
-  # - .gitattributes
-  # - .gitignore
-  # - .ini
-  # - .mk
-  - .md
-  # - .prettierignore
-  # - .txt
-  # - Makefile
+  - ".mk"
 
 ##
 # File ignore patterns for Vale.
@@ -128,7 +109,7 @@ SPELL_VALE_FILE_EXTENSIONS:
 #   - Vale style guide dependencies
 #   - Vale dictionary rejections
 #
-SPELL_VALE_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/(Google\/.+|Vocab\/.+\/reject\.txt))
+# SPELL_VALE_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/(Google\/.+|Vocab\/.+\/reject\.txt))
 
 ##
 # File ignore patterns for v8r.
@@ -138,11 +119,5 @@ SPELL_VALE_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/(Google\/.+|V
 # TODO Also temporarily ignores GitHub Issue templates due to problem with schema update.
 # @link http://tinyurl.com/tplcore44
 #
-YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*|\.github/ISSUE_TEMPLATE/.*\.yml)
-
-##
-# File ignore patterns for YAMLLint.
-#
-#   - Vale style guide dependencies
-#
-YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*)
+# YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*|\.github/ISSUE_TEMPLATE/.*\.yml)
+YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*)

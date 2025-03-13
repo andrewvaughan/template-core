@@ -4,7 +4,6 @@
 # @link https://megalinter.io/latest/configuration/
 #
 ---
-
 ##
 # Linters that support fixing in-place do so within the commit.
 #
@@ -22,10 +21,10 @@ CLEAR_REPORT_FOLDER: true
 # Never run these linters, regardless of flavor or configuration.
 #
 # DISABLE_LINTERS:
-  ##
-  # Lychee is _extremely_ slow right now, and Markdown link checking occurs with other linters. Consider the usefulness
-  # of dead hyper link checking in code comments before re-enabling.
-  #
+##
+# Lychee is _extremely_ slow right now, and Markdown link checking occurs with other linters. Consider the usefulness
+# of dead hyper link checking in code comments before re-enabling.
+#
 #   - SPELL_LYCHEE
 
 ##
@@ -87,7 +86,6 @@ SHOW_SKIPPED_LINTERS: true
 # To speed up development, only validate changed files. Pull Requests still check all files.
 #
 VALIDATE_ALL_CODEBASE: false
-
 
 ## ---------------------------------------------------------------------------------------------------------------------
 # Linter configurations.

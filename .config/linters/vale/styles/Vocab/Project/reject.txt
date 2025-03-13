@@ -6,5 +6,3 @@
 #
 # @link https://vale.sh/docs/topics/vocab/
 #
-# TEMPLATE TODO - Add common misspellings, if any, of the project name or formatting to this file.
-#

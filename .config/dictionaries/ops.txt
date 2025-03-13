@@ -8,6 +8,7 @@
 # @link https://cspell.org/docs/dictionaries-custom/
 #
 
+actrc
 andrewvaughan
 Anson
 arrowParens
@@ -20,6 +21,7 @@ CODEOWNERS
 davidanson
 devcontainer
 DevSkim
+dhoeric
 eamodio
 ecrc
 esbenp
@@ -38,6 +40,7 @@ rulesets
 ruleset
 SDLC
 Sergii
+shinepukur
 statusBarClickBehaviour
 stefanzweifel
 Trivy

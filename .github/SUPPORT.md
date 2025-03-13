@@ -14,7 +14,6 @@ interested in participating in the community, regardless of intent or purpose.
   - [GitHub Issues](#github-issues)
   - [GitHub Discussions](#github-discussions)
   - [Discord](#discord)
-  - [Other topics](#other-topics)
   - [Tips for getting the fastest support](#tips-for-getting-the-fastest-support)
 
 ---
@@ -46,10 +45,6 @@ is a great way to have live conversations with community members.
 > There is no guarantee that Project Maintainers can provide support or feedback through Discord - while there is always
 > an aim to be available, Project Maintainers have a primary focus and priority on formal GitHub Issues, Pull Requests,
 > and Discussions, as described, in the preceding sections.
-
-## Other topics
-
-- [Sponsorship interest][sponsorship]
 
 ---
 
@@ -86,7 +81,6 @@ question quickly, letting you get back to doing what's important to you.
 [issue-ops]: https://github.com/andrewvaughan/template-core/issues/new?assignees=andrewvaughan&labels=Needs+Triage%2CRequest%3A+Ops&projects=&template=OPERATIONAL_REQUEST.yml
 [issue-security]: https://github.com/andrewvaughan/template-core/security/advisories/new
 [rubber-duck]: https://rubberduckdebugging.com
-[sponsorship]: https://andrewvaughan.github.io/sponsorships
 [xy]: https://meta.stackexchange.com/questions/66377/what-is-the-xy-problem/66378#66378
 
 <!-- editorconfig-checker-enable -->

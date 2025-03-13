@@ -61,12 +61,6 @@ MAKE := $(MAKE) --no-print-directory
 
 
 ##
-# Configure `npx` calls to avoid prompts.
-#
-NPX := npx -y
-
-
-##
 # By default, the `DEBUG` flag follows the `make` command's debug state by calling `make` with the `-d` or `--debug`
 # flags.
 #

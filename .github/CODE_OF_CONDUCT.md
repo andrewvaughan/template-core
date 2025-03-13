@@ -16,9 +16,17 @@
     - [Reporting an incident](#reporting-an-incident)
     - [Enforcement guidelines](#enforcement-guidelines)
       - [1. Correction for minor infractions](#1-correction-for-minor-infractions)
+        - [Community impact](#community-impact)
+        - [Consequence](#consequence)
       - [2. Warning for repeat or moderate infractions](#2-warning-for-repeat-or-moderate-infractions)
+        - [Community impact](#community-impact-1)
+        - [Consequence](#consequence-1)
       - [3. Temporary ban for sustained or serious infractions](#3-temporary-ban-for-sustained-or-serious-infractions)
+        - [Community impact](#community-impact-2)
+        - [Consequence](#consequence-2)
       - [4. Permanent ban for sustained or severe infractions](#4-permanent-ban-for-sustained-or-severe-infractions)
+        - [Community impact](#community-impact-3)
+        - [Consequence](#consequence-3)
   - [Conclusion](#conclusion)
   - [Attribution](#attribution)
 
@@ -193,7 +201,7 @@ This Code of Conduct is an adaptation based on the following resources:
 - [Contributor Covenant][covenant-14], Version 1.4
 - [Contributor Covenant][covenant-21], Version 2.1
 - [GitHub Anti-Harassment Policy][github-antiharassment]
-- [Google Code of Conduct][google-conduct]
+- [Google Code of Conduct][Google-conduct]
 - [IndieWeb Code of Conduct][indieweb-conduct]
 
 <!-- Link repository -->
@@ -202,5 +210,5 @@ This Code of Conduct is an adaptation based on the following resources:
 [covenant-21]: https://www.contributor-covenant.org/version/2/1/code_of_conduct/
 [email]: mailto:hello+github@andrewvaughan.io?subject=GitHub%20Code%20of%20Conduct%20Report
 [github-antiharassment]: https://geekfeminism.fandom.com/wiki/Conference_anti-harassment/Policy
-[google-conduct]: https://github.com/google/.github/blob/master/CODE_OF_CONDUCT.md
+[Google-conduct]: https://github.com/google/.github/blob/master/CODE_OF_CONDUCT.md
 [indieweb-conduct]: https://indieweb.org/code-of-conduct

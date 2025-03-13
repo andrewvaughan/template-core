@@ -1,0 +1,211 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+  "name": "{{PROJECT NAME}}",
+  // See https://mcr.microsoft.com/en-us/catalog?search=devcontainers&type=partial
+  "image": "mcr.microsoft.com/devcontainers/base:dev-ubuntu-24.04",
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    // Add git-lfs to the container
+    "ghcr.io/devcontainers/features/git-lfs:1": {},
+    // Install common utilities (dependency for Gitlab)
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    // Attach the external Docker socket inside the container to run (and long-term cache) CI containers
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "dockerDashComposeVersion": "none"
+    },
+    // Utility for running Github CI jobs locally (see `README.md`)
+    "ghcr.io/dhoeric/features/act:1": {},
+    // Markdown linter
+    "ghcr.io/devcontainers-extra/features/markdownlint-cli2:1": {},
+    // Prettier linter and formatter utility
+    "ghcr.io/devcontainers-community/npm-features/prettier:1": {},
+    // Trivy vulnerability scanner
+    "ghcr.io/dhoeric/features/trivy:1": {},
+    // Vale documentation linter utility
+    "ghcr.io/shinepukur/devcontainer-features/vale:1": {}
+  },
+  // VSCode extensions to install as part of the development IDE.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Operations
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens",
+        "github.vscode-github-actions",
+        "gruntfuggly.todo-tree",
+        // Security
+        "aquasecurityofficial.trivy-vulnerability-scanner",
+        // Code Quality / Language Support
+        "aaron-bond.better-comments",
+        "bierner.markdown-preview-github-styles",
+        "blackmist.linkcheckmd",
+        "chrischinchilla.vale-vscode",
+        "davidanson.vscode-markdownlint",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "ms-cst-e.vscode-devskim",
+        "ms-vscode.makefile-tools",
+        "redhat.vscode-yaml",
+        "streetsidesoftware.code-spell-checker",
+        "yzhang.markdown-all-in-one",
+        // QOL
+        "naumovs.color-highlight",
+        "oderwat.indent-rainbow",
+        "vscode-icons-team.vscode-icons"
+      ]
+    },
+    "settings": {
+      "better-comments.multilineComments": true,
+      "cSpell.enabled": true,
+      "cSpell.language": "en",
+      "cSpell.autoFormatConfigFile": false,
+      "cSpell.diagnosticLevel": "Warning",
+      "cSpell.showAutocompleteSuggestions": true,
+      "cSpell.checkOnlyEnabledFileTypes": true,
+      "cSpell.import": ["${workspaceFolder}/.config/linters/.cspell.json"],
+      "color-highlight.markerType": "dot-before",
+      "color-highlight.markRuler": true,
+      "color-highlight.matchWords": true,
+      "color-highlight.matchRgbWithNoFunction": false,
+      "editorconfig.generateAuto": false,
+      "github-actions.remote-name": "origin",
+      "github-actions.workflows.pinned.refresh.enabled": true,
+      "github-actions.workflows.pinned.refresh.interval": 90,
+      "github-actions.workflows.pinned.workflows": [".github/workflows/mega-linter.yml"],
+      "indentRainbow.colorOnWhiteSpaceOnly": false,
+      "indentRainbow.indicatorStyle": "classic",
+      "indentRainbow.updateDelay": 100,
+      "indentRainbow.colors": [
+        "rgba(255, 255, 64,  0.07)",
+        "rgba(127, 255, 127, 0.07)",
+        "rgba(255, 127, 255, 0.07)",
+        "rgba(79,  236, 236, 0.07)"
+      ],
+      "indentRainbow.errorColor": "rgba(128, 32, 32, 0.6)",
+      "indentRainbow.tabmixColor": "rgba(128, 32, 96, 0.6)",
+      "makefile.clearOutputBeforeBuild": true,
+      "makefile.loggingLevel": "Normal",
+      "markdown.extension.bold.indicator": "**",
+      "markdown.extension.completion.respectVscodeSearchExclude": true,
+      "markdown.extension.italic.indicator": "_",
+      "markdown.extension.list.indentationSize": "inherit",
+      "markdown.extension.math.enabled": true,
+      "markdown.extension.orderedList.autoRenumber": true,
+      "markdown.extension.orderedList.marker": "ordered",
+      "markdown.extension.print.absoluteImgPath": true,
+      "markdown.extension.print.includeVscodeStylesheets": true,
+      "markdown.extension.print.theme": "dark",
+      "markdown.extension.print.validateUrls": true,
+      "markdown.extension.tableFormatter.enabled": true,
+      "markdown.extension.tableFormatter.normalizeIndentation": true,
+      "markdown.extension.toc.levels": "2..4",
+      "markdown.extension.toc.slugifyMode": "github",
+      "markdown.extension.toc.unorderedList.marker": "-",
+      "markdown.extension.toc.updateOnSave": true,
+      "markdown-preview-github-styles.colorTheme": "auto",
+      "markdown-preview-github-styles.darkTheme": "dark",
+      "markdown-preview-github-styles.lightTheme": "light",
+      "markdownlint.run": "onType",
+      "markdownlint.lintWorkspaceGlobs": [
+        "**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,workbook}",
+        "!**/bower_components",
+        "!**/node_modules",
+        "!**/vendor",
+        "!**/.git",
+        "!**/.config/linters/vale/styles"
+      ],
+      "MS-CST-E.vscode-devskim.rules.enableCriticalSeverityRules": true,
+      "MS-CST-E.vscode-devskim.rules.enableImportantSeverityRules": true,
+      "MS-CST-E.vscode-devskim.rules.enableModerateSeverityRules": true,
+      "MS-CST-E.vscode-devskim.rules.enableHighConfidenceRules": true,
+      "MS-CST-E.vscode-devskim.rules.enableMediumConfidenceRules": true,
+      "MS-CST-E.vscode-devskim.rules.enableLowConfidenceRules": false,
+      "MS-CST-E.vscode-devskim.rules.enableManualReviewSeverityRules": false,
+      "MS-CST-E.vscode-devskim.rules.enableBestPracticeSeverityRules": false,
+      "prettier.configPath": ".config/linters/.prettierrc.json",
+      "prettier.embeddedLanguageFormatting": "auto",
+      "prettier.enable": true,
+      "prettier.enableDebugLogs": false,
+      "prettier.ignorePath": ".prettierignore",
+      "prettier.requireConfig": true,
+      "prettier.useEditorConfig": true,
+      "prettier.withNodeModules": false,
+      "redhat.telemetry.enabled": false,
+      "todo-tree.general.automaticGitRefreshInterval": 0,
+      "todo-tree.general.showActivityBarBadge": true,
+      "todo-tree.general.statusBarClickBehaviour": "reveal",
+      "todo-tree.highlights.enabled": true,
+      "todo-tree.filtering.ignoreGitSubmodules": true,
+      "todo-tree.general.periodicRefreshInterval": 0,
+      "todo-tree.general.statusBar": "top three",
+      "todo-tree.highlights.highlightDelay": 500,
+      "todo-tree.highlights.useColourScheme": true,
+      "todo-tree.filtering.includeHiddenFiles": true,
+      "todo-tree.tree.autoRefresh": true,
+      "todo-tree.tree.disableCompactFolders": false,
+      "todo-tree.tree.hideIconsWhenGroupedByTag": false,
+      "todo-tree.tree.groupedBySubTag": true,
+      "todo-tree.tree.groupedByTag": true,
+      "todo-tree.tree.hideTreeWhenEmpty": false,
+      "todo-tree.tree.scanAtStartup": true,
+      "todo-tree.tree.showCountsInTree": true,
+      "todo-tree.tree.showCurrentScanMode": true,
+      "todo-tree.tree.sort": true,
+      "todo-tree.tree.sortTagsOnlyViewAlphabetically": false,
+      "todo-tree.tree.trackFile": true,
+      "todo-tree.tree.buttons.expand": true,
+      "todo-tree.tree.buttons.export": false,
+      "todo-tree.tree.buttons.filter": true,
+      "todo-tree.tree.buttons.groupBySubTag": false,
+      "todo-tree.tree.buttons.groupByTag": true,
+      "todo-tree.tree.buttons.refresh": true,
+      "todo-tree.tree.buttons.reveal": true,
+      "todo-tree.tree.buttons.viewStyle": true,
+      "todo-tree.regex.enableMultiLine": false,
+      "todo-tree.filtering.excludeGlobs": [
+        "**/node_modules/*/**",
+        "**/.config/linters/vale/styles/**/*",
+        "**/.git/**/*",
+        ".git*",
+        ".github/PULL_REQUEST_TEMPLATE.md",
+        ".github/PULL_REQUEST_TEMPLATE/**/*.md"
+      ],
+      "todo-tree.general.tags": ["BUG", "FIX", "TASK", "TODO", "- [ ]"],
+      "todo-tree.general.tagGroups": {
+        "CHECKLIST": ["- [ ]"],
+        "TODO": ["BUG", "FIX", "TASK", "TODO"]
+      },
+      "trivy.minimumReportedSeverity": "UNKNOWN",
+      "trivy.secretScanning": true,
+      "vale.enableSpellcheck": false,
+      "vale.valeCLI.minAlertLevel": "inherited",
+      "yaml.completion": true,
+      "yaml.disableAdditionalProperties": false,
+      "yaml.disableDefaultProperties": false,
+      "yaml.extension.recommendations": true,
+      "yaml.format.bracketSpacing": true,
+      "yaml.format.enable": true,
+      "yaml.format.printWidth": 120,
+      "yaml.format.proseWrap": "preserve",
+      "yaml.format.singleQuote": false,
+      "yaml.hover": true,
+      "yaml.keyOrdering": false,
+      "yaml.maxItemsComputed": 5000,
+      "yaml.schemaStore.enable": true,
+      "yaml.schemaStore.url": "https://www.schemastore.org/api/json/catalog.json",
+      "yaml.style.flowMapping": "allow",
+      "yaml.style.flowSequence": "allow",
+      "yaml.trace.server": "off",
+      "yaml.validate": true,
+      "yaml.yamlVersion": "1.2"
+    }
+  },
+  // Always use a non-root user for security.
+  "containerUser": "vscode",
+  "remoteUser": "vscode",
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [],
+  // If the template repository is being run for the first time, run first-time-setup
+  "postStartCommand": "./_first-time-setup.sh"
+}

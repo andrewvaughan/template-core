@@ -37,6 +37,8 @@ when first working with this community's projects.
       - [Code style](#code-style)
       - [Branch naming conventions](#branch-naming-conventions)
       - [Commit message conventions](#commit-message-conventions)
+        - [Commit message title](#commit-message-title)
+        - [Commit message body](#commit-message-body)
       - [Signed commits](#signed-commits)
   - [Releases](#releases)
     - [Semantic Versioning](#semantic-versioning)

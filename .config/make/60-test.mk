@@ -99,14 +99,6 @@ endif
 test:
 	$(call _title, Running test framework)
 
-	$(MAKE) test-lint
-	$(MAKE) test-unit
-
-
-##
-# Run linting tests on any modified files.
-#
-test-lint:
 	$(call _header, Running GitHub '$(ACT_ACTION)' simulation)
 
 	$(call _debug, Architecture: $(ARCHITECTURE))
@@ -123,11 +115,3 @@ test-lint:
 		-j "$(ACT_JOB)" \
 		$(_ACT_FULL_PARAMS) \
 		$(ACT_ACTION)
-
-
-##
-# Run the project's unit and integration tests.
-#
-test-unit:
-	# TEMPLATE TODO
-	$(call _debug, No unit tests have been defined.)

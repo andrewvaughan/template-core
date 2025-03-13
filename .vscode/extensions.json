@@ -1,25 +1,3 @@
 {
-  "recommendations": [
-    "aaron-bond.better-comments",
-    "aquasecurityofficial.trivy-vulnerability-scanner",
-    "bierner.markdown-preview-github-styles",
-    "blackmist.linkcheckmd",
-    "chrischinchilla.vale-vscode",
-    "davidanson.vscode-markdownlint",
-    "eamodio.gitlens",
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
-    "github.vscode-github-actions",
-    "gruntfuggly.todo-tree",
-    "ms-azuretools.vscode-docker",
-    "ms-cst-e.vscode-devskim",
-    "ms-vscode.makefile-tools",
-    "ms-vscode-remote.remote-containers",
-    "naumovs.color-highlight",
-    "oderwat.indent-rainbow",
-    "redhat.vscode-yaml",
-    "streetsidesoftware.code-spell-checker",
-    "vscode-icons-team.vscode-icons",
-    "yzhang.markdown-all-in-one"
-  ]
+  "recommendations": ["ms-vscode-remote.remote-containers"]
 }

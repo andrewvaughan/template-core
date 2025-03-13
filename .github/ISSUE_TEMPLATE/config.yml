@@ -1,8 +1,9 @@
 ##
 # GitHub Issue template configurations.
 #
-# @link https://t.ly/Cwouf
+# @link https://ajv.to/github-pr-template
 #
+# yaml-language-server: $schema=https://json.schemastore.org/github-issue-config.json
 ---
 ##
 # This project doesn't support generic, empty Issues.

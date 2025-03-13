@@ -60,7 +60,7 @@
   "ignorePaths": [
     "**/*.svg",
     "**/.config/linters/vale/styles/Google/**",
-    "**/.config/linters/vale/styles/Vocab/**/reject.txt",
+    "**/.config/linters/vale/styles/config/vocabularies/**/reject.txt",
     "**/.git/**",
     "**/.gitattributes",
     "**/.gitignore",

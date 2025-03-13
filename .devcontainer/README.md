@@ -19,7 +19,7 @@ pressing `CTL+SHIFT+P` (`CMD+SHIFT+P` on macOS) and choosing `Dev Containers: Re
 
 ## Configuration files
 
-VSCode extensions and settings _shouldn't_ be stored in the Workspace or `.vscode` folder configuration. Always add
+You _shouldn't_ store VSCode extensions and settings in the Workspace or `.vscode` folder configuration. Always add
 them to the [`devcontainer.json`][config] file.
 
 <!-- Link repository -->

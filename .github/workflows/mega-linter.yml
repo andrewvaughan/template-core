@@ -4,7 +4,7 @@
 # @link https://megalinter.io
 #
 ---
-name: MegaLinter
+name: "MegaLinter"
 
 on:
   ##
@@ -17,9 +17,9 @@ on:
   #
   push:
     branches:
-      - main
-      - production
-      - staging
+      - "main"
+      - "production"
+      - "staging"
 
   ##
   # Run whenever a Pull Request occurs on any Branch, regardless of target.
@@ -31,7 +31,7 @@ on:
 ##
 # All steps should have read-only access, unless explicitly given.
 #
-permissions: read-all
+permissions: "read-all"
 
 ##
 # Environment configurations.
@@ -47,9 +47,9 @@ env:
   #
   # @link https://megalinter.io/latest/config-apply-fixes/
   #
-  APPLY_FIXES: all
-  APPLY_FIXES_EVENT: all
-  APPLY_FIXES_MODE: commit
+  APPLY_FIXES: "all"
+  APPLY_FIXES_EVENT: "all"
+  APPLY_FIXES_MODE: "commit"
 
 ##
 # Cancel any in-progress GitHub Actions for the same Branch when triggering a new workflow.
@@ -57,7 +57,7 @@ env:
 # @link https://docs.github.com/en/actions/using-jobs/using-concurrency
 #
 concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
+  group: "${{ github.ref }}-${{ github.workflow }}"
   cancel-in-progress: true
 
 ##
@@ -67,8 +67,8 @@ concurrency:
 #
 jobs:
   build:
-    name: MegaLinter
-    runs-on: ubuntu-latest
+    name: "MegaLinter"
+    runs-on: "ubuntu-latest"
 
     ##
     # This job's `GITHUB_TOKEN` or `PAT` must have these permissions.
@@ -80,9 +80,9 @@ jobs:
     # TODO - Adjust permissions to the minimum possible for how you use this linter.
     #
     permissions:
-      contents: write
-      issues: write
-      pull-requests: write
+      contents: "write"
+      issues: "write"
+      pull-requests: "write"
 
     steps:
       ##
@@ -90,10 +90,10 @@ jobs:
       #
       # @link https://github.com/actions/checkout
       #
-      - name: Checkout code
-        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # @3.6.0
+      - name: "Checkout code"
+        uses: "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683" # @4.2.2
         with:
-          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          token: "${{ secrets.PAT || secrets.GITHUB_TOKEN }}"
 
           ##
           # A fetch depth of `0` pulls the entire Repository's history, Branches, and Tags. Limiting this to `1`
@@ -118,24 +118,24 @@ jobs:
       #
       # @link https://github.com/oxsecurity/megalinter
       #
-      - name: Lint with MegaLinter
-        id: ml
+      - name: "Lint with MegaLinter"
+        id: "ml"
 
         ##
         # The template that generated this project uses the full MegaLinter image, by default, which is extremely large
         # and has numerous linters likely not needed by any one specific project.
         #
-        # @link https://megalinter.io/flavors/
+        # @link https://megalinter.io/latest/flavors/
         #
         # TODO - Select a more-specific MegaLinter flavor for the project and update the `uses` configuration
         # here to significantly increase GitHub Action performance.
         #
-        uses: oxsecurity/megalinter@7e042c726c68415475b05a65a686c612120a1232 # @v7.7.0
+        uses: "oxsecurity/megalinter@ec124f7998718d79379a3c5b39f5359952baf21d" # @v8.4.2
 
         ##
         # Variables are overridden on GitHub workflows for certain conditions.
         #
-        # https://megalinter.io/configuration/
+        # https://megalinter.io/latest/configuration/
         #
         env:
           ##
@@ -161,7 +161,7 @@ jobs:
           # act -s GITHUB_TOKEN="$(gh auth token)"
           # ```
           #
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
           ##
           # Add custom environment variables here to override anything from the root .mega-linter.yml
@@ -175,11 +175,12 @@ jobs:
       # @link https://github.com/actions/upload-artifact
       # @link https://megalinter.io/latest/reporters/
       #
-      - name: Archive production artifacts
+      - name: "Archive production artifacts"
         if: success() || failure()
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # @4.6.1
+        uses: "actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1" # @4.6.1
         with:
-          name: MegaLinter reports
+          name: "MegaLinter reports"
+          include-hidden-files: "true"
           path: |
             megalinter-reports
             mega-linter.log
@@ -189,8 +190,8 @@ jobs:
       #
       # This doesn't currently work for Forks, only Pull Requests from the same Repository.
       #
-      - name: Create Pull Request with applied fixes
-        id: cpr
+      - name: "Create Pull Request with applied fixes"
+        id: "cpr"
         if: |
           steps.ml.outputs.has_updated_sources == 1 &&
           (
@@ -203,14 +204,14 @@ jobs:
             github.event.pull_request.head.repo.full_name == github.repository
           ) &&
           !contains(github.event.head_commit.message, 'skip fix')
-        uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 # @5.0.2
+        uses: "peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e" # @7.0.8
         with:
-          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          token: "${{ secrets.PAT || secrets.GITHUB_TOKEN }}"
           commit-message: "[MegaLinter] Apply linters automatic fixes"
           title: "[MegaLinter] Apply linters automatic fixes"
-          labels: bot
+          labels: "bot"
 
-      - name: Create Pull Request output
+      - name: "Create Pull Request output"
         if: |
           steps.ml.outputs.has_updated_sources == 1 &&
           (
@@ -227,7 +228,7 @@ jobs:
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
           echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
 
-      - name: Prepare commit
+      - name: "Prepare commit"
         if: |
           steps.ml.outputs.has_updated_sources == 1 &&
           (
@@ -241,9 +242,9 @@ jobs:
             github.event.pull_request.head.repo.full_name == github.repository
           ) &&
           !contains(github.event.head_commit.message, 'skip fix')
-        run: sudo chown -Rc $UID .git/
+        run: "sudo chown -Rc $UID .git/"
 
-      - name: Commit and push applied linter fixes
+      - name: "Commit and push applied linter fixes"
         if: |
           steps.ml.outputs.has_updated_sources == 1 &&
           (
@@ -257,7 +258,7 @@ jobs:
             github.event.pull_request.head.repo.full_name == github.repository
           ) &&
           !contains(github.event.head_commit.message, 'skip fix')
-        uses: stefanzweifel/git-auto-commit-action@3ea6ae190baf489ba007f7c92608f33ce20ef04a # @4.16.0
+        uses: "stefanzweifel/git-auto-commit-action@e348103e9026cc0eee72ae06630dbe30c8bf7a79" # @5.1.0
         with:
           branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
           commit_message: "[MegaLinter] Apply linters fixes"

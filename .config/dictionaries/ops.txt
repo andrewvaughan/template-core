@@ -5,7 +5,7 @@
 # to all projects. Don't add words specific to this project in this file. Instead, place those words in the
 # parallel `project.txt` file.
 #
-# @link https://cspell.org/docs/dictionaries-custom/
+# @link https://cspell.org/docs/dictionaries/custom-dictionaries
 #
 
 actrc
@@ -44,6 +44,7 @@ shinepukur
 statusBarClickBehaviour
 stefanzweifel
 Trivy
+Vale
 venv
 Wontfix
 yzhang

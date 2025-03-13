@@ -55,13 +55,16 @@ clean:
 ##
 # Clean artifacts left over from development.
 #
+# TODO - Add any development cleaning steps or remove this.
+#
 clean-dev:
-	# TEMPLATE TODO
 	$(call _debug, No cleaning steps have been defined.)
 
 
 ##
 # Clean artifacts left over from testing.
+#
+# TODO - Add any test cleaning steps or remove this.
 #
 clean-tests:
 	$(call _header, Cleaning test artifacts)
@@ -76,16 +79,18 @@ clean-tests:
 ##
 # Clean artifacts left over from builds.
 #
+# TODO - Add any build cleaning steps or remove this.
+#
 clean-build:
-	# TEMPLATE TODO
 	$(call _debug, No cleaning steps have been defined.)
 
 
 ##
 # Clean artifacts leftover from deployments.
 #
+# TODO - Add any deploy cleaning steps or remove this.
+#
 clean-deploy:
-	# TEMPLATE TODO
 	$(call _debug, No cleaning steps have been defined.)
 
 

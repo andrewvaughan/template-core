@@ -13,7 +13,7 @@ on:
   # Later logic enforces a full code-wide test on only the `production` and `staging` Branches. The `main` Branch only
   # has changed files linted for efficiency.
   #
-  # TEMPLATE TODO - Remove any environment Branches this project won't use.
+  # TODO - Remove any environment Branches this project won't use.
   #
   push:
     branches:
@@ -77,7 +77,7 @@ jobs:
     #
     # @link https://docs.github.com/en/actions/security-guides/automatic-token-authentication
     #
-    # TEMPLATE TODO - Adjust permissions to the minimum possible for how you use this linter.
+    # TODO - Adjust permissions to the minimum possible for how you use this linter.
     #
     permissions:
       contents: write
@@ -127,7 +127,7 @@ jobs:
         #
         # @link https://megalinter.io/flavors/
         #
-        # TEMPLATE TODO - Select a more-specific MegaLinter flavor for the project and update the `uses` configuration
+        # TODO - Select a more-specific MegaLinter flavor for the project and update the `uses` configuration
         # here to significantly increase GitHub Action performance.
         #
         uses: oxsecurity/megalinter@7e042c726c68415475b05a65a686c612120a1232 # @v7.7.0
@@ -164,7 +164,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           ##
-          # TEMPLATE TODO - Add custom environment variables here to override anything from the root .mega-linter.yml
+          # Add custom environment variables here to override anything from the root .mega-linter.yml
           #
 
       ##

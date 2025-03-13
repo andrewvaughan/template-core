@@ -13,7 +13,7 @@ By default, this project includes two dictionaries:
 - [`project.txt`](project.txt) contains acceptable words for the specific project
 
 Developers should add additional [custom dictionaries][docs-dicts], as needed, in this directory. Don't forget to update
-the [`.cspell.json`][config] file when you add a dictionary, per the [CSpell instructions][add-dictionary].
+the [`.cspell.json`][config] file when you add a dictionary, per the CSpell instructions.
 
 ## Operations dependency directories
 
@@ -31,8 +31,7 @@ These dependencies include:
 
 <!-- Link repository -->
 
-[add-dictionary]: https://cspell.org/docs/dictionaries/#dictionary-definition
 [config]: ../linters/.cspell.json
 [cspell]: https://cspell.org
-[docs-dicts]: https://cspell.org/docs/dictionaries-custom/
-[language]: https://cspell.org/configuration/language-settings/
+[docs-dicts]: https://cspell.org/docs/dictionaries/custom-dictionaries
+[language]: https://cspell.org/docs/Configuration/language-settings

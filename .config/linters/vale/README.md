@@ -9,8 +9,6 @@ Vale has detailed [installation instructions][vale-install] for any platform. Th
 installing the [Vale extension][vale-extension] for VSCode, this project's preferred IDE, which helps to improve more
 documentation areas, such as code comments.
 
-`npx` can also run Vale, which is a standard dependency for this project.
-
 ## Updating configuration
 
 Developers can add or modify Vale styles via the [`.vale.ini`](../../../.vale.ini) configuration file. It's critical

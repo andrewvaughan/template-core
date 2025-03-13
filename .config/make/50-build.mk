@@ -4,21 +4,27 @@
 # This file defines targets used for building the project.
 #
 
-.PHONY: all dev-dependencies
+.PHONY: all build dev-dependencies
 
 
 ##
-# Default target - shows the help message.
+# Default target.
 #
-# TEMPLATE TODO - Update to project build.
+all: build
+
+
+##
+# Build the distributable application.
 #
-all: help
+# TODO - Update to build script.
+#
+build: help
 
 
 ## ---------------------------------------------------------------------------------------------------------------------
 # Dependencies.
 #
-# TEMPLATE TODO - Add any additional dependencies and developer dependencies.
+# TODO - Add any additional dependencies and developer dependencies.
 #
 
 ##
@@ -32,5 +38,5 @@ dev-dependencies:
 	$(call _header, Updating prose style guide)
 	echo
 	rm -rf .config/linters/vale/styles/Google
-	$(NPX) vale sync
+	vale sync
 	echo

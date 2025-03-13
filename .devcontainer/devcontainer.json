@@ -11,9 +11,19 @@
         // Install common utilities (dependency for Gitlab)
         "ghcr.io/devcontainers/features/common-utils:2": {},
         // Attach the external Docker socket inside the container to run (and long-term cache) CI containers
-        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+            "dockerDashComposeVersion": "none"
+        },
         // Utility for running Github CI jobs locally (see `README.md`)
-        "ghcr.io/dhoeric/features/act:1": {}
+        "ghcr.io/dhoeric/features/act:1": {},
+        // Markdown linter
+        "ghcr.io/devcontainers-extra/features/markdownlint-cli2:1": {},
+        // Prettier linter and formatter utility
+        "ghcr.io/devcontainers-community/npm-features/prettier:1": {},
+        // Trivy vulnerability scanner
+        "ghcr.io/dhoeric/features/trivy:1": {},
+        // Vale documentation linter utility
+        "ghcr.io/shinepukur/devcontainer-features/vale:1": {}
     },
     // VSCode extensions to install as part of the development IDE.
     "customizations": {
@@ -93,7 +103,7 @@
             "markdown.extension.print.validateUrls": true,
             "markdown.extension.tableFormatter.enabled": true,
             "markdown.extension.tableFormatter.normalizeIndentation": true,
-            "markdown.extension.toc.levels": "1..4",
+            "markdown.extension.toc.levels": "2..4",
             "markdown.extension.toc.slugifyMode": "github",
             "markdown.extension.toc.unorderedList.marker": "-",
             "markdown.extension.toc.updateOnSave": true,
@@ -169,13 +179,11 @@
                 "BUG",
                 "FIX",
                 "TASK",
-                "TEMPLATE TODO",
                 "TODO",
                 "- [ ]"
             ],
             "todo-tree.general.tagGroups": {
                 "CHECKLIST": [
-                    "TEMPLATE TODO",
                     "- [ ]"
                 ],
                 "TODO": [

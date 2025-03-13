@@ -29,7 +29,7 @@ prettier:
 	fi
 
 	$(call _header, Running formatter...)
-	$(NPX) prettier -w .
+	prettier -w .
 
 
 ##

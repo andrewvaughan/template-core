@@ -35,25 +35,25 @@ echo
 echo "This will make file changes within your repository!"
 echo
 
-# Make sure there are no unstaged or non-committed changes
-# if [[ $(git status --porcelain=v1 2>/dev/null | wc -l) -ne 0 ]]; then
-#   _error "There are unstaged and/or uncommitted changes to the repository."
+Make sure there are no unstaged or non-committed changes
+if [[ $(git status --porcelain=v1 2>/dev/null | wc -l) -ne 0 ]]; then
+  _error "There are unstaged and/or uncommitted changes to the repository."
 
-#   echo >&2
-#   echo "This script makes permanent changes to your repository. Please ensure all files are committed prior" >&2
-#   echo "to running in case you wish to revert changes." >&2
-#   echo >&2
+  echo >&2
+  echo "This script makes permanent changes to your repository. Please ensure all files are committed prior" >&2
+  echo "to running in case you wish to revert changes." >&2
+  echo >&2
 
-#   echo "Pending file changes:" >&2
-#   echo >&2
-#   git status --porcelain=v1 >&2 2>/dev/null
-#   echo
+  echo "Pending file changes:" >&2
+  echo >&2
+  git status --porcelain=v1 >&2 2>/dev/null
+  echo
 
-#   exit 1
-# fi
+  exit 1
+fi
 
 # Sanity check
-read -p "Continue? [Y/n] " -n 1 YN
+read -r -p "Continue? [Y/n] " -n 1 YN
 YN="${YN:-y}"
 
 if [[ "${YN,,}" != "y" ]]; then
@@ -62,12 +62,13 @@ if [[ "${YN,,}" != "y" ]]; then
   exit 1
 fi
 
+
 # Ensure SSH to github.com is possible before starting to check devcontainer configuration.
 _header "Checking SSH configuration to ${GIT_LOGIN}"
 
-ssh -T ${GIT_LOGIN}
+ssh -T "${GIT_LOGIN}"
 
-if [[ $? > 1 ]]; then
+if [[ $? -gt 1 ]]; then
   _error "Unable to connect to github.com via SSH."
   exit 1
 fi
@@ -101,30 +102,77 @@ CHOICE=$( \
       3 "Apache 2.0" \
       4 "GPLv3" \
       5 "Unlicense" \
+      2>&1 >/dev/tty \
   )
 
+echo
+echo
 case $CHOICE in
   1)
+    rm LICENSE
     mv LICENSE.proprietary LICENSE
     ;;
   2)
+    rm LICENSE
     mv LICENSE.mit LICENSE
     ;;
   3)
+    rm LICENSE
     mv LICENSE.apache2 LICENSE
     ;;
   4)
+    rm LICENSE
     mv LICENSE.gpl3 LICENSE
     ;;
-  5) mv LICENSE.unlicense LICENSE
+  5)
+    rm LICENSE
+    mv LICENSE.unlicense LICENSE
     ;;
+  *)
+    _error "Unknown license selection."
+    exit 1
 esac
 
 rm LICENSE.*
 
 
-# TODO - Update all TEMPLATE TODO values
+# Project template updates
+echo
+_header "Gathering project details"
 
+read -r -p "  Project Name (Sentence Case): " PROJECT_NAME
+read -r -p "Project Description (One Line): " PROJECT_DESC
+read -r -p "      Author/Organization Name: " AUTHOR_NAME
+YEAR=$(date +%Y)
+
+_header "Updating project details in files"
+
+find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 | \
+  xargs -0 sed -i "s@{{PROJECT NAME}}@${PROJECT_NAME}@g"
+
+find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 | \
+  xargs -0 sed -i "s@{{PROJECT DESC}}@${PROJECT_DESC}@g"
+
+find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 | \
+  xargs -0 sed -i "s@{{AUTHOR NAME}}@${AUTHOR_NAME}@g"
+
+find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 | \
+  xargs -0 sed -i "s@{{YEAR}}@${YEAR}@g"
+
+echo "Done."
+
+
+# Configure Act to use the Medium size image.
+_header "Updating development utility configurations"
+
+mkdir -p ~/.config/act
+
+cat > ~/.config/act/actrc << EOF
+-P ubuntu-latest=catthehacker/ubuntu:act-latest
+-P ubuntu-22.04=catthehacker/ubuntu:act-22.04
+-P ubuntu-20.04=catthehacker/ubuntu:act-20.04
+-P ubuntu-18.04=catthehacker/ubuntu:act-18.04
+EOF
 
 
 # Extra steps to take
@@ -146,12 +194,13 @@ echo "    6. (Optional) Update the following settings under the 'Features' secti
 echo "        a. CHECK 'Discussions'"
 echo "        b. CHECK 'Sponsorships'"
 echo "    7. (Optional) Add and/or remove any files or folders that don't apply to this project"
+echo "    8. Search for all 'TODO' entries for remaining steps to setup your project"
 echo
 
 
 _header "Removing first-time setup script"
 
-# rm _first-time-setup.sh
+rm _first-time-setup.sh
 
 echo
 echo "Done!"

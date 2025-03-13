@@ -10,8 +10,6 @@
 
 All Rights Reserved
 amd64
-Andrew Vaughan
-andrewvaughan
 ANSI
 Apache
 Apple

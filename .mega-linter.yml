@@ -108,7 +108,7 @@ REPOSITORY_DEVSKIM_ARGUMENTS: ["--options-json", ".config/linters/.devskim.json"
 #
 # @link https://vale.sh/docs/topics/config/#format-associations
 #
-# TEMPLATE TODO - Add file extensions and mappings based on what technologies are in the project.
+# TODO - Add file extensions and mappings based on what technologies are in the project.
 #
 SPELL_VALE_FILE_EXTENSIONS:
   # - .ecrc

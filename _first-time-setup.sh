@@ -1,7 +1,12 @@
 #!/bin/bash
 
 # Parsed environment information
-REPO_URI=$(sed -E 's@.*:(.+)(\.git)?$@\1@g' <(git ls-remote --get-url origin))
+GIT_REMOTE=$(git ls-remote --get-url origin)
+GIT_LOGIN=$(sed -E 's@^(.+):.*@\1@g' <<< "${GIT_REMOTE}")
+GIT_REPO=$(sed -E 's@.*:(.+)(.git)?$@\1@g' <<< "${GIT_REMOTE}")
+
+# Sed sometimes leaves .git... unsure why
+GIT_REPO=${GIT_REPO%.git}
 
 
 # UI Functions
@@ -31,35 +36,36 @@ echo "This will make file changes within your repository!"
 echo
 
 # Make sure there are no unstaged or non-committed changes
-if [[ $(git status --porcelain=v1 2>/dev/null | wc -l) -ne 0 ]]; then
-  _error "There are unstaged and/or uncommitted changes to the repository."
+# if [[ $(git status --porcelain=v1 2>/dev/null | wc -l) -ne 0 ]]; then
+#   _error "There are unstaged and/or uncommitted changes to the repository."
 
-  echo >&2
-  echo "This script makes permanent changes to your repository. Please ensure all files are committed prior" >&2
-  echo "to running in case you wish to revert changes." >&2
-  echo >&2
+#   echo >&2
+#   echo "This script makes permanent changes to your repository. Please ensure all files are committed prior" >&2
+#   echo "to running in case you wish to revert changes." >&2
+#   echo >&2
 
-  echo "Pending file changes:" >&2
-  echo >&2
-  git status --porcelain=v1 >&2 2>/dev/null
-  echo
+#   echo "Pending file changes:" >&2
+#   echo >&2
+#   git status --porcelain=v1 >&2 2>/dev/null
+#   echo
 
-  exit 1
-fi
+#   exit 1
+# fi
 
+# Sanity check
 read -p "Continue? [Y/n] " -n 1 YN
+YN="${YN:-y}"
 
-if [[ "${YN,,:-y}" -ne "y" ]]; then
+if [[ "${YN,,}" != "y" ]]; then
   echo
   echo "Exiting."
-
   exit 1
 fi
 
+# Ensure SSH to github.com is possible before starting to check devcontainer configuration.
+_header "Checking SSH configuration to ${GIT_LOGIN}"
 
-_header "Checking SSH configuration in devcontainer"
-
-ssh -T git@github.com
+ssh -T ${GIT_LOGIN}
 
 if [[ $? > 1 ]]; then
   _error "Unable to connect to github.com via SSH."
@@ -67,7 +73,85 @@ if [[ $? > 1 ]]; then
 fi
 
 
-# find . \( -type d -name .git -prune \) -o -type f -print0 | \
-#   xargs -0 gsed -i "s@andrewvaughan/template-core@${REPO}@g"
+# Change documentation and configurations to this repository.
+_header "Updating repository link references to ${GIT_REPO}"
 
-_header "Updating repository link references to ${REPO}"
+find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 | \
+  xargs -0 sed -i "s@andrewvaughan/template-core@${GIT_REPO}@g"
+
+echo "Done."
+
+
+# Install git-lfs.
+_header "Installing git-lfs in the repository"
+
+git lfs install
+
+
+# Select a license.
+_header "Selecting a license"
+
+CHOICE=$( \
+  dialog \
+    --backtitle "${GIT_REPO} First Time Setup" \
+    --title "Select a Project License" \
+    --menu "Choose one of the following licenses for this project:" 15 40 4 \
+      1 "Proprietary (Unlicensed)" \
+      2 "MIT" \
+      3 "Apache 2.0" \
+      4 "GPLv3" \
+      5 "Unlicense" \
+  )
+
+case $CHOICE in
+  1)
+    mv LICENSE.proprietary LICENSE
+    ;;
+  2)
+    mv LICENSE.mit LICENSE
+    ;;
+  3)
+    mv LICENSE.apache2 LICENSE
+    ;;
+  4)
+    mv LICENSE.gpl3 LICENSE
+    ;;
+  5) mv LICENSE.unlicense LICENSE
+    ;;
+esac
+
+rm LICENSE.*
+
+
+# TODO - Update all TEMPLATE TODO values
+
+
+
+# Extra steps to take
+_title "Remaining manual steps"
+
+echo "The following, manual steps should be taken to prepare the Github repository for production:"
+echo
+echo "    1. Update the following settings under the 'General' section:"
+echo "        a. CHECK 'Require contributors to sign off on web-based commits'"
+echo "    2. Update the following settings under the 'Pull Requests' section:"
+echo "        a. UNCHECK 'Allow merge commits'"
+echo "        b. CHECK 'Always suggest updating pull request branches'"
+echo "        c. CHECK 'Automatically delete head branches'"
+echo "    3. Update the following settings under the 'Archives' section:"
+echo "        a. CHECK 'Include Git LFS objects in archives'"
+echo "    4. In the 'Rulesets' section, upload the rulesets in .github/config/rulesets"
+echo "    5. Manually run the 'Sync Labels' workflow to update the repository labels"
+echo "    6. (Optional) Update the following settings under the 'Features' section:"
+echo "        a. CHECK 'Discussions'"
+echo "        b. CHECK 'Sponsorships'"
+echo "    7. (Optional) Add and/or remove any files or folders that don't apply to this project"
+echo
+
+
+_header "Removing first-time setup script"
+
+# rm _first-time-setup.sh
+
+echo
+echo "Done!"

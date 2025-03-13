@@ -201,8 +201,6 @@ The [LICENSE][license] file contains the full text of this project's License.
 [badge-changes-img]: https://img.shields.io/github/commits-since/andrewvaughan/template-core/latest?label=changes%20in%20next%20release
 [badge-coverage]: https://github.com/andrewvaughan/template-core
 [badge-coverage-img]: https://codecov.io/gh/andrewvaughan/template-core/branch/main/graph/badge.svg
-[badge-discord]: https://discord.gg/6x6T3yMtvB
-[badge-discord-img]: https://img.shields.io/badge/join%20the%20Discord-5865F2.svg?style=flat&logo=Discord&logoColor=white
 [badge-license]: LICENSE
 [badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white
 [badge-megalinter]: https://github.com/andrewvaughan/template-core/actions/workflows/mega-linter.yml?query=branch%3Amain

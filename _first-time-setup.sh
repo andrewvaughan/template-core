@@ -2,12 +2,11 @@
 
 # Parsed environment information
 GIT_REMOTE=$(git ls-remote --get-url origin)
-GIT_LOGIN=$(sed -E 's@^(.+):.*@\1@g' <<< "${GIT_REMOTE}")
-GIT_REPO=$(sed -E 's@.*:(.+)(.git)?$@\1@g' <<< "${GIT_REMOTE}")
+GIT_LOGIN=$(sed -E 's@^(.+):.*@\1@g' <<<"${GIT_REMOTE}")
+GIT_REPO=$(sed -E 's@.*:(.+)(.git)?$@\1@g' <<<"${GIT_REMOTE}")
 
 # Sed sometimes leaves .git... unsure why
 GIT_REPO=${GIT_REPO%.git}
-
 
 # UI Functions
 function _title {
@@ -21,7 +20,6 @@ function _header {
 function _error {
   echo -e "\e[30m\e[31m\e[1mERROR: \e[0m\e[30m\e[31m${1}\e[0m" >&2
 }
-
 
 # MAIN
 
@@ -62,7 +60,6 @@ if [[ "${YN,,}" != "y" ]]; then
   exit 1
 fi
 
-
 # Ensure SSH to github.com is possible before starting to check devcontainer configuration.
 _header "Checking SSH configuration to ${GIT_LOGIN}"
 
@@ -73,68 +70,65 @@ if [[ $? -gt 1 ]]; then
   exit 1
 fi
 
-
 # Change documentation and configurations to this repository.
 _header "Updating repository link references to ${GIT_REPO}"
 
-find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 | \
+find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 |
   xargs -0 sed -i "s@andrewvaughan/template-core@${GIT_REPO}@g"
 
 echo "Done."
-
 
 # Install git-lfs.
 _header "Installing git-lfs in the repository"
 
 git lfs install
 
-
 # Select a license.
 _header "Selecting a license"
 
-CHOICE=$( \
+CHOICE=$(
   dialog \
     --backtitle "${GIT_REPO} First Time Setup" \
     --title "Select a Project License" \
     --menu "Choose one of the following licenses for this project:" 15 40 4 \
-      1 "Proprietary (Unlicensed)" \
-      2 "MIT" \
-      3 "Apache 2.0" \
-      4 "GPLv3" \
-      5 "Unlicense" \
-      2>&1 >/dev/tty \
-  )
+    1 "Proprietary (Unlicensed)" \
+    2 "MIT" \
+    3 "Apache 2.0" \
+    4 "GPLv3" \
+    5 "Unlicense" \
+    2>&1 >/dev/tty
+)
 
 echo
 echo
 case $CHOICE in
-  1)
-    rm LICENSE
-    mv LICENSE.proprietary LICENSE
-    ;;
-  2)
-    rm LICENSE
-    mv LICENSE.mit LICENSE
-    ;;
-  3)
-    rm LICENSE
-    mv LICENSE.apache2 LICENSE
-    ;;
-  4)
-    rm LICENSE
-    mv LICENSE.gpl3 LICENSE
-    ;;
-  5)
-    rm LICENSE
-    mv LICENSE.unlicense LICENSE
-    ;;
-  *)
-    _error "Unknown license selection."
-    exit 1
+1)
+  rm LICENSE
+  mv LICENSE.proprietary LICENSE
+  ;;
+2)
+  rm LICENSE
+  mv LICENSE.mit LICENSE
+  ;;
+3)
+  rm LICENSE
+  mv LICENSE.apache2 LICENSE
+  ;;
+4)
+  rm LICENSE
+  mv LICENSE.gpl3 LICENSE
+  ;;
+5)
+  rm LICENSE
+  mv LICENSE.unlicense LICENSE
+  ;;
+*)
+  _error "Unknown license selection."
+  exit 1
+  ;;
 esac
 
 rm LICENSE.*
-
 
 # Project template updates
 echo
@@ -147,33 +141,31 @@ YEAR=$(date +%Y)
 
 _header "Updating project details in files"
 
-find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 | \
+find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 |
   xargs -0 sed -i "s@{{PROJECT NAME}}@${PROJECT_NAME}@g"
 
-find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 | \
+find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 |
   xargs -0 sed -i "s@{{PROJECT DESC}}@${PROJECT_DESC}@g"
 
-find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 | \
+find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 |
   xargs -0 sed -i "s@{{AUTHOR NAME}}@${AUTHOR_NAME}@g"
 
-find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 | \
+find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -type f -print0 |
   xargs -0 sed -i "s@{{YEAR}}@${YEAR}@g"
 
 echo "Done."
-
 
 # Configure Act to use the Medium size image.
 _header "Updating development utility configurations"
 
 mkdir -p ~/.config/act
 
-cat > ~/.config/act/actrc << EOF
+cat >~/.config/act/actrc <<EOF
 -P ubuntu-latest=catthehacker/ubuntu:act-latest
 -P ubuntu-22.04=catthehacker/ubuntu:act-22.04
 -P ubuntu-20.04=catthehacker/ubuntu:act-20.04
 -P ubuntu-18.04=catthehacker/ubuntu:act-18.04
 EOF
-
 
 # Extra steps to take
 _title "Remaining manual steps"
@@ -196,7 +188,6 @@ echo "        b. CHECK 'Sponsorships'"
 echo "    7. (Optional) Add and/or remove any files or folders that don't apply to this project"
 echo "    8. Search for all 'TODO' entries for remaining steps to setup your project"
 echo
-
 
 _header "Removing first-time setup script"
 

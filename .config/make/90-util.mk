@@ -7,7 +7,7 @@
 
 
 ##
-# Clean formatting of files using `prettier`.
+# Clean formatting of all files using `prettier`.
 #
 prettier:
 	$(call _title, Cleaning file formatting to project standards)
@@ -45,7 +45,3 @@ vscode:
 			code --install-extension $${EXT_MAK} --force; \
 		fi; \
 	done < .vscode/extensions.json
-
-	#echo $$MAK_VSCODE_EXTS
-
-	#code --install-extension 'aaron-bond.better-comments' --force

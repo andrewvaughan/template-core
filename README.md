@@ -228,6 +228,6 @@ The [LICENSE][license] file contains the full text of this project's License.
 [release-tags]: https://github.com/andrewvaughan/template-core/tags
 [sdlc]: .github/CONTRIBUTING.md#software-development-lifecycle
 [support]: .github/SUPPORT.md
-[vs-code]: https://code.visualstudio.com/
+[vs-code]: https://code.visualstudio.com
 
 <!-- editorconfig-checker-enable -->

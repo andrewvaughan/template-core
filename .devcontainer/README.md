@@ -25,5 +25,5 @@ them to the [`devcontainer.json`][config] file.
 <!-- Link repository -->
 
 [config]: ./devcontainer.json
-[devcontainer]: https://containers.dev/
-[vscode]: https://code.visualstudio.com/
+[devcontainer]: https://containers.dev
+[vscode]: https://code.visualstudio.com

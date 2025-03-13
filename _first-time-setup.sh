@@ -47,9 +47,9 @@ if [[ $(git status --porcelain=v1 2>/dev/null | wc -l) -ne 0 ]]; then
   exit 1
 fi
 
-read -p "Continue? [Y/n]" -n 1 YN
+read -p "Continue? [Y/n] " -n 1 YN
 
-if [[ ${YN,,:-y} -ne 'y']]; then
+if [[ "${YN,,:-y}" -ne "y" ]]; then
   echo
   echo "Exiting."
 

@@ -31,7 +31,7 @@ These dependencies include:
 
 <!-- Link repository -->
 
-[config]: ../linters/.cspell.json
+[config]: ../../.cspell.json
 [cspell]: https://cspell.org
 [docs-dicts]: https://cspell.org/docs/dictionaries/custom-dictionaries
 [language]: https://cspell.org/docs/Configuration/language-settings

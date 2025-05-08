@@ -9,7 +9,7 @@
 extends: default
 
 ignore: |
-  .config/linters/vale/styles/Google
+  .config/vale/styles/Google
 
 rules:
   braces:

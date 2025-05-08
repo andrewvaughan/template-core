@@ -1,3 +1,14 @@
 ---
 ls:
   .*: "kebab-case"
+
+  .md: "SCREAMING_SNAKE_CASE"
+
+  .github/ISSUE_TEMPLATE:
+    .yml: "SCREAMING_SNAKE_CASE"
+
+ignore:
+  - .config/vale/styles/Google
+  - .github/ISSUE_TEMPLATE/config.yml
+  - megalinter-reports
+  - LICENSE.*

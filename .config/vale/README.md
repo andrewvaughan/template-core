@@ -11,8 +11,8 @@ documentation areas, such as code comments.
 
 ## Updating configuration
 
-Developers can add or modify Vale styles via the [`.vale.ini`](../../../.vale.ini) configuration file. It's critical
-to update the local Vale style structure after doing so by updating the project's development dependencies:
+Developers can add or modify Vale styles via the [`.vale.ini`](../../.vale.ini) configuration file. It's critical to
+update the local Vale style structure after doing so by updating the project's development dependencies:
 
 ```bash
 make dev-dependencies

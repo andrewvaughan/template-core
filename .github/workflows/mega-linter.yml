@@ -130,7 +130,7 @@ jobs:
         # TODO - Select a more-specific MegaLinter flavor for the project and update the `uses` configuration
         # here to significantly increase GitHub Action performance.
         #
-        uses: "oxsecurity/megalinter@ec124f7998718d79379a3c5b39f5359952baf21d" # @v8.4.2
+        uses: "oxsecurity/megalinter@5a91fb06c83d0e69fbd23756d47438aa723b4a5a" # @v8.7.0
 
         ##
         # Variables are overridden on GitHub workflows for certain conditions.
@@ -177,7 +177,7 @@ jobs:
       #
       - name: "Archive production artifacts"
         if: success() || failure()
-        uses: "actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1" # @4.6.1
+        uses: "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02" # @4.6.2
         with:
           name: "MegaLinter reports"
           include-hidden-files: "true"
@@ -258,7 +258,7 @@ jobs:
             github.event.pull_request.head.repo.full_name == github.repository
           ) &&
           !contains(github.event.head_commit.message, 'skip fix')
-        uses: "stefanzweifel/git-auto-commit-action@e348103e9026cc0eee72ae06630dbe30c8bf7a79" # @5.1.0
+        uses: "stefanzweifel/git-auto-commit-action@b863ae1933cb653a53c021fe36dbb774e1fb9403" # @5.2.0
         with:
           branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
           commit_message: "[MegaLinter] Apply linters fixes"

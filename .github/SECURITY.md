@@ -21,10 +21,9 @@ described, below.
 <!-- omit from toc -->
 ## Contents
 
-- [Security Policy](#security-policy)
-  - [Reporting security vulnerabilities](#reporting-security-vulnerabilities)
-    - [Preferred language](#preferred-language)
-  - [Coordinated Vulnerability Disclosure (CVD) Policy](#coordinated-vulnerability-disclosure-cvd-policy)
+- [Reporting security vulnerabilities](#reporting-security-vulnerabilities)
+  - [Preferred language](#preferred-language)
+- [Coordinated Vulnerability Disclosure (CVD) Policy](#coordinated-vulnerability-disclosure-cvd-policy)
 
 ---
 <!-- prettier-ignore-end -->

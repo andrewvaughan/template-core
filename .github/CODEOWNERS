@@ -1,12 +1,17 @@
 ##
+
 # GitHub Code Owners configuration.
-#
-# @link http://tiny.cc/GHCodeowners
+
 #
 
+# @link http://tiny.cc/GHCodeowners
+
+#
 
 ##
+
 # Global Code Owners
+
 #
 
-*   @andrewvaughan
+- @andrewvaughan

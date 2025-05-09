@@ -32,6 +32,7 @@ dist/
 **/*megalinter*
 .ruff_cache/
 megalinter-reports/
+.lycheecache
 
 ##
 # Visual Studio Code.

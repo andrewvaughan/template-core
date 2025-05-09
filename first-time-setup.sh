@@ -13,7 +13,6 @@ function _error {
   echo -e "\e[30m\e[31m\e[1mERROR: \e[0m\e[30m\e[31m${1}\e[0m" >&2
 }
 
-
 # Parsed environment information
 GIT_REMOTE=$(git ls-remote --get-url origin)
 
@@ -30,7 +29,6 @@ fi
 
 # Sed sometimes leaves .git... unsure why
 GIT_REPO=${GIT_REPO%.git}
-
 
 # MAIN
 _title "Core Template First-Time Setup"

@@ -43,9 +43,11 @@ Sergii
 shinepukur
 statusBarClickBehaviour
 stefanzweifel
+tamasfe
 Trivy
 Vale
 venv
+wekex
 Wontfix
 yzhang
 Zhang

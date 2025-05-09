@@ -6,6 +6,6 @@
 # @link https://prettier.io/docs/en/ignore
 #
 
-.config/linters/vale/styles/Google/**/*
+.config/vale/styles/Google/**/*
 LICENSE
 LICENSE.*

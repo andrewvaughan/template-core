@@ -37,30 +37,30 @@
   "dictionaryDefinitions": [
     {
       "name": "ops",
-      "path": "../dictionaries/ops.txt",
+      "path": "./.config/dictionaries/ops.txt",
       "addWords": false
     },
     {
       "name": "makefile",
-      "path": "../dictionaries/ops-deps/makefile.txt",
+      "path": "./.config/dictionaries/ops-deps/makefile.txt",
       "addWords": false
     },
     {
       "name": "terminfo",
-      "path": "../dictionaries/ops-deps/terminfo.txt",
+      "path": "./.config/dictionaries/ops-deps/terminfo.txt",
       "addWords": false
     },
     {
       "name": "project",
-      "path": "../dictionaries/project.txt",
+      "path": "./.config/dictionaries/project.txt",
       "addWords": true
     }
   ],
 
   "ignorePaths": [
     "**/*.svg",
-    "**/.config/linters/vale/styles/Google/**",
-    "**/.config/linters/vale/styles/config/vocabularies/**/reject.txt",
+    "**/.config/vale/styles/Google/**",
+    "**/.config/vale/styles/config/vocabularies/**/reject.txt",
     "**/.git/**",
     "**/.gitattributes",
     "**/.gitignore",

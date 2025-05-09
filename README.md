@@ -43,20 +43,19 @@
 <!-- omit from toc -->
 ## Contents
 
-- [{{PROJECT NAME}}](#project-name)
-  - [Quick start](#quick-start)
-  - [Installation](#installation)
-    - [Dependencies](#dependencies)
-  - [Usage](#usage)
-    - [Configuration](#configuration)
-  - [Support](#support)
-    - [Frequently asked questions](#frequently-asked-questions)
-  - [Contributing](#contributing)
-    - [Developer installation](#developer-installation)
-      - [Recommended development environment](#recommended-development-environment)
-    - [Testing](#testing)
-  - [Release policy](#release-policy)
-  - [License](#license)
+- [Quick start](#quick-start)
+- [Installation](#installation)
+  - [Dependencies](#dependencies)
+- [Usage](#usage)
+  - [Configuration](#configuration)
+- [Support](#support)
+  - [Frequently asked questions](#frequently-asked-questions)
+- [Contributing](#contributing)
+  - [Developer installation](#developer-installation)
+    - [Recommended development environment](#recommended-development-environment)
+  - [Testing](#testing)
+- [Release policy](#release-policy)
+- [License](#license)
 
 ---
 <!-- prettier-ignore-end -->
@@ -140,7 +139,7 @@ For more information, see the [Development Container `README.md`][devcontainer-r
 #### Recommended development environment
 
 The Project Maintainers recommend that [Visual Studio Code][vs-code] and [Docker][docker] are the underlying
-environment for the Development Container. Further, only *nix-based systems (for example, Linux, macOS) are formally
+environment for the Development Container. Further, only \*nix-based systems (for example, Linux, macOS) are formally
 supported for development with this project. Issues with Windows development environments isn't supported by Project
 Maintainers.
 

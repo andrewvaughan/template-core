@@ -14,6 +14,13 @@
 # @link https://help.github.com/articles/ignoring-files
 #
 
+##
+# Distributable
+#
+
+dist/
+!dist/.empty
+
 
 ##
 # MegaLinter.
@@ -21,9 +28,11 @@
 # @link https://megalinter.io/
 #
 
+.artifacts
 **/*megalinter*
 .ruff_cache/
 megalinter-reports/
+.lycheecache
 
 ##
 # Visual Studio Code.

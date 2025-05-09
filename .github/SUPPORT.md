@@ -10,11 +10,10 @@ interested in participating in the community, regardless of intent or purpose.
 <!-- omit from toc -->
 ## Contents
 
-- [Support Policy](#support-policy)
-  - [GitHub Issues](#github-issues)
-  - [GitHub Discussions](#github-discussions)
-  - [Discord](#discord)
-  - [Tips for getting the fastest support](#tips-for-getting-the-fastest-support)
+- [GitHub Issues](#github-issues)
+- [GitHub Discussions](#github-discussions)
+- [Discord](#discord)
+- [Tips for getting the fastest support](#tips-for-getting-the-fastest-support)
 
 ---
 <!-- prettier-ignore-end -->

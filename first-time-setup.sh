@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Parsed environment information
-GIT_REMOTE=$(git ls-remote --get-url origin)
-GIT_LOGIN=$(sed -E 's@^(.+):.*@\1@g' <<<"${GIT_REMOTE}")
-GIT_REPO=$(sed -E 's@.*:(.+)(.git)?$@\1@g' <<<"${GIT_REMOTE}")
-
-# Sed sometimes leaves .git... unsure why
-GIT_REPO=${GIT_REPO%.git}
-
 # UI Functions
 function _title {
   echo -e "\n\e[1m\e[102m\e[30m$(printf %-100s "${1}")\e[0m\n"
@@ -21,8 +13,24 @@ function _error {
   echo -e "\e[30m\e[31m\e[1mERROR: \e[0m\e[30m\e[31m${1}\e[0m" >&2
 }
 
-# MAIN
+# Parsed environment information
+GIT_REMOTE=$(git ls-remote --get-url origin)
 
+if [[ $GIT_REMOTE == http* ]]; then
+  GIT_URL=$(sed -E 's@^(https?://[a-z0-9\.\-_]+)/.*@\1@g' <<<"${GIT_REMOTE}")
+  GIT_REPO=$(sed -E 's@^https?://[a-z0-9\.\-_]+/(.+)(.git)?$@\1@g' <<<"${GIT_REMOTE}")
+elif [[ $GIT_REMOTE == git@* ]]; then
+  GIT_URL=$(sed -E 's@^(.+):.*@\1@g' <<<"${GIT_REMOTE}")
+  GIT_REPO=$(sed -E 's@.*:(.+)(.git)?$@\1@g' <<<"${GIT_REMOTE}")
+else
+  _error "Unable to identify 'origin' remote URL for git."
+  exit 1
+fi
+
+# Sed sometimes leaves .git... unsure why
+GIT_REPO=${GIT_REPO%.git}
+
+# MAIN
 _title "Core Template First-Time Setup"
 
 echo "This is the first-time setup script for this template. You are seeing this because you have"
@@ -33,7 +41,7 @@ echo
 echo "This will make file changes within your repository!"
 echo
 
-Make sure there are no unstaged or non-committed changes
+# Make sure there are no unstaged or non-committed changes
 if [[ $(git status --porcelain=v1 2>/dev/null | wc -l) -ne 0 ]]; then
   _error "There are unstaged and/or uncommitted changes to the repository."
 
@@ -61,9 +69,9 @@ if [[ "${YN,,}" != "y" ]]; then
 fi
 
 # Ensure SSH to github.com is possible before starting to check devcontainer configuration.
-_header "Checking SSH configuration to ${GIT_LOGIN}"
+_header "Checking SSH configuration to ${GIT_URL}"
 
-ssh -T "${GIT_LOGIN}"
+ssh -T "${GIT_URL}"
 
 if [[ $? -gt 1 ]]; then
   _error "Unable to connect to github.com via SSH."
@@ -155,18 +163,6 @@ find . \( -type d -name .git -prune -name _first-time-setup.sh -prune \) -o -typ
 
 echo "Done."
 
-# Configure Act to use the Medium size image.
-_header "Updating development utility configurations"
-
-mkdir -p ~/.config/act
-
-cat >~/.config/act/actrc <<EOF
--P ubuntu-latest=catthehacker/ubuntu:act-latest
--P ubuntu-22.04=catthehacker/ubuntu:act-22.04
--P ubuntu-20.04=catthehacker/ubuntu:act-20.04
--P ubuntu-18.04=catthehacker/ubuntu:act-18.04
-EOF
-
 # Extra steps to take
 _title "Remaining manual steps"
 
@@ -191,7 +187,7 @@ echo
 
 _header "Removing first-time setup script"
 
-rm _first-time-setup.sh
+rm first-time-setup.sh
 
 echo
 echo "Done!"

@@ -10,7 +10,7 @@
 # When applying basic fixes, this doesn't create another Pull Request or commit - MegaLinter fixes small changes
 # in-place during testing. Modify this in the `.github/workflows/.mega-linter.yml` configuration, if needed.
 #
-APPLY_FIXES: "all"
+APPLY_FIXES: "none"
 
 ##
 # Clear the `megalinter-reports` folder before each run.
@@ -49,11 +49,6 @@ IGNORE_GITIGNORED_FILES: true
 #
 JAVASCRIPT_DEFAULT_STYLE: "prettier"
 TYPESCRIPT_DEFAULT_STYLE: "prettier"
-
-##
-# The project moves linting configurations out of the project root to reduce root file bloat.
-#
-LINTER_RULES_PATH: ".config/linters"
 
 ##
 # Use markdownlint styling instead of remark.
@@ -104,20 +99,8 @@ MAKEFILE_CHECKMAKE_FILE_EXTENSIONS:
   - ".mk"
 
 ##
-# File ignore patterns for Vale.
-#
-#   - Vale style guide dependencies
-#   - Vale dictionary rejections
-#
-# SPELL_VALE_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/(Google\/.+|Vocab\/.+\/reject\.txt))
-
-##
 # File ignore patterns for v8r.
 #
 #   - Vale style guide dependencies
 #
-# TODO Also temporarily ignores GitHub Issue templates due to problem with schema update.
-# @link http://tinyurl.com/tplcore44
-#
-# YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*|\.github/ISSUE_TEMPLATE/.*\.yml)
 YAML_V8R_FILTER_REGEX_EXCLUDE: (\.config\/linters\/vale\/styles\/Google\/.*)

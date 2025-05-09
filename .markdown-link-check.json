@@ -1,0 +1,15 @@
+{
+  "aliveStatusCodes": [200, 203, 206],
+  "retryOn429": true,
+  "retryCount": 2,
+  "timeout": "5s",
+
+  "ignorePatterns": [
+    {
+      "pattern": "^https?://github\\.com/andrewvaughan/template-core(/.*)?"
+    },
+    {
+      "pattern": "^https?://(.+\\.)stackexchange\\.com(/.*)?"
+    }
+  ]
+}

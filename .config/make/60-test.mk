@@ -107,10 +107,13 @@ test:
 	$(call _debug, Job: $(ACT_JOB))
 	$(call _debug, Act params: $(_ACT_FULL_PARAMS))
 
+	mkdir -p .artifacts
+
 	act \
 		--rm \
 		--container-architecture "$(ACT_ARCHITECTURE)" \
-		-s GITHUB_TOKEN=$(gh auth token) \
+		--artifact-server-path="$(PWD)/.artifacts" \
+		-s GITHUB_TOKEN="$(gh auth token)" \
 		-a "$(ACT_ACTOR)" \
 		-j "$(ACT_JOB)" \
 		$(_ACT_FULL_PARAMS) \
